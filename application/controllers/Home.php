@@ -1645,7 +1645,125 @@ class Home extends CI_Controller
 		echo json_encode($res);
 		exit;
 	}
+	function sendEmail($email, $msg, $sub, $emailer = false)
+	{
+		return true;
+		if ($emailer) {
+			$msg = $this->load->view('emailer', $msg, true);
+		}
 
+		$api_key = getenv('SENDINBLUE_API_KEY') ?: '';
+		$api_key = "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";
+
+
+		// Define the data for the transactional email
+		$data = array(
+			"sender" => array(
+				"name" => "Cozentus",
+				"email" => "no-reply@cozentus.com",
+			),
+			"to" => array(
+				array(
+					"email" => $email
+				),
+				array(
+					"email" => "yatri.patvi@dimerse.com"
+				)
+			),
+			"subject" => $sub,
+			"htmlContent" => $msg
+		);
+
+		// Convert data to JSON format
+		$json_data = json_encode($data);
+
+		// API endpoint
+		$api_url = 'https://api.brevo.com/v3/smtp/email';
+
+		// Initialize cURL session
+		$ch = curl_init($api_url);
+
+		// Set cURL options
+		curl_setopt($ch, CURLOPT_POST, true);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+			'Content-Type: application/json',
+			'accept: application/json',
+			'api-key: ' . $api_key
+		));
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+		// Execute cURL session
+		$response = curl_exec($ch);
+		//echo $response;
+		// Check for errors
+		if (curl_errno($ch)) {
+			// echo 'cURL error: ' . curl_error($ch);
+			return true;
+		}
+
+		// Close cURL session
+		curl_close($ch);
+
+		// Display the response from the API
+		//echo $response;
+
+
+		return true;
+
+		$config = SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKey('api-key', $api_key);
+
+		$apiInstance = new SendinBlue\Client\Api\TransactionalEmailsApi(
+			new GuzzleHttp\Client(),
+			$config
+		);
+		$sendSmtpEmail = new \SendinBlue\Client\Model\SendSmtpEmail();
+		$sendSmtpEmail['subject'] = $sub;
+		$sendSmtpEmail['htmlContent'] = $msg;
+		$sendSmtpEmail['sender'] = array('name' => 'Cozentus', 'email' => 'no-reply@cozentus.com');
+		$sendSmtpEmail['to'] = array(
+			array('email' => "aamir.s.khan.as@gmail.com")
+
+		);
+		$sendSmtpEmail['replyTo'] = array('email' => 'supplychain@cozentus.com', 'name' => 'Cozentus');
+		$sendSmtpEmail['headers'] = array('Some-Custom-Name' => 'unique-id-1234');
+		//$sendSmtpEmail['params'] = array('parameter' => 'My param value', 'subject' => 'New Subject');
+
+		try {
+			$result = $apiInstance->sendTransacEmail($sendSmtpEmail);
+			return true;
+		} catch (Exception $e) {
+			return true;
+		}
+
+		return true;
+		$mail = new PHPMailer();
+		$headers = '';
+		$headers .= "MIME-Version: 1.0\r\n";
+		$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+		$mail->IsSMTP();
+		$mail->SMTPDebug = 0;
+		$mail->SMTPAuth = TRUE;
+		$mail->SMTPSecure = "tls";
+		$mail->Port     = 587;
+		$mail->Username = "aamir@techmatrick.com";
+		$mail->Password = "cHIEd6JrgNCZVbW0";
+		$mail->Host     = "smtp-relay.brevo.com";
+		$mail->Mailer   = "smtp";
+		$mail->SetFrom("no-reply@cozentus.com", "Cozentus");
+		$mail->addReplyTo("supplychain@cozentus.com", "Cozentus");
+		//$mail->AddAddress("aamir.s.khan.as@gmail.com");
+		$mail->AddAddress($email);
+		//$mail->AddAddress("supplychain@cozentus.com");
+		$mail->Subject = $sub;
+		$mail->WordWrap   = 40;
+		$mail->MsgHTML($msg);
+		$mail->IsHTML(true);
+		if (!$mail->Send()) {
+			return true;
+		}
+		return true;
+	}
 	function getblogsbytype()
 	{
 		$type = $this->input->post('type');
