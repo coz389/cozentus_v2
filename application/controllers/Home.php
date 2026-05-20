@@ -1,18 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-/* require_once(APPPATH . "libraries/phpmailer/PHPMailer.php");
-require_once(APPPATH . "libraries/phpmailer/Exception.php");
-require_once(APPPATH . "libraries/phpmailer/SMTP.php");
-require_once(APPPATH . "libraries/phpmailer/OAuth.php");
-require_once(APPPATH . "libraries/phpmailer/OAuthTokenProvider.php");
-require_once(APPPATH . "libraries/sendinblue/autoload.php");
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-new \PHPMailer\PHPMailer\OAuth;
-
-require 'vendor/autoload.php'; // Adjust if not using Composer */
-
 class Home extends CI_Controller
 {
 	function __construct()
@@ -26,16 +14,11 @@ class Home extends CI_Controller
 	}
 	public function index()
 	{
-
-
 		$this->load->library('session');
 		$getwebdetails = $this->home_model->getwebdetails();
-		// echo '<pre>';
-		// print_r($data['getwebdetails']); die();
 		$this->session->set_userdata('marquee_txt', $getwebdetails['sliding_description']);
 		$this->session->set_userdata('btn_label', $getwebdetails['button_label']);
 		$this->session->set_userdata('btn_link', urldecode($getwebdetails['button_Link']));
-		//$this->output->cache(144);
 		$data['head_foot'] = $this->home_model->get_header_footer('home');
 		$data['banners'] = $this->home_model->get_home_banners();
 		if ($data['banners']) {
@@ -63,10 +46,6 @@ class Home extends CI_Controller
 		$data['homewhycoz'] = $this->home_model->get_home_whycoz();
 		$data['oursignis'] = $this->home_model->get_home_our_signi();
 		$data['homecta'] = $this->home_model->get_home_cta();
-
-		//echo '<pre>';
-		//print_r($data['innovation']);die();
-		///$data['casestudies'] = $this->home_model->getblogs(3, 6);
 		$data['recaptcha_site_key'] = $this->config->item('recaptcha_site_key');
 		$this->load->view('common/header', $data);
 		$this->load->view('index');
@@ -134,96 +113,7 @@ class Home extends CI_Controller
 			$this->load->view('common/footer');
 		}
 	}
-	/*
-	public function innerservice($parent, $slug, $slug2 = false){
-		if (!empty($slug2)) {
-			$slug = $slug2;
-		}
-		$data['head_foot'] = $this->home_model->get_header_footer('services');
-		$data['pserv'] = $this->home_model->getinnerservicebyslug($slug);
-		if (!$data['pserv']) {
-			redirect(base_url());
-		}
-		if (!empty($data['pserv']['buisness_json'])) {
-			$features = json_decode($data['pserv']['buisness_json'], true);
-			$sounique = [];
-			if (!empty($features))
-				foreach ($features as $ft) {
-					$image = $this->home_model->getimagebyid($ft['image']);
-					if ($image) {
-						$img = $image['image'];
-						$alt = $image['alt_text'];
-					} else {
-						$img = '';
-						$alt = '';
-					}
-					$sounique[] = ['image' => $img, 'alt_text' => $alt, 'tab' => $ft['tab'], 'heading' => $ft['heading'], 'description' => $ft['description']];
-				}
-			$data['pserv']['buisness_json'] = $sounique;
-		}
-		if (!empty($data['pserv']['toolbenefits_json'])) {
-			$features = json_decode($data['pserv']['toolbenefits_json'], true);
-			$sounique = [];
-			if (!empty($features))
-				foreach ($features as $ft) {
-					$image = $this->home_model->getimagebyid($ft['image']);
-					if ($image) {
-						$img = $image['image'];
-						$alt = $image['alt_text'];
-					} else {
-						$img = '';
-						$alt = '';
-					}
-					$sounique[] = ['image' => $img, 'alt_text' => $alt, 'tab' => $ft['tab'], 'heading' => $ft['heading'], 'description' => $ft['description']];
-				}
-			$data['pserv']['toolbenefits_json'] = $sounique;
-		}
-		if (!empty($data['pserv']['mbanners'])) {
-			$features = json_decode($data['pserv']['mbanners'], true);
-			$sounique = [];
-			if (!empty($features))
-				foreach ($features as $ft) {
-					$image = $this->home_model->getimagebyid($ft['image']);
-					if ($image) {
-						$img = $image['image'];
-						$alt = $image['alt_text'];
-					} else {
-						$img = '';
-						$alt = '';
-					}
-					$sounique[] = ['image' => $img, 'alt_text' => $alt, 'ctabtn' => $ft['ctabtn'], 'ctalink' => $ft['ctalink'], 'heading' => $ft['heading'], 'description' => $ft['description']];
-				}
-			$data['pserv']['mbanners'] = $sounique;
-		}
-		if (!empty($data['pserv']['cardsecop'])) {
-			$features = json_decode($data['pserv']['cardsecop'], true);
-			$sounique = [];
-			if (!empty($features))
-				foreach ($features as $ft) {
-					$image = $this->home_model->getimagebyid($ft['image']);
-					if ($image) {
-						$img = $image['image'];
-						$alt = $image['alt_text'];
-					} else {
-						$img = '';
-						$alt = '';
-					}
-					$sounique[] = ['image' => $img, 'alt_text' => $alt, 'link' => $ft['link'], 'heading' => $ft['heading'], 'description' => $ft['description']];
-				}
-			$data['pserv']['cardsecop'] = $sounique;
-		}
-		$data['innerservices'] = $this->home_model->getserviceforinnerparentcard($data['pserv']['id']);
-		//echo json_encode($data['innerservices']);exit;
-		$data['mistakes_reduction'] = $this->db->get_where('cost_saving_config', ['id' =>1])->row();
-        $data['average_cost'] = $this->db->get_where('cost_saving_config', ['id' =>2])->row();
-		$data['pserv']['servtp'] = 'sub';
-		$data['recaptcha_site_key'] = $this->config->item('recaptcha_site_key');
-		$this->load->view('common/header', $data);
-		$this->load->view('inner-service');
-		$this->load->view('common/footer');
-	}
 
-	*/
 	public function innerservice($parent, $slug, $slug2 = false)
 	{
 		if (!empty($slug2)) {
@@ -519,15 +409,6 @@ class Home extends CI_Controller
 		$this->load->view('common/footer');
 	}
 
-	// public function report()
-	// {
-	// 	$data['head_foot'] = $this->home_model->get_header_footer('privacy-statement');
-	// 	$this->load->view('common/header', $data);
-	// 	$this->load->view('report.php');
-	// 	$this->load->view('common/footer');
-	// }
-
-
 	public function report()
 	{
 		$data['recaptcha_site_key'] = $this->config->item('recaptcha_site_key');
@@ -581,14 +462,10 @@ class Home extends CI_Controller
 	{
 		$data['head_foot'] = $this->home_model->get_header_footer('about');
 		$data['servicehomecard'] = $this->home_model->getparentservicehomecard();
-		//$data['counters'] = $this->home_model->getcounters();
 		$data['gallery'] = $this->home_model->getimageslist(2);
 		$data['videos'] = $this->home_model->getvideoslist();
 		$data['newEvents'] = $this->home_model->getreportssbyfilter(2);
 		$data['ourteams'] = $this->home_model->getteamlist();
-
-		// echo '<pre>';
-		// print_r($data); die();
 		$this->load->view('common/header', $data);
 		$this->load->view('about_new');
 		$this->load->view('common/footer');
@@ -597,14 +474,10 @@ class Home extends CI_Controller
 	{
 		$data['head_foot'] = $this->home_model->get_header_footer('about');
 		$data['servicehomecard'] = $this->home_model->getparentservicehomecard();
-		//$data['counters'] = $this->home_model->getcounters();
 		$data['gallery'] = $this->home_model->getimageslist(2);
 		$data['videos'] = $this->home_model->getvideoslist();
 		$data['newEvents'] = $this->home_model->getreportssbyfilter(2);
 		$data['ourteams'] = $this->home_model->getteamlist();
-
-		// echo '<pre>';
-		// print_r($data); die();
 		$this->load->view('common/header', $data);
 		$this->load->view('about_new2');
 		$this->load->view('common/footer');
@@ -821,18 +694,6 @@ class Home extends CI_Controller
 		$this->load->view('common/footer');
 	}
 
-	// public function webinariew($slug)
-	// {
-	// 	$data = $this->home_model->getsingleblog(['slug' => $slug]);
-	// 	$data['pserv'] = $this->home_model->getsingleblog(['slug' => $slug]);
-	// 	if (empty($data)) {
-	// 		$this->no_page_found();
-	// 	}
-	// 	$data['recaptcha_site_key'] = $this->config->item('recaptcha_site_key');
-	// 	$this->load->view('common/header', $data);
-	// 	$this->load->view('webinar-form');
-	// 	$this->load->view('common/footer');
-	// }
 	public function career()
 	{
 		$data['head_foot'] = $this->home_model->get_header_footer('career');
@@ -1218,52 +1079,6 @@ class Home extends CI_Controller
 		$menu .= "</ul>";
 		return $menu;
 	}
-	/* function getservicemenuMobile(){
-		$purl = base_url('main-service/');
-		$url = base_url('service/');
-		$dicon = base_url('assets/images/drop.svg');
-		$menu = "<a href='javascript:void(0)' data-bs-toggle='collapse' data-bs-target='#df'>
-		Solutions
-		</a><ul class='collapse' id='df'>"; 
-		$parentm = $this->home_model->getparentserviceformenu();
-		if($parentm){
-			foreach ($parentm as $pm) {
-			$menu .="<li>";
-			$childm = $this->home_model->getsubserviceformenu($pm['id']);
-			if($childm){
-				$menu .="<div class='d-flex prt'>
-				<a href='" . $purl . $pm['slug'] . "'>
-				" . $pm['name'] . "
-				</a>
-				<span class='m-drop' data-bs-toggle='collapse' data-bs-target='#dd'>
-					<img src='".$dicon."'>
-				</span>
-				</div>";
-				$menu .="<li>";
-				$childm = $this->home_model->getSubsubserviceformenu($pm['id']);
-				if($childm){
-					$menu .="<div class='d-flex prt'>
-					<a href='" . $purl . $pm['slug'] . "'>
-					" . $pm['name'] . "
-					</a>
-					<span class='m-drop' data-bs-toggle='collapse' data-bs-target='#dd'>
-						<img src='".$dicon."'>
-					</span>
-					</div>";
-				}
-				else{
-					$menu .="<a href='" . $purl . $pm['slug'] . "'>" . $pm['name'] . "</a>";
-				}
-				$menu .= "</li>";
-				}else{
-					$menu .="<a href='" . $purl . $pm['slug'] . "'>" . $pm['name'] . "</a>";
-				}
-				$menu .= "</li>";
-			}
-		}
-		$menu .= "</ul>";
-		return $menu;
-	} */
 	function insertcareer()
 	{
 		$this->load->library('email');
@@ -1798,15 +1613,4 @@ class Home extends CI_Controller
 	{
 		redirect(base_url('blogs'));
 	}
-	// function changeadminpassword()
-	// 	{
-	// 		$pass = 'cozadmin@2024';
-	// 		$password = password_hash($pass, PASSWORD_DEFAULT);
-	// 		$this->db->where(['id' => 1]);
-	// 		$this->db->update('admin_master', ['password' => $password]);
-	// 		echo true;
-	// 		exit;
-	// 	}
-
-
 }
