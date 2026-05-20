@@ -1,0 +1,25 @@
+<svg id="Group_1_copy" data-name="Group 1 copy" xmlns="http://www.w3.org/2000/svg" width="120" height="100" viewBox="0 0 120 100">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+        stroke: #163f5e;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 9px;
+      }
+
+      .cls-2, .cls-3 {
+        fill-rule: evenodd;
+      }
+
+      .cls-3 {
+        stroke-width: 6px;
+      }
+    </style>
+  </defs>
+  <circle class="cls-1" cx="43.938" cy="50" r="38.531"/>
+  <path class="cls-2" d="M79.587,3.7l34.9,46.3-34.9,46.3"/>
+  <path class="cls-3" d="M23.022,33.763H56.441L24.781,53.23H96.9"/>
+</svg>

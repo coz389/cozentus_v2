@@ -1,0 +1,76 @@
+//>>>>> Component Button Here <<<<<//
+.main-button {
+    position: relative;
+    @include flex;
+    margin-top: 50px;
+
+     @include breakpoint (max-lg) {
+        margin-top: 30px;
+     }
+
+    .theme-btn {
+        position: relative;
+        z-index: 2;
+        display: inline-block;
+        border: none;
+        text-transform: uppercase;
+        text-align: center;
+        background-color: $theme-color;
+        color: $white;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1;
+        padding: 18px 32px;
+        letter-spacing: 0.5px;
+        border-radius: 32px;
+        font-family: 'Radio Canada Big', sans-serif;
+    
+        @include breakpoint (max-sm){
+            padding: 18px 30px;
+            font-size: 14px;
+        }
+    }
+    
+    .arrow-btn {
+        width: 56px;
+        height: 56px;
+        line-height: 56px;
+        text-align: center;
+        background: $theme-color;
+        color: $white;
+        border-radius: 50%;
+        display: inline-block;
+        @include transition;
+
+        &:hover{
+            background: $header-color;
+            color: $white;
+        }
+    
+    }
+
+    &:hover {
+        .theme-btn,.arrow-btn {
+            background-color: $header-color;
+        }
+    }
+}
+
+.link-btns {
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-block;
+    font-family: "Open Sans", sans-serif;
+    text-transform: capitalize;
+    color: $theme-color;
+
+    i {
+       margin-left: 8px;
+    }
+
+    &:hover {
+        color: $header-color;
+    }
+}
+
+//>>>>> Component Button End <<<<<//

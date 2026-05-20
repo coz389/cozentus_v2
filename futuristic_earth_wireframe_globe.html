@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: transparent; overflow: hidden; }
+canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script>
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+let W, H, cx, cy, R, t = 0;
+
+function resize() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+  cx = W * 0.5; cy = H * 0.5;
+  R = Math.min(W, H) * 0.38;
+}
+resize();
+window.addEventListener('resize', resize);
+
+// Continent outlines as lat/lon polygons [lat, lon]
+const continents = {
+  europe: [
+    [71,28],[70,19],[69,16],[65,14],[58,5],[51,2],[43,3],[36,5],[36,15],[40,18],[45,15],[47,20],[54,20],[54,25],[60,25],[65,26],[70,26],[71,28]
+  ],
+  africa: [
+    [37,10],[37,25],[30,32],[22,37],[12,44],[8,42],[0,42],[-5,40],[-11,38],[-20,35],[-26,34],[-34,26],[-35,18],[-28,16],[-18,12],[-5,8],[0,5],[5,2],[8,0],[15,0],[10,-15],[15,-17],[18,-13],[22,-14],[30,-10],[35,-5],[37,10]
+  ],
+  south_america: [
+    [12,-72],[8,-77],[2,-80],[-3,-80],[-5,-80],[-10,-75],[-18,-70],[-22,-70],[-28,-70],[-33,-70],[-40,-62],[-54,-65],[-55,-70],[-52,-68],[-45,-65],[-33,-52],[-23,-43],[-10,-37],[-5,-35],[0,-50],[5,-52],[8,-60],[12,-72]
+  ]
+};
+
+// Convert lat/lon to 3D sphere coords
+function latLonTo3D(lat, lon, radius) {
+  const φ = lat * Math.PI / 180;
+  const λ = lon * Math.PI / 180;
+  return {
+    x: radius * Math.cos(φ) * Math.cos(λ),
+    y: -radius * Math.sin(φ),
+    z: radius * Math.cos(φ) * Math.sin(λ)
+  };
+}
+
+// Project 3D to 2D with rotation
+function project(p, rotY, rotX) {
+  // rotY
+  const x1 = p.x * Math.cos(rotY) - p.z * Math.sin(rotY);
+  const z1 = p.x * Math.sin(rotY) + p.z * Math.cos(rotY);
+  // rotX
+  const y2 = p.y * Math.cos(rotX) - z1 * Math.sin(rotX);
+  const z2 = p.y * Math.sin(rotX) + z1 * Math.cos(rotX);
+  return { x: cx + x1, y: cy + y2, z: z2 };
+}
+
+// Build wireframe mesh
+const VLAT = 18, VLON = 24;
+const meshLines = [];
+
+for (let i = 0; i <= VLAT; i++) {
+  const lat = -90 + i * (180 / VLAT);
+  const pts = [];
+  for (let j = 0; j <= VLON * 2; j++) {
+    const lon = -180 + j * (360 / (VLON * 2));
+    pts.push(latLonTo3D(lat, lon, R));
+  }
+  meshLines.push({ pts, type: 'lat' });
+}
+for (let j = 0; j <= VLON; j++) {
+  const lon = -180 + j * (360 / VLON);
+  const pts = [];
+  for (let i = 0; i <= VLAT * 2; i++) {
+    const lat = -90 + i * (180 / (VLAT * 2));
+    pts.push(latLonTo3D(lat, lon, R));
+  }
+  meshLines.push({ pts, type: 'lon' });
+}
+
+// Mesh nodes
+const nodes = [];
+for (let i = 0; i <= VLAT; i++) {
+  for (let j = 0; j <= VLON; j++) {
+    const lat = -90 + i * (180 / VLAT);
+    const lon = -180 + j * (360 / VLON);
+    nodes.push(latLonTo3D(lat, lon, R));
+  }
+}
+
+// Light pulses on network paths
+const paths = [];
+for (let k = 0; k < 14; k++) {
+  const lat1 = (Math.random() - 0.5) * 140;
+  const lon1 = (Math.random() - 0.5) * 360;
+  const lat2 = (Math.random() - 0.5) * 140;
+  const lon2 = (Math.random() - 0.5) * 360;
+  const steps = 40;
+  const pts = [];
+  for (let s = 0; s <= steps; s++) {
+    const f = s / steps;
+    const lat = lat1 + (lat2 - lat1) * f;
+    const lon = lon1 + (lon2 - lon1) * f;
+    pts.push(latLonTo3D(lat, lon, R * 1.01));
+  }
+  paths.push({ pts, progress: Math.random(), speed: 0.003 + Math.random() * 0.005 });
+}
+
+// Orbit ring particles
+const orbitParticles = Array.from({ length: 60 }, (_, i) => ({
+  angle: (i / 60) * Math.PI * 2,
+  speed: 0.002 + Math.random() * 0.001,
+  size: Math.random() * 2.5 + 0.5,
+  brightness: Math.random()
+}));
+
+// Background poly network
+const bgNodes = Array.from({ length: 45 }, () => ({
+  x: Math.random() * W,
+  y: Math.random() * H,
+  vx: (Math.random() - 0.5) * 0.08,
+  vy: (Math.random() - 0.5) * 0.08
+}));
+
+// Orbit ring params
+const ORBIT_RX = R * 1.38;
+const ORBIT_RY = R * 0.38;
+const ORBIT_TILT = -0.22;
+
+function getOrbitPoint(angle) {
+  const rx = ORBIT_RX, ry = ORBIT_RY;
+  const ox = Math.cos(angle) * rx;
+  const oy = Math.sin(angle) * ry;
+  // tilt
+  return {
+    x: cx + ox,
+    y: cy + ox * Math.sin(ORBIT_TILT) + oy * Math.cos(ORBIT_TILT)
+  };
+}
+
+function draw() {
+  t += 0.004;
+  const rotY = t * 0.18;
+  const rotX = Math.sin(t * 0.07) * 0.09 - 0.12;
+  const camDrift = Math.sin(t * 0.05) * 0.012;
+
+  // Clear canvas for transparent frame
+  ctx.clearRect(0, 0, W, H);
+
+  // Animate background nodes (full canvas)
+  for (const n of bgNodes) {
+    n.x += n.vx; n.y += n.vy;
+    if (n.x < 0 || n.x > W) n.vx *= -1;
+    if (n.y < 0 || n.y > H) n.vy *= -1;
+  }
+
+  // Background network lines
+  ctx.save();
+  for (let i = 0; i < bgNodes.length; i++) {
+    for (let j = i + 1; j < bgNodes.length; j++) {
+      const dx = bgNodes[i].x - bgNodes[j].x;
+      const dy = bgNodes[i].y - bgNodes[j].y;
+      const d = Math.sqrt(dx * dx + dy * dy);
+      if (d < 130) {
+        ctx.strokeStyle = `rgba(40,80,160,${0.10 * (1 - d / 130)})`;
+        ctx.lineWidth = 0.4;
+        ctx.beginPath();
+        ctx.moveTo(bgNodes[i].x, bgNodes[i].y);
+        ctx.lineTo(bgNodes[j].x, bgNodes[j].y);
+        ctx.stroke();
+      }
+    }
+  }
+  for (const n of bgNodes) {
+    ctx.fillStyle = 'rgba(60,120,200,0.18)';
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, 1.1, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  ctx.restore();
+
+  // Soft shadow beneath globe
+  const shadowGrad = ctx.createRadialGradient(cx, cy + R * 0.9, 0, cx, cy + R * 0.9, R * 0.7);
+  shadowGrad.addColorStop(0, 'rgba(0,200,255,0.07)');
+  shadowGrad.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = shadowGrad;
+  ctx.beginPath();
+  ctx.ellipse(cx, cy + R * 0.93, R * 0.65, R * 0.13, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Volumetric glow behind globe
+  const globeGlow = ctx.createRadialGradient(cx, cy, 0, cx, cy, R * 1.45);
+  globeGlow.addColorStop(0, 'rgba(0,220,255,0.06)');
+  globeGlow.addColorStop(0.5, 'rgba(0,140,255,0.04)');
+  globeGlow.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = globeGlow;
+  ctx.beginPath();
+  ctx.arc(cx, cy, R * 1.45, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Atmosphere ring
+  const atmoGrad = ctx.createRadialGradient(cx, cy, R * 0.88, cx, cy, R * 1.12);
+  atmoGrad.addColorStop(0, 'rgba(0,210,255,0.0)');
+  atmoGrad.addColorStop(0.5, 'rgba(0,180,255,0.06)');
+  atmoGrad.addColorStop(1, 'rgba(0,80,200,0.0)');
+  ctx.fillStyle = atmoGrad;
+  ctx.beginPath();
+  ctx.arc(cx, cy, R * 1.12, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Clip to globe for mesh drawing
+  ctx.save();
+  ctx.beginPath();
+  ctx.arc(cx, cy, R * 1.005, 0, Math.PI * 2);
+  ctx.clip();
+
+  // Draw mesh lines
+  for (const line of meshLines) {
+    const projected = line.pts.map(p => project(p, rotY + camDrift, rotX));
+    ctx.beginPath();
+    let started = false;
+    for (let i = 0; i < projected.length; i++) {
+      const pp = projected[i];
+      const visible = pp.z > 0;
+      if (visible) {
+        if (!started) { ctx.moveTo(pp.x, pp.y); started = true; }
+        else ctx.lineTo(pp.x, pp.y);
+      } else {
+        started = false;
+      }
+    }
+    const alpha = 0.22;
+    ctx.strokeStyle = `rgba(0,200,255,${alpha})`;
+    ctx.lineWidth = 0.5;
+    ctx.stroke();
+  }
+
+  // Continent outlines
+  for (const [name, poly] of Object.entries(continents)) {
+    const projected = poly.map(([lat, lon]) => {
+      const p = latLonTo3D(lat, lon, R * 1.002);
+      return project(p, rotY + camDrift, rotX);
+    });
+    ctx.beginPath();
+    let started = false;
+    for (let i = 0; i < projected.length; i++) {
+      const pp = projected[i];
+      if (pp.z > 0) {
+        if (!started) { ctx.moveTo(pp.x, pp.y); started = true; }
+        else ctx.lineTo(pp.x, pp.y);
+      } else { started = false; }
+    }
+    ctx.closePath();
+    ctx.strokeStyle = 'rgba(0,240,255,0.85)';
+    ctx.lineWidth = 1.3;
+    ctx.stroke();
+    ctx.fillStyle = 'rgba(0,180,255,0.06)';
+    ctx.fill();
+  }
+
+  ctx.restore();
+
+  // Mesh nodes (dots at intersections)
+  for (const node of nodes) {
+    const pp = project(node, rotY + camDrift, rotX);
+    if (pp.z > -R * 0.1) {
+      const alpha = Math.max(0, Math.min(1, (pp.z + R * 0.1) / (R * 0.8)));
+      ctx.save();
+      ctx.shadowColor = 'rgba(0,240,255,0.9)';
+      ctx.shadowBlur = 4;
+      ctx.fillStyle = `rgba(0,240,255,${alpha * 0.85})`;
+      ctx.beginPath();
+      ctx.arc(pp.x, pp.y, 1.4, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  // Light pulses along network paths
+  for (const path of paths) {
+    path.progress += path.speed;
+    if (path.progress > 1) path.progress = 0;
+
+    const pp = path.pts.map(p => project(p, rotY + camDrift, rotX));
+    const visible = pp.filter(p => p.z > 0);
+    if (visible.length < 2) continue;
+
+    // Draw faint path line
+    ctx.beginPath();
+    let started = false;
+    for (const p of pp) {
+      if (p.z > 0) {
+        if (!started) { ctx.moveTo(p.x, p.y); started = true; }
+        else ctx.lineTo(p.x, p.y);
+      } else started = false;
+    }
+    ctx.strokeStyle = 'rgba(0,200,255,0.12)';
+    ctx.lineWidth = 0.7;
+    ctx.stroke();
+
+    // Draw moving pulse
+    const idx = Math.floor(path.progress * (pp.length - 1));
+    for (let d = -6; d <= 6; d++) {
+      const i = idx + d;
+      if (i < 0 || i >= pp.length) continue;
+      const pp2 = pp[i];
+      if (pp2.z <= 0) continue;
+      const fade = 1 - Math.abs(d) / 7;
+      ctx.save();
+      ctx.shadowColor = 'rgba(80,220,255,1)';
+      ctx.shadowBlur = 8;
+      ctx.fillStyle = `rgba(180,240,255,${fade * 0.95})`;
+      ctx.beginPath();
+      ctx.arc(pp2.x, pp2.y, fade * 2.8, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  // Neon cyan rim light on globe
+  const rimGrad = ctx.createRadialGradient(cx - R * 0.4, cy - R * 0.35, R * 0.55, cx, cy, R);
+  rimGrad.addColorStop(0, 'rgba(0,0,0,0)');
+  rimGrad.addColorStop(0.78, 'rgba(0,0,0,0)');
+  rimGrad.addColorStop(0.92, 'rgba(0,210,255,0.18)');
+  rimGrad.addColorStop(1, 'rgba(0,180,255,0.35)');
+  ctx.save();
+  ctx.beginPath();
+  ctx.arc(cx, cy, R, 0, Math.PI * 2);
+  ctx.fillStyle = rimGrad;
+  ctx.fill();
+  ctx.restore();
+
+  // Globe border glow
+  ctx.save();
+  ctx.shadowColor = 'rgba(0,210,255,0.7)';
+  ctx.shadowBlur = 22;
+  ctx.strokeStyle = 'rgba(0,210,255,0.5)';
+  ctx.lineWidth = 1.2;
+  ctx.beginPath();
+  ctx.arc(cx, cy, R, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.restore();
+
+  // Orbit ring (behind and in front)
+  const orbitAngles = Array.from({ length: 180 }, (_, i) => (i / 180) * Math.PI * 2);
+
+  // Draw back half of orbit ring first (behind globe)
+  ctx.save();
+  ctx.globalAlpha = 0.7;
+  ctx.beginPath();
+  for (let i = 0; i < 90; i++) {
+    const a = (i / 90) * Math.PI; // back half: π to 2π
+    const angle = a + Math.PI;
+    const op = getOrbitPoint(angle);
+    if (i === 0) ctx.moveTo(op.x, op.y);
+    else ctx.lineTo(op.x, op.y);
+  }
+  const orbitGradBack = ctx.createLinearGradient(cx - ORBIT_RX, cy, cx + ORBIT_RX, cy);
+  orbitGradBack.addColorStop(0, 'rgba(0,180,255,0.0)');
+  orbitGradBack.addColorStop(0.5, 'rgba(0,200,255,0.3)');
+  orbitGradBack.addColorStop(1, 'rgba(0,180,255,0.0)');
+  ctx.strokeStyle = orbitGradBack;
+  ctx.lineWidth = 1.2;
+  ctx.stroke();
+  ctx.restore();
+
+  // Draw front half of orbit ring (in front of globe)
+  ctx.save();
+  ctx.beginPath();
+  for (let i = 0; i <= 90; i++) {
+    const angle = (i / 90) * Math.PI;
+    const op = getOrbitPoint(angle);
+    if (i === 0) ctx.moveTo(op.x, op.y);
+    else ctx.lineTo(op.x, op.y);
+  }
+  const orbitGradFront = ctx.createLinearGradient(cx - ORBIT_RX, cy, cx + ORBIT_RX, cy);
+  orbitGradFront.addColorStop(0, 'rgba(0,200,255,0.0)');
+  orbitGradFront.addColorStop(0.5, 'rgba(0,230,255,0.7)');
+  orbitGradFront.addColorStop(1, 'rgba(0,200,255,0.0)');
+  ctx.strokeStyle = orbitGradFront;
+  ctx.lineWidth = 1.8;
+  ctx.shadowColor = 'rgba(0,220,255,0.6)';
+  ctx.shadowBlur = 10;
+  ctx.stroke();
+  ctx.restore();
+
+  // Orbit particles
+  for (const p of orbitParticles) {
+    p.angle += p.speed;
+    const op = getOrbitPoint(p.angle);
+    const pulseBrightness = 0.5 + 0.5 * Math.sin(t * 3 + p.brightness * 10);
+    const frontHalf = Math.sin(p.angle) > 0;
+    const alpha = frontHalf ? pulseBrightness * 0.9 : pulseBrightness * 0.3;
+
+    ctx.save();
+    ctx.shadowColor = 'rgba(0,220,255,0.9)';
+    ctx.shadowBlur = p.size * 5;
+    ctx.fillStyle = `rgba(150,240,255,${alpha})`;
+    ctx.beginPath();
+    ctx.arc(op.x, op.y, p.size * 0.8, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  // Holographic energy waves / micro UI particles around globe
+  const numWaves = 5;
+  for (let w = 0; w < numWaves; w++) {
+    const wAngle = t * 0.3 + (w / numWaves) * Math.PI * 2;
+    const wR = R * (1.05 + 0.06 * Math.sin(t * 1.2 + w));
+    const wx = cx + Math.cos(wAngle) * wR * 0.55;
+    const wy = cy + Math.sin(wAngle) * wR * 0.55;
+    const wAlpha = 0.12 + 0.08 * Math.sin(t * 2 + w * 1.5);
+    ctx.save();
+    ctx.shadowColor = 'rgba(0,200,255,0.5)';
+    ctx.shadowBlur = 8;
+    ctx.fillStyle = `rgba(0,220,255,${wAlpha})`;
+    ctx.beginPath();
+    ctx.arc(wx, wy, 2.2, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  // Micro UI lines (floating scan lines near globe)
+  for (let l = 0; l < 3; l++) {
+    const lineY = cy - R * 0.4 + l * R * 0.4 + Math.sin(t * 0.5 + l) * 4;
+    const lineX = cx + R * 1.08;
+    const lineLen = 18 + l * 8;
+    ctx.save();
+    ctx.globalAlpha = 0.3 + 0.1 * Math.sin(t * 2 + l);
+    ctx.strokeStyle = 'rgba(0,200,255,0.5)';
+    ctx.lineWidth = 0.8;
+    ctx.beginPath();
+    ctx.moveTo(lineX, lineY);
+    ctx.lineTo(lineX + lineLen, lineY);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  requestAnimationFrame(draw);
+}
+
+draw();
+</script>
+</body>
+</html>
