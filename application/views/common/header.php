@@ -26,7 +26,12 @@
 	<link href="<?= base_url('assets/css/unit-test.css') ?>" rel="stylesheet">
 	<link href="<?= base_url('assets/css/style.css') ?>" rel="stylesheet">
 	<!-- ========== End Stylesheet ========== -->
+
+	<!-- ========== Custom Stylesheet ========== -->
 	<link href="<?= base_url('assets/custom/custom.css') ?>" rel="stylesheet">
+	<link rel="preconnect" href="https://static.hsappstatic.net" crossorigin>
+	<link rel="prefetch" href="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js" as="script">
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body class="smooth-scroll-yes">
@@ -91,18 +96,21 @@
     ============================================= -->
 	<header>
 		<!-- Start Navigation -->
-		<nav class="navbar mobile-sidenav navbar-sticky navbar-default validnavs white navbar-fixed no-background">
+		<nav class="navbar mobile-sidenav navbar-sticky navbar-default validnavs <?= ($this->uri->segment(1) == "") ? 'white' : '' ?> navbar-fixed no-background">
 
 			<div class="container-full d-flex justify-content-between align-items-center">
-
-
 				<!-- Start Header Navigation -->
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
 						<i class="fa fa-bars"></i>
 					</button>
 					<a class="navbar-brand" href="index.html">
-						<img src="assets/img/logo-light.png" class="logo logo-display" alt="Logo">
+						<?php if ($this->uri->segment(1) == "") { ?>
+							<img src="assets/img/logo-light.png" class="logo logo-display" alt="Logo">
+						<?php } else { ?>
+							<img src="assets/img/logo.png" class="logo logo-display" alt="Logo">
+						<?php } ?>
+						<!-- <img src="assets/img/logo-light.png" class="logo logo-display" alt="Logo"> -->
 						<img src="assets/img/logo.png" class="logo logo-scrolled" alt="Logo">
 					</a>
 				</div>
@@ -117,58 +125,44 @@
 					</button>
 
 					<ul class="nav navbar-nav navbar-center" data-in="fadeInDown" data-out="fadeOutUp">
-						<li><a href="contact-us.html">Home</a></li>
-						<li><a href="contact-us.html">About</a></li>
-						<li class="dropdown megamenu-fw megamenu-style-two column-two">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Industries</a>
-							<ul class="dropdown-menu megamenu-content" role="menu">
-								<li>
-									<div class="col-menu-wrap">
-										<div class="menu-cal-items">
-											<div class="col-menu">
-												<h4>Homepage Dark</h4>
-												<ul class="menu-col">
-													<li><a href="index.html">Home Ai Agency</a></li>
-													<li><a href="ai-solution-dark.html">Home Ai Solution</a></li>
-												</ul>
-											</div>
-											<div class="col-menu">
-												<h4>Homepage Light</h4>
-												<ul class="menu-col">
-													<li><a href="ai-agency.html">Home Ai Agency</a></li>
-													<li><a href="ai-solution.html">Home Ai Solution</a></li>
-												</ul>
-											</div>
-										</div>
-										<div class="megamenu-banner">
-											<div class="thumb">
-												<img src="assets/img/thumb/6.jpg" alt="Image Not Found">
-												<a href="https://www.youtube.com/watch?v=iyARCQ7Ohd4" class="popup-youtube video-button"><i class="fas fa-play"></i></a>
-											</div>
-											<h4>Intro Video</h4>
-										</div>
-									</div>
-								</li>
+						<li><a href="<?= base_url('') ?>">Home</a></li>
+						<li><a href="<?= base_url('about') ?>">About</a></li>
+						<li class="dropdown">
+							<a href="project.html" class="dropdown-toggle" data-toggle="dropdown">Industries</a>
+							<ul class="dropdown-menu">
+								<li><a href="project.html">Logistics</a></li>
+								<li><a href="project-two.html">Retail</a></li>
+								<li><a href="project-details.html">Manufacturing</a></li>
 							</ul>
 						</li>
-						<li class="dropdown megamenu-fw megamenu-style-two column-two">
+						<li class="dropdown megamenu-fw megamenu-style-two column-three">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Services</a>
 							<ul class="dropdown-menu megamenu-content" role="menu">
 								<li>
 									<div class="col-menu-wrap">
 										<div class="menu-cal-items">
 											<div class="col-menu">
-												<h4>Homepage Dark</h4>
+												<!-- <h4>Homepage Dark</h4> -->
 												<ul class="menu-col">
-													<li><a href="index.html">Home Ai Agency</a></li>
-													<li><a href="ai-solution-dark.html">Home Ai Solution</a></li>
+													<li><a href="index.html">Custom Software Development</a></li>
+													<li><a href="ai-solution-dark.html">Data Engineering</a></li>
+													<li><a href="ai-solution-dark.html">BI and Visualisation</a></li>
 												</ul>
 											</div>
 											<div class="col-menu">
-												<h4>Homepage Light</h4>
+												<!-- <h4>Homepage Light</h4> -->
 												<ul class="menu-col">
-													<li><a href="ai-agency.html">Home Ai Agency</a></li>
-													<li><a href="ai-solution.html">Home Ai Solution</a></li>
+													<li><a href="ai-agency.html">Data Science, Advance Analytics, AI ML</a></li>
+													<li><a href="ai-solution.html">Enterprise Integrations</a></li>
+													<li><a href="ai-solution.html">Cloud and DevOps</a></li>
+												</ul>
+											</div>
+											<div class="col-menu">
+												<!-- <h4>Homepage Light</h4> -->
+												<ul class="menu-col">
+													<li><a href="ai-agency.html">Managed Services</a></li>
+													<li><a href="ai-solution.html">Hyperautomation</a></li>
+													<li><a href="ai-solution.html">ViDA Peppol Integrations</a></li>
 												</ul>
 											</div>
 										</div>
@@ -177,7 +171,7 @@
 												<img src="assets/img/thumb/6.jpg" alt="Image Not Found">
 												<a href="https://www.youtube.com/watch?v=iyARCQ7Ohd4" class="popup-youtube video-button"><i class="fas fa-play"></i></a>
 											</div>
-											<h4>Intro Video</h4>
+											<!-- <h4>Intro Video</h4> -->
 										</div>
 									</div>
 								</li>
@@ -248,7 +242,7 @@
 							</ul>
 						</li>
 
-						<li><a href="contact-us.html">Contact</a></li>
+						<!-- <li><a href="contact-us.html">Contact</a></li> -->
 					</ul>
 				</div><!-- /.navbar-collapse -->
 
@@ -264,10 +258,13 @@
 								</a>
 							</li> -->
 							<li class="button">
-								<a class="btn btn-style-one btn-border-light" href="contact-us.html">Book a Meeting <i class="fas fa-arrow-right"></i></a>
+								<a class="btn btn-style-one btn-border-light" href="#" id="openMeetingModalHeader">Book a Meeting
+									<i class="fas fa-arrow-right"></i>
+								</a>
 							</li>
 							<li class="button">
-								<a class="btn btn-style-one btn-border-light" href="contact-us.html">Get In Touch<i class="fas fa-arrow-right"></i></a>
+								<a class="btn btn-style-one btn-border-light" href="<?= base_url('contact') ?>">Get In Touch
+									<i class="fas fa-arrow-right"></i></a>
 							</li>
 						</ul>
 					</div>
@@ -347,5 +344,3 @@
 		<!-- End Navigation -->
 	</header>
 	<!-- End Header -->
-
-	<div id="smooth-content">

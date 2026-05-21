@@ -467,7 +467,7 @@ class Home extends CI_Controller
 		$data['newEvents'] = $this->home_model->getreportssbyfilter(2);
 		$data['ourteams'] = $this->home_model->getteamlist();
 		$this->load->view('common/header', $data);
-		$this->load->view('about_new');
+		$this->load->view('about');
 		$this->load->view('common/footer');
 	}
 	public function about_new()
