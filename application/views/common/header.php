@@ -9,10 +9,10 @@
 	<meta name="description" content="Robok - AI Agency & Technology HTML Template">
 
 	<!-- ========== Page Title ========== -->
-	<title>Robok - AI Agency & Technology HTML Template</title>
+	<!-- <title>Robok - AI Agency & Technology HTML Template</title> -->
 
 	<!-- ========== Favicon Icon ========== -->
-	<link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+	<link rel="shortcut icon" href="assets/custom/images/favicon.png" type="image/x-icon">
 
 	<!-- ========== Start Stylesheet ========== -->
 	<link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
@@ -32,6 +32,10 @@
 	<link rel="preconnect" href="https://static.hsappstatic.net" crossorigin>
 	<link rel="prefetch" href="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js" as="script">
 	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+     <?= !empty($head_foot['header']) ? html_entity_decode($head_foot['header']) : '' ?>
+
+    <?= !empty($pserv['page_header']) ? html_entity_decode($pserv['page_header']) : '' ?>
 </head>
 
 <body class="smooth-scroll-yes">
@@ -130,9 +134,9 @@
 						<li class="dropdown">
 							<a href="project.html" class="dropdown-toggle" data-toggle="dropdown">Industries</a>
 							<ul class="dropdown-menu">
-								<li><a href="project.html">Logistics</a></li>
-								<li><a href="project-two.html">Retail</a></li>
-								<li><a href="project-details.html">Manufacturing</a></li>
+								<li><a href="<?= base_url('industries/logistics') ?>">All Industries</a></li>
+								<li><a href="<?= base_url('industries/retail') ?>">Retail</a></li>
+								<li><a href="<?= base_url('industries/manufacturing') ?>">Manufacturing</a></li>
 							</ul>
 						</li>
 						<li class="dropdown megamenu-fw megamenu-style-two column-three">
@@ -144,25 +148,25 @@
 											<div class="col-menu">
 												<!-- <h4>Homepage Dark</h4> -->
 												<ul class="menu-col">
-													<li><a href="index.html">Custom Software Development</a></li>
-													<li><a href="ai-solution-dark.html">Data Engineering</a></li>
-													<li><a href="ai-solution-dark.html">BI and Visualisation</a></li>
+													<li><a href="<?= base_url('services/custom-software-development') ?>">Custom Software Development</a></li>
+													<li><a href="<?= base_url('services/data-engineering') ?>">Data Engineering</a></li>
+													<li><a href="<?= base_url('services/bi-and-visualisation') ?>">BI and Visualisation</a></li>
 												</ul>
 											</div>
 											<div class="col-menu">
 												<!-- <h4>Homepage Light</h4> -->
 												<ul class="menu-col">
-													<li><a href="ai-agency.html">Data Science, Advance Analytics, AI ML</a></li>
-													<li><a href="ai-solution.html">Enterprise Integrations</a></li>
-													<li><a href="ai-solution.html">Cloud and DevOps</a></li>
+													<li><a href="<?= base_url('services/data-science-advance-analytics-al-ml') ?>">Data Science, Advance Analytics, AI ML</a></li>
+													<li><a href="<?= base_url('services/enterprise-integrations') ?>">Enterprise Integrations</a></li>
+													<li><a href="<?= base_url('services/cloud-and-devOps') ?>">Cloud and DevOps</a></li>
 												</ul>
 											</div>
 											<div class="col-menu">
 												<!-- <h4>Homepage Light</h4> -->
 												<ul class="menu-col">
-													<li><a href="ai-agency.html">Managed Services</a></li>
-													<li><a href="ai-solution.html">Hyperautomation</a></li>
-													<li><a href="ai-solution.html">ViDA Peppol Integrations</a></li>
+													<li><a href="<?= base_url('services/managed-services') ?>">Managed Services</a></li>
+													<li><a href="<?= base_url('services/hyperautomation') ?>">Hyperautomation</a></li>
+													<li><a href="<?= base_url('services/vida-peppol-integrations') ?>">ViDA Peppol Integrations</a></li>
 												</ul>
 											</div>
 										</div>
@@ -184,26 +188,33 @@
 									<div class="col-menu-wrap">
 										<div class="menu-cal-items">
 											<div class="col-menu">
-												<h4>Homepage Dark</h4>
+												<!-- <h4>Homepage Dark</h4> -->
 												<ul class="menu-col">
-													<li><a href="index.html">Home Ai Agency</a></li>
-													<li><a href="ai-solution-dark.html">Home Ai Solution</a></li>
+													<li><a href="<?= base_url('domain-capabilities/intelligent-document-processing') ?>">Intelligent Document Processing</a></li>
+													<li><a href="<?= base_url('domain-capabilities/shipment-visibility') ?>">Shipment Visibility</a></li>
+													<li><a href="<?= base_url('domain-capabilities/risk-monitoring') ?>">Risk Monitoring</a></li>
+                                                    <li><a href="<?= base_url('domain-capabilities/drayage-and-yard-management') ?>">Drayage and Yard Management</a></li>
+													<li><a href="<?= base_url('domain-capabilities/carrier-selection-and-booking') ?>">Carrier selection and booking</a></li>
 												</ul>
 											</div>
 											<div class="col-menu">
-												<h4>Homepage Light</h4>
+												<!-- <h4>Homepage Light</h4> -->
 												<ul class="menu-col">
-													<li><a href="ai-agency.html">Home Ai Agency</a></li>
-													<li><a href="ai-solution.html">Home Ai Solution</a></li>
+													<li><a href="<?= base_url('domain-capabilities/predict-eta-solutions') ?>">Predict ETA</a></li>
+                                                    <li><a href="<?= base_url('domain-capabilities/freight-audit') ?>">Freight Audit</a></li>
+													<li><a href="<?= base_url('domain-capabilities/quotation-management') ?>">Quotation Management</a></li>
+													<li><a href="<?= base_url('domain-capabilities/contract-management-service') ?>">Contract Management</a></li>
+                                                    <li><a href="<?= base_url('domain-capabilities/bill-of-lading-process') ?>">Bill of Lading</a></li>
 												</ul>
 											</div>
-										</div>
+                                            
+										</div>  
 										<div class="megamenu-banner">
 											<div class="thumb">
 												<img src="assets/img/thumb/6.jpg" alt="Image Not Found">
 												<a href="https://www.youtube.com/watch?v=iyARCQ7Ohd4" class="popup-youtube video-button"><i class="fas fa-play"></i></a>
 											</div>
-											<h4>Intro Video</h4>
+											<!-- <h4>Intro Video</h4> -->
 										</div>
 									</div>
 								</li>
@@ -216,17 +227,19 @@
 									<div class="col-menu-wrap">
 										<div class="menu-cal-items">
 											<div class="col-menu">
-												<h4>Homepage Dark</h4>
+												<!-- <h4>Homepage Dark</h4> -->
 												<ul class="menu-col">
-													<li><a href="index.html">Home Ai Agency</a></li>
-													<li><a href="ai-solution-dark.html">Home Ai Solution</a></li>
+													<li><a href="<?= base_url('blogs') ?>">Blogs</a></li>
+													<li><a href="<?= base_url('podcast') ?>">Podcast</a></li>
+													<li><a href="<?= base_url('case-studies') ?>">Success Stories</a></li>
 												</ul>
 											</div>
 											<div class="col-menu">
-												<h4>Homepage Light</h4>
+												<!-- <h4>Homepage Light</h4> -->
 												<ul class="menu-col">
-													<li><a href="ai-agency.html">Home Ai Agency</a></li>
-													<li><a href="ai-solution.html">Home Ai Solution</a></li>
+													<li><a href="<?= base_url('use-cases') ?>">Use Cases</a></li>
+													<li><a href="<?= base_url('reports') ?>">Reports, ebooks and Guides</a></li>
+                                                    <li><a href="<?= base_url('webinars') ?>">Webinars</a></li>
 												</ul>
 											</div>
 										</div>
@@ -235,7 +248,7 @@
 												<img src="assets/img/thumb/6.jpg" alt="Image Not Found">
 												<a href="https://www.youtube.com/watch?v=iyARCQ7Ohd4" class="popup-youtube video-button"><i class="fas fa-play"></i></a>
 											</div>
-											<h4>Intro Video</h4>
+											<!-- <h4>Intro Video</h4> -->
 										</div>
 									</div>
 								</li>
