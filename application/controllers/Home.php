@@ -1260,7 +1260,6 @@ class Home extends CI_Controller
 			$res['msg'] = 'Captcha response not provided';
 			$res['status'] = false;
 		}
-        $res['status'] = true;
 		if ($res['status']) {
 			// $data['name'] = $this->input->post('fname') . ' ' . $this->input->post('lname');
 			$data['name'] = $this->input->post('name');
@@ -1320,14 +1319,14 @@ class Home extends CI_Controller
 					} else {
 						$sub = "New Enquiry Received";
 					}
-					//$message = sendEmailOAuth2('gavin@cozentus.com', $sub, $msg, ['david@cozentus.com', 'supplychain@cozentus.com', 'alok.jena@cozentus.com']);
+					$message = sendEmailOAuth2('gavin@cozentus.com', $sub, $msg, ['david@cozentus.com', 'supplychain@cozentus.com', 'alok.jena@cozentus.com']);
 					$msg2 = "<table>
 							<tr><td>Hi, " . $data['name'] . "</td></tr>
 							<tr><td>We appreciate your interest in Cozentus. </td></tr>
 							<tr><td>We will follow up with you soon!</td></tr>
 						</table>";
 					if (!empty($type) && $type != 3) { //except Download
-						//$message2 = sendEmailOAuth($data['email'], 'Your Enquiry Request Received', $msg2);
+						$message2 = sendEmailOAuth($data['email'], 'Your Enquiry Request Received', $msg2);
 					}
 					$res['status'] = true;
 					$res['msg'] = '<p class="alert alert-success">Form Submitted</p>';
