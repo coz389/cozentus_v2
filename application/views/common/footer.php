@@ -267,7 +267,7 @@
 
  <!-- Start Footer 
     ============================================= -->
- <footer class="footer-style-one box-layout bg-dark text-light">
+<footer class="footer-style-one box-layout bg-dark text-light">
 
  	<div class="footer-shape">
  		<img src="assets/img/shape/globe.png" alt="Image Not Found">
@@ -445,6 +445,13 @@
  <script src="<?= base_url('assets/js/ScrollTrigger.min.js') ?>"></script>
  <script src="<?= base_url('assets/js/SplitText.min.js') ?>"></script>
  <script src="<?= base_url('assets/js/main.js') ?>"></script>
+
+ <!-- Custom Extra JS--->
+ <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+ <script defer src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.0/build/js/intlTelInput.js"></script>
+ <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+ <script defer src="<?= base_url('assets/custom/app.js?v=1.0') ?>"></script>
+ <script defer src="<?= base_url('assets/custom/form.js?v=1.0') ?>"></script>
 
  </body>
 

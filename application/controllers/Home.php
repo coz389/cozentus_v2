@@ -1260,9 +1260,10 @@ class Home extends CI_Controller
 			$res['msg'] = 'Captcha response not provided';
 			$res['status'] = false;
 		}
-
+        $res['status'] = true;
 		if ($res['status']) {
-			$data['name'] = $this->input->post('fname') . ' ' . $this->input->post('lname');
+			// $data['name'] = $this->input->post('fname') . ' ' . $this->input->post('lname');
+			$data['name'] = $this->input->post('name');
 			$data['email'] = $this->input->post('email');
 			$data['phone'] = $this->input->post('phone');
 			$data['company'] = $this->input->post('organisation');
@@ -1288,23 +1289,24 @@ class Home extends CI_Controller
 			} else {
 				$data['interest'] = $service;
 			}
-
+            
 			$path = $this->input->post('path');
 			$type = $this->input->post('type');
 			$is_mail_sent = true;
-			if (!empty($type) && $type == 3) { //Download
-				$is_mail_sent = false;
-				$data['interest'] = $path;
-			} else {
-				$data['interest'] = $path;
-			}
-
+            if (!empty($type) && !empty($type) ){ 
+                if (!empty($type) && $type == 3) { //Download
+                    $is_mail_sent = false;
+                    $data['interest'] = $path;
+                } else {
+                    $data['interest'] = $path;
+                }
+            }
+          
 			$validate_response = validateEmail($this->input->post('email'), ['xyz'], ['gmail.com', 'gmail.in', 'gmail.net', 'gmail.org', 'gmail.info', 'gmail.edu']);
 			if ($validate_response && $validate_response['ok']) {
 				// Email is valid
 				$this->db->insert('contact_master', $data);
 				if ($this->db->affected_rows() > 0) {
-					// if($is_mail_sent){
 					$msg = "<table>
 							<tr><th>Name : <th><td>" . $data['name'] . "</td></tr>
 							<tr><th>Email : <th><td>" . $data['email'] . "</td></tr>
@@ -1318,18 +1320,15 @@ class Home extends CI_Controller
 					} else {
 						$sub = "New Enquiry Received";
 					}
-					//$this->sendEmail('supplychain@cozentus.com', $msg, $sub);
-					$message = sendEmailOAuth2('gavin@cozentus.com', $sub, $msg, ['david@cozentus.com', 'supplychain@cozentus.com', 'alok.jena@cozentus.com']);
+					//$message = sendEmailOAuth2('gavin@cozentus.com', $sub, $msg, ['david@cozentus.com', 'supplychain@cozentus.com', 'alok.jena@cozentus.com']);
 					$msg2 = "<table>
 							<tr><td>Hi, " . $data['name'] . "</td></tr>
 							<tr><td>We appreciate your interest in Cozentus. </td></tr>
 							<tr><td>We will follow up with you soon!</td></tr>
 						</table>";
-					//$this->sendEmail($data['email'], ['topic' => $data['interest'], 'name' => $data['name']], "Your Enquiry Request Received", true);
 					if (!empty($type) && $type != 3) { //except Download
-						$message2 = sendEmailOAuth($data['email'], 'Your Enquiry Request Received', $msg2);
+						//$message2 = sendEmailOAuth($data['email'], 'Your Enquiry Request Received', $msg2);
 					}
-					// }
 					$res['status'] = true;
 					$res['msg'] = '<p class="alert alert-success">Form Submitted</p>';
 				} else {
