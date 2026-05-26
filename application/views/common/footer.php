@@ -460,6 +460,73 @@
 
 
 <script>
+    //Home page banner text sliding
+
+    const wordsArray = [
+        "AI-Powered",
+        "Next-Gen",
+        "Intelligent",
+        "Tech-Driven"
+    ];
+
+    const slidingText = document.getElementById("sliding-text");
+
+    let currentIndex = 0;
+
+    // Initial render
+    function renderWord(word) {
+        slidingText.innerHTML = "";
+
+        word.split("").forEach((char, index) => {
+            const span = document.createElement("span");
+            span.classList.add("char");
+            span.textContent = char === " " ? "\u00A0" : char;
+            slidingText.appendChild(span);
+        });
+    }
+
+    renderWord(wordsArray[currentIndex]);
+
+    async function animateTextChange() {
+
+        const chars = slidingText.querySelectorAll(".char");
+
+        // STEP 1: Remove current text
+        // Right → Left
+        for (let i = chars.length - 1; i >= 0; i--) {
+            chars[i].classList.add("hide");
+            await sleep(40);
+        }
+
+        await sleep(200);
+
+        // STEP 2: New word
+        currentIndex = (currentIndex + 1) % wordsArray.length;
+        const newWord = wordsArray[currentIndex];
+
+        slidingText.innerHTML = "";
+
+        // STEP 3: Add new text
+        // Left → Right
+        newWord.split("").forEach((char, index) => {
+            const span = document.createElement("span");
+
+            span.classList.add("char", "show");
+            span.style.animationDelay = `${index * 0.05}s`;
+
+            span.textContent = char === " " ? "\u00A0" : char;
+
+            slidingText.appendChild(span);
+        });
+    }
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    setInterval(animateTextChange, 3500);
+
+
     // social share
     var pageLink = window.location.href;
     var pageTitle = String(document.title).replace(/\&/g, '%26');

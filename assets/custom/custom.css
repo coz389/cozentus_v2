@@ -320,3 +320,62 @@ select.valid {
         margin-top: 82px !important;
     }
 }
+
+/* ── Services Section: 10px gap between each box Home Page ── */
+.service-style-one-items .row.gutter-zero {
+    gap: 10px;
+}
+
+/* Adjust column flex-basis to account for the gap so 3 columns still fit per row */
+.service-style-one-items .row.gutter-zero > [class*="col-"] {
+    flex: 0 0 calc(33.3333% - 7px);
+    max-width: calc(33.3333% - 7px);
+}
+
+/* ── Fix: Restore all 4 borders on every service box ──
+   The theme removes borders on certain sides (nth-child rules) to create a
+   shared-border grid look. With gaps between boxes, each box needs its own
+   full border on all 4 sides. ── */
+.service-style-one-item {
+    border: 2px solid #e7e7e7 !important;
+    border-radius: 20px;
+    height: 300px;
+}
+
+/* Override ALL nth-child border-removal rules from the theme */
+.col-lg-4.col-md-6.service-style-one-single:nth-child(2n) .service-style-one-item,
+.col-lg-4.col-md-6.service-style-one-single:nth-child(3) .service-style-one-item,
+.col-lg-4.col-md-6.service-style-one-single:nth-child(4) .service-style-one-item,
+.col-lg-4.col-md-6.service-style-one-single:nth-child(5) .service-style-one-item,
+.col-lg-4.col-md-6.service-style-one-single:nth-child(6) .service-style-one-item {
+    border: 2px solid #e7e7e7 !important;
+}
+
+/* Also ensure the community card (last box) has a matching border */
+.col-lg-4.col-md-6.community-card:nth-child(6) {
+    border: 2px solid #e7e7e7 !important;
+    border-radius: 20px;
+}
+
+@media (max-width: 991px) {
+    .service-style-one-items .row.gutter-zero > [class*="col-"] {
+        flex: 0 0 calc(50% - 5px);
+        max-width: calc(50% - 5px);
+    }
+}
+
+@media (max-width: 575px) {
+    .service-style-one-items .row.gutter-zero > [class*="col-"] {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+.feature-style-one .icon img {
+    height: 45px;
+    margin-bottom: 40px !important;
+}
+.service-style-one-item img {
+    height: 45px;
+    margin-bottom: 30px;
+}

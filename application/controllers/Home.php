@@ -46,6 +46,9 @@ class Home extends CI_Controller
         $data['homewhycoz'] = $this->home_model->get_home_whycoz();
         $data['oursignis'] = $this->home_model->get_home_our_signi();
         $data['homecta'] = $this->home_model->get_home_cta();
+        $data['homesection7'] = $this->home_model->get_home_section7();
+        $data['homesection8'] = $this->home_model->get_home_section8();
+        $data['blogs'] = $this->home_model->getrecblogs(1, 3);
         $data['recaptcha_site_key'] = $this->config->item('recaptcha_site_key');
         $this->load->view('common/header', $data);
         $this->load->view('index');
