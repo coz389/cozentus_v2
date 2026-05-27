@@ -15,8 +15,8 @@
                                         <i class="fas fa-phone-alt"></i>
                                     </div>
                                     <div class="content">
-                                        <h4>Hotline</h4>
-                                        <a href="">+91 977 712 6600 (India)</a>
+                                        <h4>Global Helpline</h4>
+                                        <a href="tel:+919777126600">+91 977 712 6600 (India)</a>
                                     </div>
                                 </li>
                                 <li class="wow fadeInUp" data-wow-delay="300ms">
@@ -47,7 +47,7 @@
                         <div class="contact-form-card" style="background-image: url(assets/img/shape/3.png);">
                             <h4 class="sub-title">Free Consultation</h4>
                             <p>
-                                Fill out the form to get a personalized price quote and package solution from our global team of experts.
+                                Want to work with a dynamic experienced team of next-gen technocrats?
                             </p>
                             <form data-form="insertcontact" id="contactForm" data-aos="fade-right" data-aos-duration="1000" class="contact-form-custom">
                                 <div class="row">
