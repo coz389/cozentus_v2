@@ -2,7 +2,7 @@
     #sliding-text {
         display: inline-block;
         color: #0056b3;
-        min-width: 420px;
+        min-width: 400px;
         background-image: url(assets/img/shape/banner-2.jpg);
         background-size: cover;
         background-position: center;
@@ -219,7 +219,7 @@
                         </div>
                         <div class="project-fun-fact">
                             <div class="js-counter">2,100+</div>
-                            <h4>Finished creative projects successfully using AI support</h4>
+                            <h4>Successfully Delivered Projects Across Industries</h4>
                         </div>
                     </div>
                 </div>
@@ -264,7 +264,6 @@
                 <div class="col-lg-8 offset-lg-2">
                     <div class="site-heading text-center">
                         <h4 class="sub-title">Milestone </h4>
-                        <h2 class="title split-text-right split-text-in-right"><?= $oursignis[0]['title']; ?></h2>
                         <h2 class="title split-text-right split-text-in-right"><?= $oursignis[0]['title']; ?></h2>
                     </div>
                 </div>
