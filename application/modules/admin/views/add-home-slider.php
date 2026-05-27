@@ -22,12 +22,12 @@
                                 <button type="button" class="btn btn-primary select-image" data-img="image">Select Image</button>
                                 <input type="hidden" class="image" name="image" />
                             </div>
-                            <!-- <div class="form-group">
+                            <div class="form-group">
                                 <label>Select Image (Mobile 430x430)</label>
                                 <br>
                                 <button type="button" class="btn btn-primary select-image" data-img="imagem">Select Image</button>
                                 <input type="hidden" class="imagem" name="mimage" />
-                            </div>-->
+                            </div>
                             <div class="form-group">
                                 <label>CTA Button Label</label>
                                 <input type="text" class="form-control" name="ctabtn">

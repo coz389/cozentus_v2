@@ -120,4 +120,17 @@
                 });
             }));
         });
+
+        $(".faq-delete").click(function() {
+            let id = $(this).attr("data-id");
+            $("#" + id).remove();
+        })
+        $(".focus-delete").click(function() {
+            let id = $(this).attr("data-id");
+            $("#" + id).remove();
+        })
+        $(".tailored-delete").click(function() {
+            let id = $(this).attr("data-id");
+            $("#" + id).remove();
+        })
     </script>

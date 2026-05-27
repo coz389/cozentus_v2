@@ -388,7 +388,7 @@
                                         <?= html_entity_decode($homesection7[0]['description']) ?>
                                     </p>
 
-                                    <a href="<?= base_url($homesection7[0]['ctalink']) ?>" class="btn btn-style-one btn-dark mt-10 wow fadeInUp" data-wow-delay="100ms">
+                                    <a href="<?= urldecode($homesection7[0]['ctalink']) ?>" class="btn btn-style-one btn-dark mt-10 wow fadeInUp" data-wow-delay="100ms">
                                         <?= html_entity_decode($homesection7[0]['ctabtn']) ?> <i class="fas fa-arrow-right"></i>
                                     </a>
                                 </div>
@@ -456,7 +456,7 @@
                         <div class="faq-style-one-info">
                             <h4 class="sub-title">Question & Answer</h4>
                             <h2 class="title split-text-right split-text-in-right"><?= html_entity_decode($homesection8[0]['title']) ?></h2>
-                            <a href="<?= base_url($homesection8[0]['ctalink']) ?>" class="btn btn-style-one btn-dark mt-10 wow fadeInUp" data-wow-delay="100ms">
+                            <a href="<?= urldecode($homesection8[0]['ctalink']) ?>" class="btn btn-style-one btn-dark mt-10 wow fadeInUp" data-wow-delay="100ms">
                                 <?= html_entity_decode($homesection8[0]['ctabtn']) ?> <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -468,6 +468,7 @@
                                 $count = 0;
                                 foreach ($faqs as $key => $value) {
                                     $count++;
+                                    if (empty($value['question'])) continue;
                                 ?>
                                     <div class="accordion-style-one-item">
                                         <h2 class="accordion-header" id="heading<?= $count ?>">
