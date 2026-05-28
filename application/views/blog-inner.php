@@ -52,7 +52,9 @@
                                                 <a class="facebook" href="#" target="_blank" onclick="fbs_click()"><i class="fab fa-facebook-f"></i></a>
                                             </li>
                                             <li>
-                                                <a class="twitter" href="#" target="_blank" onclick="twi_click()"><i class="fab fa-twitter"></i></a>
+                                                <a class="twitter" href="#" target="_blank" onclick="twi_click()">
+                                                    <img src="<?= base_url('assets/img/icon/icons8-x-30.png') ?>" alt="Image Not Found" height="20">
+                                                </a>
                                             </li>
                                         </ul>
                                     </div>

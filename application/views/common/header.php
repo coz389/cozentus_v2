@@ -99,12 +99,17 @@
     </div>
     <!-- preloader end -->
 
-
+    <?php
+    $navbar_color = '';
+    if ($this->uri->segment(1) == "") {
+        $navbar_color = 'white';
+    }
+    ?>
     <!-- Header 
     ============================================= -->
     <header>
         <!-- Start Navigation -->
-        <nav class="navbar mobile-sidenav navbar-sticky navbar-default validnavs <?= ($this->uri->segment(1) == "") ? 'white' : '' ?> navbar-fixed no-background">
+        <nav class="navbar mobile-sidenav navbar-sticky navbar-default validnavs <?= $navbar_color ?> navbar-fixed no-background">
 
             <div class="container-full d-flex justify-content-between align-items-center">
                 <!-- Start Header Navigation -->
