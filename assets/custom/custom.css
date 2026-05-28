@@ -189,6 +189,11 @@
 
 /* ── Preloader CSS End ── */
 
+/* Show .mobile-only only on small screens */
+.mobile-only {
+    display: none !important;
+}
+
 /* Color fields red/green dynamically depending on validation state */
 input.error,
 select.error {
@@ -352,6 +357,9 @@ select.valid {
 
 /* ── Mobile ── */
 @media (max-width: 767px) {
+    .mobile-only {
+        display: block !important;
+    }
     .preloader .animation-preloader .spinner {
         width: 6em;
         height: 6em;

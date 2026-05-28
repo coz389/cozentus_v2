@@ -82,35 +82,6 @@
                       <?php }  ?>
                       <!-- Post Author -->
 
-                      <!-- Post Tags Share -->
-                      <!-- 
-                <div class="post-tags share">
-                    <div class="tags">
-                        <h4>Tags: </h4>
-                        <a href="#">Algorithm</a>
-                        <a href="$">Data science</a>
-                    </div>
-
-                    <div class="social">
-                        <h4>Share:</h4>
-                        <ul>
-                            <li>
-                                <a class="facebook" href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                            </li>
-                            <li>
-                                <a class="twitter" href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a class="pinterest" href="#" target="_blank"><i class="fab fa-pinterest-p"></i></a>
-                            </li>
-                            <li>
-                                <a class="linkedin" href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                            </li>
-                        </ul>
-                    </div> 
-                </div>-->
-                      <!-- Post Tags Share -->
-
                       <?php if ($type == 1 && !empty($blogs)) { ?>
                           <div class="blog-item-box mt-5">
                               <div class="row">
@@ -153,33 +124,16 @@
                           <h4 class="text-light">Transform Your Supply Chain Tech Today</h4>
                           <p>Book a Strategy Call Explore Our Whitepapers</p>
 
-                          <a href="<?= base_url('book-free-consultation') ?>" class="btn btn-style-one">
+                          <a href="<?= base_url('book-free-consultation') ?>" class="btn btn-style-one mb-3">
                               Book a Strategy Call <i class="fa fa-arrow-right"></i>
                           </a>
-                          <a href="<?= base_url('reports') ?>" class="btn btn-style-one">
+                          <a href="<?= base_url('reports') ?>" class="btn btn-style-one mb-3">
                               Explore Our Whitepapers <i class="fa fa-arrow-right"></i>
                           </a>
                       </div>
 
                       <!-- Start Post Pagination -->
-                      <!-- 
-                <div class="post-pagi-area">
-                    <div class="post-previous">
-                        <a href="#">
-                            <div class="icon"><i class="fas fa-angle-double-left"></i></div>
-                            <div class="nav-title"> Previus Post <h5>Discovery incommode</h5>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="post-next">
-                        <a href="#">
-                            <div class="nav-title">Next Post <h5>Discovery incommode</h5>
-                            </div>
-                            <div class="icon"><i class="fas fa-angle-double-right"></i></div>
-                        </a>
-                    </div>
-                </div> 
-                -->
+
                       <!-- End Post Pagination -->
                   </div>
 

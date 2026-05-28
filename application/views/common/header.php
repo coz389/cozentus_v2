@@ -259,6 +259,12 @@
                             </ul>
                         </li>
 
+                        <li class="mobile-only">
+                            <a href="<?= base_url('contact') ?>">Get In Touch</a>
+                        </li>
+                        <li class="mobile-only">
+                            <a href="#" id="openMeetingModalHeader">Book a Meeting</a>
+                        </li>
                         <!-- <li><a href="contact-us.html">Contact</a></li> -->
                     </ul>
                 </div><!-- /.navbar-collapse -->
