@@ -389,4 +389,9 @@ select.valid {
         margin-bottom: 0px;
         overflow: hidden;
     }
+    .blog-area.full-blog.single .item .info {
+        padding: 0;
+        box-shadow: inherit;
+        margin-top: 20px;
+    }
 }
