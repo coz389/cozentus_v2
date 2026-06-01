@@ -101,7 +101,7 @@
 
     <?php
     $navbar_color = '';
-    if ($this->uri->segment(1) == "") {
+    if ($this->uri->segment(1) == "" || $this->uri->segment(1) == "services") {
         $navbar_color = 'white';
     }
     ?>
@@ -118,7 +118,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <a class="navbar-brand" href="index.html">
-                        <?php if ($this->uri->segment(1) == "") { ?>
+                        <?php if ($this->uri->segment(1) == "" || $this->uri->segment(1) == "services") { ?>
                             <img src="<?= base_url('assets/img/logo-light.png') ?>" class="logo logo-display" alt="Logo">
                         <?php } else { ?>
                             <img src="<?= base_url('assets/img/logo.png') ?>" class="logo logo-display" alt="Logo">
@@ -141,7 +141,7 @@
                         <li><a href="<?= base_url('') ?>">Home</a></li>
                         <li><a href="<?= base_url('about') ?>">About</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Industries</a>
+                            <a href="<?= base_url('industries') ?>" class="dropdown-toggle" data-toggle="dropdown">Industries</a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?= base_url('industries/logistics') ?>">All Industries</a></li>
                                 <li><a href="<?= base_url('industries/retail') ?>">Retail</a></li>
@@ -149,7 +149,7 @@
                             </ul>
                         </li>
                         <li class="dropdown megamenu-fw megamenu-style-two column-three">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services</a>
+                            <a href="<?= base_url('services') ?>" class="dropdown-toggle" data-toggle="dropdown">Services</a>
                             <ul class="dropdown-menu megamenu-content" role="menu">
                                 <li>
                                     <div class="col-menu-wrap">
@@ -181,8 +181,9 @@
                                         </div>
                                         <div class="megamenu-banner">
                                             <div class="thumb">
-                                                <img src="<?= base_url('assets/img/thumb/6.jpg') ?>" alt="Image Not Found">
-                                                <a href="https://www.youtube.com/watch?v=iyARCQ7Ohd4" class="popup-youtube video-button"><i class="fas fa-play"></i></a>
+                                                <img src="<?= base_url('assets/custom/images/Coz-Menu-Services_1.webp') ?>" alt="">
+                                                <!-- <img src="<?= base_url('assets/img/thumb/6.jpg') ?>" alt="Image Not Found">
+                                                <a href="https://www.youtube.com/watch?v=iyARCQ7Ohd4" class="popup-youtube video-button"><i class="fas fa-play"></i></a> -->
                                             </div>
                                             <!-- <h4>Intro Video</h4> -->
                                         </div>
@@ -191,7 +192,7 @@
                             </ul>
                         </li>
                         <li class="dropdown megamenu-fw megamenu-style-two column-two">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Domain Capabilities</a>
+                            <a href="<?= base_url('domain-capabilities') ?>" class="dropdown-toggle" data-toggle="dropdown">Domain Capabilities</a>
                             <ul class="dropdown-menu megamenu-content" role="menu">
                                 <li>
                                     <div class="col-menu-wrap">
@@ -220,8 +221,9 @@
                                         </div>
                                         <div class="megamenu-banner">
                                             <div class="thumb">
-                                                <img src="<?= base_url('assets/img/thumb/6.jpg') ?>" alt="Image Not Found">
-                                                <a href="https://www.youtube.com/watch?v=iyARCQ7Ohd4" class="popup-youtube video-button"><i class="fas fa-play"></i></a>
+                                                <!-- <img src="<?= base_url('assets/img/thumb/6.jpg') ?>" alt="Image Not Found">
+                                                <a href="https://www.youtube.com/watch?v=iyARCQ7Ohd4" class="popup-youtube video-button"><i class="fas fa-play"></i></a> -->
+                                                <img src="<?= base_url('assets/custom/images/Coz-Menu-Services.webp') ?>" alt="">
                                             </div>
                                             <!-- <h4>Intro Video</h4> -->
                                         </div>
@@ -254,8 +256,9 @@
                                         </div>
                                         <div class="megamenu-banner">
                                             <div class="thumb">
-                                                <img src="<?= base_url('assets/img/thumb/6.jpg') ?>" alt="Image Not Found">
-                                                <a href="https://www.youtube.com/watch?v=iyARCQ7Ohd4" class="popup-youtube video-button"><i class="fas fa-play"></i></a>
+                                                <!-- <img src="<?= base_url('assets/img/thumb/6.jpg') ?>" alt="Image Not Found">
+                                                <a href="https://www.youtube.com/watch?v=iyARCQ7Ohd4" class="popup-youtube video-button"><i class="fas fa-play"></i></a> -->
+                                                <img src="<?= base_url('assets/custom/images/resources-menu.webp') ?>" alt="">
                                             </div>
                                             <!-- <h4>Intro Video</h4> -->
                                         </div>

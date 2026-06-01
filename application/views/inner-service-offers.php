@@ -1,18 +1,18 @@
 <div id="smooth-content">
     <!-- Start Section 1-->
-    <div class="banner-style-two-area bg-theme shadow theme text-light bg-cover" style="background: url(assets/img/shape/banner-9.jpg);">
+    <div class="banner-style-two-area bg-theme shadow theme text-light bg-cover" style="background: url(<?= base_url('assets/img/shape/banner-9.jpg') ?>);">
         <div class="container">
             <div class="row align-center">
                 <div class="col-xl-9 col-lg-8">
                     <div class="banner-two-content">
-                        <h2 class="split-text-right split-text-in-right">Custom Software </h2>
-                        <div class="info">
-                            <h2 class="split-text-right split-text-in-right">Solutions</h2>
+                        <h2 class="split-text-right split-text-in-right"><?= $pserv['inner_banner_heading'] ?></h2>
+                        <div class="info1">
+                            <h3><?= $pserv['advantage_heading'] ?></h3>
                             <p class="fade-up-anim">
-                                Rigid workflows, complex integrations, limited data processing capabilities, and scaling issues can slow business growth. Cozentus solves this with customised developments giving you flexibility and power to succeed in today's competitive landscape.
+                                <?= $pserv['advantage_short_description'] ?>
                             </p>
                             <div class="button mt-30 fade-up-anim">
-                                <a href="contact-us.html" class="btn btn-style-one light">Book a Demo <i class="fas fa-arrow-right"></i></a>
+                                <a href="<?= urldecode($pserv['ctalink']) ?>" class="btn btn-style-one light"><?= $pserv['ctabtn'] ?> <i class="fas fa-arrow-right"></i></a>
                             </div>
 
                         </div>
@@ -20,12 +20,16 @@
                 </div>
                 <div class="col-xl-3 col-lg-4">
                     <div class="banner-two-right-info">
-                        <div class="thumb fade-up-anim">
-                            <img src="assets/img/ai-app.png" alt="Image Not Found">
-                        </div>
+                        <?php if (!empty($pserv['advantage_video'])) { ?>
+                            <a href=" <?= urldecode($pserv['advantage_video']) ?>" class="popup-youtube video-button"><i class="fas fa-play"></i></a>
+                        <?php } else { ?>
+                            <div class="thumb fade-up-anim">
+                                <img src="<?= base_url('uploads/images/') . $pserv['advantage_image'] ?>" alt="<?= $pserv['advantage_alt_text'] ?>">
+                            </div>
+                        <?php } ?>
+
                         <div class="top-info fade-up-anim" data-wow-delay="100ms">
-                            <h4>Handle everything in quick & instant</h4>
-                            <h5>500+ Reviews</h5>
+                            <h5>500+ Projects</h5>
                         </div>
                     </div>
                 </div>
@@ -35,191 +39,120 @@
     <!-- End Section 1 -->
 
     <!-- Start Section 2 -->
-    <div class="about-style-three-area default-padding bg-gray bg-cover" style="background: url(assets/img/shape/banner-16.jpg);">
-        <div class="container">
-            <div class="row">
+    <?php if (!empty($pserv['about_heading'])) { ?>
+        <div class="about-style-three-area default-padding bg-gray bg-cover" style="background: url(<?= base_url('assets/img/shape/banner-16.jpg') ?>);">
+            <div class="container">
+                <div class="row">
 
-                <div class="col-lg-6">
-                    <h2 class="title split-text-right split-text-in-right">Customized Solutions for Your Business</h2>
-                    <p>
-                        Cozentus crafts custom applications that integrate seamlessly, scale effortlessly, and adapt to your ever-changing needs. Our team's expertise across various industries ensures your software exceeds the limitations of off-the-shelf options.
-                    </p>
-                    <p>
-                        This guarantees a perfect fit for your workflow, efficient scaling as you grow, and adaptability to your evolving business landscape.
-                    </p>
-                    <a class="btn btn-style-one" href="about-us.html">Know more <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-                <div class="col-lg-6">
-                    <div class="about-style-three-thumb">
-                        <img class="fade-up-anim" src="assets/img/illustration/dashboard-4.jpg" alt="Image Not Found">
-                        <img class="fade-up-anim" src="assets/img/illustration/1.gif" alt="Image Not Found">
+                    <div class="col-lg-6">
+                        <h2 class="title split-text-right split-text-in-right"><?= $pserv['about_heading'] ?></h2>
+                        <p>
+                            <?= $pserv['about_short_description_left'] ?>
+                        </p>
+                        <p>
+                            <?= $pserv['about_short_description_right'] ?>
+                        </p>
+                        <a class="btn btn-style-one" href="about-us.html">Know more <i class="fas fa-arrow-right"></i></a>
                     </div>
-                </div>
 
+                    <div class="col-lg-6">
+                        <div class="about-style-three-thumb">
+                            <img class="fade-up-anim" src="<?= base_url('uploads/images/') . $pserv['about_image'] ?>" alt="<?= $pserv['about_alt_text'] ?>">
+                            <img class="fade-up-anim" src="<?= base_url('assets/img/illustration/1.gif') ?>" alt="Image Not Found">
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
-    </div>
+    <?php } ?>
     <!-- End Section 2 -->
 
     <!-- Start Section 3 -->
-    <div class="choose-us-style-one-area default-padding-top bg-dark text-light blurry-shape-right-bottom overflow-hidden">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5">
-                    <div class="choose-us-thumb">
-                        <img class="leftRightScroll" src="assets/img/illustration/12.png" alt="Image Not Found">
-
+    <?php if ($homewhycoz) { ?>
+        <div class="choose-us-style-one-area default-padding-top bg-dark text-light blurry-shape-right-bottom overflow-hidden">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="choose-us-thumb">
+                            <img class="leftRightScroll" src="<?= base_url('assets/img/illustration/12.png') ?>" alt="Image Not Found">
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-6 offset-lg-1">
-                    <div class="choose-us-one-info default-padding-bottom">
-                        <h2 class="title split-text-right split-text-in-right">What Makes Cozentus Different</h2>
-                        <ul class="list-style-three mt-15 fade-up-anim">
-                            <li>
-                                <h4>Tailored Solutions</h4>
-                                <p>
-                                    We understand your unique needs and develop custom software that perfectly fits your business.
-                                </p>
-                            </li>
-                            <li>
-                                <h4>Quality & Innovation</h4>
-                                <p>
-                                    Expect high-quality, innovative solutions that go beyond the limitations of off-the-shelf software.
-                                </p>
-                            </li>
-                            <li>
-                                <h4>Agile Development</h4>
-                                <p>
-                                    We respond rapidly to your evolving needs, ensuring your software stays current.
-                                </p>
-                            </li>
-                            <li>
-                                <h4>True Partnership</h4>
-                                <p>
-                                    We become your extended team, working collaboratively to achieve your goals.
-                                </p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Section 3 -->
+                    <div class="col-lg-6 offset-lg-1">
+                        <div class="choose-us-one-info default-padding-bottom">
+                            <h2 class="title split-text-right split-text-in-right"><?= $pserv['why_heading'] ?></h2>
+                            <ul class="list-style-three mt-15 fade-up-anim">
+                                <?php
+                                $count = 0;
+                                foreach ($homewhycoz as $wc) {
+                                    $count++;
+                                ?>
+                                    <li>
+                                        <h4><?= html_entity_decode($wc['title']) ?></h4>
+                                        <p>
+                                            <?= html_entity_decode($wc['short_description']) ?>
+                                        </p>
+                                    </li>
+                                <?php } ?>
 
-    <!-- Start Section 4 -->
-    <div class="services-style-seven-area default-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="site-heading text-center">
-
-                        <h2 class="title split-text-right split-text-in-right">The Value We Create</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="services-style-seven-items">
-                        <div class="accordion" id="faqAccordion">
-
-                            <div class="services-style-seven-item">
-                                <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        <i class="fad fa-robot"></i> Machine Learning Solutions
-                                    </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                        <div class="info">
-                                            <p>
-                                                Provide expert guidance on developing an AI strategy and integrating AI into your business processes. Develop and deploy custom machine learning models to extract insights and make predictions from your data.
-                                            </p>
-
-                                        </div>
-                                        <div class="thumb">
-                                            <img src="assets/img/services/11.jpg" alt="Image Not Found">
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="services-style-seven-item">
-                                <h2 class="accordion-header" id="headingTwo">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        <i class="fad fa-chess"></i> Strategy and Consulting
-                                    </button>
-                                </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                        <div class="info">
-                                            <p>
-                                                Provide expert guidance on developing an AI strategy and integrating AI into your business processes. Develop and deploy custom machine learning models to extract insights and make predictions from your data.
-                                            </p>
-                                            <a href="services-details.html" class="btn-simple">Explore More <i class="fas fa-long-arrow-right"></i></a>
-                                        </div>
-                                        <div class="thumb">
-                                            <img src="assets/img/services/22.jpg" alt="Image Not Found">
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="services-style-seven-item">
-                                <h2 class="accordion-header" id="headingThree">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        <i class="fad fa-cogs"></i> Integration and Deployment
-                                    </button>
-                                </h2>
-                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                        <div class="info">
-                                            <p>
-                                                Provide expert guidance on developing an AI strategy and integrating AI into your business processes. Develop and deploy custom machine learning models to extract insights and make predictions from your data.
-                                            </p>
-                                            <a href="services-details.html" class="btn-simple">Explore More <i class="fas fa-long-arrow-right"></i></a>
-                                        </div>
-                                        <div class="thumb">
-                                            <img src="assets/img/services/33.jpg" alt="Image Not Found">
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="services-style-seven-item">
-                                <h2 class="accordion-header" id="headingFour">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                        <i class="fad fa-chart-pie-alt"></i> Data Analytics and Insights
-                                    </button>
-                                </h2>
-                                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                        <div class="info">
-                                            <p>
-                                                Provide expert guidance on developing an AI strategy and integrating AI into your business processes. Develop and deploy custom machine learning models to extract insights and make predictions from your data.
-                                            </p>
-                                            <a href="services-details.html" class="btn-simple">Explore More <i class="fas fa-long-arrow-right"></i></a>
-                                        </div>
-                                        <div class="thumb">
-                                            <img src="assets/img/services/44.jpg" alt="Image Not Found">
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    <?php } ?>
+    <!-- End Section 3 -->
+
+    <!-- Start Section 4 -->
+    <?php if (!empty($pserv['toolbenefits_json'])) { ?>
+        <div class="services-style-seven-area default-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="site-heading2 text-center">
+                            <h2 class="title split-text-right split-text-in-right"><?= $pserv['toolbenefits_heading'] ?></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="services-style-seven-items">
+                            <div class="accordion" id="faqAccordion">
+                                <?php $count = 0;
+                                foreach ($pserv['toolbenefits_json'] as $buis) { ?>
+                                    <div class="services-style-seven-item">
+                                        <h2 class="accordion-header" id="heading-<?= $count ?>">
+                                            <button class="accordion-button <?= ($count == 0) ? '' : 'collapsed' ?>" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?= $count ?>" aria-expanded="<?= ($count == 0) ? 'true' : 'false' ?>" aria-controls="collapse<?= $count ?>">
+                                                <i class="fad fa-robot"></i> <?= html_entity_decode($buis['heading']) ?>
+                                            </button>
+                                        </h2>
+                                        <div id="collapse<?= $count ?>" class="accordion-collapse collapse <?= ($count == 0) ? 'show' : '' ?>" aria-labelledby="heading-<?= $count ?>" data-bs-parent="#faqAccordion">
+                                            <div class="accordion-body">
+                                                <div class="info">
+                                                    <p>
+                                                        <?= html_entity_decode($buis['description']) ?>
+                                                    </p>
+
+                                                </div>
+                                                <div class="thumb">
+                                                    <img src="<?= base_url('uploads/images/') . $buis['image'] ?>" alt="<?php echo $buis['alt_text'] ?>">
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php $count++;
+                                } ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
     <!-- End Section 4 -->
 
     <!-- Start Section 5 -->

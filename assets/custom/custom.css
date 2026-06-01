@@ -334,8 +334,35 @@ select.valid {
     height: 45px;
     margin-bottom: 30px;
 }
-.site-heading {
+.site-heading2 {
     margin-bottom: 150px;
+    overflow: hidden;
+}
+.funfact-style-one-area2 {
+    position: relative;
+}
+.blog-style-two-box2 {
+    padding: 0px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 2px solid var(--white);
+    border-radius: 15px;
+}
+
+/*=== Services Page Css ========== **/
+.banner-two-content h2 {
+    font-size: 80px !important;
+    line-height: 1;
+}
+.services-style-seven-item .accordion-body {
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr !important;
+    grid-row-gap: 30px;
+    grid-column-gap: 50px;
+    padding: 30px;
+    align-items: center;
+}
+.site-heading2 {
+    margin-bottom: 50px;
     overflow: hidden;
 }
 

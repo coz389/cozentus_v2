@@ -271,7 +271,7 @@
         </div>
         <!-- Start Fun Fact 
         ============================================= -->
-        <div class="funfact-style-one-area">
+        <div class="funfact-style-one-area2">
             <div class="container">
                 <div class="funfact-style-one-items transform-up-animation bg-cover text-light" style="background-image: url(assets/img/shape/banner-10.jpg);">
                     <div class="row">
@@ -506,7 +506,7 @@
             </div>
         </div>
         <div class="container">
-            <div class="blog-style-two-box">
+            <div class="blog-style-two-box2">
                 <div class="row">
                     <!-- Single Item -->
                     <?php foreach ($blogs as $key => $blog) { ?>
