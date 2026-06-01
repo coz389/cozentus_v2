@@ -156,445 +156,291 @@
     <!-- End Section 4 -->
 
     <!-- Start Section 5 -->
-    <div class="brand-style-two-area default-padding bg-theme text-light bg-cover" style="background-image: url(assets/img/shape/banner-15.jpg);">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="cz-counter-item">
-                        <div class="cz-counter-number">
-                            <span class="js-counter">500</span><span class="cz-counter-suffix">+</span>
-                        </div>
-                        <h5>Projects Delivered</h5>
-                        <div class="cz-counter-divider"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="cz-counter-item">
-                        <div class="cz-counter-number">
-                            <span class="js-counter">150</span><span class="cz-counter-suffix">+</span>
-                        </div>
-                        <h5>Global Clients</h5>
-                        <div class="cz-counter-divider"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="cz-counter-item">
-                        <div class="cz-counter-number">
-                            <span class="js-counter">350</span><span class="cz-counter-suffix">+</span>
-                        </div>
-                        <h5>Team Members</h5>
-                        <div class="cz-counter-divider"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="cz-counter-item">
-                        <div class="cz-counter-number">
-                            <span class="js-counter">15</span><span class="cz-counter-suffix">+</span>
-                        </div>
-                        <h5>Years Experience</h5>
-                    </div>
+    <?php if (!empty($pserv['believe_json'] && !empty($pserv['believe_heading']))) { ?>
+        <div class="brand-style-two-area default-padding bg-theme text-light bg-cover" style="background-image: url(<?= base_url('assets/img/shape/banner-15.jpg'); ?>);">
+            <div class="container">
+                <div class="row p-3">
+                    <?php
+                    $believeArr = json_decode($pserv['believe_json'], true);
+                    if (!empty($believeArr)) {
+                        foreach ($believeArr as $belp) {
+                    ?>
+                            <div class="col-lg-3 col-md-6 funfact-style-one-item">
+                                <?php
+                                $val1   = html_entity_decode($belp['key']); //21+
+                                preg_match('/^(\d+)\s*([^\d]*)$/', trim($val1), $m);
+                                $number1  = trim($m[1] ?? '0');    // "20"
+                                $symbol1  = trim($m[2] ?? '');     // "+"
+                                $label1 = $belp['value'];
+                                ?>
+
+                                <div class="cz-counter-item">
+                                    <?php if (empty($m)) { ?>
+                                        <div class="cz-counter-number">
+                                            <span class="js-counter"><?= html_entity_decode($belp['key']) ?> </span>
+                                        </div>
+                                    <?php } else { ?>
+                                        <div class="cz-counter-number">
+                                            <span class="js-counter"><?= $number1 ?> <?= $symbol1 ?></span>
+                                        </div>
+                                        <h5 class="mt-3"><?= html_entity_decode($label1) ?></h5>
+                                    <?php } ?>
+                                    <div class="cz-counter-divider"></div>
+                                </div>
+                            </div>
+                    <?php  }
+                    } ?>
+
                 </div>
             </div>
         </div>
-    </div>
+    <?php } ?>
     <!-- End Section 5 -->
 
     <!-- Start Section 6 -->
-    <div class="feature-style-one-area default-padding bg-gray blurry-shape-right-bottom" style="background-image: url(assets/img/shape/3.png);">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="site-heading">
-
-                        <h2 class="title split-text-right split-text-in-right">Smart Technologies We Leverage</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="fade-up-anim">
+    <?php if (!empty($pserv['mbanners'])) { ?>
+        <div class="feature-style-one-area default-padding bg-gray blurry-shape-right-bottom" style="background-image: url(<?= base_url('assets/img/shape/3.png'); ?>);">
+            <div class="container">
                 <div class="row">
-                    <div class="col-xl-4 pr-50 pr-md-15 pr-xs-15">
-                        <div class="feature-style-one-left-info">
-                            <div class="content">
-                                <p>
-                                    Our development team embraces a fast and agile technology-agnostic approach, focusing on selecting the best-in-class tools and frameworks. to deliver future-proof solutions.
-                                </p>
-                            </div>
-                            <div class="fun-fact-card-one mt-10">
-                                <div class="js-counter">218K</div>
-                                <h5>AI-Powered Solutions</h5>
-                            </div>
+                    <div class="col-lg-8">
+                        <div class="site-heading">
+
+                            <h2 class="title split-text-right split-text-in-right"><?= $pserv['mbanners'][0]['heading']; ?></h2>
                         </div>
                     </div>
-                    <div class="col-xl-8">
-                        <div class="feature-style-one-items fade-up-anim">
-                            <!-- Single Item -->
-                            <div class="feature-style-one hover-active-item active">
+                </div>
+            </div>
+            <div class="container">
+                <div class="fade-up-anim">
+                    <div class="row">
+                        <div class="col-xl-4 pr-50 pr-md-15 pr-xs-15">
+                            <div class="feature-style-one-left-info">
                                 <div class="content">
-                                    <div class="icon">
-                                        <img src="assets/img/icon/9.png" alt="Image Not Found">
-                                    </div>
-                                    <h4>Personalized Solutions</h4>
                                     <p>
-                                        Continuously updating recommendations
+                                        <?= $pserv['mbanners'][0]['description']; ?>
                                     </p>
                                 </div>
-                                <img src="assets/img/shape/9.png" alt="Image Not Found">
-                            </div>
-                            <!-- End Single Item -->
-                            <!-- Single Item -->
-                            <div class="feature-style-one hover-active-item">
-                                <div class="content">
-                                    <div class="icon">
-                                        <img src="assets/img/icon/10.png" alt="Image Not Found">
-                                    </div>
-                                    <h4>Interactive Workshops</h4>
-                                    <p>
-                                        Continuously updating recommendations
-                                    </p>
+                                <div class="fun-fact-card-one mt-10">
+                                    <div class="js-counter">218K</div>
+                                    <h5>AI-Powered Solutions</h5>
                                 </div>
-                                <img src="assets/img/shape/9.png" alt="Image Not Found">
                             </div>
-                            <!-- End Single Item -->
-                            <!-- Single Item -->
-                            <div class="feature-style-one hover-active-item">
-                                <div class="content">
-                                    <div class="icon">
-                                        <img src="assets/img/icon/11.png" alt="Image Not Found">
+                        </div>
+                        <div class="col-xl-8">
+                            <div class="feature-style-one-items fade-up-anim">
+                                <!-- Single Item -->
+                                <div class="feature-style-one hover-active-item active">
+                                    <div class="content">
+                                        <div class="icon">
+                                            <img src="<?= base_url('assets/img/icon/9.png') ?>" alt="Image Not Found">
+                                        </div>
+                                        <h4>Personalized Solutions</h4>
+                                        <p>
+                                            Continuously updating recommendations
+                                        </p>
                                     </div>
-                                    <h4>Next-Gen Development</h4>
-                                    <p>
-                                        Continuously updating recommendations
-                                    </p>
+                                    <img src="<?= base_url('assets/img/shape/9.png') ?>" alt="Image Not Found">
                                 </div>
-                                <img src="assets/img/shape/9.png" alt="Image Not Found">
+                                <!-- End Single Item -->
+                                <!-- Single Item -->
+                                <div class="feature-style-one hover-active-item">
+                                    <div class="content">
+                                        <div class="icon">
+                                            <img src="<?= base_url('assets/img/icon/10.png') ?>" alt="Image Not Found">
+                                        </div>
+                                        <h4>Interactive Workshops</h4>
+                                        <p>
+                                            Continuously updating recommendations
+                                        </p>
+                                    </div>
+                                    <img src="<?= base_url('assets/img/shape/9.png') ?>" alt="Image Not Found">
+                                </div>
+                                <!-- End Single Item -->
+                                <!-- Single Item -->
+                                <div class="feature-style-one hover-active-item">
+                                    <div class="content">
+                                        <div class="icon">
+                                            <img src="<?= base_url('assets/img/icon/11.png') ?> " alt="Image Not Found">
+                                        </div>
+                                        <h4>Next-Gen Development</h4>
+                                        <p>
+                                            Continuously updating recommendations
+                                        </p>
+                                    </div>
+                                    <img src="<?= base_url('assets/img/shape/9.png') ?>" alt="Image Not Found">
+                                </div>
+                                <!-- End Single Item -->
                             </div>
-                            <!-- End Single Item -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    <?php } ?>
     <!-- End Section 6 -->
 
     <!-- Start Section 7 -->
-    <div class="services-style-three-area overflow-hidden default-padding-top blurry-shape-left-bottom">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="site-heading text-center">
-
-                        <h2 class="title split-text-right split-text-in-right">Logistics Solutions We Offer</h2>
+    <?php if (!empty($pserv['cardsecop'])) { ?>
+        <div class="services-style-three-area overflow-hidden default-padding-top blurry-shape-left-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="site-heading text-center">
+                            <h2 class="title split-text-right split-text-in-right"><?= $pserv['cardsecop_heading'] ?></h2>
+                        </div>
                     </div>
-                </div>
 
-
-                <div class="col-xl-12">
-                    <div class="site-heading text-center">
-
-
-                        <div class="services-style-three-carousel default-padding-bottom fade-up-anim swiper">
-                            <!-- Additional required wrapper -->
-                            <div class="swiper-wrapper">
-                                <!-- Single item -->
-                                <div class="swiper-slide">
-                                    <div class="service-style-three-item">
-                                        <div class="top">
-                                            <div class="icon">
-                                                <img src="assets/img/icon/18.png" alt="Image Not Found">
+                    <div class="col-xl-12">
+                        <div class="site-heading text-center">
+                            <div class="services-style-three-carousel default-padding-bottom fade-up-anim swiper">
+                                <!-- Additional required wrapper -->
+                                <div class="swiper-wrapper">
+                                    <!-- Single item -->
+                                    <?php foreach ($pserv['cardsecop'] as $ins) { ?>
+                                        <div class="swiper-slide">
+                                            <div class="service-style-three-item">
+                                                <div class="top">
+                                                    <div class="icon">
+                                                        <img src="<?= base_url('assets/img/icon/20.png') ?>" alt="<?= $ins['alt_text'] ?? $ins['heading'] ?>">
+                                                    </div>
+                                                    <h4><a href="#"><?= $ins['heading'] ?></a></h4>
+                                                    <p>
+                                                        <?= $ins['description'] ?>
+                                                    </p>
+                                                </div>
+                                                <!-- <ul>
+                                                    <li><a href="#">Dashboard</a></li>
+                                                    <li><a href="#">Web Apps</a></li>
+                                                    <li><a href="#">Products</a></li>
+                                                </ul> -->
                                             </div>
-                                            <h4><a href="services-details.html">Web Applications Development</a></h4>
-                                            <p>
-                                                Easy to use and comprehend web applications that are not just scalable but also backed by robust and secure backend system.
-                                            </p>
                                         </div>
-                                        <ul>
-                                            <li><a href="#">Dashboard</a></li>
-                                            <li><a href="#">Web Apps</a></li>
-                                            <li><a href="#">Products</a></li>
-                                        </ul>
-                                    </div>
+                                    <?php } ?>
+                                    <!-- Single item -->
                                 </div>
-                                <!-- Single item -->
-                                <!-- Single item -->
-                                <div class="swiper-slide">
-                                    <div class="service-style-three-item">
-                                        <div class="top">
-                                            <div class="icon">
-                                                <img src="assets/img/icon/19.png" alt="Image Not Found">
-                                            </div>
-                                            <h4><a href="services-details.html">Custom AI Solution</a></h4>
-                                            <p>
-                                                Our custom AI solutions help automate workflows, improve operational efficiency, and deliver smarter business decisions.
-                                            </p>
-                                        </div>
-                                        <ul>
-                                            <li><a href="#">Virtual</a></li>
-                                            <li><a href="#">Analysis</a></li>
-                                            <li><a href="#">Claude</a></li>
-                                            <li><a href="#">Voice</a></li>
-                                            <li><a href="#">Replika</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- Single item -->
-                                <!-- Single item -->
-                                <div class="swiper-slide">
-                                    <div class="service-style-three-item">
-                                        <div class="top">
-                                            <div class="icon">
-                                                <img src="assets/img/icon/20.png" alt="Image Not Found">
-                                            </div>
-                                            <h4><a href="services-details.html">API Development And Integration</a></h4>
-                                            <p>
-                                                Our robust APIs facilitate smooth data exchange between applications, data sources, and stakeholders.
-                                            </p>
-                                        </div>
-                                        <ul>
-                                            <li><a href="#">Chat</a></li>
-                                            <li><a href="#">Models</a></li>
-                                            <li><a href="#">Natural</a></li>
-                                            <li><a href="#">Marketing</a></li>
-                                            <li><a href="#">Content</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- Single item -->
-                                <!-- Single item -->
-                                <div class="swiper-slide">
-                                    <div class="service-style-three-item">
-                                        <div class="top">
-                                            <div class="icon">
-                                                <img src="assets/img/icon/20.png" alt="Image Not Found">
-                                            </div>
-                                            <h4><a href="services-details.html">Cloud Migration Of Applications</a></h4>
-                                            <p>
-                                                Move your applications and infrastructure to the cloud with minimal downtime and enhanced security. We choose the perfect platform for your needs.
-                                            </p>
-                                        </div>
-                                        <ul>
-                                            <li><a href="#">Chat</a></li>
-                                            <li><a href="#">Models</a></li>
-                                            <li><a href="#">Natural</a></li>
-                                            <li><a href="#">Marketing</a></li>
-                                            <li><a href="#">Content</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- Single item -->
                             </div>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
-    </div>
+    <?php } ?>
     <!-- End Section 7 -->
 
     <!-- Start Section 8 -->
-    <div class="faq-style-one-area accordion-secondary blurry-shape-right-bottom default-padding bg-gray"
-        style="background-image: url(assets/img/shape/7.png);">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-5 col-lg-6">
-                    <div class="faq-style-one-info">
-                        <h2 class="title split-text-right split-text-in-right">Frequently Asked Questions
-                        </h2>
-                        <a href="faq.html" class="btn btn-style-one btn-dark mt-10 wow fadeInUp"
-                            data-wow-delay="100ms">All Questions <i class="fas fa-arrow-right"></i></a>
+    <?php if (!empty($pserv['heading_faq'])) { ?>
+        <div class="faq-style-one-area accordion-secondary blurry-shape-right-bottom default-padding bg-gray"
+            style="background-image: url(<?= base_url('assets/img/shape/7.png'); ?>);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-6">
+                        <div class="faq-style-one-info">
+                            <h2 class="title split-text-right split-text-in-right"><?= $pserv['heading_faq'] ?>
+                            </h2>
+                            <a href="faq.html" class="btn btn-style-one btn-dark mt-10 wow fadeInUp"
+                                data-wow-delay="100ms">All Questions <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-xl-6 offset-xl-1 col-lg-6">
-                    <div class="accordion-style-one-items fade-up-anim">
-                        <div class="accordion" id="faqAccordion">
-                            <div class="accordion-style-one-item">
-                                <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseOne" aria-expanded="true"
-                                        aria-controls="collapseOne">
-                                        How does Cozentus improve logistics operations?
-                                    </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show"
-                                    aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                        <p>
-                                            Cozentus leverages AI, ML, and automation to streamline logistics operations, improve real-time visibility, optimize workflows, and reduce operational costs.
-                                        </p>
+                    <div class="col-xl-6 offset-xl-1 col-lg-6">
+                        <div class="accordion-style-one-items fade-up-anim">
+                            <div class="accordion" id="faqAccordion">
+                                <?php $faqArr = json_decode($pserv['card_json_faq'], true);
+                                $count = 0;
+
+                                foreach ($faqArr as $fq) {
+                                ?>
+                                    <div class="accordion-style-one-item">
+                                        <h2 class="accordion-header" id="heading<?= $count ?>">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapse<?= $count ?>" aria-expanded="true"
+                                                aria-controls="collapse<?= $count ?>">
+                                                <?= $fq['heading'] ?>
+                                            </button>
+                                        </h2>
+                                        <div id="collapse<?= $count ?>" class="accordion-collapse collapse <?= $count == 0  ? 'show' : '' ?>"
+                                            aria-labelledby="heading<?= $count ?>" data-bs-parent="#faqAccordion">
+                                            <div class="accordion-body">
+                                                <p>
+                                                    <?= $fq['description'] ?>
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="accordion-style-one-item">
-                                <h2 class="accordion-header" id="headingTwo">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                                        aria-expanded="false" aria-controls="collapseTwo">
-                                        Is Cozentus suitable for global logistics operations?
-                                    </button>
-                                </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse"
-                                    aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                        <p>
-                                            Yes, Cozentus solutions are built to support scalable global logistics operations with real-time visibility, automation, seamless system integration, and efficient supply chain management across multiple regions and partners.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-style-one-item">
-                                <h2 class="accordion-header" id="headingThree">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapseThree"
-                                        aria-expanded="false" aria-controls="collapseThree">
-                                        Do you offer support and maintenance services?
-                                    </button>
-                                </h2>
-                                <div id="collapseThree" class="accordion-collapse collapse"
-                                    aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                        <p>
-                                            Yes, we provide continuous support, maintenance, system monitoring, and regular enhancements to ensure smooth and reliable operations.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-style-one-item">
-                                <h2 class="accordion-header" id="headingfour">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapsefour"
-                                        aria-expanded="false" aria-controls="collapsefour">
-                                        How can I get started with Cozentus?
-                                    </button>
-                                </h2>
-                                <div id="collapsefour" class="accordion-collapse collapse"
-                                    aria-labelledby="headingfour" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                        <p>
-                                            You can contact our team through the website to schedule a consultation and discuss your logistics requirements, or email us at supplychain@cozentus.com.
-                                        </p>
-                                    </div>
-                                </div>
+                                <?php $count++;
+                                } ?>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    <?php } ?>
     <!-- End Section 8 -->
 
     <!-- Start Section 9 -->
-    <div class="home-blog-area default-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="site-heading text-center">
 
-                        <h2 class="title split-text-right split-text-in-right">Related Blogs</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="blog-style-two-box">
+    <?php
+    if (!empty($pserv)) {
+        if (!empty($pserv['servtp'])) {
+            $serviceid = "sub_" . $pserv['id'];
+        } else {
+            $serviceid = $pserv['id'];
+        }
+
+        $blogs = $this->home_model->getlatestcasesbyservice($serviceid, 1);
+    } else {
+        $blogs = $this->home_model->getlatestblogs(1, 4);
+    }
+    if (!empty($blogs)): ?>
+        <div class="home-blog-area default-padding">
+            <div class="container">
                 <div class="row">
-                    <!-- Single Item -->
-                    <div class="col-xl-4 col-lg-6">
-                        <div class="blog-style-two fade-up-anim">
-                            <div class="thumb zoom-thumb">
-                                <a href="blog-single-with-sidebar.html"><img class="img-reveal"
-                                        src="assets/img/blog/1.webp" alt="Thumb"></a>
-                            </div>
-                            <div class="info">
-                                <div class="blog-one-meta">
-                                    <ul>
-                                        <li>
-                                            <a href="#">Technolgoy</a>
-                                        </li>
-                                        <li>
-                                            06 December, 2025
-                                        </li>
-                                    </ul>
-                                </div>
-                                <h4 class="blog-title">
-                                    <a href="blog-single-with-sidebar.html">Discovery incommode earnestly commanded
-                                        if.</a>
-                                </h4>
-                                <a href="blog-single-with-sidebar.html" class="btn-regular">
-                                    Read more <img src="assets/img/icon/arrow-right-three.png"
-                                        alt="Image Not Found">
-                                </a>
-                            </div>
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="site-heading text-center">
+                            <h2 class="title split-text-right split-text-in-right">Related Blogs</h2>
                         </div>
                     </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="col-xl-4 col-lg-6">
-                        <div class="blog-style-two fade-up-anim">
-                            <div class="thumb zoom-thumb">
-                                <a href="blog-single-with-sidebar.html"><img class="img-reveal"
-                                        src="assets/img/blog/2.webp" alt="Thumb"></a>
-                            </div>
-                            <div class="info">
-                                <div class="blog-one-meta">
-                                    <ul>
-                                        <li>
-                                            <a href="#">Artificial</a>
-                                        </li>
-                                        <li>
-                                            14 August, 2025
-                                        </li>
-                                    </ul>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="blog-style-two-box2">
+                    <div class="row">
+                        <!-- Single Item -->
+                        <?php foreach ($blogs as $cs) { ?>
+                            <div class="col-xl-3 col-lg-6">
+                                <div class="blog-style-two fade-up-anim">
+                                    <div class="thumb zoom-thumb">
+                                        <a href="<?= base_url('blog/') . $cs['slug'] ?>"><img class="img-reveal"
+                                                src="<?= base_url('uploads/images/') . $cs['image'] ?>" alt="<?= $cs['alt_text'] ?>"></a>
+                                    </div>
+                                    <div class="info">
+                                        <div class="blog-one-meta">
+                                            <ul>
+                                                <li>
+                                                    <?= date('F d, Y', strtotime($cs['posted'])) ?>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <h5 class="blog-title">
+                                            <a href="<?= base_url('blog/') . $cs['slug'] ?>"><?= $cs['title'] ?></a>
+                                        </h5>
+                                        <!-- <a href="<?= base_url('blog/') . $cs['slug'] ?>" class="btn-regular">
+                                        Read more <img src="assets/img/icon/arrow-right-three.png"
+                                            alt="Image Not Found">
+                                    </a> -->
+                                    </div>
                                 </div>
-                                <h4 class="blog-title">
-                                    <a href="blog-single-with-sidebar.html">Expression acceptance imprudence
-                                        particular.</a>
-                                </h4>
-                                <a href="blog-single-with-sidebar.html" class="btn-regular">
-                                    Read more <img src="assets/img/icon/arrow-right-three.png"
-                                        alt="Image Not Found">
-                                </a>
                             </div>
-                        </div>
+                        <?php } ?>
+                        <!-- End Single Item -->
+
                     </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="col-xl-4 col-lg-6">
-                        <div class="blog-style-two fade-up-anim">
-                            <div class="thumb zoom-thumb">
-                                <a href="blog-single-with-sidebar.html"><img class="img-reveal"
-                                        src="assets/img/blog/3.webp" alt="Thumb"></a>
-                            </div>
-                            <div class="info">
-                                <div class="blog-one-meta">
-                                    <ul>
-                                        <li>
-                                            <a href="#">Integration</a>
-                                        </li>
-                                        <li>
-                                            12 July, 2025
-                                        </li>
-                                    </ul>
-                                </div>
-                                <h4 class="blog-title">
-                                    <a href="blog-single-with-sidebar.html">Considered imprudence of technical
-                                        friendship.</a>
-                                </h4>
-                                <a href="blog-single-with-sidebar.html" class="btn-regular">
-                                    Read more <img src="assets/img/icon/arrow-right-three.png"
-                                        alt="Image Not Found">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
                 </div>
             </div>
         </div>
-    </div>
+    <?php endif; ?>
     <!-- End Section 9  -->
 </div>

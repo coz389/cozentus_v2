@@ -510,7 +510,7 @@
                 <div class="row">
                     <!-- Single Item -->
                     <?php foreach ($blogs as $key => $blog) { ?>
-                        <div class="col-xl-4 col-lg-6">
+                        <div class="col-xl-3 col-lg-6">
                             <div class="blog-style-two fade-up-anim">
                                 <div class="thumb zoom-thumb">
                                     <a href="<?= base_url('blog/') . $blog['slug'] ?>">
@@ -525,9 +525,9 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <h4 class="blog-title">
+                                    <h5 class="blog-title">
                                         <a href="<?= base_url('blog/') . $blog['slug'] ?>"><?= $blog['title'] ?></a>
-                                    </h4>
+                                    </h5>
                                     <!-- <a href="<?= base_url('blog/') . $blog['slug'] ?>" class="btn-regular">
                                         Read more <img src="assets/img/icon/arrow-right-three.png" alt="Image Not Found">
                                     </a> -->

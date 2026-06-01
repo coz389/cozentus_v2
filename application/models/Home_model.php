@@ -381,14 +381,10 @@
             $this->db->from('blogs b');
             $this->db->join('images_master i', 'i.id = b.thumbnail');
             $this->db->where(['b.is_active' => 1, 'b.serviceid' => $id, 'type' => $type]);
-
-
             $qry = $this->db->get();
-
             if ($qry->num_rows() > 0) {
                 return $qry->result_array();
             }
-
             return false;
         }
 
@@ -828,6 +824,37 @@
             $qry = $this->db->get();
             if ($qry->num_rows() > 0) {
                 return $qry->row_array();
+            }
+            return false;
+        }
+
+        function getlatestcasesbyservice($id, $type)
+        {
+            $this->db->select(' b.title, b.slug, i.image, i.alt_text,b.ctype');
+            $this->db->from('blogs b');
+            $this->db->join('images_master i', 'i.id = b.thumbnail');
+            $this->db->where(['b.is_active' => 1, 'b.serviceid' => $id, 'type' => $type]);
+            $this->db->order_by('b.id', 'desc');
+            $this->db->limit(4);
+            $qry = $this->db->get();
+            if ($qry->num_rows() > 0) {
+                return $qry->result_array();
+            }
+            return false;
+        }
+        function getlatestblogs($type, $limit = false)
+        {
+            if ($limit)
+                $this->db->limit($limit);
+            $this->db->select('b.id,b.title,b.description,b.slug,b.posted,i.image,i.alt_text,b.tags');
+            $this->db->from('blogs b');
+            $this->db->join('images_master i', 'i.id=b.thumbnail');
+            $this->db->where(['b.is_active' => 1, 'b.type' => $type]);
+            $this->db->order_by('b.id', 'desc');
+            $this->db->limit(4);
+            $qry = $this->db->get();
+            if ($qry->num_rows() > 0) {
+                return $qry->result_array();
             }
             return false;
         }
