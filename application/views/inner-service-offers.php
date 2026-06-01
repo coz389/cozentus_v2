@@ -347,8 +347,9 @@
                             <div class="accordion" id="faqAccordion">
                                 <?php $faqArr = json_decode($pserv['card_json_faq'], true);
                                 $count = 0;
+                                $first_three_faqs = array_slice($faqArr, 0, 4);
 
-                                foreach ($faqArr as $fq) {
+                                foreach ($first_three_faqs as $fq) {
                                 ?>
                                     <div class="accordion-style-one-item">
                                         <h2 class="accordion-header" id="heading<?= $count ?>">
