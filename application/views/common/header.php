@@ -143,12 +143,12 @@
                         <li class="dropdown">
                             <a href="<?= base_url('industries') ?>" class="dropdown-toggle" data-toggle="dropdown">Industries</a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?= base_url('industries/logistics') ?>">All Industries</a></li>
+                                <li><a href="<?= base_url('industries/logistics') ?>">Logistics</a></li>
                                 <li><a href="<?= base_url('industries/retail') ?>">Retail</a></li>
                                 <li><a href="<?= base_url('industries/manufacturing') ?>">Manufacturing</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown megamenu-fw megamenu-style-two column-three">
+                        <li class="dropdown megamenu-fw megamenu-style-two column-two">
                             <a href="<?= base_url('services') ?>" class="dropdown-toggle" data-toggle="dropdown">Services</a>
                             <ul class="dropdown-menu megamenu-content" role="menu">
                                 <li>
@@ -160,14 +160,8 @@
                                                     <li><a href="<?= base_url('services/custom-software-development') ?>">Custom Software Development</a></li>
                                                     <li><a href="<?= base_url('services/data-engineering') ?>">Data Engineering</a></li>
                                                     <li><a href="<?= base_url('services/bi-and-visualisation') ?>">BI and Visualisation</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-menu">
-                                                <!-- <h4>Homepage Light</h4> -->
-                                                <ul class="menu-col">
                                                     <li><a href="<?= base_url('services/data-science-advance-analytics-al-ml') ?>">Data Science, Advance Analytics, AI ML</a></li>
                                                     <li><a href="<?= base_url('services/enterprise-integrations') ?>">Enterprise Integrations</a></li>
-                                                    <li><a href="<?= base_url('services/cloud-and-devOps') ?>">Cloud and DevOps</a></li>
                                                 </ul>
                                             </div>
                                             <div class="col-menu">
@@ -176,6 +170,7 @@
                                                     <li><a href="<?= base_url('services/managed-services') ?>">Managed Services</a></li>
                                                     <li><a href="<?= base_url('services/hyperautomation') ?>">Hyperautomation</a></li>
                                                     <li><a href="<?= base_url('services/vida-peppol-integrations') ?>">ViDA Peppol Integrations</a></li>
+                                                    <li><a href="<?= base_url('services/cloud-and-devOps') ?>">Cloud and DevOps</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -271,7 +266,7 @@
                             <a href="<?= base_url('contact') ?>">Get In Touch</a>
                         </li>
                         <li class="mobile-only">
-                            <a href="#" id="openMeetingModalHeader">Book a Meeting</a>
+                            <a href="<?= base_url('book-free-consultation') ?>">Book a Meeting</a>
                         </li>
                         <!-- <li><a href="contact-us.html">Contact</a></li> -->
                     </ul>
