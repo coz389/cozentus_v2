@@ -133,7 +133,7 @@
                             <div class="col-lg-4 col-md-6 service-style-one-single">
                                 <div class="service-style-one-item">
                                     <div class="icon">
-                                        <img src="<?= base_url('assets/img/icon/1.png') . $ser['card_image'] ?>" alt="<?= $ser['alt_text'] ?>">
+                                        <img src="<?= base_url('uploads/images/') . $ser['image'] ?>" alt="<?= $ser['alt_text'] ?>">
                                     </div>
                                     <h4><a href="<?= base_url('services/') . $ser['slug'] ?>"><?= $ser['card_heading'] ?></a></h4>
                                     <p>
