@@ -740,6 +740,7 @@ class Admin extends MX_Controller
         $info_image = $this->input->post('info_image');
         $page_header = htmlentities($this->input->post('page_header'));
         $slug = $this->cleanString($this->input->post('slug'));
+        $priority = $this->cleanString($this->input->post('priority'));
 
         $mainctabtn = $this->input->post('mainctabtn');
         $mainctalink = $this->input->post('mainctalink');
@@ -861,6 +862,7 @@ class Admin extends MX_Controller
             'info_image' => $info_image,
             'page_header' => $page_header,
             'tags' => $tags,
+            'priority' => $priority,
             'cardsecop' => json_encode($cardop_dtArr),
             'cardsecop_heading' => $heading_cardop,
             'main_cta_btn' => $mainctabtn,

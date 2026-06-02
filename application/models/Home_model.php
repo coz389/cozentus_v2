@@ -534,6 +534,7 @@
             }
             return false;
         }
+
         function getserviceforparentcard($pserv)
         {
             $this->db->select('p.card_heading,p.card_description,i.image,i.alt_text,p.slug');

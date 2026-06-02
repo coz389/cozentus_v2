@@ -129,7 +129,7 @@
                 <div class="service-style-one-items fade-up-anim">
                     <div class="row gutter-zero">
                         <!-- Single Item -->
-                        <?php foreach (array_slice($servicehomecard, 4) as $ser) { ?>
+                        <?php foreach (array_slice($servicehomecard, 4, 4) as $ser) { ?>
                             <div class="col-lg-4 col-md-6 service-style-one-single">
                                 <div class="service-style-one-item">
                                     <div class="icon">
