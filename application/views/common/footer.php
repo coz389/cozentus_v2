@@ -418,6 +418,11 @@
             </div>
         </div>
     </div>
+
+    <button id="backToTop" aria-label="Back to Top">
+        ↑
+    </button>
+
     <!-- End Footer Bottom -->
 
 </footer>
@@ -558,6 +563,33 @@
         window.open(`https://www.reddit.com/submit?url=${pageLink}`, 'sharer', 'toolbar=0,status=0,width=626,height=436');
         return false;
     }
+
+
+
+
+
+    const backToTopBtn = document.getElementById("backToTop");
+
+    /* Show button after scrolling */
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add("show");
+        } else {
+            backToTopBtn.classList.remove("show");
+        }
+
+    });
+
+    /* Smooth scroll to top */
+    backToTopBtn.addEventListener("click", () => {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    });
 </script>
 
 </body>
