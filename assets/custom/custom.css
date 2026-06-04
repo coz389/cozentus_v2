@@ -395,6 +395,10 @@ select.valid {
     visibility: visible;
     transform: translateY(0);
 }
+.banner-one-content h2 {
+    font-size: 62px !important;
+    margin-bottom: 35px;
+}
 
 /* =============  Media Query ====================================*/
 @media (min-width: 1600px) {

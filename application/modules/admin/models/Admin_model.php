@@ -549,13 +549,13 @@ class Admin_model extends CI_Model
     function gethomeindustriesbyid($id)
     {
         $this->db->where('id', $id);
-        $qry = $this->db->get('home_Industries_master');
+        $qry = $this->db->get('home_industries_master');
         return $qry->row_array();
     }
     function gethomeinnovationbyid($id)
     {
         $this->db->where('id', $id);
-        $qry = $this->db->get('home_Innovation');
+        $qry = $this->db->get('home_innovation');
         return $qry->row_array();
     }
     function gethomeoursignificant($id)

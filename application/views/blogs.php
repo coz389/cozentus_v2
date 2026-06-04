@@ -116,7 +116,7 @@
                         let tags = e.tags ? e.tags.split(',') : [];
                         console.log(tags);
                         let btnText = (e.type == 7) ? "Listen Now" : "Read More";
-                        temp += `<div class="col-xl-4 col-lg-6 col-md-6 mb-50">
+                        temp += `<div class="col-xl-3 col-lg-4 col-md-6 mb-50">
                 <div class="blog-style-two fade-up-anim">
                     <div class="thumb">
                         <a href="${site_url+'<?= $site ?>/'+e.slug}"><img src="${site_url+'uploads/images/'+e.image}" alt="${e.alt_text}"></a>

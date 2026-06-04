@@ -43,7 +43,9 @@
 <div id="smooth-content">
     <!-- Start Section 1 -->
     <?php if (!empty($banners)) { ?>
-        <div class="banner-style-one-area text-center default-padding bg-theme text-light bg-cover" style="background: url(assets/img/shape/banner-1.jpg);">
+        <!--  style="background: url(assets/img/shape/banner-1.jpg);" -->
+        <div class="banner-style-one-area text-center default-padding bg-theme text-light bg-cover"
+            style="background: url(uploads/images/<?= $banners[0]['image'] ?>);">
             <div class="container">
                 <div class="row align-center">
                     <div class="col-xl-8 offset-xl-2">
@@ -163,7 +165,6 @@
         </div>
     <?php } ?>
     <!-- End Section 3 -->
-
     <!-- Start Section 4 -->
     <div class="process-style-one-area default-padding-top bg-theme text-light bg-cover"
         style="background-image: url(assets/img/shape/banner-6.jpg);">
@@ -175,7 +176,7 @@
                 <div class="col-xl-6 col-lg-8">
                     <div class="site-heading">
                         <h4 class="sub-title">How it works</h4>
-                        <h2 class="title split-text-right split-text-in-right">Why should you choose Cozentus</h2>
+                        <h2 class="title split-text-right split-text-in-right"><?= $oursignis[0]['whytitle'] ?></h2>
                     </div>
                 </div>
             </div>

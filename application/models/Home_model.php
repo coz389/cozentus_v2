@@ -134,7 +134,7 @@
         {
             $this->db->select('h.title,h.short_description,h.cta_btn,h.cta_link,i.image,i.alt_text');
             //$this->db->order_by('h.orderby','asc');
-            $this->db->from('home_Industries_master h');
+            $this->db->from('home_industries_master h');
             $this->db->join('images_master i', 'i.id=h.image', 'left');
             $this->db->where('h.id', 1);
             $qry = $this->db->get();
@@ -147,7 +147,7 @@
         {
             $this->db->select('h.title,h.short_description,h.cta_btn,h.cta_link,i.image,i.alt_text');
             //$this->db->order_by('h.orderby','asc');
-            $this->db->from('home_Innovation h');
+            $this->db->from('home_innovation h');
             $this->db->join('images_master i', 'i.id=h.image', 'left');
             $this->db->where('h.id', 1);
             $qry = $this->db->get();
