@@ -1,13 +1,22 @@
-<div id="smooth-content">
-    <!-- Start Section 1-->
-    <div class="banner-style-two-area bg-theme shadow theme text-light bg-cover" style="background: url(<?= base_url('assets/img/shape/banner-9.jpg') ?>);">
-        <div class="container">
-            <div class="row align-center">
-                <div class="col-xl-9 col-lg-8">
-                    <div class="banner-two-content">
-                        <h2 class="split-text-right split-text-in-right"><?= $pserv['inner_banner_heading'] ?></h2>
-                        <div class="info1">
-                            <h3><?= $pserv['advantage_heading'] ?></h3>
+<div id="smooth-content" class="service">
+
+    <?php
+    if (!empty($pserv['inner_banner_image'])) {
+        $banner = base_url('uploads/images/' . $pserv['inner_banner_image']);
+    } else {
+        $banner = base_url('assets/img/shape/banner-13.jpg');
+    }
+
+    ?>
+    <!-- Start Section 1 -->
+    <?php if (!empty($pserv['advantage_heading'])) { ?>
+        <div class="banner-style-three-area overflow-hidden bg-gray bg-cover" style="background: url(<?= $banner ?>);">
+            <div class="container">
+                <div class="row align-center">
+                    <div class="col-lg-7 pr-60 pr-md-15 pr-xs-15">
+                        <div class="banner-style-three-info">
+                            <h2 class="wow fadeInUp"><?= $pserv['inner_banner_heading'] ?></h2>
+                            <h4 class="fade-up-anim"><?= $pserv['advantage_heading'] ?></h4>
                             <p class="fade-up-anim">
                                 <?= $pserv['advantage_short_description'] ?>
                             </p>
@@ -17,26 +26,32 @@
 
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-lg-4">
-                    <div class="banner-two-right-info">
-                        <?php if (!empty($pserv['advantage_video'])) { ?>
-                            <a href=" <?= urldecode($pserv['advantage_video']) ?>" class="popup-youtube video-button"><i class="fas fa-play"></i></a>
-                        <?php } else { ?>
-                            <div class="thumb fade-up-anim">
-                                <img src="<?= base_url('uploads/images/') . $pserv['advantage_image'] ?>" alt="<?= $pserv['advantage_alt_text'] ?>">
-                            </div>
-                        <?php } ?>
-
-                        <div class="top-info fade-up-anim" data-wow-delay="100ms">
-                            <h5>500+ Projects</h5>
+                    <div class="col-lg-5">
+                        <div class="chat-bot-thumb text-center">
+                            <?php
+                            if (!empty($pserv['advantage_video'])) {
+                                // Extract YouTube video ID
+                                $videoUrl = urldecode($pserv['advantage_video']);
+                                $videoId = '';
+                                if (preg_match('/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|v\/))([^\&\?\/]+)/', $videoUrl, $matches)) {
+                                    $videoId = $matches[1];
+                                }
+                            ?>
+                                <img src="https://img.youtube.com/vi/<?= $videoId ?>/hqdefault.jpg">
+                                <a href=" <?= urldecode($pserv['advantage_video']) ?>" class="popup-youtube video-button-v1"><i class="fas fa-play"></i></a>
+                            <?php } else { ?>
+                                <div class="illustration">
+                                    <img class="wow fadeInUp" data-wow-delay="300ms" src="<?= base_url('uploads/images/') . $pserv['advantage_image'] ?>" alt="<?= $pserv['advantage_alt_text'] ?>">
+                                </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    <?php } ?>
     <!-- End Section 1 -->
+
 
     <!-- Start Section 2 -->
     <?php if (!empty($pserv['about_heading'])) { ?>
@@ -198,7 +213,7 @@
     <!-- End Section 5 -->
 
     <!-- Start Section 6 -->
-    <?php if (!empty($pserv['mbanners'])) { ?>
+    <?php /*if (!empty($pserv['mbanners'])) { ?>
         <div class="feature-style-one-area default-padding bg-gray blurry-shape-right-bottom" style="background-image: url(<?= base_url('assets/img/shape/3.png'); ?>);">
             <div class="container">
                 <div class="row">
@@ -276,7 +291,92 @@
                 </div>
             </div>
         </div>
+    <?php }*/ ?>
+
+
+
+    <?php
+    if (!empty($pserv['section11_title'])) {
+    ?>
+        <div class="feature-style-one-area default-padding bg-gray blurry-shape-right-bottom" style="background-image: url(<?= base_url('assets/img/shape/3.png') ?>);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="site-heading">
+                            <h2 class="title split-text-right split-text-in-right">
+                                <?= html_entity_decode($pserv['section11_title']) ?>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="fade-up-anim">
+                    <div class="row">
+                        <div class="col-xl-4 pr-50 pr-md-15 pr-xs-15">
+                            <div class="feature-style-one-left-info">
+                                <div class="content">
+                                    <p>
+                                        <?= html_entity_decode($pserv['section11_description']) ?>
+                                    </p>
+                                </div>
+                                <div class="button mt-10 ">
+                                    <a href="<?= $pserv['section11_ctalink'] ?>" class="btn btn-style-one btn-dark"><?= $pserv['section11_ctabtn'] ?> <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-8">
+                            <div class="feature-style-one-items fade-up-anim">
+                                <!-- Single Item -->
+                                <div class="feature-style-one hover-active-item active">
+                                    <div class="content">
+                                        <div class="icon">
+                                            <img src="<?= base_url('uploads/images/' . $pserv['section11_one_img']) ?>" alt="Image Not Found">
+                                        </div>
+                                        <h4> <?= html_entity_decode($pserv['section11_one_title']) ?></h4>
+                                        <p>
+                                            <?= html_entity_decode($pserv['section11_one_desc']) ?>
+                                        </p>
+                                    </div>
+                                    <img src="<?= base_url('assets/img/shape/9.png') ?>" alt="Image Not Found">
+                                </div>
+                                <!-- End Single Item -->
+                                <!-- Single Item -->
+                                <div class="feature-style-one hover-active-item">
+                                    <div class="content">
+                                        <div class="icon">
+                                            <img src="<?= base_url('uploads/images/' . $pserv['section11_two_img']) ?>" alt="Image Not Found">
+                                        </div>
+                                        <h4><?= html_entity_decode($pserv['section11_two_title']) ?></h4>
+                                        <p>
+                                            <?= html_entity_decode($pserv['section11_two_desc']) ?>
+                                        </p>
+                                    </div>
+                                    <img src="<?= base_url('assets/img/shape/9.png') ?>" alt="Image Not Found">
+                                </div>
+                                <!-- End Single Item -->
+                                <!-- Single Item -->
+                                <div class="feature-style-one hover-active-item">
+                                    <div class="content">
+                                        <div class="icon">
+                                            <img src="<?= base_url('uploads/images/' . $pserv['section11_three_img']) ?>" alt="Image Not Found">
+                                        </div>
+                                        <h4><?= html_entity_decode($pserv['section11_three_title']) ?></h4>
+                                        <p>
+                                            <?= html_entity_decode($pserv['section11_three_desc']) ?>
+                                        </p>
+                                    </div>
+                                    <img src="<?= base_url('assets/img/shape/9.png') ?>" alt="Image Not Found">
+                                </div>
+                                <!-- End Single Item -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     <?php } ?>
+
     <!-- End Section 6 -->
 
     <!-- Start Section 7 -->

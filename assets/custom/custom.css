@@ -401,15 +401,15 @@ select.valid {
 }
 
 /**Domain Capability**/
-.domain-capablity .banner-style-three-info h2 {
+.banner-style-three-info h2 {
     font-size: 55px !important;
     margin-bottom: 25px;
     color: #ffffff;
 }
-.domain-capablity .banner-style-three-info h4 {
+.banner-style-three-info h4 {
     color: #ffffff;
 }
-.domain-capablity .banner-style-three-info p {
+.banner-style-three-info p {
     font-size: 16px !important;
     color: #ffffff;
 }
@@ -476,6 +476,7 @@ select.valid {
     margin-top: 20px;
 }
 
+/*Single Service*/
 /* =============  Media Query ====================================*/
 @media (min-width: 1600px) {
     .breadcrumb-area {
