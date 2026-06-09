@@ -92,6 +92,100 @@
     </div>
 </div>
 
+
+<div class="modal fade cc-modal" id="css-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content p-3">
+            <div class="modal-body">
+                <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close">
+                    <img src="<?= base_url() ?>assets/images/cross.svg" alt="">
+                </button>
+                <div class="sec-head" data-aos="fade-up" data-aos-duration="1000">
+                    <h2>
+                        <?= !empty($pserv['main_cta_pdf']) ? "Download" : "Get <span>In Touch</span>" ?>
+                    </h2>
+                </div>
+                <form data-form="insertcontact"
+                    <?= !empty($pserv['main_cta_pdf']) ? "data-download='" . base_url('uploads/pdf/') . $pserv['main_cta_pdf'] . "' data-file-name='" . $pserv['main_cta_pdf'] . "'" : '' ?>
+                    class="contact-form-custom">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <input class="form-control" id="name" name="name" placeholder="Name" type="text">
+                                <span class="alert-error"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input class="form-control" id="email" name="email" placeholder="Email" type="email">
+                                <span class="alert-error"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input class="form-control" id="phone" name="phone" placeholder="Phone" type="text">
+                                <span class="alert-error"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input class="form-control" id="organisation" name="organisation" placeholder="Organisation" type="text">
+                                <span class="alert-error"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input class="form-control" id="employees" name="employees" placeholder="Designation" type="text">
+                                <span class="alert-error"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <input type="checkbox" name="privacy_policy" id="agree">
+                                <label for="agree">&nbsp;&nbsp;I agree to the
+                                    Cozentus Privacy Policy (<a
+                                        href="<?= base_url('privacy-statement') ?>">Privacy
+                                        Statement</a>)</label>
+                                <span class="alert-error"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Google ReCAPTCHA -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <div class="g-recaptcha" data-sitekey="<?= $recaptcha_site_key ?>"></div>
+                                <span class="alert-error"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="service" value="<?= $pserv['card_heading'] ?>">
+                    <!-- Alert Message -->
+                    <div class="col-lg-12 alert-notification mb-3" role="alert">
+                        <div id="message" class="alert-msg text-danger"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <button class="btn btn-style-one" type="submit" id="submitBtn" data-aos="fade-up" data-aos-duration="1200">
+                                <?= !empty($pserv['main_cta_pdf']) ? "Download Pdf" : "Schedule a Meeting" ?><i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
 <!-- ============================================================ -->
 <!-- STYLES -->
 <!-- ============================================================ -->
@@ -480,6 +574,11 @@
             behavior: "smooth"
         });
 
+    });
+
+    $(".open-contact-modal").on("click", function() {
+        $("#css-modal").modal('show');
+        formVal();
     });
 </script>
 

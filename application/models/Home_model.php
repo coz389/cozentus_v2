@@ -581,13 +581,17 @@
         function getinnerservicebyslug($slug)
         {
             $this->db->where(['t.slug' => $slug, 't.is_active' => 1]);
-            $this->db->select('t.*,i.image as inner_banner_image ,i.alt_text as alt_text_banner, t.industries_image as industriesimage ,j.image as inner_banner_mimage, k.image as about_image,k.alt_text as about_alt_text, l.image as advantage_image,l.alt_text as advantage_alt_text');
+            $this->db->select('t.*,i.image as inner_banner_image ,i.alt_text as alt_text_banner, t.industries_image as industriesimage ,j.image as inner_banner_mimage, k.image as about_image,k.alt_text as about_alt_text, l.image as advantage_image,l.alt_text as advantage_alt_text,n.image as section11_one_img,o.image as section11_two_img,p.image as section11_three_img');
             $this->db->from('sub_service t');
             $this->db->join('images_master i', 'i.id=t.inner_banner_image', 'left');
             $this->db->join('images_master j', 'j.id=t.inner_banner_mimage', 'left');
             $this->db->join('images_master k', 'k.id=t.about_image', 'left');
             $this->db->join('images_master l', 'l.id=t.advantage_image', 'left');
             $this->db->join('images_master m', 'm.id=t.industries_image', 'left');
+
+            $this->db->join('images_master n', 'n.id=t.section11_one_img', 'left');
+            $this->db->join('images_master o', 'o.id=t.section11_two_img', 'left');
+            $this->db->join('images_master p', 'p.id=t.section11_three_img', 'left');
 
             $qry = $this->db->get();
             return $qry->row_array();
@@ -831,7 +835,7 @@
 
         function getlatestcasesbyservice($id, $type)
         {
-            $this->db->select(' b.title, b.slug, i.image, i.alt_text,b.ctype');
+            $this->db->select(' b.title, b.slug, i.image, i.alt_text,b.ctype, b.created_at as posted');
             $this->db->from('blogs b');
             $this->db->join('images_master i', 'i.id = b.thumbnail');
             $this->db->where(['b.is_active' => 1, 'b.serviceid' => $id, 'type' => $type]);
@@ -847,7 +851,7 @@
         {
             if ($limit)
                 $this->db->limit($limit);
-            $this->db->select('b.id,b.title,b.description,b.slug,b.posted,i.image,i.alt_text,b.tags');
+            $this->db->select('b.id,b.title,b.description,b.slug,b.posted,i.image,i.alt_text,b.tags, b.created_at as posted');
             $this->db->from('blogs b');
             $this->db->join('images_master i', 'i.id=b.thumbnail');
             $this->db->where(['b.is_active' => 1, 'b.type' => $type]);

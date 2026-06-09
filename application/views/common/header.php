@@ -101,7 +101,7 @@
 
     <?php
     $navbar_color = '';
-    if ($this->uri->segment(1) == "" || $this->uri->segment(1) == "services") {
+    if ($this->uri->segment(1) == "" || $this->uri->segment(1) == "services" || $this->uri->segment(1) == "domain-capabilities") {
         $navbar_color = 'white';
     }
     ?>
@@ -140,14 +140,14 @@
                     <ul class="nav navbar-nav navbar-center" data-in="fadeInDown" data-out="fadeOutUp">
                         <li><a href="<?= base_url('') ?>">Home</a></li>
                         <li><a href="<?= base_url('about') ?>">About</a></li>
-                        <li class="dropdown">
+                        <!-- <li class="dropdown">
                             <a href="<?= base_url('industries') ?>" class="dropdown-toggle" data-toggle="dropdown">Industries</a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?= base_url('industries/logistics') ?>">Logistics</a></li>
                                 <li><a href="<?= base_url('industries/retail') ?>">Retail</a></li>
                                 <li><a href="<?= base_url('industries/manufacturing') ?>">Manufacturing</a></li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li class="dropdown megamenu-fw megamenu-style-two column-two">
                             <a href="<?= base_url('services') ?>" class="dropdown-toggle" data-toggle="dropdown">Services</a>
                             <ul class="dropdown-menu megamenu-content" role="menu">

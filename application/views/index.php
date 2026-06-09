@@ -471,12 +471,12 @@
                                     if (empty($value['question'])) continue;
                                 ?>
                                     <div class="accordion-style-one-item">
-                                        <h2 class="accordion-header" id="heading<?= $count ?>">
-                                            <button class="accordion-button <?= $count == 1 ? '' : 'collapsed' ?>" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?= $count ?>" aria-expanded="<?= $count == 1 ? true : false ?>" aria-controls="collapse<?= $count ?>">
+                                        <h2 class="accordion-header" id="heading<?= $count ?>homeFAQ">
+                                            <button class="accordion-button <?= $count == 1 ? '' : 'collapsed' ?>" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?= $count ?>homeFAQ" aria-expanded="<?= $count == 1 ? true : false ?>" aria-controls="collapse<?= $count ?>homeFAQ">
                                                 <?= $value['question'] ?>
                                             </button>
                                         </h2>
-                                        <div id="collapse<?= $count ?>" class="accordion-collapse collapse <?= $count == 1 ? 'show' : '' ?>" aria-labelledby="heading<?= $count ?>" data-bs-parent="#faqAccordion">
+                                        <div id="collapse<?= $count ?>homeFAQ" class="accordion-collapse collapse <?= $count == 1 ? 'show' : '' ?>" aria-labelledby="heading<?= $count ?>homeFAQ" data-bs-parent="#faqAccordion">
                                             <div class="accordion-body">
                                                 <p>
                                                     <?= $value['answer'] ?>

@@ -595,6 +595,96 @@
                                     <?= !empty($main_cta_pdf) ? "<span>" . $main_cta_pdf . " <button type='button' class='btn btn-danger mt-3 remove-main-pdf'>x</button></span>" : '' ?>
                                 </div>
                             </div>
+
+
+                            <hr>
+                            <h5>Section 11 New Section</h5>
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" class="form-control" name="section11_title" value="<?= html_entity_decode($section11_title) ?>">
+                            </div>
+
+                            <div class="form-group ">
+                                <label>Content</label>
+                                <textarea class="form-control" name="section11_description" id="summernoteExample" rows="4"><?= html_entity_decode($section11_description) ?></textarea>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>CTA Button Label</label>
+                                    <input type="text" class="form-control" name="section11_ctabtn" value="<?= $section11_ctabtn ?>">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>CTA Button Link</label>
+                                    <input type="text" class="form-control" name="section11_ctalink" value="<?= urldecode($section11_ctalink) ?>">
+                                </div>
+                            </div>
+                            <hr>
+
+                            <h5>Section 1 </h5>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Heading</label>
+                                    <input type="text" class="form-control" name="section11_one_title" value="<?= $section11_one_title ?>">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Description</label>
+                                    <input type="text" class="form-control" name="section11_one_desc" value="<?= $section11_one_desc ?>">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Select Icon</label>
+                                    <br>
+                                    <button type="button" class="btn btn-primary select-image" data-img="section11_one_img"><?= !empty($section11_one_img) ? 'Image Exist' : 'Select Image' ?></button>
+                                    <input type="hidden" class="section11_one_img" name="section11_one_img" value="<?= $section11_one_img ?>" />
+                                </div>
+                            </div>
+                            <hr>
+                            <h5>Section 2 </h5>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Heading</label>
+                                    <input type="text" class="form-control" name="section11_two_title" value="<?= $section11_two_title ?>">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Description</label>
+                                    <input type="text" class="form-control" name="section11_two_desc" value="<?= $section11_two_desc ?>">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Select Icon</label>
+                                    <br>
+                                    <button type="button" class="btn btn-primary select-image" data-img="section11_two_img"><?= !empty($section11_two_img) ? 'Image Exist' : 'Select Image' ?></button>
+                                    <input type="hidden" class="section11_two_img" name="section11_two_img" value="<?= $section11_two_img ?>" />
+                                </div>
+                            </div>
+                            <hr>
+                            <h5>Section 3</h5>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Heading</label>
+                                    <input type="text" class="form-control" name="section11_three_title" value="<?= $section11_three_title ?>">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Description</label>
+                                    <input type="text" class="form-control" name="section11_three_desc" value="<?= $section11_three_desc ?>">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Select Icon</label>
+                                    <br>
+                                    <button type="button" class="btn btn-primary select-image" data-img="section11_three_img"><?= !empty($section11_three_img) ? 'Image Exist' : 'Select Image' ?></button>
+                                    <input type="hidden" class="section11_three_img" name="section11_three_img" value="<?= $section11_three_img ?>" />
+                                </div>
+                            </div>
+
+
+
+
+
+
                             <input type="hidden" name="mainctapdf_exist" id="main-cta-pdf" value="<?= $main_cta_pdf ?>">
                             <br>
                             <br>

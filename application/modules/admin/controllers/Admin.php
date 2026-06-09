@@ -823,6 +823,27 @@ class Admin extends MX_Controller
             }
         $video = !empty($video) ? urlencode($video) : "";
         $ctalink = !empty($ctalink) ? urlencode($ctalink) : "";
+
+
+        /*New Section (Section11) */
+        $section11_title = $this->input->post('section11_title');
+        $section11_description = $this->input->post('section11_description');
+        $section11_ctabtn = $this->input->post('section11_ctabtn');
+        $section11_ctalink = $this->input->post('section11_ctalink');
+
+        $section11_one_title = $this->input->post('section11_one_title');
+        $section11_one_desc = $this->input->post('section11_one_desc');
+        $section11_one_img = $this->input->post('section11_one_img');
+
+        $section11_two_title = $this->input->post('section11_two_title');
+        $section11_two_desc = $this->input->post('section11_two_desc');
+        $section11_two_img = $this->input->post('section11_two_img');
+
+        $section11_three_title = $this->input->post('section11_three_title');
+        $section11_three_desc = $this->input->post('section11_three_desc');
+        $section11_three_img = $this->input->post('section11_three_img');
+
+
         $data = [
             'pserv' => $pserv,
             'sserv' => $sserv,
@@ -867,7 +888,20 @@ class Admin extends MX_Controller
             'cardsecop_heading' => $heading_cardop,
             'main_cta_btn' => $mainctabtn,
             'main_cta_link' => $mainctalink,
-            'main_cta_pdf' => $mainctapdf
+            'main_cta_pdf' => $mainctapdf,
+            'section11_title' => htmlentities($section11_title),
+            'section11_description' => $section11_description,
+            'section11_ctabtn' => $section11_ctabtn,
+            'section11_ctalink' => $section11_ctalink,
+            'section11_one_title' => $section11_one_title,
+            'section11_one_desc' => $section11_one_desc,
+            'section11_one_img' => $section11_one_img,
+            'section11_two_title' => $section11_two_title,
+            'section11_two_desc' => $section11_two_desc,
+            'section11_two_img' => $section11_two_img,
+            'section11_three_title' => $section11_three_title,
+            'section11_three_desc' => $section11_three_desc,
+            'section11_three_img' => $section11_three_img,
         ];
         //echo json_encode($data);exit;
         if (!empty($id)) {

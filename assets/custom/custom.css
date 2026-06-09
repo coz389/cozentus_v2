@@ -400,6 +400,82 @@ select.valid {
     margin-bottom: 35px;
 }
 
+/**Domain Capability**/
+.domain-capablity .banner-style-three-info h2 {
+    font-size: 55px !important;
+    margin-bottom: 25px;
+    color: #ffffff;
+}
+.domain-capablity .banner-style-three-info h4 {
+    color: #ffffff;
+}
+.domain-capablity .banner-style-three-info p {
+    font-size: 16px !important;
+    color: #ffffff;
+}
+.domain-capablity .video-button-v1 {
+    display: inline-block;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    height: 120px;
+    width: 120px;
+    line-height: 120px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    font-size: 30px;
+    font-weight: 100;
+    color: var(--white);
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.domain-capablity .video-button-v1 i {
+    font-weight: 100;
+    color: var(--white);
+    line-height: 120px;
+}
+.btn-close {
+    box-sizing: content-box;
+    width: 1em;
+    height: 1em;
+    padding: 0.25em 0.25em;
+    color: #000;
+    background: transparent
+        url(
+            data:image/svg + xml,
+            %3csvgxmlns="http://www.w3.org/2000/svg"viewBox="0 0 16 16"fill="%23000"%3e%3cpathd="M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z"/%3e%3c/svg%3e
+        )
+        center / 1em auto no-repeat;
+    border: 0;
+    border-radius: 0.25rem;
+    opacity: 0.5;
+    text-align: right;
+    float: right;
+    cursor: pointer;
+    color: red;
+}
+.domain-capablity .services-style-seven-item .accordion-body {
+    display: grid;
+    grid-template-columns: 2.5fr 1.5fr !important;
+    grid-row-gap: 30px;
+    grid-column-gap: 50px;
+    padding: 30px;
+    align-items: center;
+}
+.domain-capablity .thumb {
+    height: 250px;
+    width: 100%;
+}
+.domain-capablity .thumb img {
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+}
+.domain-capablity .info {
+    margin-top: 20px;
+}
+
 /* =============  Media Query ====================================*/
 @media (min-width: 1600px) {
     .breadcrumb-area {
@@ -447,12 +523,35 @@ select.valid {
         margin-top: 10px;
     }
     .site-heading {
-        margin-bottom: 0px;
+        margin-bottom: 20px;
         overflow: hidden;
     }
     .blog-area.full-blog.single .item .info {
         padding: 0;
         box-shadow: inherit;
+        margin-top: 20px;
+    }
+    .domain-capablity .services-style-seven-item .accordion-body {
+        display: flex;
+        flex-direction: column;
+    }
+    .domain-capablity .services-style-seven-item button.accordion-button {
+        grid-template-columns: 2fr 30px;
+    }
+    .domain-capablity .services-style-seven-item button.accordion-button {
+        border: none;
+        box-shadow: none;
+        background: transparent;
+        padding: 20px 20px;
+        border-radius: 0;
+        font-size: 18px;
+        display: grid;
+        align-items: center;
+        gap: 50px;
+        justify-content: space-between;
+        color: black;
+    }
+    .domain-capablity .info {
         margin-top: 20px;
     }
 }
