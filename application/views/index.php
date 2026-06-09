@@ -79,7 +79,7 @@
                 <div class="col-xl-8 col-lg-7">
                     <div class="about-style-one-info bg-gray fade-up-anim" style="background-image: url(assets/img/shape/3.png);">
 
-                        <h4 class="sub-title">About Cozentus</h4>
+                        <h4 class="sub-title">The Cozentus Difference</h4>
                         <h2 class="title"> <?= $page_data[0]['title'] ?></h2>
                         <?php if (!empty($page_data[0]['content'])) { ?>
                             <p>
@@ -95,7 +95,8 @@
                         <div class="info">
                             <h3><?= $page_data[0]['description'] ?></h3>
                             <p>
-                                We understand all your supply chain challenges, and we know how to solve them.
+                                We solve the operational problems off-the-shelf tools can't, and the result is yours to keep.
+                            </p>
                             <div class="text-end mt-20">
                                 <a href="<?= urldecode($page_data[0]['cta_link']) ?>" class="btn btn-style-one border-light"><?= $page_data[0]['cta_btn'] ?><i class="fas fa-arrow-right"></i></a>
                             </div>
@@ -120,7 +121,7 @@
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
                         <div class="site-heading text-center">
-                            <h4 class="sub-title">Services</h4>
+                            <h4 class="sub-title">What We BUILD </h4>
                             <h2 class="title split-text-right split-text-in-right"><?= html_entity_decode($page_data[0]['offerin_heading']) ?></h2>
                             <!-- <p><?= html_entity_decode($page_data[0]['offerin_content']) ?></p> -->
                         </div>
@@ -168,9 +169,9 @@
     <!-- Start Section 4 -->
     <div class="process-style-one-area default-padding-top bg-theme text-light bg-cover"
         style="background-image: url(assets/img/shape/banner-6.jpg);">
-        <div class="shape">
+        <!-- <div class="shape">
             <img src="assets/img/illustration/Mascot.png" alt="Image Not Found">
-        </div>
+        </div> -->
         <div class="container">
             <div class="row">
                 <div class="col-xl-6 col-lg-8">
