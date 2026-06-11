@@ -54,6 +54,90 @@ class Home extends CI_Controller
         $this->load->view('index');
         $this->load->view('common/footer');
     }
+    public function index1()
+    {
+        $this->load->library('session');
+        $getwebdetails = $this->home_model->getwebdetails();
+        $this->session->set_userdata('marquee_txt', $getwebdetails['sliding_description']);
+        $this->session->set_userdata('btn_label', $getwebdetails['button_label']);
+        $this->session->set_userdata('btn_link', urldecode($getwebdetails['button_Link']));
+        $data['head_foot'] = $this->home_model->get_header_footer('home');
+        $data['banners'] = $this->home_model->get_home_banners();
+        if ($data['banners']) {
+            foreach ($data['banners'] as $bn) {
+                $data['banners_title'][] = strip_tags(html_entity_decode($bn['title']));
+            }
+        }
+        $data['pghome'] = true;
+        $tags1 = $this->home_model->getparentalltags();
+        $tags2 = $this->home_model->getsuballtags();
+        foreach ($tags1 as $tg) {
+            $data['tags'][] = $tg['tags'];
+        }
+        foreach ($tags2 as $tg) {
+            $data['tags'][] = $tg['tags'];
+        }
+        //echo json_encode($data['tags']);exit;
+        $data['pservcont'] = $this->home_model->getparentserviceformenu();
+        $data['servicehomecard'] = $this->home_model->getservicehomecard();
+        //$data['servicehomecard'] = $this->home_model->getparentservicehomecard();
+        $data['page_data'] = $this->home_model->get_home_content();
+        $data['industries'] = $this->home_model->get_home_industries();
+        $data['innovation'] = $this->home_model->get_home_innovation();
+        $data['homesliders'] = $this->home_model->get_home_sliders();
+        $data['homewhycoz'] = $this->home_model->get_home_whycoz();
+        $data['oursignis'] = $this->home_model->get_home_our_signi();
+        $data['homecta'] = $this->home_model->get_home_cta();
+        $data['homesection7'] = $this->home_model->get_home_section7();
+        $data['homesection8'] = $this->home_model->get_home_section8();
+        $data['blogs'] = $this->home_model->getrecblogs(1, 4);
+        $data['recaptcha_site_key'] = $this->config->item('recaptcha_site_key');
+        $this->load->view('common/header', $data);
+        $this->load->view('index2');
+        $this->load->view('common/footer');
+    }
+    public function index2()
+    {
+        $this->load->library('session');
+        $getwebdetails = $this->home_model->getwebdetails();
+        $this->session->set_userdata('marquee_txt', $getwebdetails['sliding_description']);
+        $this->session->set_userdata('btn_label', $getwebdetails['button_label']);
+        $this->session->set_userdata('btn_link', urldecode($getwebdetails['button_Link']));
+        $data['head_foot'] = $this->home_model->get_header_footer('home');
+        $data['banners'] = $this->home_model->get_home_banners();
+        if ($data['banners']) {
+            foreach ($data['banners'] as $bn) {
+                $data['banners_title'][] = strip_tags(html_entity_decode($bn['title']));
+            }
+        }
+        $data['pghome'] = true;
+        $tags1 = $this->home_model->getparentalltags();
+        $tags2 = $this->home_model->getsuballtags();
+        foreach ($tags1 as $tg) {
+            $data['tags'][] = $tg['tags'];
+        }
+        foreach ($tags2 as $tg) {
+            $data['tags'][] = $tg['tags'];
+        }
+        //echo json_encode($data['tags']);exit;
+        $data['pservcont'] = $this->home_model->getparentserviceformenu();
+        $data['servicehomecard'] = $this->home_model->getservicehomecard();
+        //$data['servicehomecard'] = $this->home_model->getparentservicehomecard();
+        $data['page_data'] = $this->home_model->get_home_content();
+        $data['industries'] = $this->home_model->get_home_industries();
+        $data['innovation'] = $this->home_model->get_home_innovation();
+        $data['homesliders'] = $this->home_model->get_home_sliders();
+        $data['homewhycoz'] = $this->home_model->get_home_whycoz();
+        $data['oursignis'] = $this->home_model->get_home_our_signi();
+        $data['homecta'] = $this->home_model->get_home_cta();
+        $data['homesection7'] = $this->home_model->get_home_section7();
+        $data['homesection8'] = $this->home_model->get_home_section8();
+        $data['blogs'] = $this->home_model->getrecblogs(1, 4);
+        $data['recaptcha_site_key'] = $this->config->item('recaptcha_site_key');
+        $this->load->view('common/header', $data);
+        $this->load->view('index3');
+        $this->load->view('common/footer');
+    }
     public function parentservice($id = 0)
     {
         $data['recaptcha_site_key'] = $this->config->item('recaptcha_site_key');

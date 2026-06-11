@@ -101,7 +101,7 @@
 
     <?php
     $navbar_color = '';
-    if ($this->uri->segment(1) == "" || $this->uri->segment(1) == "services" || $this->uri->segment(1) == "domain-capabilities") {
+    if ($this->uri->segment(1) == "" || $this->uri->segment(1) == "homepage1" || $this->uri->segment(1) == "homepage2" || $this->uri->segment(1) == "services" || $this->uri->segment(1) == "domain-capabilities") {
         $navbar_color = 'white';
     }
     ?>
@@ -118,7 +118,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <a class="navbar-brand" href="index.html">
-                        <?php if ($this->uri->segment(1) == "" || $this->uri->segment(1) == "services") { ?>
+                        <?php if ($this->uri->segment(1) == "" || $this->uri->segment(1) == "homepage1" || $this->uri->segment(1) == "homepage2" || $this->uri->segment(1) == "services") { ?>
                             <img src="<?= base_url('assets/img/logo-light.png') ?>" class="logo logo-display" alt="Logo">
                         <?php } else { ?>
                             <img src="<?= base_url('assets/img/logo.png') ?>" class="logo logo-display" alt="Logo">

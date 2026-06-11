@@ -476,7 +476,97 @@ select.valid {
     margin-top: 20px;
 }
 
-/*Single Service*/
+/* ── Navbar: Black background SIRF video slide pe ── */
+/*.navbar-video-active.no-background,
+.navbar-video-active.navbar-fixed.no-background {
+    background: #000 !important;
+    box-shadow: none;
+    transition: background 0.3s ease;
+}*/
+
+/* ── Homepage Carousel: navbar fixed hai, margin nahi chahiye ── */
+.homepage-carousel.swiper {
+    margin-top: 0;
+}
+
+/* ── Banner Slider Overlay Box  Start── */
+.banner-box {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    height: 100vh; /* fixed height taaki iframe ka container collapse na ho */
+}
+.banner-box img {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+/* ── YouTube iframe full-width cover technique ── */
+.banner-box iframe {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 56.25vw; /* 16:9 ratio — fills full width */
+    min-height: 650px;
+    min-width: calc(650px * 16 / 9);
+    border: none;
+    pointer-events: none;
+}
+.banner-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 950px;
+    height: 400px;
+    /*background: rgba(0, 0, 0, 0.6);*/
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 12px;
+    padding: 40px 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 2;
+    animation: bannerFadeUp 0.8s ease both;
+}
+@keyframes bannerFadeUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, calc(-50% + 30px));
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+.banner-content h1 {
+    line-height: 1.2;
+    font-family: "Sora", sans-serif;
+    letter-spacing: 0;
+    margin: 0;
+    margin-bottom: 15px;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 55px;
+    text-align: center;
+}
+.banner-content p {
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    margin-bottom: 0;
+    text-align: center;
+}
+/* ── Banner Slider Overlay Box  End */
+
 /* =============  Media Query ====================================*/
 @media (min-width: 1600px) {
     .breadcrumb-area {
@@ -495,6 +585,25 @@ select.valid {
 
 /* ── Mobile ── */
 @media (max-width: 767px) {
+    /* ── Banner Slider Overlay Box  Start ── */
+    .banner-content {
+        width: calc(100% - 40px);
+        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 25px 22px;
+    }
+    .banner-content h1 {
+        font-size: 18px;
+    }
+    .banner-content p {
+        font-size: 13px;
+    }
+    .banner-box img {
+        height: 420px;
+    }
+    /* ── Banner Slider Overlay Box  End ── */
     .mobile-only {
         display: block !important;
     }

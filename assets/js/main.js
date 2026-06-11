@@ -151,6 +151,89 @@
             }
         });
 
+        /**Home Page Carousel */
+        const homepageCarousel = new Swiper(".homepage-carousel", {
+            direction: "horizontal",
+            loop: true,
+            autoplay: true,
+            // effect: "fade",
+            // fadeEffect: {
+            //     crossFade: true,
+            // },
+            // Navigation arrows
+            // navigation: {
+            //     nextEl: ".homepage-next",
+            //     prevEl: ".homepage-prev",
+            // },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            speed: 500,
+
+            on: {
+                afterInit: function () {
+                    updateNavbarForSlide(this);
+                },
+                slideChangeTransitionStart: function () {
+                    updateNavbarForSlide(this);
+                },
+            },
+        });
+        const homepageCarousel2 = new Swiper(".homepage-carousel2", {
+            direction: "horizontal",
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            autoplay: true,
+            // effect: "fade",
+            // fadeEffect: {
+            //     crossFade: true,
+            // },
+            speed: 500,
+            // navigation: {
+            //     nextEl: ".homepage-carousel2-next",
+            //     prevEl: ".homepage-carousel2-prev",
+            // },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            on: {
+                afterInit: function () {
+                    updateNavbarForSlide(this);
+                },
+                slideChangeTransitionStart: function () {
+                    updateNavbarForSlide(this);
+                },
+            },
+        });
+
+        // Navbar ko black karo agar active slide mein video (iframe) hai
+        function updateNavbarForSlide(swiper) {
+            var navbar = document.querySelector("nav.navbar");
+            if (!navbar) return;
+
+            // realIndex use karo — loop mode mein duplicate slides ke liye safe
+            var realIdx = swiper.realIndex;
+            var originalSlides = swiper.slides.filter(function (s) {
+                return !s.classList.contains("swiper-slide-duplicate");
+            });
+            var targetSlide = originalSlides[realIdx];
+
+            if (targetSlide && targetSlide.querySelector("iframe")) {
+                navbar.classList.add("navbar-video-active");
+            } else {
+                navbar.classList.remove("navbar-video-active");
+            }
+        }
+
         /* ==================================================
             # Banner Carousel
          ===============================================*/
