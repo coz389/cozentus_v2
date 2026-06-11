@@ -47,38 +47,14 @@
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
 
+
+
                 <div class="swiper-slide">
                     <div class="banner-box">
                         <iframe
-                            id="youtube-video"
-                            src="https://www.youtube.com/embed/nbpIcv-9nnk?autoplay=1&mute=1&rel=0&loop=1&playlist=nbpIcv-9nnk&modestbranding=1&showinfo=0&controls=0"
-                            title="YouTube video player"
-                            frameborder="10"
-                            loading="lazy"
-                            allowtransparency="true"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen>
-                        </iframe>
-                        <div class="banner-content">
-                            <h1>AI-Powered Custom Tech For Supply Chain Logistics</h1>
-                            <p>Innovative solutions that combine AI Agents, Gen-AI, IDP, Data Engineering, and Scalable Cloud Integrations to create a foundation of sustainable growth.</p>
-                            <div class="button mt-30 d-block text-center">
-                                <a href="#" class="btn btn-style-one light">Book a Meeting <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--
-                <div class="swiper-slide">
-                    <div class="banner-box">
-                        <iframe
-                            id="youtube-video"
-                            src="https://www.youtube.com/embed/t7jEwV3lEvs?si=yfT71Wka6ofXh9st&autoplay=1&mute=1&rel=0&loop=1&playlist=t7jEwV3lEvs&modestbranding=1&showinfo=0&controls=0"
+                            src="https://player.vimeo.com/video/1200395127?autopause=0&autoplay=1&muted=1&loop=1&background=1"
                             frameborder="0"
-                            loading="lazy" allowtransparency="true"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin"
+                            allow="autoplay; fullscreen; picture-in-picture"
                             allowfullscreen>
                         </iframe>
 
@@ -93,17 +69,15 @@
                 </div>
                 <div class="swiper-slide">
                     <div class="banner-box">
+
                         <iframe
-                            id="youtube-video"
-                            src="https://www.youtube.com/embed/lylHPLe6zyc?si=DvXjRtN8f9IkPQnJ&autoplay=1&mute=1&rel=0&loop=1&playlist=lylHPLe6zyc&modestbranding=1&showinfo=0&controls=0"
-                            title="YouTube video player"
+                            src="https://player.vimeo.com/video/1200398429?autopause=0&autoplay=1&muted=1&loop=1&background=1"
                             frameborder="0"
-                            loading="lazy"
-                            allowtransparency="true"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allow="autoplay; fullscreen; picture-in-picture"
                             referrerpolicy="strict-origin-when-cross-origin"
                             allowfullscreen>
                         </iframe>
+
 
                         <div class="banner-content">
                             <h1>Future-Ready Custom Tech For Supply Chain Logistics</h1>
@@ -114,7 +88,25 @@
                         </div>
                     </div>
                 </div>
-    -->
+                <div class="swiper-slide">
+                    <div class="banner-box">
+                        <iframe
+                            title="vimeo-player"
+                            src="https://player.vimeo.com/video/1200399112?autopause=0&autoplay=1&muted=1&loop=1&background=1"
+                            frameborder="0"
+                            allow="autoplay; fullscreen; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                        <div class="banner-content">
+                            <h1>AI-Powered Custom Tech For Supply Chain Logistics</h1>
+                            <p>Innovative solutions that combine AI Agents, Gen-AI, IDP, Data Engineering, and Scalable Cloud Integrations to create a foundation of sustainable growth.</p>
+                            <div class="button mt-30 d-block text-center">
+                                <a href="#" class="btn btn-style-one light">Book a Meeting <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <div class="swiper-pagination"></div>
             <!-- <div class="project-swiper-nav">

@@ -188,19 +188,11 @@
             direction: "horizontal",
             loop: true,
             autoplay: {
-                delay: 5000,
+                delay: 6000, // 6 sec wait
                 disableOnInteraction: false,
             },
             autoplay: true,
-            // effect: "fade",
-            // fadeEffect: {
-            //     crossFade: true,
-            // },
-            speed: 500,
-            // navigation: {
-            //     nextEl: ".homepage-carousel2-next",
-            //     prevEl: ".homepage-carousel2-prev",
-            // },
+            speed: 1000, // 1 sec transition animation
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
