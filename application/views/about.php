@@ -1,42 +1,519 @@
-  <div id="smooth-content">
-      <!-- Start About 
-        ============================================= -->
-      <div class="about-style-two-area mt-180 mt-md-110 mt-xs-70" style="background-image: url(assets/img/shape/8.png);">
-          <div class="container">
-              <div class="row">
-                  <div class="col-lg-12">
-                      <div class="heading-style-two">
-                          <h1 class="text-transform-up"></h1>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="container">
-              <div class="row">
-                  <h1 class="text-center">🚧 Under Construction 🚧</h1>
-                  <p class="text-center">We are working hard to bring you a brand new experience. Stay tuned!</p>
+<div id="smooth-content">
 
-              </div>
-          </div>
-      </div>
-      <!-- End About -->
-      <div class="about-style-two-area mt-180 mt-md-110 mt-xs-70" style="background-image: url(assets/img/shape/8.png);">
-          <div class="container">
-              <div class="row">
-                  <div class="col-lg-12">
-                      <div class="heading-style-two">
-                          <h1 class="text-transform-up"></h1>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="container">
-              <div class="row">
-                  <h1></h1>
+    <!-- Start Banner Area 
+    ============================================= -->
+    <div class="banner-style-three-area overflow-hidden bg-gray bg-cover" style="background: url(<?= base_url('assets/img/about/BG.png') ?>);">
+        <div class="container">
+            <div class="row align-center">
+                <div class="col-lg-7 pr-60 pr-md-15 pr-xs-15">
+                    <div class="banner-style-three-info">
+                        <h2 class="wow fadeInUp" style="color: #ffffff;">We build supply chains that <strong>actually work</strong></h2>
+                        <p class="fade-up-anim" style="color: #ffffff;">
+                            Not a platform. Not a reseller. A team of logistics practitioners and engineers who build custom, AI-powered software - software you own, built around the way you operate.
+                        </p>
+                        <div class="button mt-30 fade-up-anim">
+                            <a href="contact-us.html" class="btn btn-style-one light">Book a Demo <i class="fas fa-arrow-right"></i></a>
+                        </div>
 
-              </div>
-          </div>
-      </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="chat-bot-thumb text-center">
+
+                        <div class="illustration">
+                            <img class="wow fadeInUp" data-wow-delay="300ms" src="<?= base_url('assets/img/about/about-banner.png') ?>" alt="Image Not Found">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End banner -->
+    <!-- ═══════════════════════════════════════════
+            Section 2: Our Story
+    ═══════════════════════════════════════════ -->
+    <div class="cz-our-story" id="our-story">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="cz-section-heading">
+                        <span class="cz-subtitle">— ABOUT US</span>
+                        <h2 class="cz-main-title text-dark">Built By People Who've Run Supply Chains</h2>
+                        <p class="cz-desc-wide">Most tech companies build for logistics. We built Cozentus because
+                            we've lived it — the operational complexity, the systems that almost work, the
+                            integrations that break at the worst moments. That's why everything we build is custom.
+                            Not configured. Not licensed. Yours. We sit with your team, understand your operations,
+                            and engineer software that solves the actual problem — not a generalised version of it.
+                            Across the US, UK, and India, our teams combine deep domain expertise with world-class
+                            engineering. The result is technology that moves at the speed your business demands</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <!-- Card 1 -->
+                <div class="col-lg-3 col-md-6 mb-30">
+                    <div class="cz-story-card cz-fade-in cz-fade-in-delay-1 text-center">
+                        <div class="cz-story-icon-box">
+                            <div class="cz-story-icon-inner">
+                                <img src="<?= base_url('assets/img/about/pride.png') ?>" alt="Image Not Found">
+                            </div>
+                        </div>
+                        <h4>Pride</h4>
+                        <p>We hold ourselves to a standard higher than the brief. Every build reflects us.</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-lg-3 col-md-6 mb-30">
+                    <div class="cz-story-card cz-fade-in cz-fade-in-delay-2 text-center">
+                        <div class="cz-story-icon-box">
+                            <div class="cz-story-icon-inner">
+                                <img src="<?= base_url('assets/img/about/commintment.png') ?>" alt="Image Not Found">
+                            </div>
+                        </div>
+                        <h4>Commitment</h4>
+                        <p>We don't walk away when it gets hard. We push until it works.</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-lg-3 col-md-6 mb-30">
+                    <div class="cz-story-card cz-fade-in cz-fade-in-delay-3 text-center">
+                        <div class="cz-story-icon-box">
+                            <div class="cz-story-icon-inner">
+                                <img src="<?= base_url('assets/img/about/quality.png') ?>" alt="Image Not Found">
+                            </div>
+                        </div>
+                        <h4>Quality</h4>
+                        <p>Delivered fast doesn't mean delivered loose. We don't trade one for the other.</p>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="col-lg-3 col-md-6 mb-30">
+                    <div class="cz-story-card cz-fade-in text-center">
+                        <div class="cz-story-icon-box">
+                            <div class="cz-story-icon-inner">
+                                <img src="<?= base_url('assets/img/about/transparency.png') ?>" alt="Image Not Found">
+                            </div>
+                        </div>
+                        <h4>Transparency</h4>
+                        <p>You know where things stand. Always. No surprises, no spin.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Our Story -->
+
+    <!-- Start Projects 
+    ============================================= -->
+    <div class="project-style-two-area default-padding">
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <div class="heading-style-two">
+                        <h1 class="text-transform-up " style="font-size: 100px;">That Values <strong>Power Our Work</strong></h1>
+                    </div>
+                    <div class="project-style-two-items">
+                        <!-- Single Item -->
+                        <div class="project-style-two-item">
+                            <img src="<?= base_url('assets/img/about/mission.jpg') ?>" alt="Image Not Found">
+                            <div class="info bg-dark text-light" style="background-image: url(<?= base_url('assets/img/shape/10.png') ?>);">
+                                <div class="top">
+
+                                    <h2 style="font-size: 60px;">Mission</h2>
+                                    <p class="split-text-right split-text-in-right" style="perspective: 400px; font-size: 22px;">To be the most trusted AI-powered technology partner for the global logistics industry.</p>
+
+                                </div>
+                                <div class="bottom">
+                                    <a href="#" class="btn-simple">Read More <i class="fas fa-long-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Item -->
+                        <!-- Single Item -->
+                        <div class="project-style-two-item">
+                            <img src="<?= base_url('assets/img/about/vission.jpg') ?>" alt="Image Not Found">
+                            <div class="info bg-dark text-light" style="background-image: url(<?= base_url('assets/img/shape/10.png') ?>);">
+                                <div class="top">
+
+                                    <h2 style="font-size: 60px;">Vision</h2>
+                                    <p class="split-text-right split-text-in-right" style="perspective: 400px; font-size: 22px;">We combine logistics expertise, intelligent technology, and AI to deliver tailored solutions that create measurable impact for our clients.</p>
+                                </div>
+                                <div class="bottom">
+                                    <a href="#" class="btn-simple">Read More <i class="fas fa-long-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Item -->
+                        <!-- Single Item -->
+                        <div class="project-style-two-item">
+                            <img src="<?= base_url('assets/img/about/values.jpg') ?>" alt="Image Not Found">
+                            <div class="info bg-dark text-light" style="background-image: url(<?= base_url('assets/img/shape/10.png') ?>);">
+                                <div class="top">
+                                    <h2 style="font-size: 60px;">Values</h2>
+                                    <p class="split-text-right split-text-in-right" style="perspective: 400px; font-size: 22px;">Pride, Commitment, Quality, Transparency</p>
+                                </div>
+                                <div class="bottom">
+                                    <a href="#" class="btn-simple">Read More <i class="fas fa-long-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Item -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Project -->
 
 
-  </div>
+    <!-- Start Services 
+    ============================================= -->
+    <div class="services-style-two-area default-padding bg-gray blurry-shape-right-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="site-heading text-center">
+
+                        <h2 class="title split-text-right split-text-in-right">What Sets Cozentus Apart</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-5">
+                    <div class="services-style-two-colum-large text-light fade-up-anim" style="background-image: url(<?= base_url('assets/img/shape/banner-8.jpg') ?>);">
+                        <h3 class="text-end"><a href="services-details.html">Powered by Expertise.<br> Driven by Innovation.</a></h3>
+
+                        <ul class="service-list mt-70 mt-xs-30">
+                            <li>
+                                <div class="icon">
+                                    <img src="<?= base_url('assets/img/about/supply-chain.png') ?>" alt="Image Not Found">
+                                </div>
+                                <div class="info">
+                                    <h4><a href="services-details.html">Supply Chain Domain Excellence</a></h4>
+                                    <p>
+                                        Helping logistics businesses solve complex operational challenges.
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon">
+                                    <img src="<?= base_url('assets/img/about/trade.png') ?>" alt="Image Not Found">
+                                </div>
+                                <div class="info">
+                                    <h4><a href="services-details.html">Global Delivery Excellence</a></h4>
+                                    <p>
+                                        Delivering consistent quality through teams across the UK, US, and India.
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-7">
+                    <div class="services-style-two-items fade-up-anim">
+                        <!-- Single Item -->
+                        <div class="services-style-two-item">
+                            <div class="top-info">
+                                <img src="<?= base_url('assets/img/about/artificial-intelligence.png') ?>" alt="Image Not Found">
+                                <h4><a href="services-details.html">AI & Technology <br> Innovation</a></h4>
+                                <ul class="list-style-one">
+                                    <li>AI-Powered Automation</li>
+                                    <li>Cloud & AI Technologies</li>
+                                    <li>Future-Ready Solutions</li>
+                                </ul>
+                            </div>
+                            <a href="services.html" class="btn-simple">Explore More <i class="fas fa-long-arrow-right"></i></a>
+                        </div>
+                        <!-- End Single Item -->
+                        <!-- Single Item -->
+                        <div class="services-style-two-item fade-up-anim">
+                            <div class="top-info">
+                                <img src="<?= base_url('assets/img/about/excellence.png') ?>" alt="Image Not Found">
+                                <h4><a href="services-details.html">Built Around <br>Customer Success</a></h4>
+                                <ul class="list-style-one">
+                                    <li>Client-Centric Approach</li>
+                                    <li>Scalable & Adaptive Solutions</li>
+                                    <li>Delivering Measurable Business Value</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <!-- End Single Item -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Services -->
+
+    <!-- Start Language Support 
+    ============================================= -->
+    <div class="language-support-area blurry-shape default-padding bg-dark text-light">
+        <div class="container">
+            <div class="row align-center">
+                <div class="col-lg-5">
+                    <div>
+                        <img class="fade-up-anim" src="<?= base_url('assets/img/about/map-wb.png') ?>" alt="cozentus location" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+
+                    </div>
+                    <!-- <div class="language-support-country-flag text-center">
+                        <img src="assets/img/shape/14.png" alt="Image Not Found">
+                        <img src="assets/img/icon/flag-can.png" alt="Image Not Found">
+                        <img src="assets/img/icon/flag-china.png" alt="Image Not Found">
+                        <img src="assets/img/icon/flag-dub.png" alt="Image Not Found">
+                        <img src="assets/img/icon/flat-am.png" alt="Image Not Found">
+                        <img src="assets/img/icon/flag-uks.png" alt="Image Not Found">
+                        <div class="round-move"></div>
+                        <div class="round-move-two"></div>
+                        <div class="fun-fact">
+                            <div class="js-counter">16+</div>
+                            <h4>Countries</h4>
+                        </div> 
+                    </div> -->
+                </div>
+                <div class="col-lg-6 offset-lg-1">
+                    <div class="language-support-info">
+                        <h2 class="title split-text-right split-text-in-right">Our Global Presence</h2>
+                        <p>
+                            With a strong presence across the UK, US, and India, we combine strategic expertise and engineering excellence to deliver world-class solutions worldwide.
+                        <ul class="list-style-two">
+                            <li>Global Presence</li>
+                            <li>Partners in Success</li>
+                            <li>Trusted by Industry Leaders</li>
+                        </ul>
+                        <a class="btn btn-style-one btn-border mt-35" href="#">Book a Meeting <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Language Support -->
+
+
+    <!-- Workplace 
+    ============================================= -->
+    <div class="testimonial-style-two-area default-padding-top pb-80 pb-xs-70 bg-gray blurry-shape-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="site-heading text-center">
+                        <h2 class="title split-text-right split-text-in-right">Our workplace, our strength</h2>
+                    </div>
+                    <div class="content">
+                        <p>
+                            We foster a people-first culture where employees feel valued, respected, and empowered. By prioritizing well-being, inclusion, and growth, we create an environment that inspires success beyond the workplace.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="testimonial-provider-thumbs transform-up-animation">
+                        <div class="testimonial-provider-item transform-animation-item">
+                            <img src="<?= base_url('assets/img/about/about-1.png') ?>" alt="Image Not Found">
+                        </div>
+                        <div class="testimonial-provider-item transform-animation-item">
+                            <img src="<?= base_url('assets/img/about/about-2.png') ?>" alt="Image Not Found">
+                        </div>
+                        <div class="testimonial-provider-item transform-animation-item">
+                            <img src="<?= base_url('assets/img/about/about-3.png') ?>" alt="Image Not Found">
+                            <img src="<?= base_url('assets/img/about/about-4.png') ?>" alt="Image Not Found">
+                        </div>
+                        <div class="testimonial-provider-item transform-animation-item">
+                            <img src="<?= base_url('assets/img/about/about-7.jpg') ?>" alt="Image Not Found">
+                            <img src="<?= base_url('assets/img/about/about-8.jpg') ?>" alt="Image Not Found">
+                        </div>
+                        <div class="testimonial-provider-item transform-animation-item">
+                            <img src="<?= base_url('assets/img/about/about-9.jpg') ?>" alt="Image Not Found">
+                        </div>
+                        <div class="testimonial-provider-item transform-animation-item">
+                            <img src="<?= base_url('assets/img/about/about-6.png') ?>" alt="Image Not Found">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Workplace -->
+
+    <!-- Start Team 
+    ============================================= -->
+    <div class="team-style-two-area default-padding bottom-less">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="site-heading text-center">
+
+                        <h2 class="title split-text-right split-text-in-right">The Team Behind</h2>
+                        <p>
+                            Leaders with deep industry roots and the commercial instinct to match.
+                        </p>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="team-style-two-items">
+
+                <div class="row align-center">
+                    <!-- Start Team Item -->
+                    <div class="col-lg-3 col-md-6 mb-30">
+                        <div class="team-style-two-item fade-up-anim">
+                            <div class="thumb">
+                                <img src="<?= base_url('assets/img/about/devesh.webp') ?>" alt="Image Not Found">
+                                <div class="social-overlay">
+                                    <ul>
+                                        <li>
+                                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="icon">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info">
+                                <h4><a href="team-details.html">Devesh Sinha</a></h4>
+                                <span>Founder and CEO</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Team Item -->
+
+                    <!-- Start Team Item -->
+                    <div class="col-lg-3 col-md-6 mb-30">
+                        <div class="team-style-two-item fade-up-anim">
+                            <div class="thumb">
+                                <img src="<?= base_url('assets/img/about/shailu.webp') ?>" alt="Image Not Found">
+                                <div class="social-overlay">
+                                    <ul>
+                                        <li>
+                                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="icon">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info">
+                                <h4><a href="team-details.html">Shailendra Upadhyay</a></h4>
+                                <span>Co-Founder and COO</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Team Item -->
+                    <!-- Start Team Item -->
+                    <div class="col-lg-3 col-md-6 mb-30">
+                        <div class="team-style-two-item fade-up-anim">
+                            <div class="thumb">
+                                <img src="<?= base_url('assets/img/about/rosalin.webp') ?>" alt="Image Not Found">
+                                <div class="social-overlay">
+                                    <ul>
+                                        <li>
+                                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="icon">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info">
+                                <h4><a href="team-details.html">Rosalin Mohanty</a></h4>
+                                <span>Co-Founder and CGO</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Team Item -->
+                    <!-- Start Team Item -->
+                    <div class="col-lg-3 col-md-6 mb-30">
+                        <div class="team-style-two-item fade-up-anim">
+                            <div class="thumb">
+                                <img src="<?= base_url('assets/img/about/neelmadhab.png') ?>" alt="Image Not Found">
+                                <div class="social-overlay">
+                                    <ul>
+                                        <li>
+                                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="icon">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info">
+                                <h4><a href="team-details.html">Neelmadhav Swain</a></h4>
+                                <span>Sr. EVP</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Team Item -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Team -->
+
+    <!-- Call to Action
+    ============================================= -->
+    <div class="default-padding bg-dark text-light" style="background-image: url(<?= base_url('assets/img/shape/10.png') ?>); background-size: cover;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="cta-box text-center fade-up-anim">
+                        <h2 class="cta-title mb-20">Ready to Transform Your Supply Chain?</h2>
+                        <p class="cta-description mb-30">
+                            Let's discuss how our AI-powered solutions can help you optimize operations and drive measurable results. Our team is ready to understand your unique challenges.
+                        </p>
+                        <div class="cta-buttons">
+                            <a class="btn btn-style-one btn-border" href="contact-us.html">
+                                Book a Meeting <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <a class="btn btn-style-one ml-20" href="contact-us.html">
+                                Send Message <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Call to Action -->
+</div>

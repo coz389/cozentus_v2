@@ -17,7 +17,7 @@
                             <h2 class="wow fadeInUp"><?= $pserv['inner_banner_heading'] ?></h2>
                             <h4 class="fade-up-anim"><?= $pserv['advantage_heading'] ?></h4>
                             <p class="fade-up-anim">
-                                <?= $pserv['advantage_short_description'] ?>
+                                <?= html_entity_decode($pserv['advantage_short_description']) ?>
                             </p>
                             <div class="button mt-30 fade-up-anim">
                                 <a href="<?= urldecode($pserv['ctalink']) ?>" class="btn btn-style-one light"><?= $pserv['ctabtn'] ?> <i class="fas fa-arrow-right"></i></a>
