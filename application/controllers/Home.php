@@ -51,7 +51,7 @@ class Home extends CI_Controller
         $data['blogs'] = $this->home_model->getrecblogs(1, 4);
         $data['recaptcha_site_key'] = $this->config->item('recaptcha_site_key');
         $this->load->view('common/header', $data);
-        $this->load->view('index');
+        $this->load->view('index3');
         $this->load->view('common/footer');
     }
     public function index1()

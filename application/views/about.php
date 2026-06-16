@@ -1,5 +1,23 @@
 <div id="smooth-content">
+    <style>
+        .banner-style-three-info h2 strong {
+            font-size: 55px !important;
+        }
 
+        @media (min-width: 1600px) {
+            .banner-style-three-area {
+                height: 75vh !important;
+                padding-top: 50px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .banner-style-three-area {
+                height: 75vh;
+                padding-top: 50px;
+            }
+        }
+    </style>
     <!-- Start Banner Area 
     ============================================= -->
     <div class="banner-style-three-area overflow-hidden bg-gray bg-cover" style="background: url(<?= base_url('assets/img/about/BG.png') ?>);">
@@ -12,7 +30,7 @@
                             Not a platform. Not a reseller. A team of logistics practitioners and engineers who build custom, AI-powered software - software you own, built around the way you operate.
                         </p>
                         <div class="button mt-30 fade-up-anim">
-                            <a href="contact-us.html" class="btn btn-style-one light">Book a Demo <i class="fas fa-arrow-right"></i></a>
+                            <a href="<?= base_url('book-free-consultation') ?>" class="btn btn-style-one light">Book a Demo <i class="fas fa-arrow-right"></i></a>
                         </div>
 
                     </div>
@@ -33,7 +51,7 @@
     <!-- ═══════════════════════════════════════════
             Section 2: Our Story
     ═══════════════════════════════════════════ -->
-    <div class="cz-our-story" id="our-story">
+    <div class="cz-our-story default-padding" id="our-story">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12">
@@ -287,7 +305,7 @@
                             <li>Partners in Success</li>
                             <li>Trusted by Industry Leaders</li>
                         </ul>
-                        <a class="btn btn-style-one btn-border mt-35" href="#">Book a Meeting <i class="fas fa-arrow-right"></i></a>
+                        <a class="btn btn-style-one btn-border mt-35" href="<?= base_url('book-free-consultation') ?>">Book a Meeting <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -347,7 +365,7 @@
 
     <!-- Start Team 
     ============================================= -->
-    <div class="team-style-two-area default-padding bottom-less">
+    <div class="team-style-two-area default-padding bottom-less  bg-gray blurry-shape-left-bottom">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
@@ -460,7 +478,7 @@
                     <div class="col-lg-3 col-md-6 mb-30">
                         <div class="team-style-two-item fade-up-anim">
                             <div class="thumb">
-                                <img src="<?= base_url('assets/img/about/neelmadhab.png') ?>" alt="Image Not Found">
+                                <img src="<?= base_url('assets/img/about/neelmadhab1.png') ?>" alt="Image Not Found">
                                 <div class="social-overlay">
                                     <ul>
                                         <li>
@@ -490,30 +508,32 @@
         </div>
     </div>
     <!-- End Team -->
-
     <!-- Call to Action
     ============================================= -->
-    <div class="default-padding bg-dark text-light" style="background-image: url(<?= base_url('assets/img/shape/10.png') ?>); background-size: cover;">
+    <div class="home-blog-two-area default-padding">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="cta-box text-center fade-up-anim">
-                        <h2 class="cta-title mb-20">Ready to Transform Your Supply Chain?</h2>
-                        <p class="cta-description mb-30">
-                            Let's discuss how our AI-powered solutions can help you optimize operations and drive measurable results. Our team is ready to understand your unique challenges.
-                        </p>
-                        <div class="cta-buttons">
-                            <a class="btn btn-style-one btn-border" href="contact-us.html">
-                                Book a Meeting <i class="fas fa-arrow-right"></i>
-                            </a>
-                            <a class="btn btn-style-one ml-20" href="contact-us.html">
-                                Send Message <i class="fas fa-arrow-right"></i>
-                            </a>
+            <div class="blog-style-two-box bg-dark" styles="background-image: url(<?= base_url('assets/img/shape/10.png') ?>); background-size: cover;">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="cta-box text-center fade-up-anim">
+                            <h2 class="cta-title mb-20">Ready to Transform Your Supply Chain?</h2>
+                            <p class="cta-description mb-30">
+                                Let's discuss how our AI-powered solutions can help you optimize operations and drive measurable results. Our team is ready to understand your unique challenges.
+                            </p>
+                            <div class="cta-buttons">
+                                <a class="btn btn-style-one btn-border" href="contact-us.html">
+                                    Book a Meeting <i class="fas fa-arrow-right"></i>
+                                </a>
+                                <a class="btn btn-style-one ml-20" href="contact-us.html">
+                                    Send Message <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <!-- End Call to Action -->
 </div>

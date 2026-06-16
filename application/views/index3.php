@@ -46,66 +46,39 @@
         <div class="homepage-carousel2 swiper">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
+                <?php foreach ($banners as $key => $br) {
+                    $class = "banner-content";
+                    if ($key == 0) {
+                        $class = "banner-content-left";
+                        $btn_class = "float:left";
+                    } else if ($key == 1) {
+                        $class = "banner-content";
+                        $btn_class = "text-center";
+                    } else {
+                        $class = "banner-content-right";
+                        $btn_class = "float:right";
+                    }
+                ?>
+                    <div class="swiper-slide">
+                        <div class="banner-box">
+                            <?php if (!empty($br['video_id'])) { ?>
+                                <?php echo $br['video_id'] ?>
+                            <?php } else { ?>
+                                <img src="<?= base_url('uploads/images/') . $br['image'] ?>" alt="<?= $br['alt_text'] ?>">
+                            <?php } ?>
+                            <div class="<?= $class ?>">
+                                <h1> <?= html_entity_decode($br['title']) ?> </h1>
+                                <p> <?= html_entity_decode($br['short_description']) ?></p>
 
-
-
-                <div class="swiper-slide">
-                    <div class="banner-box">
-                        <iframe
-                            src="https://player.vimeo.com/video/1200395127?autopause=0&autoplay=1&muted=1&loop=1&background=1"
-                            frameborder="0"
-                            allow="autoplay; fullscreen; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
-
-                        <div class="banner-content">
-                            <h1>Data-Driven Custom Tech For Supply Chain Logistics</h1>
-                            <p>Innovative solutions that combine AI Agents, Gen-AI, IDP, Data Engineering, and Scalable Cloud Integrations to create a foundation of sustainable growth.</p>
-                            <div class="button mt-30 d-block text-center">
-                                <a href="#" class="btn btn-style-one light">Book a Meeting <i class="fas fa-arrow-right"></i></a>
+                                <?php if (!empty($br['cta_btn']) && !empty($br['cta_link'])) { ?>
+                                    <div class="button mt-30 d-block <?= $btn_class  ?>">
+                                        <a href="<?= urldecode($br['cta_link']) ?>" class="btn btn-style-one light " style="<?= $btn_class  ?>"><?= html_entity_decode($br['cta_btn']) ?> <i class=" fas fa-arrow-right"></i></a>
+                                    </div>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="banner-box">
-
-                        <iframe
-                            src="https://player.vimeo.com/video/1200398429?autopause=0&autoplay=1&muted=1&loop=1&background=1"
-                            frameborder="0"
-                            allow="autoplay; fullscreen; picture-in-picture"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen>
-                        </iframe>
-
-
-                        <div class="banner-content">
-                            <h1>Future-Ready Custom Tech For Supply Chain Logistics</h1>
-                            <p>Innovative solutions that combine AI Agents, Gen-AI, IDP, Data Engineering, and Scalable Cloud Integrations to create a foundation of sustainable growth.</p>
-                            <div class="button mt-30 d-block text-center">
-                                <a href="#" class="btn btn-style-one light">Book a Meeting <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="banner-box">
-                        <iframe
-                            title="vimeo-player"
-                            src="https://player.vimeo.com/video/1200399112?autopause=0&autoplay=1&muted=1&loop=1&background=1"
-                            frameborder="0"
-                            allow="autoplay; fullscreen; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
-                        <div class="banner-content">
-                            <h1>AI-Powered Custom Tech For Supply Chain Logistics</h1>
-                            <p>Innovative solutions that combine AI Agents, Gen-AI, IDP, Data Engineering, and Scalable Cloud Integrations to create a foundation of sustainable growth.</p>
-                            <div class="button mt-30 d-block text-center">
-                                <a href="#" class="btn btn-style-one light">Book a Meeting <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php } ?>
 
             </div>
             <div class="swiper-pagination"></div>
@@ -115,23 +88,77 @@
             </div> -->
         </div>
     <?php } ?>
+
+    <!--
+    <div class="container mt-4">
+        <div class="row g-2">
+
+            <div class="col-6 col-sm-4 col-lg-2">
+                <a href="#who-we-are"
+                    class="btn btn-primary w-100 h-100 d-flex align-items-center 
+                      justify-content-center text-center py-2 lh-sm"
+                    style="font-size: 0.82rem;">
+                    <?= html_entity_decode($page_data[0]['sub_menu_title1']) ?>
+                </a>
+            </div>
+
+            <div class="col-6 col-sm-4 col-lg-2">
+                <a href="#what-do-we-offer"
+                    class="btn btn-primary w-100 h-100 d-flex align-items-center 
+                      justify-content-center text-center py-2 lh-sm"
+                    style="font-size: 0.82rem;">
+                    <?= html_entity_decode($page_data[0]['sub_menu_title2']) ?>
+                </a>
+            </div>
+
+            <div class="col-6 col-sm-4 col-lg-2">
+                <a href="#our-approach"
+                    class="btn btn-primary w-100 h-100 d-flex align-items-center 
+                      justify-content-center text-center py-2 lh-sm"
+                    style="font-size: 0.82rem;">
+                    Our Approach
+                </a>
+            </div>
+
+            <div class="col-6 col-sm-4 col-lg-2">
+                <a href="#why-choose-us"
+                    class="btn btn-primary w-100 h-100 d-flex align-items-center 
+                      justify-content-center text-center py-2 lh-sm"
+                    style="font-size: 0.82rem;">
+                    <?= html_entity_decode($page_data[0]['sub_menu_title4']) ?>
+                </a>
+            </div>
+
+            <div class="col-6 col-sm-4 col-lg-2">
+                <a href="#whom-do-we-serve"
+                    class="btn btn-primary w-100 h-100 d-flex align-items-center 
+                      justify-content-center text-center py-2 lh-sm"
+                    style="font-size: 0.82rem;">
+                    <?= html_entity_decode($page_data[0]['sub_menu_title3']) ?>
+                </a>
+            </div>
+
+            <div class="col-6 col-sm-4 col-lg-2">
+                <a href="#our-achievements"
+                    class="btn btn-primary w-100 h-100 d-flex align-items-center 
+                      justify-content-center text-center py-2 lh-sm"
+                    style="font-size: 0.82rem;">
+                    Our Features
+                </a>
+            </div>
+
+        </div>
+    </div>
+                                -->
     <!-- End Section 1 -->
 
-
-
-
-
-
-
     <!-- Start Section 2 -->
-    <div class="about-style-one-area default-padding-top">
-        <div class="container">
+    <div class="about-style-one-area default-padding-top" id="who-we-are">
+        <div class=" container">
             <div class="row">
                 <div class="col-xl-8 col-lg-7">
-                    <div class="about-style-one-info bg-gray fade-up-anim" style="background-image: url(assets/img/shape/3.png);">
-
-                        <h4 class="sub-title">The Cozentus Difference</h4>
-                        <h2 class="title"> <?= $page_data[0]['title'] ?></h2>
+                    <div class="about-style-one-info bg-gray fade-up-anim1" style="background-image: url(assets/img/shape/3.png);">
+                        <h2 class="title "> <?= $page_data[0]['title'] ?></h2>
                         <?php if (!empty($page_data[0]['content'])) { ?>
                             <p>
                                 <?= html_entity_decode($page_data[0]['content']) ?>
@@ -142,7 +169,7 @@
                 </div>
                 <div class="col-xl-4 col-lg-5">
                     <div class="card-style-one-item fade-up-anim bg-gradient text-light">
-                        <img src="assets/img/illustration/4.png" alt="Image Not Found">
+                        <!-- <img src="assets/img/illustration/4.png" alt="Image Not Found"> -->
                         <div class="info">
                             <h3><?= $page_data[0]['description'] ?></h3>
                             <p>
@@ -153,12 +180,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-style-one-two fade-up-anim mt-20">
-                        <div class="fun-fact">
-                            <div class="js-counter">26+</div>
-                            <h4>Years of Experience in the Logistics Field.</h4>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -167,12 +189,11 @@
 
     <!-- Start Section 3 -->
     <?php if (!empty($servicehomecard)) { ?>
-        <div class="services-style-one-area default-padding">
-            <div class="container">
+        <div class="services-style-one-area default-padding" id="what-do-we-offer">
+            <div class=" container">
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
                         <div class="site-heading text-center">
-                            <h4 class="sub-title">What We BUILD </h4>
                             <h2 class="title split-text-right split-text-in-right"><?= html_entity_decode($page_data[0]['offerin_heading']) ?></h2>
                             <!-- <p><?= html_entity_decode($page_data[0]['offerin_content']) ?></p> -->
                         </div>
@@ -200,13 +221,13 @@
 
                         <!-- Single Item -->
                         <div class="col-lg-4 col-md-6 community-card text-light" style="background-image: url(assets/img/shape/1.jpg);">
-                            <h4>View All Services</h4>
+                            <h4>Bring us the problem. We'll build the answer</h4>
                             <p>
-                                Solutions Tailored to Your Business Needs
+                                Solutions tailored to your business needs
                             </p>
                             <div class="info">
                                 <div class="button mt-15">
-                                    <a href="<?= base_url('services') ?>" class="btn btn-style-one light">View All <i class="fas fa-arrow-right"></i></a>
+                                    <a href="<?= base_url('services') ?>" class="btn btn-style-one light">Explore all services <i class="fas fa-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -217,9 +238,10 @@
         </div>
     <?php } ?>
     <!-- End Section 3 -->
+
     <!-- Start Section 4 -->
-    <div class="process-style-one-area default-padding-top bg-theme text-light bg-cover"
-        style="background-image: url(assets/img/shape/banner-6.jpg);">
+    <div class="process-style-one-area default-padding-top bg-theme text-light bg-cover" id="our-approach"
+        style=" background-image: url(assets/img/shape/banner-6.jpg);">
         <!-- <div class="shape">
             <img src="assets/img/illustration/Mascot.png" alt="Image Not Found">
         </div> -->
@@ -227,7 +249,7 @@
             <div class="row">
                 <div class="col-xl-6 col-lg-8">
                     <div class="site-heading">
-                        <h4 class="sub-title">How it works</h4>
+                        <!-- <h4 class="sub-title">How it works</h4> -->
                         <h2 class="title split-text-right split-text-in-right"><?= $oursignis[0]['whytitle'] ?></h2>
                     </div>
                 </div>
@@ -257,66 +279,12 @@
         </div>
     </div>
     <!-- End Section 4 -->
-    <!-- Start Section 5 -->
-    <div class="project-style-one-area default-padding bg-gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-4">
-                    <div class="fixed-content">
-                        <div class="site-heading">
-                            <h4 class="sub-title">Industries</h4>
-                            <h2 class="title split-text-right split-text-in-right"><?= $industries[0]['title'] ?></h2>
-                            <p>
-                                <?= $industries[0]['short_description'] ?>
-                            </p>
-                        </div>
-                        <div class="project-fun-fact">
-                            <div class="js-counter">2,100+</div>
-                            <h4>Successfully Delivered Projects Across Industries</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-8 pl-50 pl-md-15 pl-xs-15">
-                    <div class="project-style-one-items">
-                        <!-- Single Item -->
-                        <?php foreach ($homesliders as $slider) { ?>
-                            <div class="project-style-one-item">
-                                <div class="thumb">
-                                    <img src="<?= base_url('uploads/images/' . $slider['image']) ?>" alt="">
-
-                                </div>
-                                <div class="info">
-                                    <div class="top">
-                                        <h3><a href="<?= base_url($slider['cta_link']) ?>"><?= html_entity_decode($slider['title']) ?></a></h3>
-                                        <p>
-                                            <?= html_entity_decode($slider['short_description']) ?>
-                                        </p>
-                                    </div>
-                                    <div class="bottom">
-                                        <a href="<?= base_url($slider['cta_link']) ?>" class="btn-simple">
-                                            <?= html_entity_decode($slider['cta_btn']) ?>
-                                            <i class="fas fa-long-arrow-right"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php } ?>
-                        <!-- End Single Item -->
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Section 5 -->
-
     <!-- Start Section 6 -->
-    <div class="team-style-one-area default-padding">
-        <div class="container">
-            <div class="row">
+    <div class="team-style-one-area default-padding" id="why-choose-us">
+        <div class=" container">
+            <div class="row">`
                 <div class="col-lg-8 offset-lg-2">
                     <div class="site-heading text-center">
-                        <h4 class="sub-title">Milestone </h4>
                         <h2 class="title split-text-right split-text-in-right"><?= $oursignis[0]['title']; ?></h2>
                     </div>
                 </div>
@@ -416,15 +384,65 @@
         <!-- End Fun Fact -->
     </div>
     <!-- End Section 6 -->
+    <!-- Start Section 5 -->
+    <div class="project-style-one-area default-padding bg-gray" id="whom-do-we-serve">
+        <div class=" container">
+            <div class="row">
+                <div class="col-xl-4">
+                    <div class="fixed-content">
+                        <div class="site-heading">
+                            <h2 class="title split-text-right split-text-in-right"><?= $industries[0]['title'] ?></h2>
+                            <p>
+                                <?= $industries[0]['short_description'] ?>
+                            </p>
+                        </div>
+                        <div class="project-fun-fact">
+                            <div class="js-counter">2,100+</div>
+                            <h4>Successfully Delivered Projects Across Industries</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-8 pl-50 pl-md-15 pl-xs-15">
+                    <div class="project-style-one-items">
+                        <!-- Single Item -->
+                        <?php foreach ($homesliders as $slider) { ?>
+                            <div class="project-style-one-item">
+                                <div class="thumb">
+                                    <img src="<?= base_url('uploads/images/' . $slider['image']) ?>" alt="">
+
+                                </div>
+                                <div class="info">
+                                    <div class="top">
+                                        <h3><a href="<?= base_url($slider['cta_link']) ?>"><?= html_entity_decode($slider['title']) ?></a></h3>
+                                        <p>
+                                            <?= html_entity_decode($slider['short_description']) ?>
+                                        </p>
+                                    </div>
+                                    <div class="bottom">
+                                        <a href="<?= base_url($slider['cta_link']) ?>" class="btn-simple">
+                                            <?= html_entity_decode($slider['cta_btn']) ?>
+                                            <i class="fas fa-long-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } ?>
+                        <!-- End Single Item -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Section 5 -->
 
     <!-- Start Section 7 -->
     <?php if (!empty($homesection7)) { ?>
-        <div class="feature-style-one-area default-padding bg-gray blurry-shape-half-right-bottom" style="background-image: url(assets/img/shape/3.png);">
+        <div class="feature-style-one-area default-padding bg-gray blurry-shape-half-right-bottom" id="our-achievements" style=" background-image: url(assets/img/shape/banner-19.jpg);">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="site-heading">
-                            <h4 class="sub-title">Our Features</h4>
                             <h2 class="title split-text-right split-text-in-right"> <?= html_entity_decode($homesection7[0]['title']) ?></h2>
                         </div>
                     </div>
@@ -500,7 +518,7 @@
     <!-- End Section 7 -->
 
     <!-- Start Section 8 -->
-    <?php if (!empty($homesection8)) { ?>
+    <?php /*if (!empty($homesection8)) { ?>
         <div class="faq-style-one-area accordion-secondary blurry-shape-right-bottom default-padding bg-gray" style="background-image: url(assets/img/shape/7.png);">
             <div class="container">
                 <div class="row">
@@ -543,7 +561,7 @@
                 </div>
             </div>
         </div>
-    <?php } ?>
+    <?php } */ ?>
     <!-- End Section 8 -->
 
     <!-- Start Section 9 -->
@@ -552,8 +570,7 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <div class="site-heading text-center">
-                        <h4 class="sub-title">Latest Blog</h4>
-                        <h2 class="title split-text-right split-text-in-right">News & Update</h2>
+                        <h2 class="title split-text-right split-text-in-right">Latest Blog</h2>
                     </div>
                 </div>
             </div>
