@@ -29,13 +29,31 @@
                                 <input type="hidden" class="imagem" name="mimage" />
                             </div>
                             <div class="form-group">
-                                <label>CTA Button Label</label>
+                                <label>CTA Button Label 1</label>
                                 <input type="text" class="form-control" name="ctabtn">
                             </div>
                             <div class="form-group">
-                                <label>CTA Button Link</label>
+                                <label>CTA Button Link 1</label>
                                 <input type="text" class="form-control" name="ctalink">
                             </div>
+
+                            <div class="form-group">
+                                <label>CTA Button Label 2</label>
+                                <input type="text" class="form-control" name="ctabtn2">
+                            </div>
+                            <div class="form-group">
+                                <label>CTA Button Link 2</label>
+                                <input type="text" class="form-control" name="ctalink2">
+                            </div>
+                            <div class="form-group">
+                                <label>CTA Button Label 3</label>
+                                <input type="text" class="form-control" name="ctabtn3">
+                            </div>
+                            <div class="form-group">
+                                <label>CTA Button Link 3</label>
+                                <input type="text" class="form-control" name="ctalink3">
+                            </div>
+
                             <div class="form-group">
                                 <label>List Priority (0 for default)</label>
                                 <input type="text" class="form-control" name="orderby" value="0" required>

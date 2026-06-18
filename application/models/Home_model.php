@@ -38,7 +38,7 @@
         }
         function get_home_sliders()
         {
-            $this->db->select('h.title,h.short_description,h.cta_btn,h.cta_link,i.image,i.alt_text,j.image mob_image,j.alt_text as mob_alt');
+            $this->db->select('h.title,h.short_description,h.cta_btn,h.cta_link,h.cta_btn2,h.cta_link2,h.cta_btn3,h.cta_link3,i.image,i.alt_text,j.image mob_image,j.alt_text as mob_alt');
             $this->db->order_by('h.orderby', 'asc');
             $this->db->from('home_slider_master h');
             $this->db->join('images_master i', 'i.id=h.image', 'left');
@@ -299,14 +299,15 @@
 
         function getrecblogs($type, $limit = false)
         {
-            $this->db->order_by('created_at', 'DESC');
-            if ($limit)
-                $this->db->limit($limit);
             $this->db->select('b.id,b.title,b.description,b.slug,b.posted,i.image,i.alt_text,b.tags');
             $this->db->from('blogs b');
             $this->db->join('images_master i', 'i.id=b.thumbnail');
             $this->db->where(['b.is_active' => 1, 'b.type' => $type]);
+            $this->db->order_by('posted', 'DESC');
+            if ($limit)
+                $this->db->limit($limit);
             $qry = $this->db->get();
+            // echo $this->db->last_query();
             if ($qry->num_rows() > 0) {
                 return $qry->result_array();
             }

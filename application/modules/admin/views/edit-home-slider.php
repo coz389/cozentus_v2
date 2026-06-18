@@ -31,13 +31,33 @@
                                 <input type="hidden" class="imagem" value="<?= $mob_image ?>" name="mimage" />
                             </div>
                             <div class="form-group">
-                                <label>CTA Button Label</label>
+                                <label>CTA Button Label 1</label>
                                 <input type="text" class="form-control" name="ctabtn" value="<?= $cta_btn ?>">
                             </div>
                             <div class="form-group">
-                                <label>CTA Button Link</label>
+                                <label>CTA Button Link 1</label>
                                 <input type="text" class="form-control" name="ctalink" value="<?= urldecode($cta_link) ?>">
                             </div>
+
+
+                            <div class="form-group">
+                                <label>CTA Button Label 2</label>
+                                <input type="text" class="form-control" name="ctabtn2" value="<?= $cta_btn2 ?>">
+                            </div>
+                            <div class="form-group">
+                                <label>CTA Button Link 2</label>
+                                <input type="text" class="form-control" name="ctalink2" value="<?= urldecode($cta_link2) ?>">
+                            </div>
+                            <div class="form-group">
+                                <label>CTA Button Label 3</label>
+                                <input type="text" class="form-control" name="ctabtn3" value="<?= $cta_btn3 ?>">
+                            </div>
+                            <div class="form-group">
+                                <label>CTA Button Link 3</label>
+                                <input type="text" class="form-control" name="ctalink3" value="<?= urldecode($cta_link3) ?>">
+                            </div>
+
+
                             <div class="form-group">
                                 <label>List Priority (0 for default)</label>
                                 <input type="text" class="form-control" name="orderby" value="<?= $orderby ?>" required>

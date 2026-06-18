@@ -1318,8 +1318,26 @@ class Admin extends MX_Controller
         $orderby = $this->input->post('orderby');
         $ctalink = $this->input->post('ctalink');
         $ctabtn = $this->input->post('ctabtn');
+
+        $ctalink2 = $this->input->post('ctalink2');
+        $ctabtn2 = $this->input->post('ctabtn2');
+        $ctalink3 = $this->input->post('ctalink3');
+        $ctabtn3 = $this->input->post('ctabtn3');
+
         $id = $this->input->post('id');
-        $data = array('title' => htmlentities($title), 'image' => $image, 'mob_image' => $mimage, 'short_description' => $shortdescription, 'orderby' => $orderby, 'cta_btn' => $ctabtn, 'cta_link' => urlencode($ctalink));
+        $data = array(
+            'title' => htmlentities($title),
+            'image' => $image,
+            'mob_image' => $mimage,
+            'short_description' => $shortdescription,
+            'orderby' => $orderby,
+            'cta_btn' => $ctabtn,
+            'cta_link' => urlencode($ctalink),
+            'cta_btn2' => $ctabtn2,
+            'cta_link2' => urlencode($ctalink2),
+            'cta_btn3' => $ctabtn3,
+            'cta_link3' => urlencode($ctalink3)
+        );
         if (!empty($id)) {
             $qry = $this->admin_model->update_home_slider($data, ['id' => $id]);
         } else {

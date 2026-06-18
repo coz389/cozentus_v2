@@ -188,10 +188,10 @@
             direction: "horizontal",
             loop: true,
             autoplay: {
-                delay: 20000, // 6 sec wait
+                delay: 12000, // 6 sec wait
                 disableOnInteraction: false,
             },
-            speed: 1000, // 1 sec transition animation
+            speed: 2000, // 1 sec transition animation
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
@@ -199,77 +199,76 @@
             on: {
                 afterInit: function () {
                     const activeTitle = document.querySelector(".swiper-slide-active .animated-title");
+                    const activeSlide = document.querySelector(".swiper-slide-active");
 
-                    if (activeTitle) {
-                        animateTitle(activeTitle);
-                        const activeParagraph = document.querySelector(".swiper-slide-active .animated-paragraph");
-
-                        if (activeParagraph) {
-                            animateParagraph(activeParagraph);
-                        }
-
-                        const activeButton = document.querySelector(".swiper-slide-active .button-animation");
-
-                        if (activeButton) {
-                            setTimeout(() => {
-                                animateButton(activeButton);
-                            }, 2500);
-                        }
+                    if (activeSlide) {
+                        showSlideContent(activeSlide);
                     }
                     updateNavbarForSlide(this);
                 },
                 slideChangeTransitionStart: function () {
-                    const activeTitle = document.querySelector(".swiper-slide-active .animated-title");
+                    document.querySelectorAll(".swiper-slide").forEach((slide) => {
+                        hideSlideContent(slide);
+                    });
 
-                    if (activeTitle) {
-                        animateTitle(activeTitle);
-                        const activeParagraph = document.querySelector(".swiper-slide-active .animated-paragraph");
+                    updateNavbarForSlide(this);
+                },
+                slideChangeTransitionEnd: function () {
+                    const activeSlide = document.querySelector(".swiper-slide-active");
 
-                        if (activeParagraph) {
-                            animateParagraph(activeParagraph);
-                        }
-
-                        const activeButton = document.querySelector(".swiper-slide-active .button-animation");
-
-                        if (activeButton) {
-                            setTimeout(() => {
-                                animateButton(activeButton);
-                            }, 2500);
-                        }
+                    if (activeSlide) {
+                        showSlideContent(activeSlide);
                     }
 
                     updateNavbarForSlide(this);
                 },
-
-                // slideChangeTransitionEnd: function () {
-                //     const activeTitle = document.querySelector(".swiper-slide-active .animated-title");
-
-                //     if (activeTitle) {
-                //         animateTitle(activeTitle);
-                //         const activeParagraph = document.querySelector(".swiper-slide-active .animated-paragraph");
-
-                //         if (activeParagraph) {
-                //             animateParagraph(activeParagraph);
-                //         }
-
-                //         const activeButton = document.querySelector(".swiper-slide-active .button-animation");
-
-                //         if (activeButton) {
-                //             setTimeout(() => {
-                //                 animateButton(activeButton);
-                //             }, 2500);
-                //         }
-                //     }
-
-                //     updateNavbarForSlide(this);
-                // },
             },
         });
+        function showSlideContent(slide) {
+            const title = slide.querySelector(".animated-title");
+            const paragraph = slide.querySelector(".animated-paragraph");
+            const button = slide.querySelector(".button-animation");
+
+            if (title) {
+                title.classList.remove("d-none");
+                animateTitle(title);
+            }
+
+            if (paragraph) {
+                paragraph.classList.remove("d-none");
+            }
+
+            if (button) {
+                button.classList.remove("d-none");
+
+                setTimeout(() => {
+                    animateButton(button);
+                }, 2500);
+            }
+        }
+        function hideSlideContent(slide) {
+            const title = slide.querySelector(".animated-title");
+            const paragraph = slide.querySelector(".animated-paragraph");
+            const button = slide.querySelector(".button-animation");
+
+            if (title) {
+                title.classList.add("d-none");
+            }
+
+            if (paragraph) {
+                paragraph.classList.add("d-none");
+            }
+
+            if (button) {
+                button.classList.add("d-none");
+                button.classList.remove("animate");
+            }
+        }
         function animateTitle(titleElement) {
             if (!titleElement.dataset.originalHtml) {
                 titleElement.dataset.originalHtml = titleElement.innerHTML;
             }
-
+            titleElement.classList.remove("d-none");
             titleElement.innerHTML = titleElement.dataset.originalHtml;
 
             // const nodes = titleElement.childNodes;

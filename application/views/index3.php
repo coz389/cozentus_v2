@@ -55,10 +55,10 @@
                                 <img src="<?= base_url('uploads/images/') . $br['image'] ?>" alt="<?= $br['alt_text'] ?>">
                             <?php } ?>
                             <div class="<?= $br['text_alignment_class'] ?>">
-                                <h1 class="animated-title"> <?= html_entity_decode($br['title']) ?> </h1>
-                                <p class="animated-paragraph animate"> <?= html_entity_decode($br['short_description']) ?></p>
+                                <h1 class="animated-title d-none"> <?= html_entity_decode($br['title']) ?> </h1>
+                                <p class="animated-paragraph animate d-none"> <?= html_entity_decode($br['short_description']) ?></p>
                                 <?php if (!empty($br['cta_btn']) && !empty($br['cta_link'])) { ?>
-                                    <div class=" button button-animation  mt-30 d-block <?= $br['btn_alignment_class']  ?>">
+                                    <div class=" button button-animation  mt-30 d-block d-none <?= $br['btn_alignment_class']  ?>">
                                         <a href="<?= urldecode($br['cta_link']) ?>" class="btn btn-style-one light " style="<?= $br['btn_alignment_class']  ?>"><?= html_entity_decode($br['cta_btn']) ?> <i class=" fas fa-arrow-right"></i></a>
                                     </div>
                                 <?php } ?>
@@ -412,12 +412,37 @@
                                             <?= html_entity_decode($slider['short_description']) ?>
                                         </p>
                                     </div>
+
                                     <div class="bottom">
-                                        <a href="<?= base_url($slider['cta_link']) ?>" class="btn-simple">
-                                            <?= html_entity_decode($slider['cta_btn']) ?>
-                                            <i class="fas fa-long-arrow-right"></i>
-                                        </a>
+                                        <ul class="project-tags mb-30">
+                                            <?php if (!empty($slider['cta_link'])) { ?>
+                                                <li>
+                                                    <a href="<?= base_url($slider['cta_link']) ?>" class="btn-simple">
+                                                        <?= html_entity_decode($slider['cta_btn']) ?>
+                                                        <i class="fas fa-long-arrow-right"></i>
+                                                    </a>
+                                                </li>
+                                            <?php } ?>
+                                            <?php if (!empty($slider['cta_link2'])) { ?>
+                                                <li>
+                                                    <a href="<?= base_url($slider['cta_link2']) ?>" class="btn-simple">
+                                                        <?= html_entity_decode($slider['cta_btn2']) ?>
+                                                        <i class="fas fa-long-arrow-right"></i>
+                                                    </a>
+                                                </li>
+                                            <?php } ?>
+                                            <?php if (!empty($slider['cta_link3'])) { ?>
+                                                <li>
+                                                    <a href="<?= base_url($slider['cta_link3']) ?>" class="btn-simple">
+                                                        <?= html_entity_decode($slider['cta_btn3']) ?>
+                                                        <i class="fas fa-long-arrow-right"></i>
+                                                    </a>
+                                                </li>
+                                            <?php } ?>
+                                        </ul>
+
                                     </div>
+
                                 </div>
                             </div>
                         <?php } ?>

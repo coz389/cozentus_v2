@@ -56,15 +56,8 @@
             <div class="row mb-5">
                 <div class="col-12">
                     <div class="cz-section-heading">
-                        <span class="cz-subtitle">— ABOUT US</span>
-                        <h2 class="cz-main-title text-dark">Built By People Who've Run Supply Chains</h2>
-                        <p class="cz-desc-wide">Most tech companies build for logistics. We built Cozentus because
-                            we've lived it — the operational complexity, the systems that almost work, the
-                            integrations that break at the worst moments. That's why everything we build is custom.
-                            Not configured. Not licensed. Yours. We sit with your team, understand your operations,
-                            and engineer software that solves the actual problem — not a generalised version of it.
-                            Across the US, UK, and India, our teams combine deep domain expertise with world-class
-                            engineering. The result is technology that moves at the speed your business demands</p>
+                        <h2 class="cz-main-title text-dark">Where Logistics Knowledge Meets Engineering</h2>
+                        <p class="cz-desc-wide">With more than two decades spent building custom technology for the supply chain, the founders of Cozentus bring a depth of domain expertise few in the industry can match. Backed by a seasoned leadership team and a workforce of experienced technical and functional specialists, we partner with major logistics and supply chain organizations as an extension of their own teams, building and optimizing the systems that run their operations. Through our in-house innovation hub and adaptable engagement models, we deliver with the speed, quality and precision that complex logistics demands.</p>
                     </div>
                 </div>
             </div>
@@ -131,9 +124,9 @@
             <div class="row">
 
                 <div class="col-lg-12">
-                    <div class="heading-style-two">
+                    <!-- <div class="heading-style-two">
                         <h1 class="text-transform-up " style="font-size: 100px;">Values That <strong>Power Our Work</strong></h1>
-                    </div>
+                    </div> -->
                     <div class="project-style-two-items">
                         <!-- Single Item -->
                         <div class="project-style-two-item">
@@ -371,9 +364,9 @@
                 <div class="col-lg-8 offset-lg-2">
                     <div class="site-heading text-center">
 
-                        <h2 class="title split-text-right split-text-in-right">The Team Behind</h2>
+                        <h2 class="title split-text-right split-text-in-right">The People Behind Cozentus</h2>
                         <p>
-                            Leaders with deep industry roots and the commercial instinct to match.
+                            A leadership team with decades of expertise across supply chain logistics and the technology behind it.
                         </p>
                     </div>
 
@@ -478,7 +471,7 @@
                     <div class="col-lg-3 col-md-6 mb-30">
                         <div class="team-style-two-item fade-up-anim">
                             <div class="thumb">
-                                <img src="<?= base_url('assets/img/about/neelmadhab1.png') ?>" alt="Image Not Found">
+                                <img src="<?= base_url('assets/img/about/Neel.png') ?>" alt="Image Not Found">
                                 <div class="social-overlay">
                                     <ul>
                                         <li>
