@@ -53,6 +53,22 @@
                                 <label>CTA Button Link 3</label>
                                 <input type="text" class="form-control" name="ctalink3">
                             </div>
+                            <div class="form-group">
+                                <label>CTA Button Label 4</label>
+                                <input type="text" class="form-control" name="ctabtn4">
+                            </div>
+                            <div class="form-group">
+                                <label>CTA Button Link 4</label>
+                                <input type="text" class="form-control" name="ctalink4">
+                            </div>
+                            <div class="form-group">
+                                <label>CTA Button Label 5</label>
+                                <input type="text" class="form-control" name="ctabtn5">
+                            </div>
+                            <div class="form-group">
+                                <label>CTA Button Link 5</label>
+                                <input type="text" class="form-control" name="ctalink5">
+                            </div>
 
                             <div class="form-group">
                                 <label>List Priority (0 for default)</label>

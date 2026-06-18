@@ -417,7 +417,7 @@
                                         <ul class="project-tags mb-30">
                                             <?php if (!empty($slider['cta_link'])) { ?>
                                                 <li>
-                                                    <a href="<?= base_url($slider['cta_link']) ?>" class="btn-simple">
+                                                    <a href="<?= base_url(urldecode($slider['cta_link'])) ?>" class="btn-simple">
                                                         <?= html_entity_decode($slider['cta_btn']) ?>
                                                         <i class="fas fa-long-arrow-right"></i>
                                                     </a>
@@ -425,7 +425,7 @@
                                             <?php } ?>
                                             <?php if (!empty($slider['cta_link2'])) { ?>
                                                 <li>
-                                                    <a href="<?= base_url($slider['cta_link2']) ?>" class="btn-simple">
+                                                    <a href="<?= base_url(urldecode($slider['cta_link2'])) ?>" class="btn-simple">
                                                         <?= html_entity_decode($slider['cta_btn2']) ?>
                                                         <i class="fas fa-long-arrow-right"></i>
                                                     </a>
@@ -433,8 +433,24 @@
                                             <?php } ?>
                                             <?php if (!empty($slider['cta_link3'])) { ?>
                                                 <li>
-                                                    <a href="<?= base_url($slider['cta_link3']) ?>" class="btn-simple">
+                                                    <a href="<?= base_url(urldecode($slider['cta_link3'])) ?>" class="btn-simple">
                                                         <?= html_entity_decode($slider['cta_btn3']) ?>
+                                                        <i class="fas fa-long-arrow-right"></i>
+                                                    </a>
+                                                </li>
+                                            <?php } ?>
+                                            <?php if (!empty($slider['cta_link4'])) { ?>
+                                                <li>
+                                                    <a href="<?= base_url(urldecode($slider['cta_link4'])) ?>" class="btn-simple">
+                                                        <?= html_entity_decode($slider['cta_btn4']) ?>
+                                                        <i class="fas fa-long-arrow-right"></i>
+                                                    </a>
+                                                </li>
+                                            <?php } ?>
+                                            <?php if (!empty($slider['cta_link5'])) { ?>
+                                                <li>
+                                                    <a href="<?= base_url(urldecode($slider['cta_link5'])) ?>" class="btn-simple">
+                                                        <?= html_entity_decode($slider['cta_btn5']) ?>
                                                         <i class="fas fa-long-arrow-right"></i>
                                                     </a>
                                                 </li>

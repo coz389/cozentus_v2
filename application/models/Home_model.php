@@ -38,7 +38,7 @@
         }
         function get_home_sliders()
         {
-            $this->db->select('h.title,h.short_description,h.cta_btn,h.cta_link,h.cta_btn2,h.cta_link2,h.cta_btn3,h.cta_link3,i.image,i.alt_text,j.image mob_image,j.alt_text as mob_alt');
+            $this->db->select('h.title,h.short_description,h.cta_btn,h.cta_link,h.cta_btn2,h.cta_link2,h.cta_btn3,h.cta_link3,h.cta_btn4,h.cta_link4,h.cta_btn5,h.cta_link5,i.image,i.alt_text,j.image mob_image,j.alt_text as mob_alt');
             $this->db->order_by('h.orderby', 'asc');
             $this->db->from('home_slider_master h');
             $this->db->join('images_master i', 'i.id=h.image', 'left');
@@ -840,7 +840,7 @@
             $this->db->from('blogs b');
             $this->db->join('images_master i', 'i.id = b.thumbnail');
             $this->db->where(['b.is_active' => 1, 'b.serviceid' => $id, 'type' => $type]);
-            $this->db->order_by('b.id', 'desc');
+            $this->db->order_by('posted', 'desc');
             $this->db->limit(4);
             $qry = $this->db->get();
             if ($qry->num_rows() > 0) {
@@ -856,7 +856,7 @@
             $this->db->from('blogs b');
             $this->db->join('images_master i', 'i.id=b.thumbnail');
             $this->db->where(['b.is_active' => 1, 'b.type' => $type]);
-            $this->db->order_by('b.id', 'desc');
+            $this->db->order_by('posted', 'desc');
             $this->db->limit(4);
             $qry = $this->db->get();
             if ($qry->num_rows() > 0) {

@@ -56,6 +56,22 @@
                                 <label>CTA Button Link 3</label>
                                 <input type="text" class="form-control" name="ctalink3" value="<?= urldecode($cta_link3) ?>">
                             </div>
+                            <div class="form-group">
+                                <label>CTA Button Label 4</label>
+                                <input type="text" class="form-control" name="ctabtn4" value="<?= $cta_btn4 ?>">
+                            </div>
+                            <div class="form-group">
+                                <label>CTA Button Link 4</label>
+                                <input type="text" class="form-control" name="ctalink4" value="<?= urldecode($cta_link4) ?>">
+                            </div>
+                            <div class="form-group">
+                                <label>CTA Button Label 5</label>
+                                <input type="text" class="form-control" name="ctabtn5" value="<?= $cta_btn5 ?>">
+                            </div>
+                            <div class="form-group">
+                                <label>CTA Button Link 5</label>
+                                <input type="text" class="form-control" name="ctalink5" value="<?= urldecode($cta_link5) ?>">
+                            </div>
 
 
                             <div class="form-group">

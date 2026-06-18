@@ -1323,6 +1323,10 @@ class Admin extends MX_Controller
         $ctabtn2 = $this->input->post('ctabtn2');
         $ctalink3 = $this->input->post('ctalink3');
         $ctabtn3 = $this->input->post('ctabtn3');
+        $ctalink4 = $this->input->post('ctalink4');
+        $ctabtn4 = $this->input->post('ctabtn4');
+        $ctalink5 = $this->input->post('ctalink5');
+        $ctabtn5 = $this->input->post('ctabtn5');
 
         $id = $this->input->post('id');
         $data = array(
@@ -1336,7 +1340,11 @@ class Admin extends MX_Controller
             'cta_btn2' => $ctabtn2,
             'cta_link2' => urlencode($ctalink2),
             'cta_btn3' => $ctabtn3,
-            'cta_link3' => urlencode($ctalink3)
+            'cta_link3' => urlencode($ctalink3),
+            'cta_btn4' => $ctabtn4,
+            'cta_link4' => urlencode($ctalink4),
+            'cta_btn5' => $ctabtn5,
+            'cta_link5' => urlencode($ctalink5),
         );
         if (!empty($id)) {
             $qry = $this->admin_model->update_home_slider($data, ['id' => $id]);
