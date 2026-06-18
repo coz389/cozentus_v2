@@ -175,7 +175,7 @@
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="choose-us-thumb">
-                            <img class="leftRightScroll" src="<?= base_url('uploads/images/') . $pserv['mbanners'][0]['image'] ?>" alt="Image Not Found">
+                            <img class="leftRightScroll1" src="<?= base_url('uploads/images/') . $pserv['mbanners'][0]['image'] ?>" alt="Image Not Found" style=" object-fit: contain !important;">
                         </div>
                     </div>
                     <div class="col-lg-6 offset-lg-1">

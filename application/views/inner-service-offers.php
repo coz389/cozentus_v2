@@ -90,10 +90,10 @@
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="choose-us-thumb">
-                            <img class="leftRightScroll" src="<?= base_url('uploads/images/' . $pserv['industriesimage']) ?>" alt="Image Not Found">
+                            <img class="leftRightScroll1" src="<?= base_url('uploads/images/' . $pserv['industriesimage']) ?>" alt="Image Not Found" style=" object-fit: contain !important;">
                         </div>
                     </div>
-                    <div class="col-lg-6 offset-lg-1">
+                    <div class=" col-lg-6 offset-lg-1">
                         <div class="choose-us-one-info default-padding-bottom">
                             <h2 class="title split-text-right split-text-in-right"><?= $pserv['why_heading'] ?></h2>
                             <ul class="list-style-three mt-15 fade-up-anim">

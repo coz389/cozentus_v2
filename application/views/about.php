@@ -139,7 +139,12 @@
 
                                 </div>
                                 <div class="bottom">
-                                    <a href="#" class="btn-simple">Read More <i class="fas fa-long-arrow-right"></i></a>
+                                    <ul class="project-tags mb-30">
+                                        <li>Trusted Partner</li>
+                                        <li>AI Logistics</li>
+                                        <li>Reliability</li>
+                                        <li>Global Supply Chain</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -154,7 +159,10 @@
                                     <p class="split-text-right split-text-in-right" style="perspective: 400px; font-size: 22px;">We combine logistics expertise, intelligent technology, and AI to deliver tailored solutions that create measurable impact for our clients.</p>
                                 </div>
                                 <div class="bottom">
-                                    <a href="#" class="btn-simple">Read More <i class="fas fa-long-arrow-right"></i></a>
+                                    <ul class="project-tags mb-30">
+                                        <li>Logistics Innovation</li>
+                                        <li>Intelligent Automation</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -168,7 +176,11 @@
                                     <p class="split-text-right split-text-in-right" style="perspective: 400px; font-size: 22px;">Pride, Commitment, Quality, Transparency</p>
                                 </div>
                                 <div class="bottom">
-                                    <a href="#" class="btn-simple">Read More <i class="fas fa-long-arrow-right"></i></a>
+                                    <ul class="project-tags mb-30">
+                                        <li>Engineering Quality</li>
+                                        <li>Accountability</li>
+                                        <li>Craftsmanship</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>

@@ -3676,7 +3676,7 @@ html.lenis body {
 
 @media (min-width: 1024px) {
     .banner-style-three-area {
-        height: 100vh;
+        height: 75vh;
         padding-top: 50px;
     }
 }
@@ -4812,10 +4812,11 @@ p.strong {
     # Why Choose Us
 =================================================================== */
 .choose-us-thumb {
-    display: flex;
+    /*
     flex-direction: column;
+    justify-content: flex-end;*/
+    display: flex;
     height: 100%;
-    justify-content: flex-end;
 }
 
 .choose-us-one-info {
@@ -5425,7 +5426,7 @@ ul.service-list li .icon {
     text-align: center;
     background: var(--bg-gray);
     min-width: 60px;
-    padding: 17px;
+    padding: 8px;
     border-radius: 50%;
 }
 
