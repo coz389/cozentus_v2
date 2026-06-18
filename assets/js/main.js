@@ -188,10 +188,9 @@
             direction: "horizontal",
             loop: true,
             autoplay: {
-                delay: 6000, // 6 sec wait
+                delay: 20000, // 6 sec wait
                 disableOnInteraction: false,
             },
-            autoplay: true,
             speed: 1000, // 1 sec transition animation
             pagination: {
                 el: ".swiper-pagination",
@@ -199,13 +198,207 @@
             },
             on: {
                 afterInit: function () {
+                    const activeTitle = document.querySelector(".swiper-slide-active .animated-title");
+
+                    if (activeTitle) {
+                        animateTitle(activeTitle);
+                        const activeParagraph = document.querySelector(".swiper-slide-active .animated-paragraph");
+
+                        if (activeParagraph) {
+                            animateParagraph(activeParagraph);
+                        }
+
+                        const activeButton = document.querySelector(".swiper-slide-active .button-animation");
+
+                        if (activeButton) {
+                            setTimeout(() => {
+                                animateButton(activeButton);
+                            }, 2500);
+                        }
+                    }
                     updateNavbarForSlide(this);
                 },
                 slideChangeTransitionStart: function () {
+                    const activeTitle = document.querySelector(".swiper-slide-active .animated-title");
+
+                    if (activeTitle) {
+                        animateTitle(activeTitle);
+                        const activeParagraph = document.querySelector(".swiper-slide-active .animated-paragraph");
+
+                        if (activeParagraph) {
+                            animateParagraph(activeParagraph);
+                        }
+
+                        const activeButton = document.querySelector(".swiper-slide-active .button-animation");
+
+                        if (activeButton) {
+                            setTimeout(() => {
+                                animateButton(activeButton);
+                            }, 2500);
+                        }
+                    }
+
                     updateNavbarForSlide(this);
                 },
+
+                // slideChangeTransitionEnd: function () {
+                //     const activeTitle = document.querySelector(".swiper-slide-active .animated-title");
+
+                //     if (activeTitle) {
+                //         animateTitle(activeTitle);
+                //         const activeParagraph = document.querySelector(".swiper-slide-active .animated-paragraph");
+
+                //         if (activeParagraph) {
+                //             animateParagraph(activeParagraph);
+                //         }
+
+                //         const activeButton = document.querySelector(".swiper-slide-active .button-animation");
+
+                //         if (activeButton) {
+                //             setTimeout(() => {
+                //                 animateButton(activeButton);
+                //             }, 2500);
+                //         }
+                //     }
+
+                //     updateNavbarForSlide(this);
+                // },
             },
         });
+        function animateTitle(titleElement) {
+            if (!titleElement.dataset.originalHtml) {
+                titleElement.dataset.originalHtml = titleElement.innerHTML;
+            }
+
+            titleElement.innerHTML = titleElement.dataset.originalHtml;
+
+            // const nodes = titleElement.childNodes;
+            const nodes = Array.from(titleElement.childNodes);
+
+            let delay = 0;
+
+            nodes.forEach((node) => {
+                if (node.nodeType === 3) {
+                    const text = node.textContent.trim();
+
+                    const fragment = document.createDocumentFragment();
+
+                    text.split(" ").forEach((word) => {
+                        if (!word) return;
+
+                        const wordSpan = document.createElement("span");
+
+                        wordSpan.className = "word";
+
+                        word.split("").forEach((char) => {
+                            const charSpan = document.createElement("span");
+
+                            charSpan.className = "char";
+
+                            charSpan.textContent = char;
+
+                            charSpan.style.animationDelay = `${delay}s`;
+
+                            delay += 0.04;
+
+                            wordSpan.appendChild(charSpan);
+                        });
+
+                        fragment.appendChild(wordSpan);
+
+                        fragment.appendChild(document.createTextNode(" "));
+                    });
+
+                    node.replaceWith(fragment);
+                }
+
+                if (node.nodeType === 1 && node.tagName.toLowerCase() === "strong") {
+                    const text = node.textContent.trim();
+
+                    node.innerHTML = "";
+
+                    text.split(" ").forEach((word) => {
+                        const wordSpan = document.createElement("span");
+
+                        wordSpan.className = "word";
+
+                        word.split("").forEach((char) => {
+                            const charSpan = document.createElement("span");
+
+                            charSpan.className = "char";
+
+                            charSpan.textContent = char;
+
+                            charSpan.style.animationDelay = `${delay}s`;
+
+                            delay += 0.04;
+
+                            wordSpan.appendChild(charSpan);
+                        });
+
+                        node.appendChild(wordSpan);
+
+                        node.appendChild(document.createTextNode(" "));
+                    });
+                }
+            });
+
+            titleElement.classList.remove("animate");
+
+            void titleElement.offsetWidth;
+
+            titleElement.classList.add("animate");
+
+            // Animation for p tag
+            const activeParagraph = titleElement.parentElement.querySelector("p");
+
+            if (activeParagraph) {
+                activeParagraph.style.animation = "none";
+
+                void activeParagraph.offsetWidth;
+
+                activeParagraph.style.animation = "paragraphReveal 1s ease forwards";
+
+                activeParagraph.style.animationDelay = "1.5s";
+            }
+        }
+        function animateParagraph(paragraph) {
+            const text = paragraph.dataset.original || paragraph.textContent;
+            console.log("Paragraph Animation Running");
+            paragraph.dataset.original = text;
+
+            paragraph.innerHTML = "";
+
+            const words = text.split(" ");
+
+            words.forEach((word, index) => {
+                const span = document.createElement("span");
+
+                span.className = "word";
+
+                span.textContent = word;
+
+                span.style.animationDelay = `${index * 0.15}s`;
+
+                paragraph.appendChild(span);
+
+                paragraph.appendChild(document.createTextNode(" "));
+            });
+
+            paragraph.classList.remove("animate");
+
+            void paragraph.offsetWidth;
+
+            paragraph.classList.add("animate");
+        }
+
+        function animateButton(button) {
+            button.classList.remove("animate");
+
+            void button.offsetWidth;
+
+            button.classList.add("animate");
+        }
 
         // Navbar ko black karo agar active slide mein video (iframe) hai
         function updateNavbarForSlide(swiper) {

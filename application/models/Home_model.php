@@ -26,7 +26,7 @@
         }
         function get_home_banners()
         {
-            $this->db->select('h.title,h.video_id,h.short_description,h.cta_btn,h.cta_link,i.image,i.alt_text');
+            $this->db->select('h.title,h.video_id,h.short_description,h.cta_btn,h.cta_link,,h.text_alignment_class,h.btn_alignment_class,i.image,i.alt_text');
             $this->db->order_by('h.orderby', 'asc');
             $this->db->from('home_banner_master h');
             $this->db->join('images_master i', 'i.id=h.image', 'left');

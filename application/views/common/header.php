@@ -110,7 +110,7 @@
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="<?= base_url() ?>">
                         <!-- <img src="<?= base_url('assets/img/logo-light.png') ?>" class="logo logo-display" alt="Logo"> -->
                         <img src="<?= base_url('assets/img/logo.png') ?>" class="logo logo-scrolled" alt="Logo">
                     </a>

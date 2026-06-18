@@ -132,12 +132,12 @@
 
                 <div class="col-lg-12">
                     <div class="heading-style-two">
-                        <h1 class="text-transform-up " style="font-size: 100px;">That Values <strong>Power Our Work</strong></h1>
+                        <h1 class="text-transform-up " style="font-size: 100px;">Values That <strong>Power Our Work</strong></h1>
                     </div>
                     <div class="project-style-two-items">
                         <!-- Single Item -->
                         <div class="project-style-two-item">
-                            <img src="<?= base_url('assets/img/about/mission.jpg') ?>" alt="Image Not Found">
+                            <img src="<?= base_url('assets/img/about/Mission-1.jpg') ?>" alt="Mission">
                             <div class="info bg-dark text-light" style="background-image: url(<?= base_url('assets/img/shape/10.png') ?>);">
                                 <div class="top">
 
@@ -153,7 +153,7 @@
                         <!-- End Single Item -->
                         <!-- Single Item -->
                         <div class="project-style-two-item">
-                            <img src="<?= base_url('assets/img/about/vission.jpg') ?>" alt="Image Not Found">
+                            <img src="<?= base_url('assets/img/about/Vission-1.jpg') ?>" alt="Vission">
                             <div class="info bg-dark text-light" style="background-image: url(<?= base_url('assets/img/shape/10.png') ?>);">
                                 <div class="top">
 
@@ -168,7 +168,7 @@
                         <!-- End Single Item -->
                         <!-- Single Item -->
                         <div class="project-style-two-item">
-                            <img src="<?= base_url('assets/img/about/values.jpg') ?>" alt="Image Not Found">
+                            <img src="<?= base_url('assets/img/about/Value-1.jpg') ?>" alt="Values">
                             <div class="info bg-dark text-light" style="background-image: url(<?= base_url('assets/img/shape/10.png') ?>);">
                                 <div class="top">
                                     <h2 style="font-size: 60px;">Values</h2>

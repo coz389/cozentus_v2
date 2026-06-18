@@ -382,7 +382,7 @@ select.valid {
 #backToTop {
     position: fixed;
     right: 25px;
-    bottom: 25px;
+    bottom: 85px;
     width: 50px;
     height: 50px;
     border: none;
@@ -570,6 +570,7 @@ select.valid {
     font-size: 40px;
     text-align: left;
 }
+
 .banner-content-left p {
     font-size: 20px;
     font-weight: 400;
@@ -624,6 +625,7 @@ select.valid {
     font-size: 40px;
     text-align: center;
 }
+
 .banner-content p {
     font-size: 20px;
     font-weight: 400;
@@ -668,6 +670,7 @@ select.valid {
     font-size: 40px;
     text-align: right;
 }
+
 .banner-content-right p {
     font-size: 20px;
     font-weight: 400;
@@ -676,7 +679,133 @@ select.valid {
     margin-bottom: 0;
     text-align: right;
 }
+/* Letter animation */
+.banner-content-left h1 strong .char,
+.banner-content h1 strong .char,
+.banner-content-right h1 strong .char {
+    background-image: linear-gradient(90deg, #7476ff 0%, #89c7fe 50%, #7476ff 100%);
 
+    background-size: 300% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+.word {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(50px);
+}
+.animated-title {
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: break-word;
+}
+
+.animated-title.animate .char {
+    animation:
+        letterReveal 0.5s ease forwards,
+        gradientMove 4s linear infinite;
+}
+.animated-title .char {
+    color: #ffffff;
+}
+
+.animated-title strong .char {
+    background-image: linear-gradient(90deg, #7476ff, #89c7fe, #7476ff);
+
+    background-size: 300% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+@keyframes letterReveal {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+        filter: blur(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+.banner-content-left p,
+.banner-content p,
+.banner-content-right p {
+    opacity: 0;
+}
+
+/* Active slide paragraph animation */
+
+.animated-paragraph {
+    opacity: 0;
+}
+
+.swiper-slide-active .animated-paragraph {
+    animation: paragraphReveal 1s ease forwards;
+    animation-delay: 1.8s;
+}
+
+@keyframes paragraphReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+        filter: blur(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+.button-animation {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+}
+
+.button-animation.animate {
+    animation: buttonReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes buttonReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+
+    60% {
+        transform: translateY(-5px) scale(1.03);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
 /* ── Banner Slider Overlay Box  End */
 .parent-sevice-domain-capability .service-style-one-item {
     border: 2px solid #e7e7e7 !important;

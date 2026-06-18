@@ -217,7 +217,7 @@ class Admin_model extends CI_Model
     }
     function update_home_industries($data, $where)
     {
-        $this->db->update('home_Industries_master', $data, $where);
+        $this->db->update('home_industries_master', $data, $where);
         if ($this->db->affected_rows() > 0) {
             return true;
         }
@@ -225,7 +225,7 @@ class Admin_model extends CI_Model
     }
     function update_home_innovation($data, $where)
     {
-        $this->db->update('home_Innovation', $data, $where);
+        $this->db->update('home_innovation', $data, $where);
         if ($this->db->affected_rows() > 0) {
             return true;
         }

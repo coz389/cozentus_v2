@@ -1118,7 +1118,36 @@ class Admin extends MX_Controller
         $ctalink = $this->input->post('ctalink');
         $ctabtn = $this->input->post('ctabtn');
         $id = $this->input->post('id');
-        $data = array('title' => htmlentities($title), 'video_id' => $video_id, 'image' => $image, 'mob_image' => $mimage, 'short_description' => $shortdescription, 'orderby' => $orderby, 'cta_btn' => $ctabtn, 'cta_link' => urlencode($ctalink));
+
+        $text_alignment = $this->input->post('text_alignment');
+        $text_class = "banner-content";
+        $btn_class = "text-center";
+        if (!empty($text_alignment)) {
+            if ($text_alignment == 1) {
+                $text_class = "banner-content-left";
+                $btn_class = "float:left";
+            } else if ($text_alignment == 2) {
+                $text_class = "banner-content-right";
+                $btn_class = "float:right";
+            } else if ($text_alignment == 3) {
+                $text_class = "banner-content";
+                $btn_class = "text-center";
+            }
+        }
+
+        $data = array(
+            'title' => htmlentities($title),
+            'video_id' => $video_id,
+            'image' => $image,
+            'mob_image' => $mimage,
+            'short_description' => $shortdescription,
+            'orderby' => $orderby,
+            'cta_btn' => $ctabtn,
+            'cta_link' => urlencode($ctalink),
+            'text_align' => $text_alignment,
+            'text_alignment_class' => $text_class,
+            'btn_alignment_class' => $btn_class,
+        );
         if (!empty($id)) {
             $qry = $this->admin_model->update_home_banner($data, ['id' => $id]);
         } else {

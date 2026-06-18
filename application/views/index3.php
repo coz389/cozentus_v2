@@ -46,19 +46,7 @@
         <div class="homepage-carousel2 swiper">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
-                <?php foreach ($banners as $key => $br) {
-                    $class = "banner-content";
-                    if ($key == 0) {
-                        $class = "banner-content-left";
-                        $btn_class = "float:left";
-                    } else if ($key == 1) {
-                        $class = "banner-content";
-                        $btn_class = "text-center";
-                    } else {
-                        $class = "banner-content-right";
-                        $btn_class = "float:right";
-                    }
-                ?>
+                <?php foreach ($banners as $key => $br) { ?>
                     <div class="swiper-slide">
                         <div class="banner-box">
                             <?php if (!empty($br['video_id'])) { ?>
@@ -66,13 +54,12 @@
                             <?php } else { ?>
                                 <img src="<?= base_url('uploads/images/') . $br['image'] ?>" alt="<?= $br['alt_text'] ?>">
                             <?php } ?>
-                            <div class="<?= $class ?>">
-                                <h1> <?= html_entity_decode($br['title']) ?> </h1>
-                                <p> <?= html_entity_decode($br['short_description']) ?></p>
-
+                            <div class="<?= $br['text_alignment_class'] ?>">
+                                <h1 class="animated-title"> <?= html_entity_decode($br['title']) ?> </h1>
+                                <p class="animated-paragraph animate"> <?= html_entity_decode($br['short_description']) ?></p>
                                 <?php if (!empty($br['cta_btn']) && !empty($br['cta_link'])) { ?>
-                                    <div class="button mt-30 d-block <?= $btn_class  ?>">
-                                        <a href="<?= urldecode($br['cta_link']) ?>" class="btn btn-style-one light " style="<?= $btn_class  ?>"><?= html_entity_decode($br['cta_btn']) ?> <i class=" fas fa-arrow-right"></i></a>
+                                    <div class=" button button-animation  mt-30 d-block <?= $br['btn_alignment_class']  ?>">
+                                        <a href="<?= urldecode($br['cta_link']) ?>" class="btn btn-style-one light " style="<?= $br['btn_alignment_class']  ?>"><?= html_entity_decode($br['cta_btn']) ?> <i class=" fas fa-arrow-right"></i></a>
                                     </div>
                                 <?php } ?>
                             </div>
@@ -168,7 +155,7 @@
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-5">
-                    <div class="card-style-one-item fade-up-anim bg-gradient text-light">
+                    <div class="card-style-one-item fade-up-anim1 bg-gradient text-light">
                         <!-- <img src="assets/img/illustration/4.png" alt="Image Not Found"> -->
                         <div class="info">
                             <h3><?= $page_data[0]['description'] ?></h3>
@@ -395,11 +382,18 @@
                             <p>
                                 <?= $industries[0]['short_description'] ?>
                             </p>
+                            <?php if (!empty($industries[0]['cta_link'])) { ?>
+                                <a href="<?= base_url($industries[0]['cta_link']) ?>" class="btn btn-style-one">
+                                    <?= html_entity_decode($industries[0]['cta_btn']) ?>
+                                    <i class="fas fa-long-arrow-right"></i>
+                                </a>
+                            <?php } ?>
                         </div>
-                        <div class="project-fun-fact">
+
+                        <!-- <div class="project-fun-fact">
                             <div class="js-counter">2,100+</div>
                             <h4>Successfully Delivered Projects Across Industries</h4>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-xl-8 pl-50 pl-md-15 pl-xs-15">
