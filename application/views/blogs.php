@@ -59,7 +59,7 @@
             </div>
         </div>
         <!-- Pagination -->
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-12 pagi-area text-center">
                 <nav aria-label="navigation">
                     <ul class="pagination">
@@ -71,7 +71,7 @@
                     </ul>
                 </nav>
             </div>
-        </div>
+        </div> -->
         <!-- End Pagination -->
     </div>
 </div>
@@ -105,7 +105,7 @@
             },
             dataType: "json",
             success: function(res) {
-                console.log(res); // Log the response to the console
+                //console.log(res); // Log the response to the console
                 var temp = ``;
 
                 if (res.length) {

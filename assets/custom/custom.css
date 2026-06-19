@@ -567,7 +567,7 @@ select.valid {
     margin-bottom: 15px;
     font-weight: 500;
     color: #ffffff;
-    font-size: 40px;
+    font-size: 62px;
     text-align: left;
 }
 
@@ -622,7 +622,7 @@ select.valid {
     margin-bottom: 15px;
     font-weight: 500;
     color: #ffffff;
-    font-size: 40px;
+    font-size: 62px;
     text-align: center;
 }
 
@@ -667,7 +667,7 @@ select.valid {
     margin-bottom: 15px;
     font-weight: 500;
     color: #ffffff;
-    font-size: 40px;
+    font-size: 62px;
     text-align: right;
 }
 
@@ -964,6 +964,12 @@ select.valid {
 
 
 /* =============  Media Query ====================================*/
+@media (min-width: 1024px) {
+    .banner-style-three-area1 {
+        height: 35vh !important;
+        padding-top: 145px;
+    }
+}
 @media (min-width: 1600px) {
     .breadcrumb-area {
         max-width: 100%;

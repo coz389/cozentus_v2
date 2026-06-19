@@ -40,6 +40,20 @@
         const base_url = "http://localhost/cozentus_v2/";
         const site_url = "<?= site_url(); ?>";
     </script>
+
+    <style>
+        @media (min-width: 1024px) {
+            .megamenu-style-two .megamenu-banner .thumb {
+                height: 200px;
+            }
+
+            .megamenu-style-two .megamenu-banner .thumb img {
+                object-fit: contain;
+                height: 100%;
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body class="smooth-scroll-yes">
@@ -163,7 +177,7 @@
                                         </div>
                                         <div class="megamenu-banner">
                                             <div class="thumb">
-                                                <img src="<?= base_url('assets/custom/images/Coz-Menu-Services_1.webp') ?>" alt="">
+                                                <img src="<?= base_url('assets/custom/images/Service.png') ?>" alt="">
                                                 <!-- <img src="<?= base_url('assets/img/thumb/6.jpg') ?>" alt="Image Not Found">
                                                 <a href="https://www.youtube.com/watch?v=iyARCQ7Ohd4" class="popup-youtube video-button"><i class="fas fa-play"></i></a> -->
                                             </div>
@@ -205,7 +219,7 @@
                                             <div class="thumb">
                                                 <!-- <img src="<?= base_url('assets/img/thumb/6.jpg') ?>" alt="Image Not Found">
                                                 <a href="https://www.youtube.com/watch?v=iyARCQ7Ohd4" class="popup-youtube video-button"><i class="fas fa-play"></i></a> -->
-                                                <img src="<?= base_url('assets/custom/images/Coz-Menu-Services.webp') ?>" alt="">
+                                                <img src="<?= base_url('assets/custom/images/Domain capability.png') ?>" alt="">
                                             </div>
                                             <!-- <h4>Intro Video</h4> -->
                                         </div>
@@ -240,7 +254,7 @@
                                             <div class="thumb">
                                                 <!-- <img src="<?= base_url('assets/img/thumb/6.jpg') ?>" alt="Image Not Found">
                                                 <a href="https://www.youtube.com/watch?v=iyARCQ7Ohd4" class="popup-youtube video-button"><i class="fas fa-play"></i></a> -->
-                                                <img src="<?= base_url('assets/custom/images/resources-menu.webp') ?>" alt="">
+                                                <img src="<?= base_url('assets/custom/images/Resource.png') ?>" alt="">
                                             </div>
                                             <!-- <h4>Intro Video</h4> -->
                                         </div>

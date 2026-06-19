@@ -327,7 +327,7 @@
             $this->db->join('images_master i', 'i.id = b.thumbnail');
             $this->db->where(['b.is_active' => 1, 'b.type' => $type]);
             $this->db->where(['b.end_date >=' => date('Y-m-d')]);
-            $this->db->order_by("b.id", "desc");
+            $this->db->order_by("b.posted", "desc");
 
             if (!empty($service))
                 $this->db->where('serviceid', $service);

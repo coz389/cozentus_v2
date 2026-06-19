@@ -421,6 +421,34 @@
         /* ==================================================
             # Banner Carousel
          ===============================================*/
+        const TeamSlider = new Swiper(".team-carousel", {
+            // Optional parameters
+            direction: "horizontal",
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            slidesPerView: 4,
+            breakpoints: {
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 40,
+                },
+                992: {
+                    slidesPerView: 4,
+                    spaceBetween: 20,
+                },
+                1400: {
+                    slidesPerView: 4,
+                    spaceBetween: 20,
+                },
+            },
+        });
         const bannerFade = new Swiper(".banner-fade", {
             // Optional parameters
             direction: "horizontal",

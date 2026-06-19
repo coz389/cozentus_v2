@@ -553,7 +553,7 @@
 <!-- <script defer src="<?= base_url('assets/custom/app.js?v=1.0') ?>"></script>
  <script defer src="<?= base_url('assets/custom/form.js?v=1.0') ?>"></script> -->
 
-
+<script defer src="<?= base_url('assets/custom/webinar-form.js') ?>"></script>
 
 
 

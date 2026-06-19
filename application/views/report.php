@@ -1,0 +1,99 @@
+ <?php
+    if (!empty($image)) {
+        $banner = base_url('uploads/images/' . $image);
+    } else {
+        $banner = base_url('assets/img/shape/banner-16.jpg');
+    }
+
+    ?>
+ <div class="breadcrumb-area text-center bg-cover text-dark bg-theme" style="background-image: url(<?= $banner ?>);">
+     <div class="container mt-5">
+         <div class="row">
+             <div class="col-lg-10 mx-auto">
+                 <!-- <h1><?= $title ?></h1> -->
+             </div>
+         </div>
+     </div>
+ </div>
+
+ <div class="blog-area single full-blog full-blog">
+     <div class="container">
+         <div class="blog-items">
+             <div class="row">
+                 <div class="blog-content wow fadeInUp col-lg-8 mx-auto col-md-12">
+
+                     <div class="item">
+                         <div class="blog-item-box">
+
+                             <!-- <div class="thumb">
+                        <a href="#"><img src="<?= base_url('assets/img/blog/v1.jpg') ?>" alt="Thumb"></a>
+                    </div> -->
+
+                             <div class="info">
+                                 <div class="meta  d-flex justify-content-between align-items-left flex-column flex-md-row">
+                                     <ul class="d-flex mb-2 mb-md-0">
+                                         <li>
+                                             <a href="#"><i class="fas fa-calendar-alt"></i> <?= date('F d, Y', strtotime($posted)) ?></a>
+                                         </li>
+                                         <?php if (!empty($author)) { ?>
+                                             <li>
+                                                 <a href="#">
+                                                     <img src="<?= base_url('uploads/images/') . $aimage ?>" alt="<?= $aalt_text ?>" style="
+                                                width:25px;
+                                                height:25px;
+                                                border-radius:50%;
+                                                object-fit:cover;
+                                            ">
+                                                     <?= $author ?>
+                                                 </a>
+                                             </li>
+                                         <?php } ?>
+                                     </ul>
+                                     <div class="social">
+                                         <ul class="d-flex mb-0">
+                                             <li>
+                                                 <a class="linkedin" href="#" target="_blank" onclick="link_click()"><i class="fab fa-linkedin-in"></i></a>
+                                             </li>
+                                             <li>
+                                                 <a class="facebook" href="#" target="_blank" onclick="fbs_click()"><i class="fab fa-facebook-f"></i></a>
+                                             </li>
+                                             <li>
+                                                 <a class="twitter" href="#" target="_blank" onclick="twi_click()">
+                                                     <img src="<?= base_url('assets/img/icon/icons8-x-30.png') ?>" alt="Image Not Found" height="20">
+                                                 </a>
+                                             </li>
+                                         </ul>
+                                     </div>
+                                 </div>
+
+                                 <div>
+                                     <h1><?= $title ?></h1>
+                                     <?= html_entity_decode($content) ?>
+                                 </div>
+
+                             </div>
+                         </div>
+                     </div>
+
+
+
+                     <div class="newsletter-style-three text-center bg-dark mt-5 mb-5 p-5" style="background-image: url(<?= base_url('assets/img/shape/10.png') ?>);">
+                         <h4 class="text-light">Transform Your Supply Chain Tech Today</h4>
+                         <p>Book a Strategy Call Explore Our Whitepapers</p>
+
+                         <a href="<?= base_url('book-free-consultation') ?>" class="btn btn-style-one mb-3">
+                             Book a Strategy Call <i class="fa fa-arrow-right"></i>
+                         </a>
+                         <a href="<?= base_url('reports') ?>" class="btn btn-style-one mb-3">
+                             Explore Our Whitepapers <i class="fa fa-arrow-right"></i>
+                         </a>
+                     </div>
+
+                 </div>
+
+
+             </div>
+         </div>
+     </div>
+ </div>
+ <!-- End Blog -->

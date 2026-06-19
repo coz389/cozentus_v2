@@ -1,7 +1,25 @@
 <div id="smooth-content">
     <style>
-        .banner-style-three-info h2 strong {
+        .banner-style-three-info h2 strong,
+        .cz-our-story h2 {
             font-size: 55px !important;
+        }
+
+        .cz-story-card:hover {
+            transform: translateY(0px) !important;
+            box-shadow: rgba(14, 48, 92, 0.12) 0px 25px 75px;
+        }
+
+        .team-style-two-item .thumb {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            height: 400px;
+        }
+
+        .team-style-two-item .thumb img {
+            height: 100%;
+            object-fit: contain;
         }
 
         @media (min-width: 1600px) {
@@ -57,7 +75,7 @@
                 <div class="col-12">
                     <div class="cz-section-heading">
                         <h2 class="cz-main-title text-dark">Where Logistics Knowledge Meets Engineering</h2>
-                        <p class="cz-desc-wide">With more than two decades spent building custom technology for the supply chain, the founders of Cozentus bring a depth of domain expertise few in the industry can match. Backed by a seasoned leadership team and a workforce of experienced technical and functional specialists, we partner with major logistics and supply chain organizations as an extension of their own teams, building and optimizing the systems that run their operations. Through our in-house innovation hub and adaptable engagement models, we deliver with the speed, quality and precision that complex logistics demands.</p>
+                        <p class="cz-desc-wide">With more than two decades spent building custom technology for supply chain logistics, the founders of Cozentus bring a depth of domain expertise few in the industry can match. Backed by a seasoned leadership team and a workforce of experienced technical and functional specialists, we partner with major logistics and supply chain organizations as an extension of their own teams, building and optimizing the systems that run their operations. Through our in-house innovation hub and adaptable engagement models, we deliver with the speed, quality and precision that complex logistics demands.</p>
                     </div>
                 </div>
             </div>
@@ -302,13 +320,13 @@
                 </div>
                 <div class="col-lg-6 offset-lg-1">
                     <div class="language-support-info">
-                        <h2 class="title split-text-right split-text-in-right">Our Global Presence</h2>
+                        <h2 class="title split-text-right split-text-in-right">Where we operate</h2>
                         <p>
-                            With a strong presence across the UK, US, and India, we combine strategic expertise and engineering excellence to deliver world-class solutions worldwide.
+                            Teams across the US, UK and India give our clients local partnership and round-the-clock delivery. Wherever you are, you have people in your time zone and a global team building behind them.
                         <ul class="list-style-two">
-                            <li>Global Presence</li>
-                            <li>Partners in Success</li>
-                            <li>Trusted by Industry Leaders</li>
+                            <li>Local partnership, wherever you are</li>
+                            <li>Round-the-clock delivery across time zones</li>
+                            <li>One global team, fully accountable</li>
                         </ul>
                         <a class="btn btn-style-one btn-border mt-35" href="<?= base_url('book-free-consultation') ?>">Book a Meeting <i class="fas fa-arrow-right"></i></a>
                     </div>
@@ -370,148 +388,76 @@
 
     <!-- Start Team 
     ============================================= -->
-    <div class="team-style-two-area default-padding bottom-less  bg-gray blurry-shape-left-bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="site-heading text-center">
 
-                        <h2 class="title split-text-right split-text-in-right">The People Behind Cozentus</h2>
-                        <p>
-                            A leadership team with decades of expertise across supply chain logistics and the technology behind it.
-                        </p>
+    <?php if (!empty($ourteams)) { ?>
+        <div class="team-style-two-area default-padding bottom-less  bg-gray blurry-shape-left-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="site-heading text-center">
+
+                            <h2 class="title split-text-right split-text-in-right">The People Behind Cozentus</h2>
+                            <p>
+                                A leadership team with decades of expertise across supply chain logistics and the technology behind it.
+                            </p>
+                        </div>
+
+
+
                     </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="team-style-two-items">
 
+                    <div class="row align-center">
+                        <div class="team-carousel swiper">
+                            <div class="swiper-wrapper">
+                                <?php foreach ($ourteams as $team) { ?>
+                                    <div class="swiper-slide">
+                                        <div class="col-lg-12 col-md-6 mb-30">
+                                            <div class="team-style-two-item fade-up-anim">
+                                                <div class="thumb">
+                                                    <img src="<?= base_url('uploads/images/') . $team['image'] ?>" alt="Image Not Found">
+                                                    <div class="social-overlay">
+                                                        <ul>
+                                                            <li>
+                                                                <a href="<?= urldecode($team['twitter_link']) ?? '#' ?>" target="__blank">
+                                                                    <i class="fab fa-twitter"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="<?= urldecode($team['link']) ?? '#' ?>" target="__blank"><i class="fab fa-linkedin-in"></i></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="<?= urldecode($team['insta_link']) ?? '#' ?>" target="__blank"><i class="fab fa-instagram"></i></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="<?= urldecode($team['facebook_link']) ?? '#' ?>" target="__blank"><i class="fab fa-facebook-f"></i></a>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="icon">
+                                                            <i class="fas fa-plus"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="info">
+                                                    <h4><a href="<?= base_url('team/') . $team['slug'] ?>"><?= $team['name'] ?></a></h4>
+                                                    <span><?= $team['title'] ?></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
 
-
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="team-style-two-items">
-
-                <div class="row align-center">
-                    <!-- Start Team Item -->
-                    <div class="col-lg-3 col-md-6 mb-30">
-                        <div class="team-style-two-item fade-up-anim">
-                            <div class="thumb">
-                                <img src="<?= base_url('assets/img/about/devesh.webp') ?>" alt="Image Not Found">
-                                <div class="social-overlay">
-                                    <ul>
-                                        <li>
-                                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-dribbble"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        </li>
-                                    </ul>
-                                    <div class="icon">
-                                        <i class="fas fa-plus"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <h4><a href="team-details.html">Devesh Sinha</a></h4>
-                                <span>Founder and CEO</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Team Item -->
-
-                    <!-- Start Team Item -->
-                    <div class="col-lg-3 col-md-6 mb-30">
-                        <div class="team-style-two-item fade-up-anim">
-                            <div class="thumb">
-                                <img src="<?= base_url('assets/img/about/shailu.webp') ?>" alt="Image Not Found">
-                                <div class="social-overlay">
-                                    <ul>
-                                        <li>
-                                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-dribbble"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        </li>
-                                    </ul>
-                                    <div class="icon">
-                                        <i class="fas fa-plus"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <h4><a href="team-details.html">Shailendra Upadhyay</a></h4>
-                                <span>Co-Founder and COO</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Team Item -->
-                    <!-- Start Team Item -->
-                    <div class="col-lg-3 col-md-6 mb-30">
-                        <div class="team-style-two-item fade-up-anim">
-                            <div class="thumb">
-                                <img src="<?= base_url('assets/img/about/rosalin.webp') ?>" alt="Image Not Found">
-                                <div class="social-overlay">
-                                    <ul>
-                                        <li>
-                                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-dribbble"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        </li>
-                                    </ul>
-                                    <div class="icon">
-                                        <i class="fas fa-plus"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <h4><a href="team-details.html">Rosalin Mohanty</a></h4>
-                                <span>Co-Founder and CGO</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Team Item -->
-                    <!-- Start Team Item -->
-                    <div class="col-lg-3 col-md-6 mb-30">
-                        <div class="team-style-two-item fade-up-anim">
-                            <div class="thumb">
-                                <img src="<?= base_url('assets/img/about/Neel.png') ?>" alt="Image Not Found">
-                                <div class="social-overlay">
-                                    <ul>
-                                        <li>
-                                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-dribbble"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        </li>
-                                    </ul>
-                                    <div class="icon">
-                                        <i class="fas fa-plus"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <h4><a href="team-details.html">Neelmadhav Swain</a></h4>
-                                <span>Sr. EVP</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Team Item -->
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php } ?>
     <!-- End Team -->
     <!-- Call to Action
     ============================================= -->

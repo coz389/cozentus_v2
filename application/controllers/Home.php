@@ -1378,6 +1378,7 @@ class Home extends CI_Controller
     {
         // Load session library
         $this->load->library('session');
+        /*
         if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])) {
             $secret_key  = $this->config->item('recaptcha_secret_key');
             $verify_response = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $secret_key . '&response=' . $_POST['g-recaptcha-response']);
@@ -1392,7 +1393,8 @@ class Home extends CI_Controller
         } else {
             $res['msg'] = 'Captcha response not provided';
             $res['status'] = false;
-        }
+        }*/
+        $res['status'] = true;
         if ($res['status']) {
             $data['name'] = $this->input->post('fname') . ' ' . $this->input->post('lname');
             $data['email'] = $this->input->post('email');
@@ -1422,17 +1424,10 @@ class Home extends CI_Controller
                 $res['msg'] = '<p class="alert alert-warning">Please try after some time.</p>';
             }
         }
-        //echo '<pre>'
-        //print_r($_POST);
+        // echo '<pre>'
+        // print_r($_POST);
         echo json_encode($res);
         exit;
-        // Set session data
-
-        // Redirect to a method in another controller
-        redirect('another_controller/method_name');
-        $this->session->set_userdata('status', 'true');
-        if ($res['status'] == true)
-            echo "<script>$('#fullPageModal').modal('hide'); </script>";
     }
     function subscribeformsubmit()
     {
