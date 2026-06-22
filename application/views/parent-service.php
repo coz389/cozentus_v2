@@ -72,7 +72,7 @@
     <!-- End Section 2 -->
 
     <!-- Start Section 3 -->
-    <?php if ($pserv['tailored_json']) { ?>
+    <?php if (!empty($pserv['tailored_json'])) { ?>
         <div class="project-style-one-area default-padding bg-gray">
             <div class="container">
                 <div class="row">
@@ -94,6 +94,9 @@
                         ?>
                             <div class="col-lg-4 col-md-6 service-style-one-single">
                                 <div class="service-style-one-item">
+                                    <div class="icon">
+                                        <img src="<?= base_url('uploads/images/') . $wc['image'] ?>" alt="<?= $ser['alt_text'] ?>">
+                                    </div>
                                     <h5><a href="<?= urldecode($wc['ctalink']) ?>"><?= html_entity_decode($wc['heading']) ?></a></h5>
                                     <p>
                                         <?= html_entity_decode($wc['description']) ?>

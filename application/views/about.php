@@ -472,7 +472,8 @@
                     <div class="row align-center">
                         <div class="team-carousel swiper">
                             <div class="swiper-wrapper">
-                                <?php foreach ($ourteams as $team) { ?>
+                                <?php foreach ($ourteams as $team) {
+                                ?>
                                     <div class="swiper-slide">
                                         <div class="col-lg-12 col-md-6 mb-30">
                                             <div class="team-style-two-item fade-up-anim">
@@ -480,7 +481,7 @@
                                                     <img src="<?= base_url('uploads/images/') . $team['image'] ?>" alt="Image Not Found">
                                                     <div class="text-overlay">
                                                         <p>
-                                                            Devesh is a tech entrepreneur with 30+ years of real-world experience in supply chain logistics and IT. He has delivered logistics solutions across the US, UK, and Europe and serves as a business leader, speaker, and board member.
+                                                            <?= html_entity_decode($team['short_description']) ?>
                                                         </p>
                                                     </div>
                                                     <div class="social-overlay">

@@ -444,7 +444,7 @@
 
             $this->db->order_by("CASE WHEN t.orderby = 0 THEN 1 ELSE 0 END", 'asc', false);
             $this->db->order_by('t.orderby', 'asc');
-            $this->db->select('t.name,t.title,t.details,t.link,t.facebook_link,t.insta_link,t.twitter_link,t.slug,i.image,i.alt_text');
+            $this->db->select('t.name,t.title,t.details,t.short_description,t.link,t.facebook_link,t.insta_link,t.twitter_link,t.slug,i.image,i.alt_text');
             $this->db->from('team_master t');
             $this->db->join('images_master i', 'i.id=t.image', 'left');
             if ($type != 0) {
