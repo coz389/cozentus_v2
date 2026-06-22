@@ -563,8 +563,9 @@
         function getparentservicebyid($id)
         {
             $this->db->where('t.slug', $id);
-            $this->db->select('t.*,i.image as inner_banner_image ,i.alt_text as alt_inner_banner_image,j.image as inner_banner_mimage ,j.alt_text as alt_inner_banner_mimage,k.image as advantage_image ,k.alt_text as alt_advantage_image,l.image as transformation_image ,l.alt_text as alt_transformation_image');
+            $this->db->select('t.*,h.image as card_image,h.alt_text as card_alt_text,i.image as inner_banner_image ,i.alt_text as alt_inner_banner_image,j.image as inner_banner_mimage ,j.alt_text as alt_inner_banner_mimage,k.image as advantage_image ,k.alt_text as alt_advantage_image,l.image as transformation_image ,l.alt_text as alt_transformation_image');
             $this->db->from('parent_service t');
+            $this->db->join('images_master h', 'h.id=t.card_image', 'left');
             $this->db->join('images_master i', 'i.id=t.inner_banner_image', 'left');
             $this->db->join('images_master j', 'j.id=t.inner_banner_mimage', 'left');
             $this->db->join('images_master k', 'k.id=t.advantage_image', 'left');

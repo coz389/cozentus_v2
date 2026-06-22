@@ -452,7 +452,7 @@
                                 foreach ($first_three_faqs as $fq) {
                                 ?>
                                     <div class="accordion-style-one-item">
-                                        <h2 class="accordion-header" id="heading<?= $count ?>">
+                                        <h2 class="accordion-header" id="heading11<?= $count ?>">
                                             <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                                 data-bs-target="#collapse<?= $count ?>" aria-expanded="true"
                                                 aria-controls="collapse<?= $count ?>">
@@ -460,7 +460,7 @@
                                             </button>
                                         </h2>
                                         <div id="collapse<?= $count ?>" class="accordion-collapse collapse <?= $count == 0  ? 'show' : '' ?>"
-                                            aria-labelledby="heading<?= $count ?>" data-bs-parent="#faqAccordion">
+                                            aria-labelledby="heading11<?= $count ?>" data-bs-parent="#faqAccordion">
                                             <div class="accordion-body">
                                                 <p>
                                                     <?= $fq['description'] ?>

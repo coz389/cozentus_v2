@@ -22,6 +22,67 @@
             object-fit: contain;
         }
 
+        /** Teams Slider CSS */
+        /* ── Thumb container must be relative ── */
+        .team-style-two-item .thumb {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-style-two-item .thumb img {
+            width: 100%;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        /* ── Text overlay ── */
+        .team-style-two-item .thumb .text-overlay {
+            position: absolute;
+            bottom: -100%;
+            /* hidden below by default */
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top,
+                    rgba(0, 0, 0, 0.82) 0%,
+                    rgba(0, 0, 0, 0.45) 60%,
+                    transparent 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 15px 38px 15px 20px;
+            transition: bottom 0.4s ease;
+            z-index: 2;
+        }
+
+        .team-style-two-item .thumb .text-overlay p {
+            color: #ffffff;
+            font-size: 13.5px;
+            line-height: 1.6;
+            margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 12;
+            /* max 4 lines */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* ── Slide up on hover ── */
+        .team-style-two-item:hover .thumb .text-overlay {
+            bottom: 0;
+        }
+
+        /* ── Subtle zoom on image ── */
+        .team-style-two-item:hover .thumb img {
+            transform: scale(1.05);
+        }
+
+        /* ── Keep social overlay above text overlay ── */
+        .team-style-two-item .thumb .social-overlay {
+            z-index: 3;
+        }
+
+        /** Teams Slider CSS */
+
         @media (min-width: 1600px) {
             .banner-style-three-area {
                 height: 75vh !important;
@@ -402,8 +463,6 @@
                             </p>
                         </div>
 
-
-
                     </div>
                 </div>
             </div>
@@ -419,6 +478,11 @@
                                             <div class="team-style-two-item fade-up-anim">
                                                 <div class="thumb">
                                                     <img src="<?= base_url('uploads/images/') . $team['image'] ?>" alt="Image Not Found">
+                                                    <div class="text-overlay">
+                                                        <p>
+                                                            Devesh is a tech entrepreneur with 30+ years of real-world experience in supply chain logistics and IT. He has delivered logistics solutions across the US, UK, and Europe and serves as a business leader, speaker, and board member.
+                                                        </p>
+                                                    </div>
                                                     <div class="social-overlay">
                                                         <ul>
                                                             <li>
@@ -450,6 +514,7 @@
                                     </div>
                                 <?php } ?>
                             </div>
+                            <br>
                             <div class="swiper-pagination"></div>
                         </div>
 

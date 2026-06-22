@@ -7,7 +7,7 @@
                     <div class="col-lg-7 pr-60 pr-md-15 pr-xs-15">
                         <div class="banner-style-three-info">
                             <h2 class="wow fadeInUp"><?= $pserv['inner_banner_heading'] ?></h2>
-                            <h4 class="fade-up-anim"><?= $pserv['inner_banner_heading'] ?></h4>
+                            <!-- <h4 class="fade-up-anim"><?= $pserv['inner_banner_heading'] ?></h4> -->
                             <p class="fade-up-anim">
                                 <?= $pserv['inner_banner_description'] ?>
                             </p>
@@ -20,7 +20,7 @@
                     <div class="col-lg-5">
                         <div class="chat-bot-thumb text-center">
                             <div class="illustration">
-                                <img class="wow fadeInUp" data-wow-delay="300ms" src="<?= base_url('assets/img/illustration/dashboard-2.jpg') ?>" alt="Image Not Found">
+                                <img class="wow fadeInUp" data-wow-delay="300ms" src="<?= base_url('uploads/images/') . $pserv['card_image'] ?> ?>" alt="<?= $pserv['card_alt_text'] ?>">
                             </div>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
 
     <!-- Start Section 2 -->
     <?php if (!empty($pserv['advantage_heading'])) { ?>
-        <div class="about-style-three-area default-padding bg-gray bg-cover" style="background: url(assets/img/shape/banner-16.jpg);">
+        <div class="about-style-three-area default-padding bg-gray bg-cover" style="background: url(<?= base_url('assets/img/shape/banner-16.jpg') ?>);">
             <div class="container">
                 <div class="row">
 
@@ -195,7 +195,7 @@
 
     <!-- Start Section 5 Tools & Technology-->
     <?php if (!empty($clients)) { ?>
-        <div class="testimonial-style-four-area default-padding bg-gray bg-cover overflow-hidden" style="background: url(assets/img/shape/banner-16.jpg);">
+        <div class="testimonial-style-four-area default-padding overflow-hidden">
 
             <div class="container">
                 <div class="row">
@@ -207,7 +207,7 @@
                 </div>
             </div>
 
-            <div class="testimonial-style-four-left-carousel swiper">
+            <div class="testimonial-style-four-left-carousel swiper ">
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
                     <!-- Start Team Item -->
@@ -221,9 +221,27 @@
                         </div>
                     <?php } ?>
                     <!-- End Team Item -->
-
                 </div>
             </div>
+            <div class="testimonial-style-four-left-carousel2 swiper pt-5">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Start Team Item -->
+                    <?php foreach ($clients as $ins) { ?>
+                        <div class="swiper-slide">
+                            <div class="testimonial-style-four-item">
+                                <div class="thumb">
+                                    <img src="<?= base_url('uploads/images/') . $ins['image'] ?>" alt="Image Not Found">
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
+                    <!-- End Team Item -->
+                </div>
+            </div>
+
+
+
 
         </div>
     <?php } ?>
@@ -251,7 +269,7 @@
                                     $count++;
                                 ?>
                                     <div class="accordion-style-one-item">
-                                        <h2 class="accordion-header" id="collapseOne1234<?= $count ?>">
+                                        <h2 class="accordion-header" id="heading1234<?= $count ?>">
                                             <button class="accordion-button <?= $count == 1 ? '' : 'collapsed' ?>" type="button" data-bs-toggle="collapse"
                                                 data-bs-target="#collapseOne1234<?= $count ?>" aria-expanded="<?= $count == 1 ? true : false ?>"
                                                 aria-controls="collapseOne1234<?= $count ?>">
@@ -259,7 +277,7 @@
                                             </button>
                                         </h2>
                                         <div id="collapseOne1234<?= $count ?>" class="accordion-collapse collapse <?= $count == 1 ? 'show' : '' ?>"
-                                            aria-labelledby="collapseOne1234<?= $count ?>" data-bs-parent="#faqAccordion1234">
+                                            aria-labelledby="heading1234<?= $count ?>" data-bs-parent="#faqAccordion1234">
                                             <div class="accordion-body">
                                                 <p>
                                                     <?= $fq['description'] ?>
@@ -291,7 +309,7 @@
         $blogs = $this->home_model->getlatestblogs(1, 4);
     }
     if (!empty($blogs)): ?>
-        <div class="home-blog-area default-padding">
+        <div class="home-blog-area default-padding-2">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
@@ -302,7 +320,7 @@
                 </div>
             </div>
             <div class="container">
-                <div class="blog-style-two-box">
+                <div class="blog-style-two-box pt-3 pb-3">
                     <div class="row">
                         <!-- Single Item -->
                         <?php foreach ($blogs as $cs) { ?>
@@ -339,4 +357,33 @@
         </div>
     <?php endif; ?>
     <!-- End Section 1 Blog  -->
+
+    <!-- Call to Action
+    ============================================= -->
+    <div class="home-blog-two-area default-padding-2">
+        <div class="container">
+            <div class="blog-style-two-box bg-dark" styles="background-image: url(<?= base_url('assets/img/shape/10.png') ?>); background-size: cover;">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="cta-box text-center fade-up-anim">
+                            <h2 class="cta-title mb-20">Ready to Transform Your Supply Chain?</h2>
+                            <p class="cta-description mb-30">
+                                Let's discuss how our AI-powered solutions can help you optimize operations and drive measurable results. Our team is ready to understand your unique challenges.
+                            </p>
+                            <div class="cta-buttons">
+                                <a class="btn btn-style-one btn-border" href="contact-us.html">
+                                    Book a Meeting <i class="fas fa-arrow-right"></i>
+                                </a>
+                                <a class="btn btn-style-one ml-20" href="contact-us.html">
+                                    Send Message <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End Call to Action -->
 </div>

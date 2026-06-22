@@ -1415,8 +1415,8 @@ class Home extends CI_Controller
 			<tr><th>Emplyees : <th><td>" . $data['employees'] . "</td></tr>
 			</table>";
                 $sub = "New Enquiry Received";
-                // $this->sendEmail('supplychain@cozentus.com', $msg, $sub);
-                // $this->sendEmail($data['email'], ['topic' => $data['interest'], 'name' => $data['name']], "Your Enquiry Request Received", true);
+                $this->sendEmail('supplychain@cozentus.com', $msg, $sub);
+                $this->sendEmail($data['email'], ['topic' => $data['interest'], 'name' => $data['name']], "Your Enquiry Request Received", true);
                 $res['status'] = true;
                 $res['msg'] = '<p class="alert alert-success">Form Submitted</p>';
             } else {

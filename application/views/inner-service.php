@@ -429,7 +429,7 @@
                                     $count++;
                                 ?>
                                     <div class="accordion-style-one-item">
-                                        <h2 class="accordion-header" id="collapseOne123<?= $count ?>">
+                                        <h2 class="accordion-header" id="collapseOneHeading123<?= $count ?>">
                                             <button class="accordion-button <?= $count == 1 ? '' : 'collapsed' ?>" type="button" data-bs-toggle="collapse"
                                                 data-bs-target="#collapseOne123<?= $count ?>" aria-expanded="<?= $count == 1 ? true : false ?>"
                                                 aria-controls="collapseOne123<?= $count ?>">
@@ -437,7 +437,7 @@
                                             </button>
                                         </h2>
                                         <div id="collapseOne123<?= $count ?>" class="accordion-collapse collapse <?= $count == 1 ? 'show' : '' ?>"
-                                            aria-labelledby="collapseOne123<?= $count ?>" data-bs-parent="#faqAccordion123">
+                                            aria-labelledby="collapseOneHeading123<?= $count ?>" data-bs-parent="#faqAccordion123">
                                             <div class="accordion-body">
                                                 <p>
                                                     <?= $fq['description'] ?>

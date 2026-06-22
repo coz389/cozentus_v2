@@ -428,19 +428,20 @@
             autoplay: {
                 delay: 5000,
                 disableOnInteraction: false,
+                pauseOnMouseEnter: true,
             },
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
             },
-            slidesPerView: 4,
+            // slidesPerView: 4,
             breakpoints: {
                 768: {
-                    slidesPerView: 3,
+                    slidesPerView: 1,
                     spaceBetween: 40,
                 },
                 992: {
-                    slidesPerView: 4,
+                    slidesPerView: 2,
                     spaceBetween: 20,
                 },
                 1400: {
@@ -574,13 +575,14 @@
             // Optional parameters
             loop: true,
             slidesPerView: 1,
-            spaceBetween: 30,
+            spaceBetween: 50,
             loop: true,
             centeredSlides: true,
             speed: 4000,
             autoplay: {
                 delay: 0,
                 enabled: true,
+                pauseOnMouseEnter: true,
             },
             breakpoints: {
                 768: {
@@ -590,7 +592,58 @@
                     slidesPerView: 3,
                 },
                 1400: {
-                    slidesPerView: 4,
+                    slidesPerView: 6,
+                },
+            },
+        });
+        const testimonialFourCarousel2 = new Swiper(".testimonial-style-four-left-carousel2", {
+            // Optional parameters
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 50,
+            loop: true,
+            centeredSlides: true,
+            speed: 4000,
+            autoplay: {
+                delay: 0,
+                enabled: true,
+                pauseOnMouseEnter: true,
+                reverseDirection: true,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+                1400: {
+                    slidesPerView: 6,
+                },
+            },
+        });
+        const testimonialFourCarousel3 = new Swiper(".testimonial-style-four-left-carousel3", {
+            // Optional parameters
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 50,
+            loop: true,
+            centeredSlides: true,
+            speed: 4000,
+            autoplay: {
+                delay: 0,
+                enabled: true,
+                pauseOnMouseEnter: true,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+                1400: {
+                    slidesPerView: 6,
                 },
             },
         });

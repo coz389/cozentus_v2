@@ -2114,7 +2114,8 @@ class Admin extends MX_Controller
             $this->upload->do_upload('image');
             $image_data = $this->upload->data();
             $image = $image_data['file_name'];
-            $this->db->insert('images_master', ['image' => $image]);
+            $alt_text = $image_data['raw_name'];
+            $this->db->insert('images_master', ['image' => $image, 'alt_text' => $alt_text]);
             echo true;
         }
         exit;
