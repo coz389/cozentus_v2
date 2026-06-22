@@ -20,7 +20,7 @@
                     <div class="col-lg-5">
                         <div class="chat-bot-thumb text-center">
                             <div class="illustration">
-                                <img class="wow fadeInUp" data-wow-delay="300ms" src="<?= base_url('uploads/images/') . $pserv['card_image'] ?> ?>" alt="<?= $pserv['card_alt_text'] ?>">
+                                <img class="wow fadeInUp" data-wow-delay="300ms" src="<?= base_url('uploads/images/') . $pserv['card_image'] ?> " alt="<?= $pserv['card_alt_text'] ?>">
                             </div>
                         </div>
                     </div>
