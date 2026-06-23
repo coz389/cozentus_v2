@@ -489,6 +489,14 @@
             $qry = $this->db->get();
             return $qry->result_array();
         }
+        function getallclientlogos()
+        {
+            $this->db->select('m.image,link');
+            $this->db->from('client_master c');
+            $this->db->join('images_master m', 'm.id=c.image');
+            $qry = $this->db->get();
+            return $qry->result_array();
+        }
 
         function getteambyslug($slug)
         {

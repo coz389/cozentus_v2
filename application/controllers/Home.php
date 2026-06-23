@@ -147,10 +147,11 @@ class Home extends CI_Controller
             //redirect(base_url());
             $this->no_page_found();
         } else {
-            if (!empty($data['pserv']['clientid'])) {
-                $clientids = explode(',', $data['pserv']['clientid']);
-                $data['clients'] = $this->home_model->getclientlogosbyservice($clientids);
-            }
+            // if (!empty($data['pserv']['clientid'])) {
+            //     $clientids = explode(',', $data['pserv']['clientid']);
+            //     $data['clients'] = $this->home_model->getclientlogosbyservice($clientids);
+            // }
+            $data['clients'] = $this->home_model->getallclientlogos();
             $data['innerservices'] = $this->home_model->getserviceforparentcard($data['pserv']['id']);
             $data['page_data'] = $this->home_model->get_home_content();
             $data['servicehomecard'] = $this->home_model->getservicehomecard();

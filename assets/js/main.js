@@ -582,7 +582,7 @@
             autoplay: {
                 delay: 0,
                 enabled: true,
-                pauseOnMouseEnter: true,
+                // pauseOnMouseEnter: true,
             },
             breakpoints: {
                 768: {
@@ -599,16 +599,14 @@
         const testimonialFourCarousel2 = new Swiper(".testimonial-style-four-left-carousel2", {
             // Optional parameters
             loop: true,
-            slidesPerView: 1,
-            spaceBetween: 50,
-            loop: true,
-            centeredSlides: true,
-            speed: 4000,
+            slidesPerView: "auto",
+            allowTouchMove: false,
+            speed: 3000,
+
             autoplay: {
                 delay: 0,
-                enabled: true,
-                pauseOnMouseEnter: true,
                 reverseDirection: true,
+                disableOnInteraction: false,
             },
             breakpoints: {
                 768: {
@@ -633,7 +631,7 @@
             autoplay: {
                 delay: 0,
                 enabled: true,
-                pauseOnMouseEnter: true,
+                // pauseOnMouseEnter: true,
             },
             breakpoints: {
                 768: {
