@@ -508,100 +508,104 @@
 
     <!-- Section-2 Start Our Jounney
          ============================================= -->
-    <div class="cz-journey-section default-padding">
-        <div class="cz-journey-wrapper">
+    <?php if ($this->uri->segment(1) == "services") { ?>
+        <div class="cz-journey-section default-padding">
+            <div class="cz-journey-wrapper">
 
-            <div class="cz-journey-path"></div>
+                <div class="cz-journey-path"></div>
 
-            <div class="cz-journey-center">
-                <h2>Your Journey with Cozentus</h2>
-                <div class="cz-journey-line"></div>
-                <p>Simple steps. Powerful outcomes.</p>
+                <div class="cz-journey-center">
+                    <h2>Your Journey with Cozentus</h2>
+                    <div class="cz-journey-line"></div>
+                    <p>Simple steps. Powerful outcomes.</p>
+                </div>
+
+                <div class="cz-journey-steps">
+
+                    <div class="cz-journey-step cz-s1 cz-blue">
+                        <div class="cz-journey-card">
+                            <div class="cz-journey-icon"><i class="fas fa-comments"></i>
+                                <div class="cz-journey-number">01</div>
+                            </div>
+                            <h3>Discover &amp; Connect</h3>
+                            <p>Get in touch with us and explore how we can help.</p>
+                        </div>
+                        <i class="cz-journey-arrow cz-dir-right"></i>
+                    </div>
+
+                    <div class="cz-journey-step cz-s2 cz-teal">
+                        <div class="cz-journey-card">
+                            <div class="cz-journey-icon"><i class="fas fa-search"></i>
+                                <div class="cz-journey-number">02</div>
+                            </div>
+                            <h3>Understand Your Needs</h3>
+                            <p>We understand your operations, challenges, and goals.</p>
+                        </div>
+                        <i class="cz-journey-arrow cz-dir-right"></i>
+                    </div>
+
+                    <div class="cz-journey-step cz-s3 cz-orange">
+                        <div class="cz-journey-card">
+                            <div class="cz-journey-icon"><i class="fas fa-drafting-compass"></i>
+                                <div class="cz-journey-number">03</div>
+                            </div>
+                            <h3>Solution Blueprint</h3>
+                            <p>A clear plan tailored to your business and requirements.</p>
+                        </div>
+                        <i class="cz-journey-arrow cz-dir-down"></i>
+                    </div>
+
+                    <div class="cz-journey-step cz-s4 cz-purple">
+                        <div class="cz-journey-card">
+                            <div class="cz-journey-icon"><i class="fas fa-cogs"></i>
+                                <div class="cz-journey-number">04</div>
+                            </div>
+                            <h3>Build, Integrate &amp; Automate</h3>
+                            <p>Custom development, AI solutions, seamless integrations, and intelligent automation.</p>
+                        </div>
+                        <i class="cz-journey-arrow cz-dir-down"></i>
+                    </div>
+
+                    <div class="cz-journey-step cz-s5 cz-blue">
+                        <div class="cz-journey-card">
+                            <div class="cz-journey-icon"><i class="fas fa-rocket"></i>
+                                <div class="cz-journey-number">05</div>
+                            </div>
+                            <h3>Go Live &amp; Support</h3>
+                            <p>Smooth launch with full support and quick team adoption.</p>
+                        </div>
+                        <i class="cz-journey-arrow cz-dir-left"></i>
+                    </div>
+
+                    <div class="cz-journey-step cz-s6 cz-green">
+                        <div class="cz-journey-card">
+                            <div class="cz-journey-icon"><i class="fas fa-chart-line"></i>
+                                <div class="cz-journey-number">06</div>
+                            </div>
+                            <h3>Optimize &amp; Scale</h3>
+                            <p>Continuous improvements to performance, efficiency, and growth.</p>
+                        </div>
+                        <i class="cz-journey-arrow cz-dir-left"></i>
+                    </div>
+
+                    <div class="cz-journey-step cz-s7 cz-yellow">
+                        <div class="cz-journey-card">
+                            <div class="cz-journey-icon"><i class="fas fa-handshake"></i>
+                                <div class="cz-journey-number">07</div>
+                            </div>
+                            <h3>Long-Term Partnership</h3>
+                            <p>Ongoing innovation, insights, and evolving technology to drive your success.</p>
+                        </div>
+                        <i class="cz-journey-arrow cz-dir-up"></i>
+                    </div>
+
+                </div>
+
             </div>
-
-            <div class="cz-journey-steps">
-
-                <div class="cz-journey-step cz-s1 cz-blue">
-                    <div class="cz-journey-card">
-                        <div class="cz-journey-icon"><i class="fas fa-comments"></i>
-                            <div class="cz-journey-number">01</div>
-                        </div>
-                        <h3>Discover &amp; Connect</h3>
-                        <p>Get in touch with us and explore how we can help.</p>
-                    </div>
-                    <i class="cz-journey-arrow cz-dir-right"></i>
-                </div>
-
-                <div class="cz-journey-step cz-s2 cz-teal">
-                    <div class="cz-journey-card">
-                        <div class="cz-journey-icon"><i class="fas fa-search"></i>
-                            <div class="cz-journey-number">02</div>
-                        </div>
-                        <h3>Understand Your Needs</h3>
-                        <p>We understand your operations, challenges, and goals.</p>
-                    </div>
-                    <i class="cz-journey-arrow cz-dir-right"></i>
-                </div>
-
-                <div class="cz-journey-step cz-s3 cz-orange">
-                    <div class="cz-journey-card">
-                        <div class="cz-journey-icon"><i class="fas fa-drafting-compass"></i>
-                            <div class="cz-journey-number">03</div>
-                        </div>
-                        <h3>Solution Blueprint</h3>
-                        <p>A clear plan tailored to your business and requirements.</p>
-                    </div>
-                    <i class="cz-journey-arrow cz-dir-down"></i>
-                </div>
-
-                <div class="cz-journey-step cz-s4 cz-purple">
-                    <div class="cz-journey-card">
-                        <div class="cz-journey-icon"><i class="fas fa-cogs"></i>
-                            <div class="cz-journey-number">04</div>
-                        </div>
-                        <h3>Build, Integrate &amp; Automate</h3>
-                        <p>Custom development, AI solutions, seamless integrations, and intelligent automation.</p>
-                    </div>
-                    <i class="cz-journey-arrow cz-dir-down"></i>
-                </div>
-
-                <div class="cz-journey-step cz-s5 cz-blue">
-                    <div class="cz-journey-card">
-                        <div class="cz-journey-icon"><i class="fas fa-rocket"></i>
-                            <div class="cz-journey-number">05</div>
-                        </div>
-                        <h3>Go Live &amp; Support</h3>
-                        <p>Smooth launch with full support and quick team adoption.</p>
-                    </div>
-                    <i class="cz-journey-arrow cz-dir-left"></i>
-                </div>
-
-                <div class="cz-journey-step cz-s6 cz-green">
-                    <div class="cz-journey-card">
-                        <div class="cz-journey-icon"><i class="fas fa-chart-line"></i>
-                            <div class="cz-journey-number">06</div>
-                        </div>
-                        <h3>Optimize &amp; Scale</h3>
-                        <p>Continuous improvements to performance, efficiency, and growth.</p>
-                    </div>
-                    <i class="cz-journey-arrow cz-dir-left"></i>
-                </div>
-
-                <div class="cz-journey-step cz-s7 cz-yellow">
-                    <div class="cz-journey-card">
-                        <div class="cz-journey-icon"><i class="fas fa-handshake"></i>
-                            <div class="cz-journey-number">07</div>
-                        </div>
-                        <h3>Long-Term Partnership</h3>
-                        <p>Ongoing innovation, insights, and evolving technology to drive your success.</p>
-                    </div>
-                    <i class="cz-journey-arrow cz-dir-up"></i>
-                </div>
-
-            </div>
-
         </div>
-    </div>
+    <?php } else if ($this->uri->segment(1) == "domain-capabilities") { ?>
+
+    <?php } ?>
     <!-- End Our Jounney -->
 
 

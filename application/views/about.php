@@ -104,12 +104,12 @@
             <div class="row align-center">
                 <div class="col-lg-7 pr-60 pr-md-15 pr-xs-15">
                     <div class="banner-style-three-info">
-                        <h2 class="wow fadeInUp" style="color: #ffffff;">We build supply chains that <strong>actually work</strong></h2>
+                        <h2 class="wow fadeInUp" style="color: #ffffff;">The Technology Partner <strong>Built for Logistics</strong></h2>
                         <p class="fade-up-anim" style="color: #ffffff;">
-                            Not a platform. Not a reseller. A team of logistics practitioners and engineers who build custom, AI-powered software - software you own, built around the way you operate.
+                            One industry, total focus. We build the technology your logistics operation runs on, and you own it.
                         </p>
                         <div class="button mt-30 fade-up-anim">
-                            <a href="<?= base_url('book-free-consultation') ?>" class="btn btn-style-one light">Book a Demo <i class="fas fa-arrow-right"></i></a>
+                            <a href="<?= base_url('book-free-consultation') ?>" class="btn btn-style-one light">Let’s Talk <i class="fas fa-arrow-right"></i></a>
                         </div>
 
                     </div>
