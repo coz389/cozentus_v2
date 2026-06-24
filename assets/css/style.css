@@ -747,8 +747,8 @@ p {
 
 @media only screen and (max-width: 767px) {
     .default-padding {
-        padding-top: 70px;
-        padding-bottom: 70px;
+        padding-top: 40px;
+        padding-bottom: 40px;
     }
 }
 
@@ -11547,7 +11547,7 @@ footer .gradient-text {
 @media only screen and (max-width: 767px) {
     /* Default CSS */
     .title {
-        font-size: 36px;
+        font-size: 26px;
     }
 
     .heading-style-two {
@@ -11609,7 +11609,7 @@ footer .gradient-text {
 
     .banner-style-three-area {
         padding-top: 60px;
-        padding-bottom: 70px;
+        padding-bottom: 30px;
         background-position: top center !important;
     }
 
@@ -11628,7 +11628,7 @@ footer .gradient-text {
     }
 
     .chat-bot-thumb {
-        display: none;
+        /* display: none; */
     }
 
     .banner-style-three-info form input {
@@ -11955,6 +11955,7 @@ footer .gradient-text {
     .feature-style-one-left-info {
         margin-bottom: 50px;
         height: auto;
+        padding: 5px 20px;
     }
 
     /* Feature Two */
@@ -12678,7 +12679,7 @@ footer .gradient-text {
     }
 
     .funfact-style-one-item h4 {
-        margin-top: 25px;
+        margin-top: 20px;
     }
 
     .funfact-style-one-item p {
@@ -12763,6 +12764,7 @@ footer .gradient-text {
     /* Footer */
     .footer-style-one-items .f-item {
         flex-grow: inherit;
+        padding: 5px 20px;
     }
 
     .footer-style-one-items {
@@ -12776,6 +12778,7 @@ footer .gradient-text {
 
     .f-item.contact {
         margin-bottom: 50px;
+        padding: 5px 20px;
     }
 
     footer ul.contact h4 {

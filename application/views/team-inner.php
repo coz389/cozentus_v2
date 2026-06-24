@@ -69,66 +69,6 @@
                             </div>
                         </div>
 
-                        <div class="team-single-card team-single-list mt-60">
-                            <div class="team-list-item">
-                                <h4>Education</h4>
-                                <ul>
-                                    <li>
-                                        <h5>Residential College</h5>
-                                        <span>BA Honours - Biology</span>
-                                        <p>
-                                            2004 - 2008
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <h5>University of Iowa</h5>
-                                        <span>Master's degree - Macroeconomics</span>
-                                        <p>
-                                            2009 - 2012
-                                        </p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="team-list-item">
-                                <h4>Experience</h4>
-                                <ul>
-                                    <li>
-                                        <h5>Product Manager</h5>
-                                        <span>Pran RFL Company</span>
-                                        <p>
-                                            31 Aug, 2013
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <h5>Senior Marketing</h5>
-                                        <span>Masuring Technology Company</span>
-                                        <p>
-                                            12 Dec 2018
-                                        </p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="skill-items mt-50">
-                            <h3>Personal Skills</h3>
-                            <div class="progress-box">
-                                <h5>Programming language</h5>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" data-width="88">
-                                        <span>88%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="progress-box">
-                                <h5>Database modelling</h5>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" data-width="80">
-                                        <span>80%</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

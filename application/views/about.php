@@ -1,102 +1,4 @@
 <div id="smooth-content">
-    <style>
-        .banner-style-three-info h2 strong,
-        .cz-our-story h2 {
-            font-size: 55px !important;
-        }
-
-        .cz-story-card:hover {
-            transform: translateY(0px) !important;
-            box-shadow: rgba(14, 48, 92, 0.12) 0px 25px 75px;
-        }
-
-        .team-style-two-item .thumb {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            height: 400px;
-        }
-
-        .team-style-two-item .thumb img {
-            height: 100%;
-            object-fit: contain;
-        }
-
-        /** Teams Slider CSS */
-        /* ── Thumb container must be relative ── */
-        .team-style-two-item .thumb {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .team-style-two-item .thumb img {
-            width: 100%;
-            display: block;
-            transition: transform 0.4s ease;
-        }
-
-        /* ── Text overlay ── */
-        .team-style-two-item .thumb .text-overlay {
-            position: absolute;
-            bottom: -100%;
-            /* hidden below by default */
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top,
-                    rgba(0, 0, 0, 0.82) 0%,
-                    rgba(0, 0, 0, 0.45) 60%,
-                    transparent 100%);
-            display: flex;
-            align-items: flex-end;
-            padding: 15px 38px 15px 20px;
-            transition: bottom 0.4s ease;
-            z-index: 2;
-        }
-
-        .team-style-two-item .thumb .text-overlay p {
-            color: #ffffff;
-            font-size: 13.5px;
-            line-height: 1.6;
-            margin: 0;
-            display: -webkit-box;
-            -webkit-line-clamp: 12;
-            /* max 4 lines */
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        /* ── Slide up on hover ── */
-        .team-style-two-item:hover .thumb .text-overlay {
-            bottom: 0;
-        }
-
-        /* ── Subtle zoom on image ── */
-        .team-style-two-item:hover .thumb img {
-            transform: scale(1.05);
-        }
-
-        /* ── Keep social overlay above text overlay ── */
-        .team-style-two-item .thumb .social-overlay {
-            z-index: 3;
-        }
-
-        /** Teams Slider CSS */
-
-        @media (min-width: 1600px) {
-            .banner-style-three-area {
-                height: 75vh !important;
-                padding-top: 50px;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .banner-style-three-area {
-                height: 75vh;
-                padding-top: 50px;
-            }
-        }
-    </style>
     <!-- Start Banner Area 
     ============================================= -->
     <div class="banner-style-three-area overflow-hidden bg-gray bg-cover" style="background: url(<?= base_url('assets/img/about/BG.png') ?>);">
@@ -197,6 +99,10 @@
 
     <!-- Start Projects 
     ============================================= -->
+
+    <style>
+
+    </style>
     <div class="project-style-two-area default-padding">
 
         <div class="container">
@@ -213,8 +119,8 @@
                             <div class="info bg-dark text-light" style="background-image: url(<?= base_url('assets/img/shape/10.png') ?>);">
                                 <div class="top">
 
-                                    <h2 style="font-size: 60px;">Mission</h2>
-                                    <p class="split-text-right split-text-in-right" style="perspective: 400px; font-size: 22px;">To be the most trusted AI-powered technology partner for the global logistics industry.</p>
+                                    <h2>Mission</h2>
+                                    <p class="split-text-right split-text-in-right">To be the most trusted AI-powered technology partner for the global logistics industry.</p>
 
                                 </div>
                                 <div class="bottom">
@@ -234,8 +140,8 @@
                             <div class="info bg-dark text-light" style="background-image: url(<?= base_url('assets/img/shape/10.png') ?>);">
                                 <div class="top">
 
-                                    <h2 style="font-size: 60px;">Vision</h2>
-                                    <p class="split-text-right split-text-in-right" style="perspective: 400px; font-size: 22px;">We combine logistics expertise, intelligent technology, and AI to deliver tailored solutions that create measurable impact for our clients.</p>
+                                    <h2>Vision</h2>
+                                    <p class="split-text-right split-text-in-right">We combine logistics expertise, intelligent technology, and AI to deliver tailored solutions that create measurable impact for our clients.</p>
                                 </div>
                                 <div class="bottom">
                                     <ul class="project-tags mb-30">
@@ -251,8 +157,8 @@
                             <img src="<?= base_url('assets/img/about/Value-1.jpg') ?>" alt="Values">
                             <div class="info bg-dark text-light" style="background-image: url(<?= base_url('assets/img/shape/10.png') ?>);">
                                 <div class="top">
-                                    <h2 style="font-size: 60px;">Values</h2>
-                                    <p class="split-text-right split-text-in-right" style="perspective: 400px; font-size: 22px;">Pride, Commitment, Quality, Transparency</p>
+                                    <h2>Values</h2>
+                                    <p class="split-text-right split-text-in-right">Pride, Commitment, Quality, Transparency</p>
                                 </div>
                                 <div class="bottom">
                                     <ul class="project-tags mb-30">

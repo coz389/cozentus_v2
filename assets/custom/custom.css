@@ -983,6 +983,112 @@ select.valid {
     transition-timing-function: linear !important;
 }
 
+/*=== About Us CSS Start =====*/
+.banner-style-three-info h2 strong,
+.cz-our-story h2 {
+    font-size: 55px !important;
+}
+
+.cz-story-card:hover {
+    transform: translateY(0px) !important;
+    box-shadow: rgba(14, 48, 92, 0.12) 0px 25px 75px;
+}
+
+.team-style-two-item .thumb {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    height: 400px;
+}
+
+.team-style-two-item .thumb img {
+    height: 100%;
+    object-fit: contain;
+}
+
+/** Teams Slider CSS */
+/* ── Thumb container must be relative ── */
+.team-style-two-item .thumb {
+    position: relative;
+    overflow: hidden;
+}
+
+.team-style-two-item .thumb img {
+    width: 100%;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+/* ── Text overlay ── */
+.team-style-two-item .thumb .text-overlay {
+    position: absolute;
+    bottom: -100%;
+    /* hidden below by default */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.45) 60%, transparent 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 15px 38px 15px 20px;
+    transition: bottom 0.4s ease;
+    z-index: 2;
+}
+
+.team-style-two-item .thumb .text-overlay p {
+    color: #ffffff;
+    font-size: 13.5px;
+    line-height: 1.6;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 12;
+    /* max 4 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ── Slide up on hover ── */
+.team-style-two-item:hover .thumb .text-overlay {
+    bottom: 0;
+}
+
+/* ── Subtle zoom on image ── */
+.team-style-two-item:hover .thumb img {
+    transform: scale(1.05);
+}
+
+/* ── Keep social overlay above text overlay ── */
+.team-style-two-item .thumb .social-overlay {
+    z-index: 3;
+}
+
+.project-style-two-items h2 {
+    font-size: 55px;
+}
+
+.project-style-two-items p {
+    perspective: 400px;
+    font-size: 22px;
+}
+
+/** Teams Slider CSS */
+
+@media (min-width: 1600px) {
+    .banner-style-three-area {
+        height: 75vh !important;
+        padding-top: 50px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .banner-style-three-area {
+        height: 75vh;
+        padding-top: 50px;
+    }
+}
+
+/*=== About Us Css End*/
+
 /* =============  Media Query ====================================*/
 @media (min-width: 1024px) {
     .banner-style-three-area1 {
@@ -1007,10 +1113,33 @@ select.valid {
         flex: 0 0 calc(50% - 5px);
         max-width: calc(50% - 5px);
     }
+    /* ── Home Page  Start ── */
+    /* ──Home Page  Start ── */
 }
 
 /* ── Mobile ── */
 @media (max-width: 767px) {
+    h1 {
+        font-size: 30px;
+        font-weight: 600;
+    }
+    h2 {
+        font-size: 26px;
+        font-weight: 600;
+    }
+    h3 {
+        font-size: 22px;
+        font-weight: 600;
+    }
+    h4 {
+        font-size: 20px;
+        font-weight: 500;
+    }
+    h5 {
+        font-size: 18px;
+        font-weight: 400;
+    }
+    /* ── Home Page  Start ── */
     /* ── Banner Slider Overlay Box  Start ── */
     .banner-content {
         width: calc(100% - 40px);
@@ -1021,7 +1150,7 @@ select.valid {
         padding: 25px 22px;
     }
     .banner-content h1 {
-        font-size: 18px;
+        font-size: 22px;
     }
     .banner-content p {
         font-size: 13px;
@@ -1029,7 +1158,152 @@ select.valid {
     .banner-box img {
         height: 420px;
     }
+    .banner-content-left {
+        width: calc(100% - 40px);
+        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 25px 22px;
+    }
+    .banner-content-left h1 {
+        font-size: 22px;
+    }
+
+    .banner-content-left p {
+        font-size: 13px;
+    }
+    .banner-content-right {
+        width: calc(100% - 40px);
+        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 25px 22px;
+    }
+    .banner-content-right h1 {
+        font-size: 22px;
+    }
+
+    .banner-content-right p {
+        font-size: 13px;
+    }
+
     /* ── Banner Slider Overlay Box  End ── */
+
+    #smooth-content {
+        margin-top: -35px;
+    }
+    .banner-box {
+        position: relative;
+        overflow: hidden;
+        display: block;
+        width: 100%;
+        height: 40vh;
+    }
+    .btn {
+        display: inline-block;
+        padding: 10px 15px;
+        background: var(--color-primary);
+        font-size: 13px;
+        font-weight: 500;
+        border-radius: 8px;
+        position: relative;
+        z-index: 1;
+        padding-top: 11px;
+        color: var(--white);
+        box-shadow: none !important;
+        border: none;
+        overflow: hidden;
+    }
+    .funfact-style-one-item .js-counter {
+        display: flex;
+        align-items: center;
+        font-size: 30px;
+        line-height: 1;
+        font-weight: 600;
+    }
+    .process-style-one-item h2 {
+        font-size: 35px !important;
+    }
+
+    /* ──Home Page  End ── */
+
+    /*-- About Us Start -- */
+    .banner-style-three-info h2 {
+        font-size: 24px !important;
+        margin-bottom: 25px;
+        color: #ffffff;
+    }
+    .banner-style-three-info h2 strong,
+    .cz-our-story h2 {
+        font-size: 26px !important;
+    }
+    .project-style-two-items h2 {
+        font-size: 26px;
+    }
+
+    .project-style-two-items p {
+        perspective: 400px;
+        font-size: 16px;
+    }
+    ul.project-tags li {
+        display: inline-block;
+        background: var(--bg-gradient);
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        border-radius: 8px;
+        padding: 3px 12px;
+        padding-bottom: 2px;
+        font-size: 12px;
+    }
+    .bg-dark .btn-style-one.btn-border {
+        border-color: rgba(255, 255, 255, 0.4);
+        color: var(--white);
+        background: transparent;
+        padding: 10px 15px;
+    }
+    .language-support-info {
+        padding: 10px 15px;
+    }
+    .testimonial-style-two-area .content {
+        padding: 10px 15px;
+    }
+    .team-style-two-item .thumb {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        height: 260px;
+    }
+    .team-style-two-item .info {
+        margin-top: 1px;
+        padding: 10px 15px;
+        text-align: center;
+    }
+
+    .team-style-two-item .thumb .text-overlay {
+        position: absolute;
+        bottom: -100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.45) 60%, transparent 100%);
+        display: flex;
+        align-items: flex-end;
+        padding: 15px 50px 15px 34px;
+        transition: bottom 0.4s ease;
+        z-index: 2;
+    }
+    .cz-section-heading {
+        padding: 10px 15px;
+    }
+    .banner-style-three-area .row div {
+        height: auto;
+        padding: 10px 15px;
+    }
+    /* -- About Us End -- */
+
     .mobile-only {
         display: block !important;
     }
@@ -1061,6 +1335,7 @@ select.valid {
     .site-heading {
         margin-bottom: 20px;
         overflow: hidden;
+        padding: 5px 20px;
     }
     .blog-area.full-blog.single .item .info {
         padding: 0;
