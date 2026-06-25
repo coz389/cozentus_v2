@@ -444,10 +444,10 @@
                                 Let's discuss how our AI-powered solutions can help you optimize operations and drive measurable results. Our team is ready to understand your unique challenges.
                             </p>
                             <div class="cta-buttons">
-                                <a class="btn btn-style-one btn-border" href="contact-us.html">
+                                <a class="btn btn-style-one btn-border mb-2" href="contact-us.html">
                                     Book a Meeting <i class="fas fa-arrow-right"></i>
                                 </a>
-                                <a class="btn btn-style-one ml-20" href="contact-us.html">
+                                <a class="btn btn-style-one mb-2" href="contact-us.html">
                                     Send Message <i class="fas fa-arrow-right"></i>
                                 </a>
                             </div>
