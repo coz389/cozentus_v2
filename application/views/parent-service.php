@@ -474,6 +474,508 @@
             }
         }
     </style>
+    <style>
+        /* ============================================================
+                    AI-Powered Intelligence loop  —  namespaced .cz-ai-*
+                    Self-contained (HTML + CSS in one file).
+                    Scales with container-query units so it fits one screen.
+                    ============================================================ */
+        .cz-ai-section {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cz-ai-wrap {
+            /* cap width so height never exceeds the viewport => single screen */
+            width: min(1400px, 100%, calc(94vh * 1500 / 860));
+            aspect-ratio: 1500 / 860;
+            margin: auto;
+            position: relative;
+            container-type: inline-size;
+            margin-bottom: 115px;
+            margin-top: 60px;
+        }
+
+        /* the winding road sits behind everything */
+        .cz-ai-road {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: visible;
+        }
+
+        /* center title block */
+        .cz-ai-center {
+            position: absolute;
+            left: 50%;
+            top: 62%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 2;
+        }
+
+        .cz-ai-center h2 {
+            font-size: 41px;
+            line-height: 40px;
+            color: #0c1b3a;
+            font-weight: 600;
+        }
+
+        .cz-ai-center p {
+            margin-top: 23px;
+            font-size: 18px;
+            color: #2b3b58;
+            font-weight: 500;
+        }
+
+        .cz-ai-dots {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* gap: .6rem; */
+            margin-top: 20px;
+        }
+
+        .cz-ai-dots span {
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            display: block;
+        }
+
+        .cz-ai-dots i {
+            width: 20px;
+            height: 3px;
+            background: #d9dee7;
+            display: block;
+        }
+
+        /* ── one step = pedestal (anchored on the road) + floating text ── */
+        .cz-ai-step {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            transform: translate(-50%, -50%);
+            z-index: 4;
+        }
+
+        /* glossy circular pedestal */
+        .cz-ai-pedestal {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 62px;
+            background:
+                radial-gradient(circle at 50% 30%, #ffffff 0 45%, var(--cz-ai-ring) 46% 100%);
+            box-shadow:
+                0 17px 28px -8px var(--cz-ai-ring),
+                inset 0 -10px 17px rgba(0, 0, 0, .12),
+                inset 0 8px 14px rgba(255, 255, 255, .75);
+            position: relative;
+        }
+
+        .cz-ai-pedestal::after {
+            content: "";
+            position: absolute;
+            inset: 14px;
+            border-radius: 50%;
+            background: #ffffff;
+            box-shadow: inset 0 4px 10px rgba(0, 0, 0, .08);
+        }
+
+        .cz-ai-pedestal span {
+            position: relative;
+            z-index: 1;
+            line-height: 1;
+            filter: drop-shadow(0 6px 8px rgba(0, 0, 0, .2));
+        }
+
+        /* floating text label */
+        .cz-ai-info {
+            position: absolute;
+            width: 238px;
+        }
+
+        .cz-ai-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 43px;
+            height: 38px;
+            border-radius: 11px;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 700;
+            box-shadow: 0 6px 11px rgba(0, 0, 0, .18);
+            margin-bottom: 10px;
+        }
+
+        .cz-ai-info h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .cz-ai-info p {
+            font-size: 16px;
+            line-height: 1.42;
+            color: #3a4456;
+        }
+
+        /* ── label placement variants (specifically for each item) ── */
+
+        /* 01: Quote & Contract */
+        .cz-s1 .cz-ai-info {
+            right: 124%;
+            top: 2%;
+            transform: translateY(-50%);
+            text-align: left;
+            width: 210px;
+        }
+
+        .cz-s1 .cz-ai-num {
+            margin-left: auto;
+        }
+
+        /* 02: Plan & Schedule */
+        .cz-s2 .cz-ai-info {
+            bottom: 99%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        .cz-s2 .cz-ai-num {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 03: Move & Transport */
+        .cz-s3 .cz-ai-info {
+            left: 124%;
+            top: 2%;
+            transform: translateY(-50%);
+            text-align: left;
+            width: 210px;
+        }
+
+        /* 04: Track & Visibility */
+        .cz-s4 .cz-ai-info {
+            left: 118%;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: left;
+            width: 210px;
+        }
+
+        /* 05: Store & Fulfil */
+        .cz-s5 .cz-ai-info {
+            top: 30%;
+            left: 230%;
+            transform: translateX(-50%);
+            text-align: left;
+        }
+
+        .cz-s5 .cz-ai-num {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 06: Bill & Audit */
+        .cz-s6 .cz-ai-info {
+            top: 38%;
+            left: -51%;
+            transform: translateX(-50%);
+            text-align: left;
+        }
+
+        .cz-s6 .cz-ai-num {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 07: Report & Improve */
+        .cz-s7 .cz-ai-info {
+            right: 110%;
+            top: 42%;
+            transform: translateY(-50%);
+            text-align: left;
+            width: 210px;
+        }
+
+        .cz-s7 .cz-ai-num {
+            margin-left: auto;
+        }
+
+        /* ── per-colour accents ── */
+        .cz-blue {
+            --cz-ai-ring: #2f73ff;
+        }
+
+        .cz-green {
+            --cz-ai-ring: #2faa3f;
+        }
+
+        .cz-purple {
+            --cz-ai-ring: #8b47ff;
+        }
+
+        .cz-orange {
+            --cz-ai-ring: #ff7a18;
+        }
+
+        .cz-teal {
+            --cz-ai-ring: #12b3a6;
+        }
+
+        .cz-amber {
+            --cz-ai-ring: #f5a700;
+        }
+
+        .cz-blue .cz-ai-num,
+        .cz-blue .cz-ai-info h3 {
+            background: #2f73ff;
+        }
+
+        .cz-green .cz-ai-num,
+        .cz-green .cz-ai-info h3 {
+            background: #2faa3f;
+        }
+
+        .cz-purple .cz-ai-num,
+        .cz-purple .cz-ai-info h3 {
+            background: #8b47ff;
+        }
+
+        .cz-orange .cz-ai-num,
+        .cz-orange .cz-ai-info h3 {
+            background: #ff7a18;
+        }
+
+        .cz-teal .cz-ai-num,
+        .cz-teal .cz-ai-info h3 {
+            background: #12b3a6;
+        }
+
+        .cz-amber .cz-ai-num,
+        .cz-amber .cz-ai-info h3 {
+            background: #f5a700;
+        }
+
+        /* h3 should be coloured TEXT, not a coloured block — undo the background */
+        .cz-ai-info h3 {
+            background: none !important;
+        }
+
+        .cz-blue .cz-ai-info h3 {
+            color: #2f73ff;
+        }
+
+        .cz-green .cz-ai-info h3 {
+            color: #2faa3f;
+        }
+
+        .cz-purple .cz-ai-info h3 {
+            color: #8b47ff;
+        }
+
+        .cz-orange .cz-ai-info h3 {
+            color: #ff7a18;
+        }
+
+        .cz-teal .cz-ai-info h3 {
+            color: #12b3a6;
+        }
+
+        .cz-amber .cz-ai-info h3 {
+            color: #f5a700;
+        }
+
+        /* ── pedestal positions on the road (match the SVG nodes) ── */
+        .cz-s1 {
+            left: 30%;
+            top: 33%;
+        }
+
+        /* Quote & Contract   */
+        .cz-s2 {
+            left: 50%;
+            top: 38%;
+        }
+
+        /* Plan & Schedule    */
+        .cz-s3 {
+            left: 70%;
+            top: 33%;
+        }
+
+        /* Move & Transport   */
+        .cz-s4 {
+            left: 76%;
+            top: 60%;
+        }
+
+        /* Track & Visibility */
+        .cz-s5 {
+            left: 64%;
+            top: 86%;
+        }
+
+        /* Store & Fulfil     */
+        .cz-s6 {
+            left: 38%;
+            top: 88%;
+        }
+
+        /* Bill & Audit       */
+        .cz-s7 {
+            left: 24%;
+            top: 62%;
+        }
+
+        /* Report & Improve   */
+
+        /* ============================================================
+           Responsive — collapse the loop into a vertical timeline
+           ============================================================ */
+        @media (max-width: 1100px) {
+            body {
+                display: block;
+                min-height: auto;
+                padding: 34px 16px;
+            }
+
+            .cz-ai-wrap {
+                width: 100%;
+                max-width: 640px;
+                aspect-ratio: auto;
+                container-type: normal;
+            }
+
+            .cz-ai-road {
+                display: none;
+            }
+
+            .cz-ai-center {
+                position: static;
+                transform: none;
+                width: 100%;
+                margin: 0 auto 46px;
+            }
+
+            .cz-ai-center h2 {
+                font-size: clamp(28px, 7vw, 46px);
+            }
+
+            .cz-ai-center p {
+                font-size: clamp(17px, 4.5vw, 26px);
+            }
+
+            .cz-ai-dots {
+                gap: 9px;
+                margin-top: 22px;
+            }
+
+            .cz-ai-dots span {
+                width: 12px;
+                height: 12px;
+            }
+
+            .cz-ai-dots i {
+                width: 24px;
+                height: 3px;
+            }
+
+            .cz-ai-step {
+                position: static !important;
+                transform: none !important;
+                width: 100%;
+                height: auto;
+                display: flex;
+                align-items: center;
+                gap: 24px;
+                margin: 0 0 34px;
+            }
+
+            .cz-ai-pedestal {
+                flex: 0 0 112px;
+                width: 112px;
+                height: 112px;
+                font-size: 46px;
+                box-shadow:
+                    0 14px 22px -8px var(--cz-ai-ring),
+                    inset 0 -8px 14px rgba(0, 0, 0, .12),
+                    inset 0 6px 11px rgba(255, 255, 255, .75);
+            }
+
+            .cz-ai-pedestal::after {
+                inset: 11px;
+            }
+
+            .cz-ai-info {
+                position: static !important;
+                transform: none !important;
+                width: auto !important;
+                text-align: left !important;
+            }
+
+            .cz-ai-num {
+                width: 46px;
+                height: 38px;
+                font-size: 16px;
+                border-radius: 11px;
+                margin: 0 0 8px 0 !important;
+            }
+
+            .cz-ai-info h3 {
+                font-size: 22px;
+                margin-bottom: 8px;
+            }
+
+            .cz-ai-info p {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cz-ai-step {
+                gap: 16px;
+                margin-bottom: 26px;
+            }
+
+            .cz-ai-pedestal {
+                flex: 0 0 84px;
+                width: 84px;
+                height: 84px;
+                font-size: 36px;
+            }
+
+            .cz-ai-pedestal::after {
+                inset: 8px;
+            }
+
+            .cz-ai-num {
+                width: 40px;
+                height: 33px;
+                font-size: 14px;
+            }
+
+            .cz-ai-info h3 {
+                font-size: 18px;
+            }
+
+            .cz-ai-info p {
+                font-size: 14px;
+            }
+        }
+    </style>
+
     <!-- Start Section 1 Banner -->
     <?php if (!empty($pserv['about_heading'])) { ?>
         <div class="banner-style-three-area overflow-hidden bg-gray bg-cover" style="background: url(<?= base_url('uploads/images/') . $pserv['inner_banner_image'] ?>);">
@@ -604,7 +1106,156 @@
             </div>
         </div>
     <?php } else if ($this->uri->segment(1) == "domain-capabilities") { ?>
+        <!-- Start AI-Powered Intelligence Loop
+    ============================================= -->
+        <section class="cz-ai-section">
 
+            <div class="cz-ai-wrap">
+
+                <!-- winding road -->
+                <svg class="cz-ai-road" viewBox="0 0 1500 860" fill="none" preserveAspectRatio="xMidYMid meet">
+                    <defs>
+                        <filter id="czRoadShadow" x="-10%" y="-10%" width="120%" height="120%">
+                            <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity="0.08" />
+                        </filter>
+                    </defs>
+
+                    <!-- road centreline path (shared by all strokes) -->
+                    <g filter="url(#czRoadShadow)">
+                        <path id="czRoadPath"
+                            d="M 450 284
+                           C 560 225, 650 282, 750 326
+                           C 850 282, 940 225, 1050 284
+                           C 1150 320, 1190 425, 1140 516
+                           C 1098 618, 1075 702, 960 738
+                           C 815 780, 705 775, 570 757
+                           C 458 742, 360 650, 360 532
+                           C 360 430, 360 338, 450 284 Z"
+                            stroke="#eceef2" stroke-width="52" stroke-linejoin="round" stroke-linecap="round" />
+                        <use href="#czRoadPath" stroke="#ffffff" stroke-width="50" stroke-linejoin="round" stroke-linecap="round" />
+                        <use href="#czRoadPath" stroke="#cdd5e1" stroke-width="2.5" stroke-dasharray="3 17"
+                            stroke-linecap="round" />
+                    </g>
+
+                    <!-- directional chevrons along the road -->
+                    <g fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+                        <g transform="translate(600 266) rotate(20)" stroke="#2f73ff">
+                            <path d="M-15 -12 L-3 0 L-15 12" />
+                            <path d="M2-12 L14 0 L2 12" />
+                        </g>
+                        <g transform="translate(905 260) rotate(-28)" stroke="#8b47ff">
+                            <path d="M-15 -12 L-3 0 L-15 12" />
+                            <path d="M2-12 L14 0 L2 12" />
+                        </g>
+                        <g transform="translate(1158 390) rotate(74)" stroke="#ff7a18">
+                            <path d="M-15 -12 L-3 0 L-15 12" />
+                            <path d="M2-12 L14 0 L2 12" />
+                        </g>
+                        <g transform="translate(1068 658) rotate(142)" stroke="#12b3a6">
+                            <path d="M-15 -12 L-3 0 L-15 12" />
+                            <path d="M2-12 L14 0 L2 12" />
+                        </g>
+                        <g transform="translate(760 768) rotate(182)" stroke="#f5a700">
+                            <path d="M-15 -12 L-3 0 L-15 12" />
+                            <path d="M2-12 L14 0 L2 12" />
+                        </g>
+                        <g transform="translate(415 672) rotate(228)" stroke="#2f73ff">
+                            <path d="M-15 -12 L-3 0 L-15 12" />
+                            <path d="M2-12 L14 0 L2 12" />
+                        </g>
+                        <g transform="translate(370 390) rotate(292)" stroke="#2f73ff">
+                            <path d="M-15 -12 L-3 0 L-15 12" />
+                            <path d="M2-12 L14 0 L2 12" />
+                        </g>
+                    </g>
+                </svg>
+
+                <!-- center title -->
+                <div class="cz-ai-center">
+                    <h2>AI-Powered Intelligence</h2>
+                    <p>For Every Supply Chain Operation</p>
+                    <div class="cz-ai-dots">
+                        <span style="background:#2f73ff"></span><i></i>
+                        <span style="background:#2faa3f"></span><i></i>
+                        <span style="background:#8b47ff"></span><i></i>
+                        <span style="background:#ff7a18"></span><i></i>
+                        <span style="background:#f5a700"></span>
+                    </div>
+                </div>
+
+                <!-- 01 -->
+                <div class="cz-ai-step cz-s1 cz-blue cz-left">
+                    <div class="cz-ai-pedestal"><span>📝</span></div>
+                    <div class="cz-ai-info">
+                        <span class="cz-ai-num">01</span>
+                        <h3>Quote &amp; Contract</h3>
+                        <p>AI-driven pricing, dynamic contracts, and seamless onboarding</p>
+                    </div>
+                </div>
+
+                <!-- 02 -->
+                <div class="cz-ai-step cz-s2 cz-green cz-up">
+                    <div class="cz-ai-pedestal"><span>🗓️</span></div>
+                    <div class="cz-ai-info">
+                        <span class="cz-ai-num">02</span>
+                        <h3>Plan &amp; Schedule</h3>
+                        <p>Smart planning, predictive carrier selection, and demand forecasting</p>
+                    </div>
+                </div>
+
+                <!-- 03 -->
+                <div class="cz-ai-step cz-s3 cz-purple cz-right">
+                    <div class="cz-ai-pedestal"><span>🚚</span></div>
+                    <div class="cz-ai-info">
+                        <span class="cz-ai-num">03</span>
+                        <h3>Move &amp; Transport</h3>
+                        <p>Connected TMS, real-time orchestration, and automated dispatch</p>
+                    </div>
+                </div>
+
+                <!-- 04 -->
+                <div class="cz-ai-step cz-s4 cz-orange cz-right">
+                    <div class="cz-ai-pedestal"><span>📍</span></div>
+                    <div class="cz-ai-info">
+                        <span class="cz-ai-num">04</span>
+                        <h3>Track &amp; Visibility</h3>
+                        <p>Live tracking, AI ETAs, and proactive issue detection</p>
+                    </div>
+                </div>
+
+                <!-- 05 -->
+                <div class="cz-ai-step cz-s5 cz-teal cz-down">
+                    <div class="cz-ai-pedestal"><span>🏬</span></div>
+                    <div class="cz-ai-info">
+                        <span class="cz-ai-num">05</span>
+                        <h3>Store &amp; Fulfil</h3>
+                        <p>Intelligent routing, automated fulfilment, and real-time inventory sync</p>
+                    </div>
+                </div>
+
+                <!-- 06 -->
+                <div class="cz-ai-step cz-s6 cz-amber cz-down">
+                    <div class="cz-ai-pedestal"><span>🧾</span></div>
+                    <div class="cz-ai-info">
+                        <span class="cz-ai-num">06</span>
+                        <h3>Bill &amp; Audit</h3>
+                        <p>Automated invoicing, freight audit, and accurate billing workflows</p>
+                    </div>
+                </div>
+
+                <!-- 07 -->
+                <div class="cz-ai-step cz-s7 cz-blue cz-left">
+                    <div class="cz-ai-pedestal"><span>📈</span></div>
+                    <div class="cz-ai-info">
+                        <span class="cz-ai-num">07</span>
+                        <h3>Report &amp; Improve</h3>
+                        <p>Real-time insights, anomaly detection, and continuous optimization</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- End AI-Powered Intelligence Loop -->
     <?php } ?>
     <!-- End Our Jounney -->
 
