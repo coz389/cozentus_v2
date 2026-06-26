@@ -631,7 +631,7 @@
         /* ── label placement variants (specifically for each item) ── */
 
         /* 01: Quote & Contract */
-        .cz-s1 .cz-ai-info {
+        .czd-s1 .cz-ai-info {
             right: 124%;
             top: 2%;
             transform: translateY(-50%);
@@ -639,25 +639,25 @@
             width: 210px;
         }
 
-        .cz-s1 .cz-ai-num {
+        .czd-s1 .cz-ai-num {
             margin-left: auto;
         }
 
         /* 02: Plan & Schedule */
-        .cz-s2 .cz-ai-info {
+        .czd-s2 .cz-ai-info {
             bottom: 99%;
             left: 50%;
             transform: translateX(-50%);
             text-align: center;
         }
 
-        .cz-s2 .cz-ai-num {
+        .czd-s2 .cz-ai-num {
             margin-left: auto;
             margin-right: auto;
         }
 
         /* 03: Move & Transport */
-        .cz-s3 .cz-ai-info {
+        .czd-s3 .cz-ai-info {
             left: 124%;
             top: 2%;
             transform: translateY(-50%);
@@ -666,7 +666,7 @@
         }
 
         /* 04: Track & Visibility */
-        .cz-s4 .cz-ai-info {
+        .czd-s4 .cz-ai-info {
             left: 118%;
             top: 50%;
             transform: translateY(-50%);
@@ -675,33 +675,33 @@
         }
 
         /* 05: Store & Fulfil */
-        .cz-s5 .cz-ai-info {
+        .czd-s5 .cz-ai-info {
             top: 30%;
             left: 230%;
             transform: translateX(-50%);
             text-align: left;
         }
 
-        .cz-s5 .cz-ai-num {
+        .czd-s5 .cz-ai-num {
             margin-left: auto;
             margin-right: auto;
         }
 
         /* 06: Bill & Audit */
-        .cz-s6 .cz-ai-info {
+        .czd-s6 .cz-ai-info {
             top: 38%;
             left: -51%;
             transform: translateX(-50%);
             text-align: left;
         }
 
-        .cz-s6 .cz-ai-num {
+        .czd-s6 .cz-ai-num {
             margin-left: auto;
             margin-right: auto;
         }
 
         /* 07: Report & Improve */
-        .cz-s7 .cz-ai-info {
+        .czd-s7 .cz-ai-info {
             right: 110%;
             top: 42%;
             transform: translateY(-50%);
@@ -709,7 +709,7 @@
             width: 210px;
         }
 
-        .cz-s7 .cz-ai-num {
+        .czd-s7 .cz-ai-num {
             margin-left: auto;
         }
 
@@ -798,43 +798,43 @@
         }
 
         /* ── pedestal positions on the road (match the SVG nodes) ── */
-        .cz-s1 {
+        .czd-s1 {
             left: 30%;
             top: 33%;
         }
 
         /* Quote & Contract   */
-        .cz-s2 {
+        .czd-s2 {
             left: 50%;
             top: 38%;
         }
 
         /* Plan & Schedule    */
-        .cz-s3 {
+        .czd-s3 {
             left: 70%;
             top: 33%;
         }
 
         /* Move & Transport   */
-        .cz-s4 {
+        .czd-s4 {
             left: 76%;
             top: 60%;
         }
 
         /* Track & Visibility */
-        .cz-s5 {
+        .czd-s5 {
             left: 64%;
             top: 86%;
         }
 
         /* Store & Fulfil     */
-        .cz-s6 {
+        .czd-s6 {
             left: 38%;
             top: 88%;
         }
 
         /* Bill & Audit       */
-        .cz-s7 {
+        .czd-s7 {
             left: 24%;
             top: 62%;
         }
@@ -1184,7 +1184,7 @@
                 </div>
 
                 <!-- 01 -->
-                <div class="cz-ai-step cz-s1 cz-blue cz-left">
+                <div class="cz-ai-step czd-s1 cz-blue cz-left">
                     <div class="cz-ai-pedestal"><span>📝</span></div>
                     <div class="cz-ai-info">
                         <span class="cz-ai-num">01</span>
@@ -1194,7 +1194,7 @@
                 </div>
 
                 <!-- 02 -->
-                <div class="cz-ai-step cz-s2 cz-green cz-up">
+                <div class="cz-ai-step czd-s2 cz-green cz-up">
                     <div class="cz-ai-pedestal"><span>🗓️</span></div>
                     <div class="cz-ai-info">
                         <span class="cz-ai-num">02</span>
@@ -1204,7 +1204,7 @@
                 </div>
 
                 <!-- 03 -->
-                <div class="cz-ai-step cz-s3 cz-purple cz-right">
+                <div class="cz-ai-step czd-s3 cz-purple cz-right">
                     <div class="cz-ai-pedestal"><span>🚚</span></div>
                     <div class="cz-ai-info">
                         <span class="cz-ai-num">03</span>
@@ -1214,7 +1214,7 @@
                 </div>
 
                 <!-- 04 -->
-                <div class="cz-ai-step cz-s4 cz-orange cz-right">
+                <div class="cz-ai-step czd-s4 cz-orange cz-right">
                     <div class="cz-ai-pedestal"><span>📍</span></div>
                     <div class="cz-ai-info">
                         <span class="cz-ai-num">04</span>
@@ -1224,7 +1224,7 @@
                 </div>
 
                 <!-- 05 -->
-                <div class="cz-ai-step cz-s5 cz-teal cz-down">
+                <div class="cz-ai-step czd-s5 cz-teal cz-down">
                     <div class="cz-ai-pedestal"><span>🏬</span></div>
                     <div class="cz-ai-info">
                         <span class="cz-ai-num">05</span>
@@ -1234,7 +1234,7 @@
                 </div>
 
                 <!-- 06 -->
-                <div class="cz-ai-step cz-s6 cz-amber cz-down">
+                <div class="cz-ai-step czd-s6 cz-amber cz-down">
                     <div class="cz-ai-pedestal"><span>🧾</span></div>
                     <div class="cz-ai-info">
                         <span class="cz-ai-num">06</span>
@@ -1244,7 +1244,7 @@
                 </div>
 
                 <!-- 07 -->
-                <div class="cz-ai-step cz-s7 cz-blue cz-left">
+                <div class="cz-ai-step czd-s7 cz-blue cz-left">
                     <div class="cz-ai-pedestal"><span>📈</span></div>
                     <div class="cz-ai-info">
                         <span class="cz-ai-num">07</span>
