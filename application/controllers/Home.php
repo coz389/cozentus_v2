@@ -554,6 +554,52 @@ class Home extends CI_Controller
         $data['videos'] = $this->home_model->getvideoslist();
         $data['newEvents'] = $this->home_model->getreportssbyfilter(2);
         $data['ourteams'] = $this->home_model->getteamlist();
+
+        // Base organization data
+        $data['schema_data'] = array(
+            'org_name' => 'Cozentus Technologies Pvt Ltd',
+            'org_logo' => base_url('assets/img/logo.png'),
+            'org_description' => 'AI-powered custom technology solutions for supply chain logistics.',
+            'org_email' => 'supplychain@cozentus.com',
+            'org_phone' => '+91 977 712 6600',
+            'org_street' => 'SRB Tower, 5th and 6th Floor, Infocity',
+            'org_city' => 'Bhubaneswar',
+            'org_state' => 'Odisha',
+            'org_zip' => '751024',
+            'org_country' => 'IN',
+            'site_name' => 'Cozentus - Supply Chain Logistics Technology',
+            'site_description' => 'AI-powered custom technology solutions for supply chain logistics.'
+        );
+
+        // Enable common schemas
+        $data['show_organization_schema'] = true;
+        $data['show_website_schema'] = true;
+
+        // About page specific schema
+        $data['schema_page'] = 'about';
+        $data['schema_data']['about_title'] = 'About Cozentus - Supply Chain Logistics Technology Partner';
+        $data['schema_data']['about_description'] = 'Cozentus is a leading AI-powered custom technology solutions provider for supply chain logistics, with teams across US, UK, and India.';
+
+        // Breadcrumb schema
+        $data['show_breadcrumb_schema'] = true;
+        $data['breadcrumb_items'] = array(
+            array('name' => 'Home', 'url' => base_url()),
+            array('name' => 'About Us', 'url' => base_url('about'))
+        );
+
+        // Team members schema (if you want to add team)
+        if (!empty($data['ourteams'])) {
+            $data['show_team_schema'] = true;
+            $data['team_members'] = $data['ourteams'];
+        }
+
+        // SEO Metadata
+        $data['meta_title'] = 'About Cozentus - Supply Chain Logistics Technology Partner';
+        $data['meta_description'] = 'Cozentus is a leading AI-powered custom technology solutions provider for supply chain logistics, with teams across US, UK, and India.';
+        $data['meta_keywords'] = 'Cozentus, logistics technology, supply chain solutions, AI logistics, custom software development, data engineering, supply chain automation';
+        $data['og_image'] = base_url('assets/custom/images/og-image.png');
+
+
         $this->load->view('common/header', $data);
         $this->load->view('about');
         $this->load->view('common/footer');

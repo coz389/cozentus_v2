@@ -6,33 +6,78 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Robok - AI Agency & Technology HTML Template">
+    <title><?= !empty($meta_title) ? $meta_title : 'Cozentus' ?></title>
+    <meta name="description"
+        content="<?= !empty($meta_description) ? $meta_description : 'AI-powered custom technology solutions for supply chain logistics.' ?>">
+    <meta name="keywords" content="<?= !empty($meta_keywords) ? $meta_keywords : 'AI, custom technology, supply chain, logistics' ?>">
+    <meta name="author" content="Cozentus">
+    <meta name="robots" content="index, follow">
 
-    <!-- ========== Page Title ========== -->
-    <!-- <title>Robok - AI Agency & Technology HTML Template</title> -->
+    <link rel="canonical" href="<?= current_url() ?>">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<?= current_url() ?>">
+    <meta property="og:title" content="<?= !empty($meta_title) ? $meta_title : 'Cozentus' ?>">
+    <meta property="og:description"
+        content="<?= !empty($meta_description) ? $meta_description : 'AI-powered custom technology solutions for supply chain logistics.' ?>">
+    <meta property="og:image"
+        content="<?= !empty($og_image) ? $og_image : base_url('assets/custom/images/og-image.png') ?>">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="<?= current_url() ?>">
+    <meta name="twitter:title" content="<?= !empty($meta_title) ? $meta_title : 'Cozentus' ?>">
+    <meta name="twitter:description"
+        content="<?= !empty($meta_description) ? $meta_description : 'AI-powered custom technology solutions for supply chain logistics.' ?>">
+    <meta name="twitter:image"
+        content="<?= !empty($og_image) ? $og_image : base_url('assets/custom/images/og-image.png') ?>">
 
     <!-- ========== Favicon Icon ========== -->
     <link rel="shortcut icon" href="<?= base_url('assets/custom/images/favicon.png') ?>" type="image/x-icon">
 
     <!-- ========== Start Stylesheet ========== -->
-    <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('assets/css/font-awesome.min.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('assets/css/validthemes-icon.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('assets/css/magnific-popup.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('assets/css/swiper-bundle.min.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('assets/css/animate.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="<?= base_url('assets/css/font-awesome.min.css') ?>" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="<?= base_url('assets/css/validthemes-icon.css') ?>" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="<?= base_url('assets/css/magnific-popup.css') ?>" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="<?= base_url('assets/css/swiper-bundle.min.css') ?>" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="<?= base_url('assets/css/animate.css') ?>" rel="stylesheet" media="print" onload="this.media='all'">
     <link href="<?= base_url('assets/css/validnavs.css') ?>" rel="stylesheet">
     <link href="<?= base_url('assets/css/helper.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('assets/css/unit-test.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/css/unit-test.css') ?>" rel="stylesheet" media="print" onload="this.media='all'">
     <link href="<?= base_url('assets/css/style.css') ?>" rel="stylesheet">
     <!-- ========== End Stylesheet ========== -->
 
     <!-- ========== Custom Stylesheet ========== -->
     <link href="<?= base_url('assets/custom/custom.css') ?>" rel="stylesheet">
-    <script src="<?= base_url('assets/js/jquery-3.7.1.min.js') ?>"></script>
+    <script src="<?= base_url('assets/js/jquery-3.7.1.min.js') ?>" defer></script>
     <link rel="preconnect" href="https://static.hsappstatic.net" crossorigin>
     <link rel="prefetch" href="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js" as="script">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <!-- ============================================= -->
+    <!-- SCHEMA MARKUP - Load from schema views -->
+    <!-- ============================================= -->
+    <?php
+    // Load common schemas
+    if (!empty($show_organization_schema)) {
+        $this->load->view('schema/organization', $schema_data);
+    }
+
+    if (!empty($show_website_schema)) {
+        $this->load->view('schema/website', $schema_data);
+    }
+
+    // Load page specific schemas
+    if (!empty($schema_page)) {
+        $this->load->view('schema/' . $schema_page, $schema_data);
+    }
+
+    // Load breadcrumb if exists
+    if (!empty($show_breadcrumb_schema) && !empty($breadcrumb_items)) {
+        $this->load->view('schema/breadcrumb', array('breadcrumb_items' => $breadcrumb_items));
+    }
+    ?>
 
     <?= !empty($head_foot['header']) ? html_entity_decode($head_foot['header']) : '' ?>
     <?= !empty($pserv['page_header']) ? html_entity_decode($pserv['page_header']) : '' ?>
@@ -177,7 +222,7 @@
                                         </div>
                                         <div class="megamenu-banner">
                                             <div class="thumb">
-                                                <img src="<?= base_url('assets/custom/images/Service.png') ?>" alt="">
+                                                <img src="<?= base_url('assets/custom/images/Service.png') ?>" alt="Service">
                                                 <!-- <img src="<?= base_url('assets/img/thumb/6.jpg') ?>" alt="Image Not Found">
                                                 <a href="https://www.youtube.com/watch?v=iyARCQ7Ohd4" class="popup-youtube video-button"><i class="fas fa-play"></i></a> -->
                                             </div>
@@ -219,7 +264,7 @@
                                             <div class="thumb">
                                                 <!-- <img src="<?= base_url('assets/img/thumb/6.jpg') ?>" alt="Image Not Found">
                                                 <a href="https://www.youtube.com/watch?v=iyARCQ7Ohd4" class="popup-youtube video-button"><i class="fas fa-play"></i></a> -->
-                                                <img src="<?= base_url('assets/custom/images/Domain capability.png') ?>" alt="">
+                                                <img src="<?= base_url('assets/custom/images/Domain capability.png') ?>" alt="Domain capability">
                                             </div>
                                             <!-- <h4>Intro Video</h4> -->
                                         </div>
@@ -254,7 +299,7 @@
                                             <div class="thumb">
                                                 <!-- <img src="<?= base_url('assets/img/thumb/6.jpg') ?>" alt="Image Not Found">
                                                 <a href="https://www.youtube.com/watch?v=iyARCQ7Ohd4" class="popup-youtube video-button"><i class="fas fa-play"></i></a> -->
-                                                <img src="<?= base_url('assets/custom/images/Resource.png') ?>" alt="">
+                                                <img src="<?= base_url('assets/custom/images/Resource.png') ?>" alt="Resource">
                                             </div>
                                             <!-- <h4>Intro Video</h4> -->
                                         </div>

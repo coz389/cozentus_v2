@@ -1,38 +1,36 @@
-<div id="smooth-content">
+<main id="smooth-content">
     <!-- Start Banner Area 
     ============================================= -->
-    <div class="banner-style-three-area overflow-hidden bg-gray bg-cover" style="background: url(<?= base_url('assets/img/about/BG.png') ?>);">
+    <section class="banner-style-three-area overflow-hidden bg-gray bg-cover" style="background: url(<?= base_url('assets/img/about/BG.png') ?>);">
         <div class="container">
             <div class="row align-center">
                 <div class="col-lg-7 pr-60 pr-md-15 pr-xs-15">
                     <div class="banner-style-three-info">
-                        <h2 class="wow fadeInUp" style="color: #ffffff;">The Technology Partner <strong>Built for Logistics</strong></h2>
+                        <h1 class="wow fadeInUp" style="color: #ffffff;">The Technology Partner <strong>Built for Logistics</strong></h1>
                         <p class="fade-up-anim" style="color: #ffffff;">
                             One industry, total focus. We build the technology your logistics operation runs on, and you own it.
                         </p>
                         <div class="button mt-30 fade-up-anim">
                             <a href="<?= base_url('book-free-consultation') ?>" class="btn btn-style-one light">Let’s Talk <i class="fas fa-arrow-right"></i></a>
                         </div>
-
                     </div>
                 </div>
                 <div class="col-lg-5">
                     <div class="chat-bot-thumb text-center">
-
                         <div class="illustration">
-                            <img class="wow fadeInUp" data-wow-delay="300ms" src="<?= base_url('assets/img/about/about-banner.png') ?>" alt="Image Not Found">
+                            <img class="wow fadeInUp" data-wow-delay="300ms" fetchpriority="high" src="<?= base_url('assets/img/about/about-banner.png') ?>" alt="Cozentus logistics technology team" loading="lazy">
 
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <!-- End banner -->
     <!-- ═══════════════════════════════════════════
             Section 2: Our Story
     ═══════════════════════════════════════════ -->
-    <div class="cz-our-story default-padding" id="our-story">
+    <section class="cz-our-story default-padding" id="our-story">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12">
@@ -49,7 +47,7 @@
                     <div class="cz-story-card cz-fade-in cz-fade-in-delay-1 text-center">
                         <div class="cz-story-icon-box">
                             <div class="cz-story-icon-inner">
-                                <img src="<?= base_url('assets/img/about/pride.png') ?>" alt="Image Not Found">
+                                <img src="<?= base_url('assets/img/about/pride.png') ?>" alt="pride" loading="lazy">
                             </div>
                         </div>
                         <h4>Pride</h4>
@@ -61,7 +59,7 @@
                     <div class="cz-story-card cz-fade-in cz-fade-in-delay-2 text-center">
                         <div class="cz-story-icon-box">
                             <div class="cz-story-icon-inner">
-                                <img src="<?= base_url('assets/img/about/commintment.png') ?>" alt="Image Not Found">
+                                <img src="<?= base_url('assets/img/about/commintment.png') ?>" alt="commintment" loading="lazy">
                             </div>
                         </div>
                         <h4>Commitment</h4>
@@ -73,7 +71,7 @@
                     <div class="cz-story-card cz-fade-in cz-fade-in-delay-3 text-center">
                         <div class="cz-story-icon-box">
                             <div class="cz-story-icon-inner">
-                                <img src="<?= base_url('assets/img/about/quality.png') ?>" alt="Image Not Found">
+                                <img src="<?= base_url('assets/img/about/quality.png') ?>" alt="quality" loading="lazy">
                             </div>
                         </div>
                         <h4>Quality</h4>
@@ -85,7 +83,7 @@
                     <div class="cz-story-card cz-fade-in text-center">
                         <div class="cz-story-icon-box">
                             <div class="cz-story-icon-inner">
-                                <img src="<?= base_url('assets/img/about/transparency.png') ?>" alt="Image Not Found">
+                                <img src="<?= base_url('assets/img/about/transparency.png') ?>" alt="transparency" loading="lazy">
                             </div>
                         </div>
                         <h4>Transparency</h4>
@@ -94,7 +92,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <!-- End Our Story -->
 
     <!-- Start Projects 
@@ -103,7 +101,7 @@
     <style>
 
     </style>
-    <div class="project-style-two-area default-padding">
+    <section class="project-style-two-area default-padding">
 
         <div class="container">
             <div class="row">
@@ -115,7 +113,7 @@
                     <div class="project-style-two-items">
                         <!-- Single Item -->
                         <div class="project-style-two-item">
-                            <img src="<?= base_url('assets/img/about/Mission-1.jpg') ?>" alt="Mission">
+                            <img src="<?= base_url('assets/img/about/Mission-1.jpg') ?>" alt="Cozentus mission illustration" loading="lazy">
                             <div class="info bg-dark text-light" style="background-image: url(<?= base_url('assets/img/shape/10.png') ?>);">
                                 <div class="top">
 
@@ -136,7 +134,7 @@
                         <!-- End Single Item -->
                         <!-- Single Item -->
                         <div class="project-style-two-item">
-                            <img src="<?= base_url('assets/img/about/Vission-1.jpg') ?>" alt="Vission">
+                            <img src="<?= base_url('assets/img/about/Vission-1.jpg') ?>" alt="Vission" loading="lazy">
                             <div class="info bg-dark text-light" style="background-image: url(<?= base_url('assets/img/shape/10.png') ?>);">
                                 <div class="top">
 
@@ -154,7 +152,7 @@
                         <!-- End Single Item -->
                         <!-- Single Item -->
                         <div class="project-style-two-item">
-                            <img src="<?= base_url('assets/img/about/Value-1.jpg') ?>" alt="Values">
+                            <img src="<?= base_url('assets/img/about/Value-1.jpg') ?>" alt="Values" loading="lazy">
                             <div class="info bg-dark text-light" style="background-image: url(<?= base_url('assets/img/shape/10.png') ?>);">
                                 <div class="top">
                                     <h2>Values</h2>
@@ -174,13 +172,13 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <!-- End Project -->
 
 
     <!-- Start Services 
     ============================================= -->
-    <div class="services-style-two-area default-padding bg-gray blurry-shape-right-bottom">
+    <section class="services-style-two-area default-padding bg-gray blurry-shape-right-bottom">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
@@ -200,7 +198,7 @@
                         <ul class="service-list mt-70 mt-xs-30">
                             <li>
                                 <div class="icon">
-                                    <img src="<?= base_url('assets/img/about/supply-chain.png') ?>" alt="Image Not Found">
+                                    <img src="<?= base_url('assets/img/about/supply-chain.png') ?>" alt="supply chain" loading="lazy">
                                 </div>
                                 <div class="info">
                                     <h4><a href="services-details.html">Supply Chain Domain Excellence</a></h4>
@@ -211,7 +209,7 @@
                             </li>
                             <li>
                                 <div class="icon">
-                                    <img src="<?= base_url('assets/img/about/trade.png') ?>" alt="Image Not Found">
+                                    <img src="<?= base_url('assets/img/about/trade.png') ?>" alt="trade" loading="lazy">
                                 </div>
                                 <div class="info">
                                     <h4><a href="services-details.html">Global Delivery Excellence</a></h4>
@@ -228,7 +226,7 @@
                         <!-- Single Item -->
                         <div class="services-style-two-item">
                             <div class="top-info">
-                                <img src="<?= base_url('assets/img/about/artificial-intelligence.png') ?>" alt="Image Not Found">
+                                <img src="<?= base_url('assets/img/about/artificial-intelligence.png') ?>" alt="artificial intelligence" loading="lazy">
                                 <h4><a href="services-details.html">AI & Technology <br> Innovation</a></h4>
                                 <ul class="list-style-one">
                                     <li>AI-Powered Automation</li>
@@ -236,13 +234,13 @@
                                     <li>Future-Ready Solutions</li>
                                 </ul>
                             </div>
-                            <a href="services.html" class="btn-simple">Explore More <i class="fas fa-long-arrow-right"></i></a>
+                            <a href="<?= base_url('services') ?>" class="btn-simple">Explore More <i class="fas fa-long-arrow-right"></i></a>
                         </div>
                         <!-- End Single Item -->
                         <!-- Single Item -->
                         <div class="services-style-two-item fade-up-anim">
                             <div class="top-info">
-                                <img src="<?= base_url('assets/img/about/excellence.png') ?>" alt="Image Not Found">
+                                <img src="<?= base_url('assets/img/about/excellence.png') ?>" alt="excellence" loading="lazy">
                                 <h4><a href="services-details.html">Built Around <br>Customer Success</a></h4>
                                 <ul class="list-style-one">
                                     <li>Client-Centric Approach</li>
@@ -257,17 +255,17 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <!-- End Services -->
 
     <!-- Start Language Support 
     ============================================= -->
-    <div class="language-support-area blurry-shape default-padding bg-dark text-light">
+    <section class="language-support-area blurry-shape default-padding bg-dark text-light">
         <div class="container">
             <div class="row align-center">
                 <div class="col-lg-5">
                     <div>
-                        <img class="fade-up-anim" src="<?= base_url('assets/img/about/map-wb.png') ?>" alt="cozentus location" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+                        <img class="fade-up-anim" src="<?= base_url('assets/img/about/map-wb.png') ?>" alt="cozentus location" loading="lazy" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
 
                     </div>
                     <!-- <div class="language-support-country-flag text-center">
@@ -300,13 +298,13 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <!-- End Language Support -->
 
 
     <!-- Workplace 
     ============================================= -->
-    <div class="testimonial-style-two-area default-padding-top pb-80 pb-xs-70 bg-gray blurry-shape-bottom">
+    <section class="testimonial-style-two-area default-padding-top pb-80 pb-xs-70 bg-gray blurry-shape-bottom">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
@@ -327,37 +325,37 @@
                 <div class="col-lg-10 offset-lg-1">
                     <div class="testimonial-provider-thumbs transform-up-animation">
                         <div class="testimonial-provider-item transform-animation-item">
-                            <img src="<?= base_url('assets/img/about/about-1.png') ?>" alt="Image Not Found">
+                            <img src="<?= base_url('assets/img/about/about-1.png') ?>" alt="Employees collaborating during a team discussion" loading="lazy">
                         </div>
                         <div class="testimonial-provider-item transform-animation-item">
-                            <img src="<?= base_url('assets/img/about/about-2.png') ?>" alt="Image Not Found">
+                            <img src="<?= base_url('assets/img/about/about-2.png') ?>" alt="Employees collaborating during a team discussion" loading="lazy">
                         </div>
                         <div class="testimonial-provider-item transform-animation-item">
-                            <img src="<?= base_url('assets/img/about/about-3.png') ?>" alt="Image Not Found">
-                            <img src="<?= base_url('assets/img/about/about-4.png') ?>" alt="Image Not Found">
+                            <img src="<?= base_url('assets/img/about/about-3.png') ?>" alt="Employees collaborating during a team discussion" loading="lazy">
+                            <img src="<?= base_url('assets/img/about/about-4.png') ?>" alt="Employees collaborating during a team discussion" loading="lazy">
                         </div>
                         <div class="testimonial-provider-item transform-animation-item">
-                            <img src="<?= base_url('assets/img/about/about-7.jpg') ?>" alt="Image Not Found">
-                            <img src="<?= base_url('assets/img/about/about-8.jpg') ?>" alt="Image Not Found">
+                            <img src="<?= base_url('assets/img/about/about-7.jpg') ?>" alt="Employees collaborating during a team discussion" loading="lazy">
+                            <img src="<?= base_url('assets/img/about/about-8.jpg') ?>" alt="Employees collaborating during a team discussion" loading="lazy">
                         </div>
                         <div class="testimonial-provider-item transform-animation-item">
-                            <img src="<?= base_url('assets/img/about/about-9.jpg') ?>" alt="Image Not Found">
+                            <img src="<?= base_url('assets/img/about/about-9.jpg') ?>" alt="Employees collaborating during a team discussion" loading="lazy">
                         </div>
                         <div class="testimonial-provider-item transform-animation-item">
-                            <img src="<?= base_url('assets/img/about/about-6.png') ?>" alt="Image Not Found">
+                            <img src="<?= base_url('assets/img/about/about-6.png') ?>" alt="Employees collaborating during a team discussion" loading="lazy">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <!-- End Workplace -->
 
     <!-- Start Team 
     ============================================= -->
 
     <?php if (!empty($ourteams)) { ?>
-        <div class="team-style-two-area default-padding bottom-less  bg-gray blurry-shape-left-bottom">
+        <section class="team-style-two-area default-padding bottom-less  bg-gray blurry-shape-left-bottom">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
@@ -384,7 +382,7 @@
                                         <div class="col-lg-12 col-md-6 mb-30">
                                             <div class="team-style-two-item fade-up-anim">
                                                 <div class="thumb">
-                                                    <img src="<?= base_url('uploads/images/') . $team['image'] ?>" alt="Image Not Found">
+                                                    <img src="<?= base_url('uploads/images/') . $team['image'] ?>" alt="<?= !empty($team['alt_text']) ? $team['alt_text'] : pathinfo($team['image'], PATHINFO_FILENAME) ?>" loading="lazy">
                                                     <div class="text-overlay">
                                                         <p>
                                                             <?= html_entity_decode($team['short_description']) ?>
@@ -393,18 +391,18 @@
                                                     <div class="social-overlay">
                                                         <ul>
                                                             <li>
-                                                                <a href="<?= urldecode($team['twitter_link']) ?? '#' ?>" target="__blank">
+                                                                <a href="<?= urldecode($team['twitter_link']) ?? '#' ?>" target="__blank" aria-label="Twitter Profile">
                                                                     <i class="fab fa-twitter"></i>
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="<?= urldecode($team['link']) ?? '#' ?>" target="__blank"><i class="fab fa-linkedin-in"></i></a>
+                                                                <a href="<?= urldecode($team['link']) ?? '#' ?>" target="__blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
                                                             </li>
                                                             <li>
-                                                                <a href="<?= urldecode($team['insta_link']) ?? '#' ?>" target="__blank"><i class="fab fa-instagram"></i></a>
+                                                                <a href="<?= urldecode($team['insta_link']) ?? '#' ?>" target="__blank" aria-label="Instagram Profile"><i class="fab fa-instagram"></i></a>
                                                             </li>
                                                             <li>
-                                                                <a href="<?= urldecode($team['facebook_link']) ?? '#' ?>" target="__blank"><i class="fab fa-facebook-f"></i></a>
+                                                                <a href="<?= urldecode($team['facebook_link']) ?? '#' ?>" target="__blank" aria-label="Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                                                             </li>
                                                         </ul>
                                                         <div class="icon">
@@ -428,14 +426,14 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     <?php } ?>
     <!-- End Team -->
     <!-- Call to Action
     ============================================= -->
-    <div class="home-blog-two-area default-padding">
+    <section class="home-blog-two-area default-padding">
         <div class="container">
-            <div class="blog-style-two-box bg-dark" styles="background-image: url(<?= base_url('assets/img/shape/10.png') ?>); background-size: cover;">
+            <div class="blog-style-two-box bg-dark">
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
                         <div class="cta-box text-center fade-up-anim">
@@ -456,7 +454,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- End Call to Action -->
-</div>
+</main>

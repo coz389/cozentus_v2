@@ -101,7 +101,7 @@
         <div class="modal-content p-3">
             <div class="modal-body">
                 <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close">
-                    <img src="<?= base_url() ?>assets/images/cross.svg" alt="">
+                    <img src="<?= base_url() ?>assets/images/cross.svg" alt="cross">
                 </button>
                 <div class="sec-head" data-aos="fade-up" data-aos-duration="1000">
                     <h2>
@@ -365,7 +365,7 @@
 <footer class="footer-style-one box-layout bg-dark text-light">
 
     <div class="footer-shape">
-        <img src="<?= base_url('assets/img/shape/globe.png') ?>" alt="Image Not Found">
+        <img src="<?= base_url('assets/img/shape/globe.png') ?>" alt="globe">
     </div>
     <div class="container">
         <div class="f-items default-padding">
@@ -528,28 +528,29 @@
 <!-- jQuery Frameworks
     ============================================= -->
 
-<script src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>"></script>
-<script src="<?= base_url('assets/js/jquery.appear.js') ?>"></script>
-<script src="<?= base_url('assets/js/jquery.easing.min.js') ?>"></script>
-<script src="<?= base_url('assets/js/jquery.magnific-popup.min.js') ?>"></script>
-<script src="<?= base_url('assets/js/swiper-bundle.min.js') ?>"></script>
-<script src="<?= base_url('assets/js/wow.min.js') ?>"></script>
-<script src="<?= base_url('assets/js/progress-bar.min.js') ?>"></script>
-<script src="<?= base_url('assets/js/isotope.pkgd.min.js') ?>"></script>
-<script src="<?= base_url('assets/js/imagesloaded.pkgd.min.js') ?>"></script>
-<script src="<?= base_url('assets/js/count-to.js') ?>"></script>
-<script src="<?= base_url('assets/js/YTPlayer.min.js') ?>"></script>
-<script src="<?= base_url('assets/js/validnavs.js') ?>"></script>
-<script src="<?= base_url('assets/js/gsap.js') ?>"></script>
-<script src="<?= base_url('assets/js/lenis.min.js') ?>"></script>
-<script src="<?= base_url('assets/js/ScrollTrigger.min.js') ?>"></script>
-<script src="<?= base_url('assets/js/SplitText.min.js') ?>"></script>
-<script src="<?= base_url('assets/js/main.js') ?>"></script>
+<script src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>" defer></script>
+<script src="<?= base_url('assets/js/jquery.appear.js') ?>" defer></script>
+<script src="<?= base_url('assets/js/jquery.easing.min.js') ?>" defer></script>
+<script src="<?= base_url('assets/js/jquery.magnific-popup.min.js') ?>" defer></script>
+<script src="<?= base_url('assets/js/swiper-bundle.min.js') ?>" defer></script>
+<script src="<?= base_url('assets/js/wow.min.js') ?>" defer></script>
+<script src="<?= base_url('assets/js/progress-bar.min.js') ?>" defer></script>
+<script src="<?= base_url('assets/js/isotope.pkgd.min.js') ?>" defer></script>
+<script src="<?= base_url('assets/js/imagesloaded.pkgd.min.js') ?>" defer></script>
+<script src="<?= base_url('assets/js/count-to.js') ?>" defer></script>
+<script src="<?= base_url('assets/js/YTPlayer.min.js') ?>" defer></script>
+<script src="<?= base_url('assets/js/validnavs.js') ?>" defer></script>
+<script src="<?= base_url('assets/js/gsap.js') ?>" defer></script>
+<script src="<?= base_url('assets/js/lenis.min.js') ?>" defer></script>
+<script src="<?= base_url('assets/js/ScrollTrigger.min.js') ?>" v></script>
+<script src="<?= base_url('assets/js/SplitText.min.js') ?>" defer></script>
+<script src="<?= base_url('assets/js/main.js') ?>" defer></script>
 
 <!-- Custom Extra JS--->
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.0/build/js/intlTelInput.js"></script>
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script async src="https://www.google.com/recaptcha/api.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.0/build/js/intlTelInput.js"></script>
+
 <!-- <script defer src="<?= base_url('assets/custom/app.js?v=1.0') ?>"></script>
  <script defer src="<?= base_url('assets/custom/form.js?v=1.0') ?>"></script> -->
 
@@ -591,15 +592,25 @@
 <script type="text/javascript">
     var Tawk_API = Tawk_API || {},
         Tawk_LoadStart = new Date();
-    (function() {
-        var s1 = document.createElement("script"),
-            s0 = document.getElementsByTagName("script")[0];
+    window.addEventListener('load', function() {
+        var s1 = document.createElement("script");
+        var s0 = document.getElementsByTagName("script")[0];
         s1.async = true;
         s1.src = 'https://embed.tawk.to/69bbcba76b81021c34520b0b/1jk2p722m';
         s1.charset = 'UTF-8';
         s1.setAttribute('crossorigin', '*');
         s0.parentNode.insertBefore(s1, s0);
-    })();
+    });
+
+    // (function() {
+    //     var s1 = document.createElement("script"),
+    //         s0 = document.getElementsByTagName("script")[0];
+    //     s1.async = true;
+    //     s1.src = 'https://embed.tawk.to/69bbcba76b81021c34520b0b/1jk2p722m';
+    //     s1.charset = 'UTF-8';
+    //     s1.setAttribute('crossorigin', '*');
+    //     s0.parentNode.insertBefore(s1, s0);
+    // })();
 </script>
 <!--End of Tawk.to Script-->
 <script>
