@@ -570,6 +570,14 @@ class Home extends CI_Controller
         $this->load->view('about_new2');
         $this->load->view('common/footer');
     }
+    public function test_page()
+    {
+        $data['head_foot'] = $this->home_model->get_header_footer('about');
+        $data['servicehomecard'] = $this->home_model->getparentservicehomecard();
+        $this->load->view('common/header', $data);
+        $this->load->view('test_child_service');
+        $this->load->view('common/footer');
+    }
     public function media()
     {
         $data['head_foot'] = $this->home_model->get_header_footer('media');
