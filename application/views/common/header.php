@@ -54,30 +54,15 @@
     <link rel="preconnect" href="https://static.hsappstatic.net" crossorigin>
     <link rel="prefetch" href="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js" as="script">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-    <!-- ============================================= -->
-    <!-- SCHEMA MARKUP - Load from schema views -->
-    <!-- ============================================= -->
-    <?php
-    // Load common schemas
-    if (!empty($show_organization_schema)) {
-        $this->load->view('schema/organization', $schema_data);
-    }
-
-    if (!empty($show_website_schema)) {
-        $this->load->view('schema/website', $schema_data);
-    }
-
-    // Load page specific schemas
-    if (!empty($schema_page)) {
-        $this->load->view('schema/' . $schema_page, $schema_data);
-    }
-
-    // Load breadcrumb if exists
-    if (!empty($show_breadcrumb_schema) && !empty($breadcrumb_items)) {
-        $this->load->view('schema/breadcrumb', array('breadcrumb_items' => $breadcrumb_items));
-    }
-    ?>
+    <script type="application/ld+json" defer>
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Cozentus Technologies Pvt Ltd",
+            "url": "<?= base_url() ?>",
+            "logo": "<?= base_url('assets/img/logo.png') ?>"
+        }
+    </script>
 
     <?= !empty($head_foot['header']) ? html_entity_decode($head_foot['header']) : '' ?>
     <?= !empty($pserv['page_header']) ? html_entity_decode($pserv['page_header']) : '' ?>
