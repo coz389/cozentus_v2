@@ -18,7 +18,7 @@
                 <div class="col-lg-5">
                     <div class="chat-bot-thumb text-center">
                         <div class="illustration">
-                            <img class="wow fadeInUp" data-wow-delay="300ms" fetchpriority="high" src="<?= base_url('assets/img/about/about-banner.png') ?>" alt="Cozentus logistics technology team" loading="lazy">
+                            <img class="wow fadeInUp" data-wow-delay="300ms" fetchpriority="high" src="<?= base_url('assets/img/about/about-banner.png') ?>" alt="Cozentus logistics technology team" loading="eager">
 
                         </div>
                     </div>

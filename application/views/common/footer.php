@@ -101,7 +101,7 @@
         <div class="modal-content p-3">
             <div class="modal-body">
                 <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close">
-                    <img src="<?= base_url() ?>assets/images/cross.svg" alt="cross">
+                    <img src="<?= base_url() ?>assets/custom/images/cross.svg" alt="cross">
                 </button>
                 <div class="sec-head" data-aos="fade-up" data-aos-duration="1000">
                     <h2>
@@ -527,7 +527,7 @@
 
 <!-- jQuery Frameworks
     ============================================= -->
-
+<script src="<?= base_url('assets/js/jquery-3.7.1.min.js') ?>"></script>
 <script src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>" defer></script>
 <script src="<?= base_url('assets/js/jquery.appear.js') ?>" defer></script>
 <script src="<?= base_url('assets/js/jquery.easing.min.js') ?>" defer></script>
@@ -540,21 +540,19 @@
 <script src="<?= base_url('assets/js/count-to.js') ?>" defer></script>
 <script src="<?= base_url('assets/js/YTPlayer.min.js') ?>" defer></script>
 <script src="<?= base_url('assets/js/validnavs.js') ?>" defer></script>
-<script src="<?= base_url('assets/js/gsap.js') ?>" defer></script>
+<script src="<?= base_url('assets/js/gsap.js') ?>"></script>
 <script src="<?= base_url('assets/js/lenis.min.js') ?>" defer></script>
-<script src="<?= base_url('assets/js/ScrollTrigger.min.js') ?>" v></script>
+<script src="<?= base_url('assets/js/ScrollTrigger.min.js') ?>" defer></script>
 <script src="<?= base_url('assets/js/SplitText.min.js') ?>" defer></script>
 <script src="<?= base_url('assets/js/main.js') ?>" defer></script>
 
 <!-- Custom Extra JS--->
-<script async src="https://www.google.com/recaptcha/api.js"></script>
+<script async src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
 <script async src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.0/build/js/intlTelInput.js"></script>
 
 <!-- <script defer src="<?= base_url('assets/custom/app.js?v=1.0') ?>"></script>
  <script defer src="<?= base_url('assets/custom/form.js?v=1.0') ?>"></script> -->
-
-<script defer src="<?= base_url('assets/custom/webinar-form.js') ?>"></script>
 
 
 
@@ -580,9 +578,29 @@
 
     });
 
-    $(".open-contact-modal").on("click", function() {
-        $("#css-modal").modal('show');
-        formVal();
+    $(document).ready(function() {
+        $(".open-contact-modal").on("click", function() {
+            $("#css-modal").modal('show');
+            formVal();
+        });
+    });
+
+    function loadRecaptcha() {
+        if (document.querySelector('.g-recaptcha')) {
+            var script = document.createElement('script');
+            script.src = 'https://www.google.com/recaptcha/api.js';
+            script.async = true;
+            script.defer = true;
+            document.body.appendChild(script);
+        }
+    }
+
+    // Load when user scrolls or interacts
+    document.addEventListener('scroll', loadRecaptcha, {
+        once: true
+    });
+    document.addEventListener('click', loadRecaptcha, {
+        once: true
     });
 </script>
 
@@ -592,94 +610,18 @@
 <script type="text/javascript">
     var Tawk_API = Tawk_API || {},
         Tawk_LoadStart = new Date();
-    window.addEventListener('load', function() {
-        var s1 = document.createElement("script");
-        var s0 = document.getElementsByTagName("script")[0];
+    (function() {
+        var s1 = document.createElement("script"),
+            s0 = document.getElementsByTagName("script")[0];
         s1.async = true;
         s1.src = 'https://embed.tawk.to/69bbcba76b81021c34520b0b/1jk2p722m';
         s1.charset = 'UTF-8';
         s1.setAttribute('crossorigin', '*');
         s0.parentNode.insertBefore(s1, s0);
-    });
-
-    // (function() {
-    //     var s1 = document.createElement("script"),
-    //         s0 = document.getElementsByTagName("script")[0];
-    //     s1.async = true;
-    //     s1.src = 'https://embed.tawk.to/69bbcba76b81021c34520b0b/1jk2p722m';
-    //     s1.charset = 'UTF-8';
-    //     s1.setAttribute('crossorigin', '*');
-    //     s0.parentNode.insertBefore(s1, s0);
-    // })();
+    })();
 </script>
 <!--End of Tawk.to Script-->
 <script>
-    //Home page banner text sliding
-
-    const wordsArray = [
-        "AI-Powered",
-        "Data-Driven",
-        "Future-Ready",
-    ];
-
-    const slidingText = document.getElementById("sliding-text");
-
-    let currentIndex = 0;
-
-    // Initial render
-    function renderWord(word) {
-        slidingText.innerHTML = "";
-
-        word.split("").forEach((char, index) => {
-            const span = document.createElement("span");
-            span.classList.add("char");
-            span.textContent = char === " " ? "\u00A0" : char;
-            slidingText.appendChild(span);
-        });
-    }
-
-    renderWord(wordsArray[currentIndex]);
-
-    async function animateTextChange() {
-
-        const chars = slidingText.querySelectorAll(".char");
-
-        // STEP 1: Remove current text
-        // Right → Left
-        for (let i = chars.length - 1; i >= 0; i--) {
-            chars[i].classList.add("hide");
-            await sleep(40);
-        }
-
-        await sleep(200);
-
-        // STEP 2: New word
-        currentIndex = (currentIndex + 1) % wordsArray.length;
-        const newWord = wordsArray[currentIndex];
-
-        slidingText.innerHTML = "";
-
-        // STEP 3: Add new text
-        // Left → Right
-        newWord.split("").forEach((char, index) => {
-            const span = document.createElement("span");
-
-            span.classList.add("char", "show");
-            span.style.animationDelay = `${index * 0.05}s`;
-
-            span.textContent = char === " " ? "\u00A0" : char;
-
-            slidingText.appendChild(span);
-        });
-    }
-
-    function sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
-    setInterval(animateTextChange, 3500);
-
-
     // social share
     var pageLink = window.location.href;
     var pageTitle = String(document.title).replace(/\&/g, '%26');

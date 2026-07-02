@@ -50,19 +50,11 @@
 
     <!-- ========== Custom Stylesheet ========== -->
     <link href="<?= base_url('assets/custom/custom.css') ?>" rel="stylesheet">
-    <script src="<?= base_url('assets/js/jquery-3.7.1.min.js') ?>" defer></script>
+
     <link rel="preconnect" href="https://static.hsappstatic.net" crossorigin>
     <link rel="prefetch" href="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js" as="script">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script type="application/ld+json" defer>
-        {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Cozentus Technologies Pvt Ltd",
-            "url": "<?= base_url() ?>",
-            "logo": "<?= base_url('assets/img/logo.png') ?>"
-        }
-    </script>
+    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+
 
     <?= !empty($head_foot['header']) ? html_entity_decode($head_foot['header']) : '' ?>
     <?= !empty($pserv['page_header']) ? html_entity_decode($pserv['page_header']) : '' ?>
@@ -109,7 +101,7 @@
 		</div>
 	</div> -->
 
-    <div id="preloader" class="preloader">
+    <!-- <div id="preloader" class="preloader">
         <div class="animation-preloader">
             <div class="spinner"></div>
             <div class="txt-loading">
@@ -140,7 +132,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- preloader end -->
     <!-- Header 
     ============================================= -->
