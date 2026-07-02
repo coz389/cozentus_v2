@@ -514,6 +514,99 @@
             color: #0c1b3a;
         }
 
+
+        /* ═══════════════════════════════════════════════════════════
+        child-services.html  —  "Why Custom Software" benefits
+        (visual language shared with Section 3-1 "What It Solves")
+        ═══════════════════════════════════════════════════════════ */
+        .cz-benefit-row {
+            margin-top: 20px;
+        }
+
+        /* left image */
+        .cz-benefit-media {
+            padding-right: 30px;
+        }
+
+        .cz-benefit-media img {
+            width: 100%;
+            border-radius: 22px;
+            box-shadow: 0 30px 60px -28px rgba(13, 35, 75, .32);
+        }
+
+        /* right side: 5 vertical steps with a connecting line */
+        .cz-benefit-steps {
+            padding-left: 20px;
+        }
+
+        .cz-step {
+            position: relative;
+            display: flex;
+            gap: 22px;
+            padding-bottom: 30px;
+        }
+
+        .cz-step:last-child {
+            padding-bottom: 0;
+        }
+
+        /* connector line between the number badges */
+        .cz-step:not(:last-child)::before {
+            content: "";
+            position: absolute;
+            left: 25px;
+            top: 54px;
+            bottom: 2px;
+            width: 2px;
+            background: linear-gradient(#dbe3ef, #eef2f7);
+        }
+
+        .cz-step-num {
+            flex: 0 0 52px;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #fff;
+            background: linear-gradient(135deg, #2f73ff, #6f4cff);
+            box-shadow: 0 12px 22px -8px rgba(47, 115, 255, .6);
+            position: relative;
+            z-index: 1;
+        }
+
+        .cz-step-info {
+            padding-top: 4px;
+        }
+
+        .cz-step-info h4 {
+            font-size: 19px;
+            font-weight: 700;
+            color: #0c1b3a;
+            line-height: 1.35;
+            margin-bottom: 7px;
+        }
+
+        .cz-step-info p {
+            font-size: 15.5px;
+            line-height: 1.6;
+            color: #5a6478;
+            margin: 0;
+        }
+
+        @media (max-width: 991px) {
+            .cz-benefit-media {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+
+            .cz-benefit-steps {
+                padding-left: 0;
+            }
+        }
+
         /* ── responsive ── */
         @media (max-width: 991px) {
             .cz-case-media {
@@ -630,57 +723,73 @@
         </div>
         <!-- End Section 2 -->
 
-        <!-- Section 3 - What It Solves
+        <!-- Section - 3-1: What It Solves
         ============================================= -->
-        <div class="cz-solve-area default-padding bg-gray">
+        <div class="cz-benefit-area default-padding bg-gray">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
                         <div class="site-heading text-center">
+
                             <h2 class="title split-text-right split-text-in-right">What It Solves</h2>
-                            <p>From everyday operational pain points to measurable business outcomes.</p>
+                            <p>
+                                Custom software fixes the everyday friction that off-the-shelf tools create — giving you
+                                a system built around your operation, connected data you can trust, and full control of
+                                what you own.
+                            </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="row cz-solve-row fade-up-anim">
-                    <!-- Left: Common Challenges -->
-                    <div class="col-lg-6">
-                        <div class="cz-solve-card cz-solve-challenge">
-                            <div class="cz-solve-head">
-                                <span class="cz-solve-badge"><i class="fas fa-exclamation-triangle"></i></span>
-                                <h3>Common Challenges</h3>
-                            </div>
-                            <ul class="cz-solve-list">
-                                <li><i class="fas fa-times"></i> Manual processes</li>
-                                <li><i class="fas fa-times"></i> Slow turnaround</li>
-                                <li><i class="fas fa-times"></i> High operational costs</li>
-                                <li><i class="fas fa-times"></i> Data errors</li>
-                                <li><i class="fas fa-times"></i> Lack of visibility</li>
-                            </ul>
-                        </div>
+                <div class="row align-center cz-benefit-row fade-up-anim">
+                    <!-- Left: image -->
+                    <div class="col-lg-6 cz-benefit-media">
+                        <img src="assets/img/illustration/service-page-graphic.jpg" alt="Custom Software">
                     </div>
-                    <!-- Right: Business Outcomes -->
-                    <div class="col-lg-6">
-                        <div class="cz-solve-card cz-solve-outcome">
-                            <div class="cz-solve-head">
-                                <span class="cz-solve-badge"><i class="fas fa-bolt"></i></span>
-                                <h3>Business Outcomes</h3>
+
+                    <!-- Right: 5 steps -->
+                    <div class="col-lg-6 cz-benefit-steps">
+                        <div class="cz-step">
+                            <span class="cz-step-num"><i class="fas fa-check"></i></span>
+                            <div class="cz-step-info">
+                                <h4>Software that fits how you work</h4>
+                                <p>Built around your exact operation, not a template you bend to.</p>
                             </div>
-                            <ul class="cz-solve-list">
-                                <li><i class="fas fa-check"></i> Faster processing</li>
-                                <li><i class="fas fa-check"></i> Reduced costs</li>
-                                <li><i class="fas fa-check"></i> Improved accuracy</li>
-                                <li><i class="fas fa-check"></i> Better visibility</li>
-                                <li><i class="fas fa-check"></i> Increased productivity</li>
-                            </ul>
+                        </div>
+                        <div class="cz-step">
+                            <span class="cz-step-num"><i class="fas fa-check"></i></span>
+                            <div class="cz-step-info">
+                                <h4>Connected systems, one source of truth</h4>
+                                <p>Data flows automatically between every tool and team.</p>
+                            </div>
+                        </div>
+                        <div class="cz-step">
+                            <span class="cz-step-num"><i class="fas fa-check"></i></span>
+                            <div class="cz-step-info">
+                                <h4>Data you can trust and act on</h4>
+                                <p>One accurate, real-time view of your whole operation.</p>
+                            </div>
+                        </div>
+                        <div class="cz-step">
+                            <span class="cz-step-num"><i class="fas fa-check"></i></span>
+                            <div class="cz-step-info">
+                                <h4>Costs that scale with you</h4>
+                                <p>Grows with your business without stacking up licence fees.</p>
+                            </div>
+                        </div>
+                        <div class="cz-step">
+                            <span class="cz-step-num"><i class="fas fa-check"></i></span>
+                            <div class="cz-step-info">
+                                <h4>Full control of your software</h4>
+                                <p>You own the code and the roadmap — and you set the pace.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
             </div>
         </div>
-        <!-- End Section 3 -->
+        <!-- End 3-1: What It Solves -->
 
         <!-- Section 4 - Case Study
         ============================================= -->
