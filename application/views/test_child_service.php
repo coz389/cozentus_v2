@@ -1,8 +1,8 @@
     <style>
         /* ═══════════════════════════════════════════════════════════
-   child-services.html  —  Section 2 "What It Does" +
-   Section 3 "What It Solves"  (namespaced, theme-safe)
-   ═══════════════════════════════════════════════════════════ */
+        child-services.html  —  Section 2 "What It Does" +
+        Section 3 "What It Solves"  (namespaced, theme-safe)
+        ═══════════════════════════════════════════════════════════ */
 
         /* ── Section 2: enterprise split layout ── */
         .cz-does-top {
@@ -331,8 +331,8 @@
         }
 
         /* ═══════════════════════════════════════════════════════════
-   child-services.html  —  Section 4 "Case Study"
-   ═══════════════════════════════════════════════════════════ */
+        child-services.html  —  Section 4 "Case Study"
+        ═══════════════════════════════════════════════════════════ */
         .cz-eyebrow-center {
             justify-content: center;
             margin-left: auto;
@@ -544,24 +544,6 @@
     </style>
 
     <div id="smooth-content">
-
-        <!-- Start Breadcrumb
-    ============================================= -->
-        <div class="breadcrumb-area text-center bg-cover text-light bg-theme" style="background-image: url(assets/img/shape/banner-14.jpg);">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 offset-lg-2">
-                        <h1>Custom Logistics Platforms</h1>
-                        <!-- <ul class="breadcrumb">
-                            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                            <li>Services</li>
-                        </ul> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Breadcrumb -->
-
         <!-- Start About  Services
         ============================================= -->
         <div class="about-style-three-area default-padding-2 bg-gray bg-cover" style="background: url(assets/img/shape/banner-16.jpg);">
@@ -569,7 +551,7 @@
                 <div class="row">
 
                     <div class="col-lg-6" style="height: 430px;">
-                        <h2 class="title split-text-right split-text-in-right">Customized Solutions Services Overview</h2>
+                        <h2 class="title split-text-right split-text-in-right">Custom Logistics Platforms</h2>
                         <p>
                             Cozentus crafts custom applications that integrate seamlessly, scale effortlessly, and adapt to your ever-changing needs. Our team's expertise across various industries ensures your software exceeds the limitations of off-the-shelf options. This guarantees a perfect fit for your workflow, efficient scaling as you grow, and adaptability to your evolving business landscape.
                         </p>
