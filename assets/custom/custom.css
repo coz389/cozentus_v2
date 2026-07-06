@@ -1104,6 +1104,7 @@ select.valid {
     .banner-style-three-area {
         height: 75vh;
         padding-top: 50px;
+        padding-bottom: 50px;
     }
 }
 

@@ -4,6 +4,7 @@
         Section 3 "What It Solves"  (namespaced, theme-safe)
         ═══════════════════════════════════════════════════════════ */
 
+
     /* ── Section 2: enterprise split layout ── */
     .cz-does-top {
         margin-bottom: 20px;
@@ -294,22 +295,6 @@
     }
 
     /* ── responsive ── */
-    @media (max-width: 991px) {
-        .cz-flow-step {
-            min-width: 110px;
-        }
-
-        .cz-flow-ic {
-            width: 72px;
-            height: 72px;
-            font-size: 28px;
-        }
-
-        .cz-does-intro {
-            padding-right: 0;
-            margin-bottom: 40px;
-        }
-    }
 
     @media (max-width: 575px) {
         .cz-flow {
@@ -596,7 +581,51 @@
         margin: 0;
     }
 
+    .cz-cs-overview .row {
+        align-items: center;
+    }
+
+    .cz-cs-overview .about-style-three-thumb {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    .cz-cs-overview .about-style-three-thumb img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto;
+    }
+
+    /* ── responsive ── */
     @media (max-width: 991px) {
+        .cz-flow-step {
+            min-width: 110px;
+        }
+
+        .cz-flow-ic {
+            width: 72px;
+            height: 72px;
+            font-size: 28px;
+        }
+
+        .cz-does-intro {
+            padding-right: 0;
+            margin-bottom: 40px;
+        }
+
+
+        .cz-case-media {
+            min-height: 320px;
+        }
+
+        .cz-case-body {
+            padding: 40px 34px;
+        }
+
         .cz-benefit-media {
             padding-right: 0;
             margin-bottom: 40px;
@@ -605,16 +634,9 @@
         .cz-benefit-steps {
             padding-left: 0;
         }
-    }
 
-    /* ── responsive ── */
-    @media (max-width: 991px) {
-        .cz-case-media {
-            min-height: 320px;
-        }
-
-        .cz-case-body {
-            padding: 40px 34px;
+        .cz-cs-overview .about-style-three-thumb {
+            margin-top: 40px;
         }
     }
 
