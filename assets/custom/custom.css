@@ -426,6 +426,26 @@ select.valid {
     font-size: 16px !important;
     color: #ffffff;
 }
+.inner-service-page h2 {
+    font-size: 55px !important;
+    margin-bottom: 25px;
+    color: #000662;
+}
+.inner-service-page h4 {
+    color: #60616c;
+}
+.inner-service-page p {
+    font-size: 16px !important;
+    color: #60616c;
+}
+.about-style-three-thumb {
+    padding-left: 0% !important;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 0% !important;
+    margin-left: 0px !important;
+}
+
 .domain-capablity .video-button-v1 {
     display: inline-block;
     position: absolute;
