@@ -657,7 +657,6 @@
         }
     }
 </style>
-
 <div id="smooth-content" class="domain-capablity">
     <?php
     if (!empty($pserv['inner_banner_image'])) {
@@ -665,7 +664,6 @@
     } else {
         $banner = base_url('assets/img/shape/banner-16.jpg');
     }
-
     ?>
 
     <!-- Start Section 1 -->
@@ -682,7 +680,6 @@
                             <div class="button mt-30 fade-up-anim">
                                 <a href="<?= urldecode($pserv['ctalink']) ?>" class="btn btn-style-one"><?= $pserv['ctabtn'] ?> <i class="fas fa-arrow-right"></i></a>
                             </div>
-
                         </div>
                     </div>
                     <div class="col-lg-5">
@@ -708,6 +705,7 @@
                 </div>
             </div>
         </div>
+
     <?php } ?>
     <!-- End Section 1 -->
     <!-- Start Section 2 -->
@@ -731,38 +729,29 @@
                     </div>
 
                     <!-- Right: capability list -->
-                    <div class="col-lg-6 cz-cap-wrap">
-                        <div class="cz-cap-list">
-                            <div class="cz-cap">
-                                <span class="cz-cap-ic"><i class="fas fa-route"></i></span>
-                                <div class="cz-cap-info">
-                                    <h4>Smart Route &amp; Load Planning</h4>
-                                    <p>Optimizes routes, loads, and carrier selection to cut transit time and freight cost.</p>
-                                </div>
-                            </div>
-                            <div class="cz-cap">
-                                <span class="cz-cap-ic"><i class="fas fa-map-marked-alt"></i></span>
-                                <div class="cz-cap-info">
-                                    <h4>Real-Time Shipment Visibility</h4>
-                                    <p>Live tracking, ETAs, and proactive alerts across every leg of the supply chain.</p>
-                                </div>
-                            </div>
-                            <div class="cz-cap">
-                                <span class="cz-cap-ic"><i class="fas fa-network-wired"></i></span>
-                                <div class="cz-cap-info">
-                                    <h4>Seamless System Integration</h4>
-                                    <p>Connects TMS, WMS, ERP, and carrier APIs into one unified logistics platform.</p>
-                                </div>
-                            </div>
-                            <div class="cz-cap">
-                                <span class="cz-cap-ic"><i class="fas fa-cogs"></i></span>
-                                <div class="cz-cap-info">
-                                    <h4>Automated Freight Workflows</h4>
-                                    <p>Streamlines booking, documentation, and billing with rule-based automation.</p>
-                                </div>
+                    <?php if (!empty($pserv['about_new_json'])) { ?>
+                        <div class="col-lg-6 cz-cap-wrap">
+                            <div class="cz-cap-list">
+                                <?php
+                                $about_new_arr = json_decode($pserv['about_new_json']);
+                                foreach ($about_new_arr as $about_new) {
+                                    if (!empty($about_new->about_new_tite)) { ?>
+                                        <div class="cz-cap">
+                                            <span class="cz-cap-ic">
+                                                <!-- <i class="fas fa-route"></i> -->
+                                                <img src="<?= base_url('uploads/images/' . getImagesByID($about_new->about_new_icon, 'image')) ?>" alt="<?= getImagesByID($about_new->about_new_icon, 'alt_text') ?>" height="30" width="30">
+                                            </span>
+                                            <div class="cz-cap-info">
+                                                <h4><?= $about_new->about_new_tite ?></h4>
+                                                <p><?= $about_new->about_new_desc ?></p>
+                                            </div>
+                                        </div>
+                                <?php }
+                                } ?>
+
                             </div>
                         </div>
-                    </div>
+                    <?php } ?>
                 </div>
 
             </div>
@@ -770,211 +759,245 @@
     <?php } ?>
     <!-- End Section 2 -->
     <!-- Start Section 3 -->
-    <?php if ($homewhycoz) { ?>
+    <?php if (!empty($pserv['why_heading'])) {  ?>
         <div class="cz-benefit-area default-padding bg-gray">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
                         <div class="site-heading text-center">
-
                             <h2 class="title split-text-right split-text-in-right"><?= $pserv['why_heading'] ?></h2>
                             <p>
-                                Custom software fixes the everyday friction that off-the-shelf tools create — giving you
-                                a system built around your operation, connected data you can trust, and full control of
-                                what you own.
+                                <?= html_entity_decode($pserv['why_heading_desc']) ?>
                             </p>
                         </div>
                     </div>
                 </div>
+                <?php if ($homewhycoz) { ?>
+                    <div class="row align-center cz-benefit-row fade-up-anim">
+                        <!-- Left: image -->
+                        <div class="col-lg-6 cz-benefit-media">
+                            <img src="<?= base_url('uploads/images/' . $pserv['industriesimage']) ?>" alt="Custom Software">
+                        </div>
 
-                <div class="row align-center cz-benefit-row fade-up-anim">
-                    <!-- Left: image -->
-                    <div class="col-lg-6 cz-benefit-media">
-                        <img src="<?= base_url('uploads/images/' . $pserv['industriesimage']) ?>" alt="Custom Software">
-                    </div>
-
-                    <!-- Right: 5 steps -->
-                    <div class="col-lg-6 cz-benefit-steps">
-                        <?php
-                        $count = 0;
-                        foreach ($homewhycoz as $wc) {
-                            $count++;
-                        ?>
-
-                            <div class="cz-step">
-                                <span class="cz-step-num"><i class="fas fa-check"></i></span>
-                                <div class="cz-step-info">
-                                    <h4><?= html_entity_decode($wc['title']) ?></h4>
-                                    <p><?= html_entity_decode($wc['short_description']) ?></p>
+                        <!-- Right: 5 steps -->
+                        <div class="col-lg-6 cz-benefit-steps">
+                            <?php
+                            $count = 0;
+                            foreach ($homewhycoz as $wc) {
+                                $count++;
+                            ?>
+                                <div class="cz-step">
+                                    <span class="cz-step-num">
+                                        <?php /* if (!empty($wc['image'])) { ?>
+                                            <img src="<?= base_url('uploads/images/' . $wc['image']) ?>" alt="<?= $wc['alt_text'] ?>" height="30" width="30">
+                                        <?php } else { ?>
+                                            <i class="fas fa-check"></i>
+                                        <?php }*/ ?>
+                                        <i class="fas fa-check"></i>
+                                    </span>
+                                    <div class="cz-step-info">
+                                        <h4><?= html_entity_decode($wc['title']) ?></h4>
+                                        <p><?= html_entity_decode($wc['short_description']) ?></p>
+                                    </div>
                                 </div>
-                            </div>
-                        <?php } ?>
+                            <?php } ?>
 
+                        </div>
+
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
+    <?php } ?>
+    <!-- End Section 3 -->
+    <!-- Start Section 4 -->
+    <?php if (!empty($pserv['section12_title'])) { ?>
+        <div class="cz-case-area default-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="site-heading text-center">
+                            <h2 class="title split-text-right split-text-in-right"><?= $pserv['section12_title'] ?></h2>
+                            <p><?= html_entity_decode($pserv['section12_description']) ?></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cz-case-card fade-up-anim">
+                    <div class="row g-0 align-center">
+                        <!-- Visual -->
+                        <div class="col-lg-5">
+                            <div class="cz-case-media">
+                                <img src="<?= base_url('assets/img/case-study.png') ?>" alt="Case study">
+                                <span class="cz-case-tag">Logistics &amp; Supply Chain</span>
+                            </div>
+                        </div>
+                        <!-- Story -->
+                        <div class="col-lg-7">
+                            <div class="cz-case-body">
+                                <?php if (!empty($pserv['section12_list_json'])) {
+                                    $section12_list_arr = json_decode($pserv['section12_list_json']);
+                                ?>
+                                    <?php if (!empty($section12_list_arr[0]->section12_one_title)) { ?>
+                                        <div class="cz-case-client">
+                                            <span class="cz-case-logo">
+                                                <!-- <i class="fas fa-globe"></i> -->
+                                                <img src="<?= base_url('uploads/images/' . getImagesByID($section12_list_arr[0]->section12_one_img, 'image')) ?>" alt="<?= getImagesByID($section12_list_arr[0]->section12_one_img, 'alt_text') ?>" height="30" width="30">
+                                            </span>
+                                            <div class="cz-case-client-info">
+                                                <h4><?= html_entity_decode($section12_list_arr[0]->section12_one_title) ?></h4>
+                                                <span><?= html_entity_decode($section12_list_arr[0]->section12_one_desc) ?>s</span>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
+                                    <?php if (!empty($section12_list_arr[0]->section12_two_title)) { ?>
+                                        <div class="cz-case-block">
+                                            <h5>
+                                                <i class="fas fa-exclamation-circle"></i>
+                                                <!-- <img src="<?= base_url('uploads/images/' . getImagesByID($section12_list_arr[0]->section12_two_img, 'image')) ?>" alt="<?= getImagesByID($section12_list_arr[0]->section12_two_img, 'alt_text') ?>" height="30" width="30"> -->
+                                                <?= html_entity_decode($section12_list_arr[0]->section12_two_title) ?>
+                                            </h5>
+                                            <p><?= html_entity_decode($section12_list_arr[0]->section12_two_desc) ?></p>
+                                        </div>
+                                    <?php } ?>
+                                    <?php if (!empty($section12_list_arr[0]->section12_three_img)) { ?>
+                                        <div class="cz-case-block">
+                                            <h5>
+                                                <i class="fas fa-lightbulb"></i>
+                                                <!-- <img src="<?= base_url('uploads/images/' . getImagesByID($section12_list_arr[0]->section12_three_img, 'image')) ?>" alt="<?= getImagesByID($section12_list_arr[0]->section12_three_img, 'alt_text') ?>" height="30" width="30">-->
+                                                <?= html_entity_decode($section12_list_arr[0]->section12_three_title) ?>
+                                            </h5>
+                                            <p><?= html_entity_decode($section12_list_arr[0]->section12_three_desc) ?></p>
+                                        </div>
+                                    <?php } ?>
+                                <?php } ?>
+                                <?php if (!empty($pserv['believe_json'] && !empty($pserv['believe_heading']))) { ?>
+                                    <div class="cz-case-stats">
+                                        <?php
+                                        $believeArr = json_decode($pserv['believe_json'], true);
+                                        if (!empty($believeArr)) {
+                                            foreach ($believeArr as $belp) {
+                                                $val1   = html_entity_decode($belp['key']); //21+
+                                                preg_match('/^(\d+)\s*([^\d]*)$/', trim($val1), $m);
+                                                $number1  = trim($m[1] ?? '0');    // "20"
+                                                $symbol1  = trim($m[2] ?? '');     // "+"
+                                                $label1 = $belp['value'];
+
+                                        ?>
+                                                <?php if (!empty($m) && !empty($number1)) { ?>
+                                                    <div class="cz-case-stat">
+                                                        <h3><?= $number1 ?> <?= $symbol1 ?></h3>
+                                                        <span><?= html_entity_decode($label1) ?></span>
+                                                    </div>
+                                                <?php } ?>
+
+                                        <?php  }
+                                        } ?>
+
+                                    </div>
+                                <?php } ?>
+                                <blockquote class="cz-case-quote">
+                                    <i class="fas fa-quote-left"></i>
+                                    <?= $pserv['section12_quote_title'] ?>
+                                    <cite><?= $pserv['section12_quote_name'] ?></cite>
+                                </blockquote>
+                                <?php if (!empty($pserv['section12_ctalink'])) { ?>
+                                    <a href="<?= urldecode($pserv['section12_ctalink']) ?>" class="btn btn-style-one"><?= $pserv['section12_ctabtn'] ?> <i class="fas fa-arrow-right"></i></a>
+                                <?php } ?>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
             </div>
         </div>
     <?php } ?>
-    <!-- End Section 3 -->
-    <!-- Start Section 4 -->
-    <div class="cz-case-area default-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="site-heading text-center">
-                        <h2 class="title split-text-right split-text-in-right">Real results for real businesses</h2>
-                        <p>How we transformed a global forwarder's document bottleneck into a competitive advantage.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cz-case-card fade-up-anim">
-                <div class="row g-0 align-center">
-                    <!-- Visual -->
-                    <div class="col-lg-5">
-                        <div class="cz-case-media">
-                            <img src="<?= base_url('assets/img/case-study.png') ?>" alt="Case study">
-                            <span class="cz-case-tag">Logistics &amp; Supply Chain</span>
-                        </div>
-                    </div>
-                    <!-- Story -->
-                    <div class="col-lg-7">
-                        <div class="cz-case-body">
-                            <div class="cz-case-client">
-                                <span class="cz-case-logo"><i class="fas fa-globe"></i></span>
-                                <div class="cz-case-client-info">
-                                    <h4>Global Freight Forwarder</h4>
-                                    <span>Operations across 14 countries</span>
-                                </div>
-                            </div>
-
-                            <div class="cz-case-block">
-                                <h5><i class="fas fa-exclamation-circle"></i> The Challenge</h5>
-                                <p>Documents were processed manually across regional offices, creating slow
-                                    turnaround, frequent data errors, and zero real-time visibility — directly
-                                    impacting customer SLAs and operating margins.</p>
-                            </div>
-
-                            <div class="cz-case-block">
-                                <h5><i class="fas fa-lightbulb"></i> Our Solution</h5>
-                                <p>We deployed an AI-powered document automation platform that captures, validates,
-                                    and integrates data straight into their ERP — replacing manual handoffs with a
-                                    single, secure, fully auditable workflow.</p>
-                            </div>
-                            <?php if (!empty($pserv['believe_json'] && !empty($pserv['believe_heading']))) { ?>
-                                <div class="cz-case-stats">
-                                    <?php
-                                    $believeArr = json_decode($pserv['believe_json'], true);
-                                    if (!empty($believeArr)) {
-                                        foreach ($believeArr as $belp) {
-                                            $val1   = html_entity_decode($belp['key']); //21+
-                                            preg_match('/^(\d+)\s*([^\d]*)$/', trim($val1), $m);
-                                            $number1  = trim($m[1] ?? '0');    // "20"
-                                            $symbol1  = trim($m[2] ?? '');     // "+"
-                                            $label1 = $belp['value'];
-
-                                    ?>
-                                            <?php if (!empty($m) && !empty($number1)) { ?>
-                                                <div class="cz-case-stat">
-                                                    <h3><?= $number1 ?> <?= $symbol1 ?></h3>
-                                                    <span><?= html_entity_decode($label1) ?></span>
-                                                </div>
-                                            <?php } ?>
-                                    <?php  }
-                                    } ?>
-
-                                </div>
-                            <?php } ?>
-                            <blockquote class="cz-case-quote">
-                                <i class="fas fa-quote-left"></i>
-                                Cozentus turned our biggest operational bottleneck into a measurable advantage.
-                                What used to take days now takes minutes — and we trust the data.
-                                <cite>VP of Operations, Global Freight Forwarder</cite>
-                            </blockquote>
-
-                            <a href="contact-us.html" class="btn btn-style-one">Read Full Case Study <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
     <!-- End Section 4 -->
     <!-- Start Section 5 -->
-    <div class="process-style-two-area overflow-hidden bg-cover default-padding bg-dark text-light" style="background-image: url(<?= base_url('assets/img/shape/banner-20.jpg') ?>);">
-        <div class="container">
-            <div class="site-heading">
-                <div class="row align-center">
-                    <div class="col-lg-12">
-                        <h2 class="title split-text-right split-text-in-right">Ways to work with us</h2>
-                        <p>
-                            Every engagement is different. Pick the model that fits how you want to build or we'll help you choose.
-                        </p>
-                    </div>
+    <?php if (!empty($pserv['section13_title'])) { ?>
+        <div class="process-style-two-area overflow-hidden bg-cover default-padding bg-dark text-light" style="background-image: url(<?= base_url('assets/img/shape/banner-20.jpg') ?>);">
+            <div class="container">
+                <div class="site-heading">
+                    <div class="row align-center">
+                        <div class="col-lg-12">
+                            <h2 class="title split-text-right split-text-in-right"><?= $pserv['section13_title'] ?></h2>
+                            <p>
+                                <?= html_entity_decode($pserv['section13_description']) ?>
+                            </p>
+                        </div>
 
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="container">
-            <div class="process-style-two-items">
-                <div class="row">
-                    <!-- Single Item -->
-                    <div class="col-lg-3 col-md-6 process-two-single">
-                        <div class="process-style-two-item">
-                            <span>01</span>
-                            <h4>Fixed-Price Project</h4>
-                            <p>
-                                <strong>Best when:</strong> the scope is clear and cost certainty matters.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="col-lg-3 col-md-6 process-two-single">
-                        <div class="process-style-two-item">
-                            <span>02</span>
-                            <h4>Dedicated Team</h4>
-                            <p>
-                                <strong>Best when:</strong> you want a team that owns your roadmap.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="col-lg-3 col-md-6 process-two-single">
-                        <div class="process-style-two-item">
-                            <span>03</span>
-                            <h4>Staff Augmentation </h4>
-                            <p>
-                                <strong>Best when:</strong> you need specific skills, fast.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="col-lg-3 col-md-6 process-two-single">
-                        <div class="process-style-two-item">
-                            <span>04</span>
-                            <h4>Build-Operate-Transfer</h4>
-                            <p>
-                                <strong>Best when:</strong> you want it built now, owned later.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
+            <?php if (!empty($pserv['section13_list_json'])) {
+                $section13_list_json = json_decode($pserv['section13_list_json']);
+            ?>
+                <div class="container">
+                    <div class="process-style-two-items">
+                        <div class="row">
+                            <!-- Single Item -->
+                            <?php if (!empty($section13_list_json[0]->section13_list_tite_1)) { ?>
+                                <div class="col-lg-3 col-md-6 process-two-single">
+                                    <div class="process-style-two-item">
+                                        <span>01</span>
+                                        <h4><?= html_entity_decode($section13_list_json[0]->section13_list_tite_1) ?></h4>
+                                        <p>
+                                            <?= html_entity_decode($section13_list_json[0]->section13_list_desc_1) ?>
+                                        </p>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                            <?php if (!empty($section13_list_json[0]->section13_list_tite_2)) { ?>
+                                <div class="col-lg-3 col-md-6 process-two-single">
+                                    <div class="process-style-two-item">
+                                        <span>02</span>
+                                        <h4><?= html_entity_decode($section13_list_json[0]->section13_list_tite_2) ?></h4>
+                                        <p>
+                                            <?= html_entity_decode($section13_list_json[0]->section13_list_desc_2) ?>
+                                        </p>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                            <?php if (!empty($section13_list_json[0]->section13_list_tite_3)) { ?>
+                                <div class="col-lg-3 col-md-6 process-two-single">
+                                    <div class="process-style-two-item">
+                                        <span>03</span>
+                                        <h4><?= html_entity_decode($section13_list_json[0]->section13_list_tite_3) ?></h4>
+                                        <p>
+                                            <?= html_entity_decode($section13_list_json[0]->section13_list_desc_3) ?>
+                                        </p>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                            <?php if (!empty($section13_list_json[0]->section13_list_tite_4)) { ?>
+                                <div class="col-lg-3 col-md-6 process-two-single">
+                                    <div class="process-style-two-item">
+                                        <span>04</span>
+                                        <h4><?= html_entity_decode($section13_list_json[0]->section13_list_tite_4) ?></h4>
+                                        <p>
+                                            <?= html_entity_decode($section13_list_json[0]->section13_list_desc_4) ?>
+                                        </p>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                            <!-- End Single Item -->
 
+
+                        </div>
+                    </div>
+                    <!-- Button -->
+                    <div class="row">
+                        <div class="col-lg-12 text-left mt-50">
+                            <?php if (!empty($pserv['section13_ctalink'])) { ?>
+                                <a href="<?= urldecode($pserv['section13_ctalink']) ?>" class="btn btn-style-one"><?= $pserv['section13_ctabtn'] ?> <i class="fas fa-arrow-right"></i>
+                                </a>
+                            <?php } ?>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <!-- Button -->
-            <div class="row">
-                <div class="col-lg-12 text-left mt-50">
-                    <a class="btn btn-style-one light" href="contact-us.html">Let's Talk <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
+            <?php } ?>
         </div>
-    </div>
+    <?php } ?>
     <!-- End Section 5 -->
 
     <!-- Start Section 6 -->
@@ -1003,8 +1026,8 @@
                                 <li class="<?= ($count == 1) ? 'active' : '' ?>">
                                     <div class="service-tab-item">
                                         <h4>
-                                            <a class="text" href="#"><strong><?= $count + 1 ?></strong>
-                                                <?= html_entity_decode($buis['heading']) ?>
+                                            <a class="text" href="<?= !empty($buis['ctalink']) ? urldecode($buis['ctalink']) : '#' ?>"><strong><?= $count + 1 ?></strong>
+                                                <?= html_entity_decode($buis['tab']) ?>
                                             </a>
                                         </h4>
                                     </div>
@@ -1013,7 +1036,7 @@
                             } ?>
                         </ul>
                         <br>
-                        <a href="<?= base_url('services') ?>" class="btn btn-style-one">View All Services <i class="fas fa-arrow-right"></i></a>
+                        <a href="<?= urldecode($pserv['toolbenefits_ctalink']) ?>" class="btn btn-style-one"><?= $pserv['toolbenefits_ctabtn'] ?> <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>

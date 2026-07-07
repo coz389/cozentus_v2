@@ -119,6 +119,38 @@
                                     Image</button>
                                 <input type="hidden" class="about_image" name="about_image" />
                             </div>
+                            <!-- New Custom Section v2 -->
+                            <div class="repeater">
+                                <div data-repeater-list="about_new">
+                                    <div data-repeater-item class="border p-3">
+                                        <div class="row">
+                                            <div class="form-group col-6">
+                                                <label>Title</label>
+                                                <input type="text" class="form-control" name="about_new_tite" value="">
+                                            </div>
+                                            <div class="form-group col-6">
+                                                <label>Description</label>
+                                                <input type="text" class="form-control" name="about_new_desc" value="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Select Icon</label>
+                                            <br>
+                                            <button type="button" class="btn btn-primary addmore-image-select" data-img="about_new_icon">Select Icon</button>
+                                            <input type="hidden" class="about_new_icon" name="about_new_icon" />
+                                        </div>
+
+                                        <button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <br>
+                                <button data-repeater-create type="button" class="float-right btn btn-info btn-sm icon-btn ml-2 mb-2">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </div>
+
                             <hr>
                             <h5>Section 4 For Cards (Optional)</h5>
                             <hr>
@@ -311,6 +343,16 @@
                                             <label>Description</label>
                                             <input type="text" class="form-control" name="description">
                                         </div>
+                                        <div class="row">
+                                            <div class="form-group col-6">
+                                                <label>CTA Button Label</label>
+                                                <input type="text" class="form-control" name="ctabtn">
+                                            </div>
+                                            <div class="form-group col-6">
+                                                <label>CTA Button Link</label>
+                                                <input type="text" class="form-control" name="ctalink">
+                                            </div>
+                                        </div>
                                         <button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2">
                                             <i class="fas fa-trash"></i>
                                         </button>
@@ -467,6 +509,177 @@
                                     <br>
                                     <button type="button" class="btn btn-primary select-image" data-img="section11_three_img">Select Image</button>
                                     <input type="hidden" class="section11_three_img" name="section11_three_img" />
+                                </div>
+                            </div>
+
+                            <hr>
+                            <h5>Section 12 New Section</h5>
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" class="form-control" name="section12_title">
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <input type="text" class="form-control" name="section12_description">
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>CTA Button Label</label>
+                                    <input type="text" class="form-control" name="section12_ctabtn">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>CTA Button Link</label>
+                                    <input type="text" class="form-control" name="section12_ctalink">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-3">
+                                    <label>Select Image (Desktop 1536x430)</label>
+                                    <br>
+                                    <button type="button" class="btn btn-primary select-image" data-img="section12_image">Select Image</button>
+                                    <input type="hidden" class="section12_image" name="section12_image" />
+                                </div>
+                                <div class="form-group col-3">
+                                    <label>Select Image (Mobile 430x430)</label>
+                                    <br>
+                                    <button type="button" class="btn btn-primary select-image" data-img="section12_mimage">Select Image</button>
+                                    <input type="hidden" class="section12_mimage" name="section12_mimage" />
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Image Text</label>
+                                    <input type="text" class="form-control" name="section12_image_text">
+                                </div>
+                            </div>
+
+                            <h6>Sub Section 1</h6>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Title</label>
+                                    <input type="text" class="form-control" name="section12_one_title">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Description</label>
+                                    <input type="text" class="form-control" name="section12_one_desc">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Select Icon</label>
+                                    <br>
+                                    <button type="button" class="btn btn-primary select-image" data-img="section12_one_img">Select Image</button>
+                                    <input type="hidden" class="section12_one_img" name="section12_one_img" />
+                                </div>
+                            </div>
+                            <h6>Sub Section 2</h6>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Title</label>
+                                    <input type="text" class="form-control" name="section12_two_title">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Description</label>
+                                    <input type="text" class="form-control" name="section12_two_desc">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Select Icon</label>
+                                    <br>
+                                    <button type="button" class="btn btn-primary select-image" data-img="section12_two_img">Select Image</button>
+                                    <input type="hidden" class="section12_one_img" name="section12_two_img" />
+                                </div>
+                            </div>
+                            <h6>Sub Section 3</h6>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Title</label>
+                                    <input type="text" class="form-control" name="section12_three_title">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Description</label>
+                                    <input type="text" class="form-control" name="section12_three_desc">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Select Icon</label>
+                                    <br>
+                                    <button type="button" class="btn btn-primary select-image" data-img="section12_three_img">Select Image</button>
+                                    <input type="hidden" class="section12_one_img" name="section12_three_img" />
+                                </div>
+                            </div>
+
+                            <h6>Quote</h6>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Title</label>
+                                    <input type="text" class="form-control" name="section12_quote_title">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Name </label>
+                                    <input type="text" class="form-control" name="section12_quote_name">
+                                </div>
+                            </div>
+                            <hr>
+
+                            <h5>Section 13 New Section</h5>
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" class="form-control" name="section13_title">
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <input type="text" class="form-control" name="section13_description">
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>CTA Button Label</label>
+                                    <input type="text" class="form-control" name="section13_ctabtn">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>CTA Button Link</label>
+                                    <input type="text" class="form-control" name="section13_ctalink">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Title</label>
+                                    <input type="text" class="form-control" name="section13_list_tite_1">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Description</label>
+                                    <input type="text" class="form-control" name="section13_list_desc_1">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Title</label>
+                                    <input type="text" class="form-control" name="section13_list_tite_2">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Description</label>
+                                    <input type="text" class="form-control" name="section13_list_desc_2">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Title</label>
+                                    <input type="text" class="form-control" name="section13_list_tite_3">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Description</label>
+                                    <input type="text" class="form-control" name="section13_list_desc_3">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Title</label>
+                                    <input type="text" class="form-control" name="section13_list_tite_4">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Description</label>
+                                    <input type="text" class="form-control" name="section13_list_desc_4">
                                 </div>
                             </div>
 

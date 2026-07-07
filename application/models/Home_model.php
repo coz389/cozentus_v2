@@ -591,7 +591,7 @@
         function getinnerservicebyslug($slug)
         {
             $this->db->where(['t.slug' => $slug, 't.is_active' => 1]);
-            $this->db->select('t.*,i.image as inner_banner_image ,i.alt_text as alt_text_banner, m.image as industriesimage ,j.image as inner_banner_mimage, k.image as about_image,k.alt_text as about_alt_text, l.image as advantage_image,l.alt_text as advantage_alt_text,n.image as section11_one_img,o.image as section11_two_img,p.image as section11_three_img');
+            $this->db->select('t.*,i.image as inner_banner_image ,i.alt_text as alt_text_banner, m.image as industriesimage ,j.image as inner_banner_mimage, k.image as about_image,k.alt_text as about_alt_text, l.image as advantage_image,l.alt_text as advantage_alt_text,n.image as section11_one_img,o.image as section11_two_img,p.image as section11_three_img,q.image as section12_image,r.image as section12_mimage,q.alt_text as alt_text_section12,r.alt_text as alt_text_section12m,n.alt_text as alt_text_section11_one,o.alt_text as alt_text_section11_two,p.alt_text as alt_text_section11_three');
             $this->db->from('sub_service t');
             $this->db->join('images_master i', 'i.id=t.inner_banner_image', 'left');
             $this->db->join('images_master j', 'j.id=t.inner_banner_mimage', 'left');
@@ -602,6 +602,8 @@
             $this->db->join('images_master n', 'n.id=t.section11_one_img', 'left');
             $this->db->join('images_master o', 'o.id=t.section11_two_img', 'left');
             $this->db->join('images_master p', 'p.id=t.section11_three_img', 'left');
+            $this->db->join('images_master q', 'q.id=t.section12_image', 'left');
+            $this->db->join('images_master r', 'r.id=t.section12_mimage', 'left');
 
             $qry = $this->db->get();
             return $qry->row_array();

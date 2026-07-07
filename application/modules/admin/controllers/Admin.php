@@ -804,12 +804,26 @@ class Admin extends MX_Controller
         if (!empty($toolbenefits_content_exist))
             for ($i = 0; $i <= count($toolbenefits_content_exist); $i++) {
                 if (!empty($toolbenefits_content_exist[$i]['heading']))
-                    $toolbenefits_content_dtArr[] = ['image' => $toolbenefits_content_exist[$i]['image'], 'tab' => $toolbenefits_content_exist[$i]['tab'], 'heading' => $toolbenefits_content_exist[$i]['heading'], 'description' => $toolbenefits_content_exist[$i]['description']];
+                    $toolbenefits_content_dtArr[] = [
+                        'image' => $toolbenefits_content_exist[$i]['image'],
+                        'tab' => $toolbenefits_content_exist[$i]['tab'],
+                        'heading' => $toolbenefits_content_exist[$i]['heading'],
+                        'description' => $toolbenefits_content_exist[$i]['description'],
+                        'ctabtn' => $toolbenefits_content_exist[$i]['ctabtn'],
+                        'ctalink' => $toolbenefits_content_exist[$i]['ctalink']
+                    ];
             }
         if (!empty($toolbenefits_content))
             for ($i = 0; $i <= count($toolbenefits_content); $i++) {
                 if (!empty($toolbenefits_content[$i]['heading']))
-                    $toolbenefits_content_dtArr[] = ['image' => $toolbenefits_content[$i]['image'], 'tab' => $toolbenefits_content[$i]['tab'], 'heading' => $toolbenefits_content[$i]['heading'], 'description' => $toolbenefits_content[$i]['description']];
+                    $toolbenefits_content_dtArr[] = [
+                        'image' => $toolbenefits_content[$i]['image'],
+                        'tab' => $toolbenefits_content[$i]['tab'],
+                        'heading' => $toolbenefits_content[$i]['heading'],
+                        'description' => $toolbenefits_content[$i]['description'],
+                        'ctabtn' => $toolbenefits_content[$i]['ctabtn'],
+                        'ctalink' => $toolbenefits_content[$i]['ctalink']
+                    ];
             }
         if (!empty($faq_exist))
             for ($i = 0; $i <= count($faq_exist); $i++) {
@@ -844,6 +858,105 @@ class Admin extends MX_Controller
         $section11_three_img = $this->input->post('section11_three_img');
 
 
+
+
+        $about_news = $this->input->post('about_new');
+
+        $about_new_arr = [];
+        $about_new_exist = $this->input->post('about_new_exist');
+        if (!empty($about_new_exist)) {
+            for ($i = 0; $i <= count($about_new_exist); $i++) {
+                if (!empty($about_new_exist[$i]['about_new_tite'])) {
+                    $about_new_arr[] = [
+                        'about_new_tite' => $about_new_exist[$i]['about_new_tite'],
+                        'about_new_desc' => $about_new_exist[$i]['about_new_desc'],
+                        'about_new_icon' => $about_new_exist[$i]['about_new_icon'],
+                    ];
+                }
+            }
+        }
+        // Merge existing FAQs from question_ans_exist with new $faqs
+        if (!empty($about_news) && is_array($about_news)) {
+            if (!is_array($about_new_arr)) {
+                $about_new_arr = [];
+            }
+            $about_new_arr = array_merge($about_new_arr, $about_news);
+        }
+        $about_new_arr = json_encode($about_new_arr);
+
+        $why_heading_desc = $this->input->post('why_heading_desc');
+
+        $section12_title = $this->input->post('section12_title');
+        $section12_description = $this->input->post('section12_description');
+        $section12_ctabtn = $this->input->post('section12_ctabtn');
+        $section12_ctalink = $this->input->post('section12_ctalink');
+        $section12_image = $this->input->post('section12_image');
+        $section12_mimage = $this->input->post('section12_mimage');
+        $section12_image_text = $this->input->post('section12_image_text');
+        $section12_quote_title = $this->input->post('section12_quote_title');
+        $section12_quote_name = $this->input->post('section12_quote_name');
+
+        $section12_one_title = $this->input->post('section12_one_title');
+        $section12_one_desc = $this->input->post('section12_one_desc');
+        $section12_one_img = $this->input->post('section12_one_img');
+
+        $section12_two_title = $this->input->post('section12_two_title');
+        $section12_two_desc = $this->input->post('section12_two_desc');
+        $section12_two_img = $this->input->post('section12_two_img');
+
+        $section12_three_title = $this->input->post('section12_three_title');
+        $section12_three_desc = $this->input->post('section12_three_desc');
+        $section12_three_img = $this->input->post('section12_three_img');
+
+        $section12_list_json = [];
+        $section12_list_json[] = [
+            'section12_one_title' => $section12_one_title,
+            'section12_one_desc' => $section12_one_desc,
+            'section12_one_img' => $section12_one_img,
+            'section12_two_title' => $section12_two_title,
+            'section12_two_desc' => $section12_two_desc,
+            'section12_two_img' => $section12_two_img,
+            'section12_three_title' => $section12_three_title,
+            'section12_three_desc' => $section12_three_desc,
+            'section12_three_img' => $section12_three_img,
+        ];
+
+        $section12_list_json = json_encode($section12_list_json);
+
+        $toolbenefits_ctabtn = $this->input->post('toolbenefits_ctabtn');
+        $toolbenefits_ctalink = $this->input->post('toolbenefits_ctalink');
+
+        $section13_title = $this->input->post('section13_title');
+        $section13_description = $this->input->post('section13_description');
+        $section13_ctabtn = $this->input->post('section13_ctabtn');
+        $section13_ctalink = $this->input->post('section13_ctalink');
+
+        $section13_list_tite_1 = $this->input->post('section13_list_tite_1');
+        $section13_list_desc_1 = $this->input->post('section13_list_desc_1');
+
+        $section13_list_tite_2 = $this->input->post('section13_list_tite_2');
+        $section13_list_desc_2 = $this->input->post('section13_list_desc_2');
+
+        $section13_list_tite_3 = $this->input->post('section13_list_tite_3');
+        $section13_list_desc_3 = $this->input->post('section13_list_desc_3');
+
+        $section13_list_tite_4 = $this->input->post('section13_list_tite_4');
+        $section13_list_desc_4 = $this->input->post('section13_list_desc_4');
+
+        $section13_list_json = [];
+        $section13_list_json[] = [
+            'section13_list_tite_1' => $section13_list_tite_1,
+            'section13_list_desc_1' => $section13_list_desc_1,
+            'section13_list_tite_2' => $section13_list_tite_2,
+            'section13_list_desc_2' => $section13_list_desc_2,
+            'section13_list_tite_3' => $section13_list_tite_3,
+            'section13_list_desc_3' => $section13_list_desc_3,
+            'section13_list_tite_4' => $section13_list_tite_4,
+            'section13_list_desc_4' => $section13_list_desc_4,
+        ];
+
+        $section13_list_json = json_encode($section13_list_json);
+
         $data = [
             'pserv' => $pserv,
             'sserv' => $sserv,
@@ -859,10 +972,12 @@ class Admin extends MX_Controller
             'ctabtn' => $ctabtn,
             'ctalink' => $ctalink,
             'why_heading ' => $why_heading,
+            'why_heading_desc ' => $why_heading_desc,
             'about_heading' => $about_heading,
             'about_image' => $about_image,
             'about_short_description_left' => $about_short_description_left,
             'about_short_description_right' => $about_short_description_right,
+            'about_new_json' => $about_new_arr,
             'industries_heading' => $industries_heading,
             'industries_image' => $industries_image,
             'industries_short_description_left' => $industries_short_description_left,
@@ -902,6 +1017,23 @@ class Admin extends MX_Controller
             'section11_three_title' => $section11_three_title,
             'section11_three_desc' => $section11_three_desc,
             'section11_three_img' => $section11_three_img,
+            'section12_title'   => $section12_title,
+            'section12_description'   => $section12_description,
+            'section12_ctabtn'   => $section12_ctabtn,
+            'section12_ctalink'   => $section12_ctalink,
+            'section12_image'   => $section12_image,
+            'section12_mimage'   => $section12_mimage,
+            'section12_image_text'   => $section12_image_text,
+            'section12_quote_title'   => $section12_quote_title,
+            'section12_quote_name'   => $section12_quote_name,
+            'section12_list_json'   => $section12_list_json,
+            'toolbenefits_ctabtn'   => $toolbenefits_ctabtn,
+            'toolbenefits_ctalink'  => $toolbenefits_ctalink,
+            'section13_title'   => $section13_title,
+            'section13_description'   => $section13_description,
+            'section13_ctabtn'   => $section13_ctabtn,
+            'section13_ctalink'   => $section13_ctalink,
+            'section13_list_json'   => $section13_list_json,
         ];
         //echo json_encode($data);exit;
         if (!empty($id)) {

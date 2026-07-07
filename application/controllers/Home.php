@@ -249,7 +249,9 @@ class Home extends CI_Controller
                         'alt_text' => $alt,
                         'tab' => $ft['tab'],
                         'heading' => $ft['heading'],
-                        'description' => $ft['description']
+                        'description' => $ft['description'],
+                        'ctabtn' => $ft['ctabtn'],
+                        'ctalink' => $ft['ctalink']
                     ];
                 }
             $data['pserv']['toolbenefits_json'] = $sounique;

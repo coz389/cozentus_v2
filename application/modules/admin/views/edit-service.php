@@ -120,11 +120,11 @@
                             </div>
                             <div class="form-group">
                                 <label>Short Description Left</label>
-                                <input type="text" class="form-control" name="about_short_description_left" value="<?= $about_short_description_left ?>">
+                                <input type="text" class="form-control" name="about_short_description_left" value="<?= htmlspecialchars($about_short_description_left) ?>">
                             </div>
                             <div class="form-group">
                                 <label>Short Description Right</label>
-                                <input type="text" class="form-control" name="about_short_description_right" value="<?= $about_short_description_right ?>">
+                                <input type="text" class="form-control" name="about_short_description_right" value="<?= htmlspecialchars($about_short_description_right) ?>">
                             </div>
                             <div class="form-group">
                                 <label>Select Image</label>
@@ -132,9 +132,85 @@
                                 <button type="button" class="btn btn-primary select-image" data-img="about_image"><?= !empty($about_image) ? 'Image Exist' : 'Select Image' ?></button>
                                 <input type="hidden" class="about_image" name="about_image" value="<?= $about_image ?>" />
                             </div>
+
+                            <!-- New Custom Section v2 -->
+                            <div class="repeater">
+                                <?php
+                                if (!empty($about_new_json)) {
+                                    $count = 0;
+                                    $about_news = json_decode($about_new_json, true);
+                                    foreach ($about_news as $key => $about_new) {
+                                        $count++;
+
+                                ?>
+                                        <div id="about-new-<?= $count ?>" class="border p-3">
+                                            <div class="row">
+                                                <div class="form-group col-6">
+                                                    <label>Title</label>
+                                                    <input type="text" class="form-control" name="about_new_exist[<?= $count ?>][about_new_tite]" value="<?= $about_new['about_new_tite'] ?>">
+                                                </div>
+                                                <div class="form-group col-6">
+                                                    <label>Description</label>
+                                                    <input type="text" class="form-control" name="about_new_exist[<?= $count ?>][about_new_desc]" value="<?= $about_new['about_new_desc'] ?>">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Select Image</label>
+                                                    <br>
+                                                    <button type="button" class="btn btn-primary addmore-image-select">
+                                                        <?= !empty($about_new['about_new_icon']) ? 'Image Exist' : 'Select Image' ?>
+                                                    </button>
+                                                    <input type="hidden" class="hidden-image" name="about_new_exist[<?= $count ?>][about_new_icon]" value="<?= $about_new['about_new_icon'] ?>" />
+                                                </div>
+                                            </div>
+
+                                            <button type="button" data-id="about-new-<?= $count ?>" class="delete-btn btn btn-danger about-new-delete  btn-sm icon-btn ml-2">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+
+
+                                    <?php } ?>
+                                <?php } ?>
+
+                                <div data-repeater-list="about_new">
+                                    <div data-repeater-item class="border p-3">
+                                        <div class="row">
+                                            <div class="form-group col-6">
+                                                <label>Title</label>
+                                                <input type="text" class="form-control" name="about_new_tite" value="">
+                                            </div>
+                                            <div class="form-group col-6">
+                                                <label>Description</label>
+                                                <input type="text" class="form-control" name="about_new_desc" value="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Select Icon</label>
+                                            <br>
+                                            <button type="button" class="btn btn-primary addmore-image-select" data-img="about_new_icon">Select Icon</button>
+                                            <input type="hidden" class="about_new_icon" name="about_new_icon" />
+                                        </div>
+
+                                        <button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <br>
+                                <button data-repeater-create type="button" class="float-right btn btn-info btn-sm icon-btn ml-2 mb-2">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </div>
+
+
+
                             <div class="form-group">
                                 <label>Why Cozentus Heading</label>
                                 <input type="text" class="form-control" name="why_heading" value="<?= $why_heading ?>">
+                            </div>
+                            <div class="form-group">
+                                <label>Short Description</label>
+                                <input type="text" class="form-control" name="why_heading_desc" value="<?= $why_heading_desc ?>">
                             </div>
                             <hr>
                             <h5>Section Industries</h5>
@@ -443,6 +519,16 @@
                                 <label>Heading</label>
                                 <input type="text" class="form-control" name="toolbenefits_heading" value="<?= $toolbenefits_heading ?>">
                             </div>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>CTA Button Label</label>
+                                    <input type="text" class="form-control" name="toolbenefits_ctabtn" value="<?= $toolbenefits_ctabtn ?>">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>CTA Button Link</label>
+                                    <input type="text" class="form-control" name="toolbenefits_ctalink" value="<?= urldecode($toolbenefits_ctalink) ?>">
+                                </div>
+                            </div>
                             <div class="repeater">
                                 <?php if (!empty($toolbenefits_json)) {
                                     $count = 0;
@@ -462,7 +548,7 @@
                                                     <label>Tab Title</label>
                                                     <input type="text" class="form-control" name="toolbenefits_exist[<?= $count ?>][tab]" value="<?= $obj->tab ?>">
                                                 </div>
-                                                <div class="form-group">
+                                                <div class="form-group  col-6">
                                                     <label>Heading</label>
                                                     <input type="text" class="form-control" name="toolbenefits_exist[<?= $count ?>][heading]" value="<?= $obj->heading ?>">
                                                 </div>
@@ -470,6 +556,16 @@
                                             <div class="form-group">
                                                 <label>Description</label>
                                                 <input type="text" class="form-control" name="toolbenefits_exist[<?= $count ?>][description]" value="<?= $obj->description ?>">
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-6">
+                                                    <label>CTA Button Label</label>
+                                                    <input type="text" class="form-control" name="toolbenefits_exist[<?= $count ?>][ctabtn]" value="<?= $obj->ctabtn ?>">
+                                                </div>
+                                                <div class="form-group col-6">
+                                                    <label>CTA Button Link</label>
+                                                    <input type="text" class="form-control" name="toolbenefits_exist[<?= $count ?>][ctalink]" value="<?= urldecode($obj->ctalink) ?>">
+                                                </div>
                                             </div>
                                             <button type="button" data-id="toolbenefits-<?= $count ?>" class="delete-btn btn btn-danger rec-delete btn-sm icon-btn ml-2">
                                                 <i class="fas fa-trash"></i>
@@ -501,6 +597,16 @@
                                         <div class="form-group">
                                             <label>Description</label>
                                             <input type="text" class="form-control" name="description">
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-6">
+                                                <label>CTA Button Label</label>
+                                                <input type="text" class="form-control" name="ctabtn">
+                                            </div>
+                                            <div class="form-group col-6">
+                                                <label>CTA Button Link</label>
+                                                <input type="text" class="form-control" name="ctalink">
+                                            </div>
                                         </div>
                                         <button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2">
                                             <i class="fas fa-trash"></i>
@@ -682,6 +788,232 @@
 
 
 
+                            <hr>
+                            <h5>Section 12 New Section</h5>
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" class="form-control" name="section12_title" value="<?= $section12_title ?>">
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <input type="text" class="form-control" name="section12_description" value="<?= $section12_description ?>">
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>CTA Button Label</label>
+                                    <input type="text" class="form-control" name="section12_ctabtn" value="<?= $section12_ctabtn ?>">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>CTA Button Link</label>
+                                    <input type="text" class="form-control" name="section12_ctalink" value="<?= urldecode($section12_ctalink) ?>">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-3">
+                                    <label>Select Image (Desktop 1536x430)</label>
+                                    <br>
+                                    <button type="button" class="btn btn-primary select-image" data-img="section12_image"><?= !empty($section12_image) ? 'Image Exist' : 'Select Image' ?></button>
+                                    <input type="hidden" class="section12_image" name="section12_image" value="<?= $section12_image ?>" />
+                                </div>
+                                <div class="form-group col-3">
+                                    <label>Select Image (Mobile 430x430)</label>
+                                    <br>
+                                    <button type="button" class="btn btn-primary select-image" data-img="section12_mimage"><?= !empty($section12_mimage) ? 'Image Exist' : 'Select Image' ?></button>
+                                    <input type="hidden" class="section12_mimage" name="section12_mimage" value="<?= $section12_mimage ?>" />
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Image Text</label>
+                                    <input type="text" class="form-control" name="section12_image_text" value="<?= $section12_image_text ?>">
+                                </div>
+                            </div>
+
+                            <?php
+
+                            if (!empty($section12_list_json)) {
+                                $section12_lists = json_decode($section12_list_json, true);
+                                $section12_one_title = $section12_lists[0]['section12_one_title'];
+                                $section12_one_desc = $section12_lists[0]['section12_one_desc'];
+                                $section12_one_img = $section12_lists[0]['section12_one_img'];
+
+                                $section12_two_title = $section12_lists[0]['section12_two_title'];
+                                $section12_two_desc = $section12_lists[0]['section12_two_desc'];
+                                $section12_two_img = $section12_lists[0]['section12_two_img'];
+
+                                $section12_three_title = $section12_lists[0]['section12_three_title'];
+                                $section12_three_desc = $section12_lists[0]['section12_three_desc'];
+                                $section12_three_img = $section12_lists[0]['section12_three_img'];
+                            } else {
+                                $section12_one_title = '';
+                                $section12_one_desc = '';
+                                $section12_one_img = '';
+
+                                $section12_two_title = '';
+                                $section12_two_desc = '';
+                                $section12_two_img = '';
+
+                                $section12_three_title = '';
+                                $section12_three_desc = '';
+                                $section12_three_img = '';
+                            }
+
+                            ?>
+
+                            <h6>Sub Section 1</h6>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Title</label>
+                                    <input type="text" class="form-control" name="section12_one_title" value="<?= $section12_one_title ?>">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Description</label>
+                                    <input type="text" class="form-control" name="section12_one_desc" value="<?= $section12_one_desc ?>">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Select Icon</label>
+                                    <br>
+                                    <button type="button" class="btn btn-primary select-image" data-img="section12_one_img"><?= !empty($section12_one_img) ? 'Image Exist' : 'Select Image' ?></button>
+                                    <input type="hidden" class="section12_one_img" name="section12_one_img" value="<?= $section12_one_img ?>" />
+                                </div>
+                            </div>
+                            <h6>Sub Section 2</h6>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Title</label>
+                                    <input type="text" class="form-control" name="section12_two_title" value="<?= $section12_two_title ?>">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Description</label>
+                                    <input type="text" class="form-control" name="section12_two_desc" value="<?= $section12_two_desc ?>">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Select Icon</label>
+                                    <br>
+                                    <button type="button" class="btn btn-primary select-image" data-img="section12_two_img"><?= !empty($section12_two_img) ? 'Image Exist' : 'Select Image' ?></button>
+                                    <input type="hidden" class="section12_one_img" name="section12_two_img" value="<?= $section12_two_img ?>" />
+                                </div>
+                            </div>
+                            <h6>Sub Section 3</h6>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Title</label>
+                                    <input type="text" class="form-control" name="section12_three_title" value="<?= $section12_three_title ?>">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Description</label>
+                                    <input type="text" class="form-control" name="section12_three_desc" value="<?= $section12_three_desc ?>">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Select Icon</label>
+                                    <br>
+                                    <button type="button" class="btn btn-primary select-image" data-img="section12_three_img"><?= !empty($section12_three_img) ? 'Image Exist' : 'Select Image' ?></button>
+                                    <input type="hidden" class="section12_one_img" name="section12_three_img" value="<?= $section12_three_img ?>" />
+                                </div>
+                            </div>
+
+                            <h6>Quote</h6>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Title</label>
+                                    <input type="text" class="form-control" name="section12_quote_title" value="<?= $section12_quote_title ?>">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Name </label>
+                                    <input type="text" class="form-control" name="section12_quote_name" value="<?= $section12_quote_name ?>">
+                                </div>
+                            </div>
+                            <hr>
+
+                            <h5>Section 13 New Section</h5>
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" class="form-control" name="section13_title" value="<?= $section13_title ?>">
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <input type="text" class="form-control" name="section13_description" value="<?= $section13_description ?>">
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>CTA Button Label</label>
+                                    <input type="text" class="form-control" name="section13_ctabtn" value="<?= $section13_ctabtn ?>">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>CTA Button Link</label>
+                                    <input type="text" class="form-control" name="section13_ctalink" value="<?= urldecode($section13_ctalink) ?>">
+                                </div>
+                            </div>
+                            <?php
+
+                            if (!empty($section13_list_json)) {
+                                $section13_lists = json_decode($section13_list_json, true);
+                                $section13_list_tite_1 = $section13_lists[0]['section13_list_tite_1'];
+                                $section13_list_desc_1 = $section13_lists[0]['section13_list_desc_1'];
+                                $section13_list_tite_2 = $section13_lists[0]['section13_list_tite_2'];
+                                $section13_list_desc_2 = $section13_lists[0]['section13_list_desc_2'];
+                                $section13_list_tite_3 = $section13_lists[0]['section13_list_tite_3'];
+                                $section13_list_desc_3 = $section13_lists[0]['section13_list_desc_3'];
+                                $section13_list_tite_4 = $section13_lists[0]['section13_list_tite_4'];
+                                $section13_list_desc_4 = $section13_lists[0]['section13_list_desc_4'];
+                            } else {
+                                $section13_list_tite_1 = '';
+                                $section13_list_desc_1 = '';
+                                $section13_list_tite_2 = '';
+                                $section13_list_desc_2 = '';
+                                $section13_list_tite_3 = '';
+                                $section13_list_desc_3 = '';
+                                $section13_list_tite_4 = '';
+                                $section13_list_desc_4 = '';
+                            }
+
+                            ?>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Title</label>
+                                    <input type="text" class="form-control" name="section13_list_tite_1" value="<?= $section13_list_tite_1 ?>">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Description</label>
+                                    <input type="text" class="form-control" name="section13_list_desc_1" value="<?= $section13_list_desc_1 ?>">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Title</label>
+                                    <input type="text" class="form-control" name="section13_list_tite_2" value="<?= $section13_list_tite_2 ?>">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Description</label>
+                                    <input type="text" class="form-control" name="section13_list_desc_2" value="<?= $section13_list_desc_2 ?>">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Title</label>
+                                    <input type="text" class="form-control" name="section13_list_tite_3" value="<?= $section13_list_tite_3 ?>">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Description</label>
+                                    <input type="text" class="form-control" name="section13_list_desc_3" value="<?= $section13_list_desc_3 ?>">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Title</label>
+                                    <input type="text" class="form-control" name="section13_list_tite_4" value="<?= $section13_list_tite_4 ?>">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Description</label>
+                                    <input type="text" class="form-control" name="section13_list_desc_4" value="<?= $section13_list_desc_4 ?>">
+                                </div>
+                            </div>
+
+
 
 
 
@@ -811,5 +1143,10 @@
         $(".remove-main-pdf").click(function() {
             $(this).parent().remove();
             $("#main-cta-pdf").val('');
+        })
+
+        $(".about-new-delete").click(function() {
+            let id = $(this).attr("data-id");
+            $("#" + id).remove();
         })
     </script>
