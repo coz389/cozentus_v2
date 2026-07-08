@@ -3,6 +3,12 @@
         child-services.html  —  Section 2 "What It Does" +
         Section 3 "What It Solves"  (namespaced, theme-safe)
         ═══════════════════════════════════════════════════════════ */
+    .my-image {
+        border-radius: 15px;
+        box-shadow: 0px 15px 60px -10px rgb(109 117 143 / 33%);
+        background: rgba(255, 255, 255, 0.4);
+        padding: 5px;
+    }
 
     /* ── Section 2: enterprise split layout ── */
     .cz-does-top {
@@ -674,6 +680,7 @@
     } else {
         $banner = base_url('assets/img/shape/banner-16.jpg');
     }
+    // print_r($pserv);
     ?>
 
     <!-- Start Section 1 -->
@@ -688,7 +695,11 @@
                                 <?= $pserv['advantage_short_description'] ?>
                             </p>
                             <div class="button mt-30 fade-up-anim">
-                                <a href="<?= urldecode($pserv['ctalink']) ?>" class="btn btn-style-one"><?= $pserv['ctabtn'] ?> <i class="fas fa-arrow-right"></i></a>
+                                <?php if (!empty($pserv['ctalink'])) { ?>
+                                    <a href="<?= urldecode($pserv['ctalink']) ?>" class="btn btn-style-one"><?= $pserv['ctabtn'] ?>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
@@ -706,7 +717,7 @@
                                 <img src="https://img.youtube.com/vi/<?= $videoId ?>/hqdefault.jpg">
                                 <a href=" <?= urldecode($pserv['advantage_video']) ?>" class="popup-youtube video-button-v1"><i class="fas fa-play"></i></a>
                             <?php } else { ?>
-                                <div class="about-style-three-thumb">
+                                <div class="illustration my-image">
                                     <img class="wow fadeInUp" data-wow-delay="300ms" src="<?= base_url('uploads/images/') . $pserv['advantage_image'] ?>" alt="<?= $pserv['advantage_alt_text'] ?>">
                                 </div>
                             <?php } ?>
@@ -735,7 +746,9 @@
                             <li><i class="fas fa-layer-group"></i> Modular, API-first architecture</li>
                             <li><i class="fas fa-headset"></i> 24x7 managed support &amp; SLAs</li>
                         </ul> -->
-                        <a href="<?= base_url('contact') ?>" class="btn btn-style-one">Talk to an Expert <i class="fas fa-arrow-right"></i></a>
+                        <?php if (!empty($pserv['about_ctalink'])) { ?>
+                            <a href="<?= urldecode($pserv['about_ctalink']) ?>" class="btn btn-style-one"><?= $pserv['about_ctabtn'] ?> <i class="fas fa-arrow-right"></i></a>
+                        <?php } ?>
                     </div>
 
                     <!-- Right: capability list -->
@@ -881,7 +894,7 @@
                                         </div>
                                     <?php } ?>
                                 <?php } ?>
-                                <?php if (!empty($pserv['believe_json'] && !empty($pserv['believe_heading']))) { ?>
+                                <?php if (!empty($pserv['believe_json'])) { ?>
                                     <div class="cz-case-stats">
                                         <?php
                                         $believeArr = json_decode($pserv['believe_json'], true);

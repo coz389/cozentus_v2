@@ -126,6 +126,16 @@
                                 <label>Short Description Right</label>
                                 <input type="text" class="form-control" name="about_short_description_right" value="<?= htmlspecialchars($about_short_description_right) ?>">
                             </div>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>CTA Button Label</label>
+                                    <input type="text" class="form-control" name="about_ctabtn" value="<?= $about_ctabtn ?>">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>CTA Button Link</label>
+                                    <input type="text" class="form-control" name="about_ctalink" value="<?= urldecode($about_ctalink) ?>">
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label>Select Image</label>
                                 <br>

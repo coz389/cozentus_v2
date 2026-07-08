@@ -956,6 +956,8 @@ class Admin extends MX_Controller
         ];
 
         $section13_list_json = json_encode($section13_list_json);
+        $about_ctabtn = $this->input->post('about_ctabtn');
+        $about_ctalink = $this->input->post('about_ctalink');
 
         $data = [
             'pserv' => $pserv,
@@ -1034,6 +1036,8 @@ class Admin extends MX_Controller
             'section13_ctabtn'   => $section13_ctabtn,
             'section13_ctalink'   => $section13_ctalink,
             'section13_list_json'   => $section13_list_json,
+            'about_ctabtn'  => $about_ctabtn,
+            'about_ctalink'  => $about_ctalink,
         ];
         //echo json_encode($data);exit;
         if (!empty($id)) {
