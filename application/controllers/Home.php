@@ -706,7 +706,7 @@ class Home extends CI_Controller
                 $data['section_4_image'] = $data['pserv']['section_4_image'];
                 $data['section_4_json'] = $data['pserv']['section_4_json'];
             }
-
+            echo $data['pserv']['type'];
             $this->load->view('common/header', $data);
             if ($data['pserv']['is_webinar'] == 1) {
                 $this->load->view('webinar');

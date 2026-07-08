@@ -878,7 +878,7 @@
                 <div class="site-heading">
                     <div class="row align-center">
                         <div class="col-lg-12">
-                            <h2 class="title split-text-right split-text-in-right">Ways to work with us</h2>
+                            <h2 class="title split-text-right split-text-in-right">Ways To Work With Us</h2>
                             <p>
                                 Every engagement is different. Pick the model that fits how you want to build or we'll help you choose.
                             </p>

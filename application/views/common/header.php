@@ -210,7 +210,7 @@
                                                     <li><a href="<?= base_url('domain-capabilities/freight-audit') ?>">Freight Audit</a></li>
                                                     <li><a href="<?= base_url('domain-capabilities/quotation-management') ?>">Quotation Management</a></li>
                                                     <li><a href="<?= base_url('domain-capabilities/contract-management-service') ?>">Contract Management</a></li>
-                                                    <li><a href="<?= base_url('domain-capabilities/bill-of-lading-process') ?>">Bill of Lading</a></li>
+                                                    <!-- <li><a href="<?= base_url('domain-capabilities/bill-of-lading-process') ?>">Bill of Lading</a></li> -->
                                                 </ul>
                                             </div>
 

@@ -297,6 +297,12 @@
     /* ── responsive ── */
 
     @media (max-width: 575px) {
+        .banner-style-three-info h2 {
+            font-size: 24px !important;
+            margin-bottom: 25px;
+            color: #000662 !important;
+        }
+
         .cz-flow {
             flex-direction: column;
         }
@@ -641,8 +647,13 @@
     }
 
     @media (max-width: 575px) {
+        .row {
+            --bs-gutter-x: 1.5rem;
+            padding: 10px 15px;
+        }
+
         .cz-case-body {
-            padding: 32px 24px;
+            padding: 30px 10px;
         }
 
         .cz-case-stats {
@@ -675,7 +686,7 @@
                 <div class="row align-center">
                     <div class="col-lg-7 pr-60 pr-md-15 pr-xs-15">
                         <div class="banner-style-three-info inner-service-page">
-                            <h2 class="title split-text-right split-text-in-right"><?= $pserv['advantage_heading'] ?></h2>
+                            <h2 class="wow fadeInUp"><?= $pserv['advantage_heading'] ?></h2>
                             <p class="fade-up-anim">
                                 <?= $pserv['advantage_short_description'] ?>
                             </p>
@@ -832,8 +843,8 @@
                         <!-- Visual -->
                         <div class="col-lg-5">
                             <div class="cz-case-media">
-                                <img src="<?= base_url('assets/img/case-study.png') ?>" alt="Case study">
-                                <span class="cz-case-tag">Logistics &amp; Supply Chain</span>
+                                <img src="<?= base_url('uploads/images/' . $pserv['section12_image']) ?>" alt="<?= $pserv['section12_image_text'] ?>">
+                                <span class="cz-case-tag"><?= $pserv['section12_image_text'] ?></span>
                             </div>
                         </div>
                         <!-- Story -->
@@ -1000,6 +1011,79 @@
                 </div>
             <?php } ?>
         </div>
+    <?php } else { ?>
+        <div class="process-style-two-area overflow-hidden bg-cover default-padding bg-dark text-light" style="background-image: url(<?= base_url('assets/img/shape/banner-20.jpg') ?>);">
+            <div class="container">
+                <div class="site-heading">
+                    <div class="row align-center">
+                        <div class="col-lg-12">
+                            <h2 class="title split-text-right split-text-in-right">Ways To Work With Us</h2>
+                            <p>
+                                Every engagement is different. Pick the model that fits how you want to build or we'll help you choose.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="process-style-two-items">
+                    <div class="row">
+                        <!-- Single Item -->
+                        <div class="col-lg-3 col-md-6 process-two-single">
+                            <div class="process-style-two-item">
+                                <span>01</span>
+                                <h4>Fixed-Price Project</h4>
+                                <p>
+                                    <strong>Best when:</strong> the scope is clear and cost certainty matters.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- End Single Item -->
+                        <!-- Single Item -->
+                        <div class="col-lg-3 col-md-6 process-two-single">
+                            <div class="process-style-two-item">
+                                <span>02</span>
+                                <h4>Dedicated Team</h4>
+                                <p>
+                                    <strong>Best when:</strong> you want a team that owns your roadmap.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- End Single Item -->
+                        <!-- Single Item -->
+                        <div class="col-lg-3 col-md-6 process-two-single">
+                            <div class="process-style-two-item">
+                                <span>03</span>
+                                <h4>Staff Augmentation </h4>
+                                <p>
+                                    <strong>Best when:</strong> you need specific skills, fast.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- End Single Item -->
+                        <!-- Single Item -->
+                        <div class="col-lg-3 col-md-6 process-two-single">
+                            <div class="process-style-two-item">
+                                <span>04</span>
+                                <h4>Build-Operate-Transfer</h4>
+                                <p>
+                                    <strong>Best when:</strong> you want it built now, owned later.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- End Single Item -->
+
+                    </div>
+                </div>
+                <!-- Button -->
+                <div class="row">
+                    <div class="col-lg-12 text-left mt-50">
+                        <a class="btn btn-style-one light" href="contact-us.html">Let's Talk <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
     <?php } ?>
     <!-- End Section 5 -->
 
@@ -1039,8 +1123,9 @@
                             } ?>
                         </ul>
                         <br>
-
-                        <a href="<?= urldecode($pserv['toolbenefits_ctalink']) ?>" class="btn btn-style-one"><?= $pserv['toolbenefits_ctabtn'] ?> <i class="fas fa-arrow-right"></i></a>
+                        <?php if (!empty($pserv['toolbenefits_ctalink'])) { ?>
+                            <a href="<?= urldecode($pserv['toolbenefits_ctalink']) ?>" class="btn btn-style-one"><?= $pserv['toolbenefits_ctabtn'] ?> <i class="fas fa-arrow-right"></i></a>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
