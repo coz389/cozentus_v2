@@ -28,11 +28,16 @@
     <!-- ========== End Stylesheet ========== -->
 
     <!-- ========== Custom Stylesheet ========== -->
+    <!-- Xopa Script -->
+    <script type="module" src="https://xcdn.blob.core.windows.net/xfe/pjs/pie-embed.js"></script>
+
     <link href="<?= base_url('assets/custom/custom.css') ?>" rel="stylesheet">
     <script src="<?= base_url('assets/js/jquery-3.7.1.min.js') ?>"></script>
     <link rel="preconnect" href="https://static.hsappstatic.net" crossorigin>
     <link rel="prefetch" href="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js" as="script">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
 
     <?= !empty($head_foot['header']) ? html_entity_decode($head_foot['header']) : '' ?>
     <?= !empty($pserv['page_header']) ? html_entity_decode($pserv['page_header']) : '' ?>
@@ -54,6 +59,69 @@
             }
         }
     </style>
+
+
+
+    <script>
+        var site_url = "<?= base_url() ?>";
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WBLVSRP');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <script type="text/javascript">
+        (function(c, l, a, r, i, t, y) {
+            c[a] = c[a] || function() {
+                (c[a].q = c[a].q || []).push(arguments)
+            };
+            t = l.createElement(r);
+            t.async = 1;
+            t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "nggklxydm5");
+    </script>
+
+
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Cozentus",
+            "url": "https://www.cozentus.com",
+            "logo": "https://www.cozentus.com/assets/images/logo.png",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+919777126600",
+                "contactType": "Customer Service",
+                "areaServed": "Global",
+                "availableLanguage": ["English"]
+            },
+            "sameAs": [
+                "https://www.linkedin.com/company/cozentus",
+                "https://twitter.com/cozentus",
+                "https://www.facebook.com/CozentusTechnologies/"
+            ]
+        }
+    </script>
+    <meta name="msvalidate.01" content="8AA3A7CA90031D1461EF7F53ACF355B0" />
+
 </head>
 
 <body class="smooth-scroll-yes">

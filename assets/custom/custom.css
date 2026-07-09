@@ -1007,6 +1007,7 @@ select.valid {
 .banner-style-three-info h2 strong,
 .cz-our-story h2 {
     font-size: 45px !important;
+    text-transform: capitalize;
 }
 
 .cz-story-card:hover {
@@ -1091,27 +1092,26 @@ select.valid {
     font-size: 22px;
 }
 
-/** Teams Slider CSS */
-
-@media (min-width: 1600px) {
-    .banner-style-three-area {
-        height: 75vh !important;
-        padding-top: 50px;
-    }
-}
-
-@media (min-width: 1024px) {
-    .banner-style-three-area {
-        height: 75vh;
-        padding-top: 50px;
-        padding-bottom: 50px;
-    }
+/** Blogs Customized CSS **/
+.blog-area.single .item .blog-item-box span {
+    background: none !important;
+    color: #000662 !important;
+    display: inline-block;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 0px 0px !important;
+    text-transform: capitalize !important;
 }
 
 /*=== About Us Css End*/
 
 /* =============  Media Query ====================================*/
 @media (min-width: 1024px) {
+    .banner-style-three-area {
+        height: 75vh;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
     .banner-style-three-area1 {
         height: 35vh !important;
         padding-top: 145px;
@@ -1127,6 +1127,10 @@ select.valid {
         margin: auto;
         border-radius: 0px !important;
         margin-top: 82px !important;
+    }
+    .banner-style-three-area {
+        height: 75vh !important;
+        padding-top: 50px;
     }
 }
 @media (max-width: 991px) {

@@ -29,7 +29,7 @@
                                         <li>
                                             <a href="#"><i class="fas fa-calendar-alt"></i> <?= date('F d, Y', strtotime($posted)) ?></a>
                                         </li>
-                                        <?php if (!empty($author)) { ?>
+                                        <?php /*if (!empty($author)) { ?>
                                             <li>
                                                 <a href="#">
                                                     <img src="<?= base_url('uploads/images/') . $aimage ?>" alt="<?= $aalt_text ?>" style="
@@ -41,7 +41,7 @@
                                                     <?= $author ?>
                                                 </a>
                                             </li>
-                                        <?php } ?>
+                                        <?php }*/ ?>
                                     </ul>
                                     <div class="social">
                                         <ul class="d-flex mb-0">
@@ -67,18 +67,32 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Post Author -->
                     <?php if (!empty($author)) { ?>
-                        <div class="post-author">
-                            <div class="thumb">
-                                <img src="<?= base_url('uploads/images/') . $aimage ?>" alt="Thumb">
-                            </div>
-                            <div class="info2">
-                                <h4><a href="#"><?= $author ?></a></h4>
-                                <p>
-                                    <?= $authortitle ?>
-                                </p>
+                        <div style="
+                            display:flex;
+                            align-items:center;
+                            gap:15px;
+                            background:#f8f9fb;
+                            padding:18px;
+                            box-shadow:0 4px 12px rgba(0,0,0,0.06);
+                            margin-top:30px;
+                            max-width:320px;
+                        ">
+                            <img src="<?= base_url('uploads/images/') . $aimage ?>" alt="<?= $author ?>" style="
+                            width:70px;
+                            height:70px;
+                            border-radius:50%;
+                            object-fit:cover;
+                        ">
+                            <div>
+                                <div style="font-size:12px; color:#888;">AUTHOR</div>
+                                <div style="font-size:18px; font-weight:600; color:#000;">
+                                    <?= $author ?>
+                                </div>
+                                <div style="font-size:14px; color:#666;">
+                                    - <?= $authortitle ?>
+                                </div>
                             </div>
                         </div>
                     <?php }  ?>
@@ -88,10 +102,7 @@
                         <div class="blog-item-box mt-5">
                             <div class="row">
                                 <div class="section-title text-left">
-
-                                    <h5 class="sub-title">
-                                        Recent Posts
-                                    </h5>
+                                    <h2 class="cz-main-title text-dark">Recent Posts</h2>
                                 </div>
                                 <?php foreach ($blogs as $blog) { ?>
                                     <div class="col-xl-4 col-lg-6 col-md-6 mb-50">
@@ -126,12 +137,16 @@
                         <h4 class="text-light">Transform Your Supply Chain Tech Today</h4>
                         <p>Book a Strategy Call Explore Our Whitepapers</p>
 
-                        <a href="<?= base_url('book-free-consultation') ?>" class="btn btn-style-one mb-3">
-                            Book a Strategy Call <i class="fa fa-arrow-right"></i>
-                        </a>
-                        <a href="<?= base_url('reports') ?>" class="btn btn-style-one mb-3">
-                            Explore Our Whitepapers <i class="fa fa-arrow-right"></i>
-                        </a>
+                        <div class="cta-buttons d-flex  flex-column flex-md-row justify-content-center gap-4">
+                            <a href="<?= base_url('book-free-consultation') ?>" class="btn btn-style-one mb-3">
+                                Book a Strategy Call <i class="fa fa-arrow-right"></i>
+                            </a>
+                            <a href="<?= base_url('reports') ?>" class="btn btn-style-one mb-3">
+                                Explore Our Whitepapers <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+
+
                     </div>
 
                     <!-- Start Post Pagination -->

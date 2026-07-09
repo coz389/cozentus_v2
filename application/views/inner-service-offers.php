@@ -738,7 +738,7 @@
                 <div class="row align-center cz-does-top">
                     <!-- Left: narrative -->
                     <div class="col-lg-6 cz-does-intro">
-                        <h2 class="title split-text-right split-text-in-right"><?= $pserv['about_heading'] ?></h2>
+                        <h2 class="title split-text-right split-text-in-right"><?= ucwords(strtolower($pserv['about_heading'])) ?></h2>
                         <p>
                             <?= $pserv['about_short_description_left'] ?>
                             <?= $pserv['about_short_description_right'] ?>
@@ -767,7 +767,7 @@
                                                 <img src="<?= base_url('uploads/images/' . getImagesByID($about_new->about_new_icon, 'image')) ?>" alt="<?= getImagesByID($about_new->about_new_icon, 'alt_text') ?>" height="30" width="30">
                                             </span>
                                             <div class="cz-cap-info">
-                                                <h4><?= $about_new->about_new_tite ?></h4>
+                                                <h4><?= ucwords(strtolower($about_new->about_new_tite)) ?></h4>
                                                 <p><?= $about_new->about_new_desc ?></p>
                                             </div>
                                         </div>
@@ -790,7 +790,7 @@
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
                         <div class="site-heading text-center">
-                            <h2 class="title split-text-right split-text-in-right"><?= $pserv['why_heading'] ?></h2>
+                            <h2 class="title split-text-right split-text-in-right"><?= ucwords(strtolower($pserv['why_heading'])) ?></h2>
                             <p>
                                 <?= html_entity_decode($pserv['why_heading_desc']) ?>
                             </p>
@@ -821,7 +821,7 @@
                                         <i class="fas fa-check"></i>
                                     </span>
                                     <div class="cz-step-info">
-                                        <h4><?= html_entity_decode($wc['title']) ?></h4>
+                                        <h4><?= ucwords(strtolower(html_entity_decode($wc['title']))) ?></h4>
                                         <p><?= html_entity_decode($wc['short_description']) ?></p>
                                     </div>
                                 </div>
@@ -843,7 +843,7 @@
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
                         <div class="site-heading text-center">
-                            <h2 class="title split-text-right split-text-in-right"><?= $pserv['section12_title'] ?></h2>
+                            <h2 class="title split-text-right split-text-in-right"><?= ucwords(strtolower($pserv['section12_title'])) ?></h2>
                             <p><?= html_entity_decode($pserv['section12_description']) ?></p>
                         </div>
                     </div>
@@ -939,7 +939,7 @@
                 <div class="site-heading">
                     <div class="row align-center">
                         <div class="col-lg-12">
-                            <h2 class="title split-text-right split-text-in-right"><?= $pserv['section13_title'] ?></h2>
+                            <h2 class="title split-text-right split-text-in-right"><?= ucwords(strtolower($pserv['section13_title'])) ?></h2>
                             <p>
                                 <?= html_entity_decode($pserv['section13_description']) ?>
                             </p>
@@ -1083,7 +1083,7 @@
                 <!-- Button -->
                 <div class="row">
                     <div class="col-lg-12 text-left mt-50">
-                        <a class="btn btn-style-one light" href="contact-us.html">Let's Talk <i class="fas fa-arrow-right"></i></a>
+                        <a class="btn btn-style-one light" href="<?= base_url('contact') ?>">Let's Talk <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -1110,7 +1110,7 @@
                         </div>
                     </div>
                     <div class="col-lg-7 pl-70 pl-md-15 pl-xs-15">
-                        <h2 class="title split-text-right split-text-in-right"><?= $pserv['toolbenefits_heading'] ?></h2>
+                        <h2 class="title split-text-right split-text-in-right"><?= ucwords(strtolower($pserv['toolbenefits_heading'])) ?></h2>
                         <ul class="service-tab-content-list text-scroll-animation">
                             <?php $count = 0;
                             foreach ($pserv['toolbenefits_json'] as $buis) { ?>
