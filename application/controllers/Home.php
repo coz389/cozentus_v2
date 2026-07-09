@@ -654,6 +654,7 @@ class Home extends CI_Controller
         $data = $this->home_model->getsingleblog(['slug' => $slug]);
         $data['pserv'] = $this->home_model->getsingleblog(['slug' => $slug]);
         $data['blogs'] = $this->home_model->getrecblogs(1, 3);
+        $data['pservcont'] = $this->home_model->getparentserviceformenu();
 
         if (empty($data['pserv'])) {
             $this->no_page_found();
@@ -706,7 +707,7 @@ class Home extends CI_Controller
                 $data['section_4_image'] = $data['pserv']['section_4_image'];
                 $data['section_4_json'] = $data['pserv']['section_4_json'];
             }
-            echo $data['pserv']['type'];
+
             $this->load->view('common/header', $data);
             if ($data['pserv']['is_webinar'] == 1) {
                 $this->load->view('webinar');
@@ -1303,6 +1304,7 @@ class Home extends CI_Controller
             $res['msg'] = 'Captcha response not provided';
             $res['status'] = false;
         }
+
         if ($res['status']) {
             // $data['name'] = $this->input->post('fname') . ' ' . $this->input->post('lname');
             $data['name'] = $this->input->post('name');

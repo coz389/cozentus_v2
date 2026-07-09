@@ -466,8 +466,8 @@
     }
 
     .cz-case-stat h3 {
-        font-size: 34px;
-        font-weight: 800;
+        font-size: 32px;
+        font-weight: 600;
         line-height: 1;
         margin: 0 0 6px;
         background: linear-gradient(135deg, #2f73ff, #6f4cff);
@@ -903,21 +903,14 @@
                                         $believeArr = json_decode($pserv['believe_json'], true);
                                         if (!empty($believeArr)) {
                                             foreach ($believeArr as $belp) {
-                                                $val1   = html_entity_decode($belp['key']); //21+
-                                                preg_match('/^(\d+)\s*([^\d]*)$/', trim($val1), $m);
-                                                $number1  = trim($m[1] ?? '0');    // "20"
-                                                $symbol1  = trim($m[2] ?? '');     // "+"
-                                                $label1 = $belp['value'];
-
+                                                if (!empty($belp['key'])) {
                                         ?>
-                                                <?php if (!empty($m) && !empty($number1)) { ?>
                                                     <div class="cz-case-stat">
-                                                        <h3><?= $number1 ?> <?= $symbol1 ?></h3>
-                                                        <span><?= html_entity_decode($label1) ?></span>
+                                                        <h3><?= $belp['key'] ?> </h3>
+                                                        <span><?= html_entity_decode($belp['value']) ?></span>
                                                     </div>
-                                                <?php } ?>
-
                                         <?php  }
+                                            }
                                         } ?>
 
                                     </div>

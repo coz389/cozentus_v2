@@ -415,7 +415,7 @@ select.valid {
 
 /**Domain Capability**/
 .banner-style-three-info h2 {
-    font-size: 55px !important;
+    font-size: 45px !important;
     margin-bottom: 25px;
     color: #ffffff;
 }
@@ -427,7 +427,7 @@ select.valid {
     color: #ffffff;
 }
 .inner-service-page h2 {
-    font-size: 55px !important;
+    font-size: 45px !important;
     margin-bottom: 25px;
     color: #000662;
 }
@@ -1006,7 +1006,7 @@ select.valid {
 /*=== About Us CSS Start =====*/
 .banner-style-three-info h2 strong,
 .cz-our-story h2 {
-    font-size: 55px !important;
+    font-size: 45px !important;
 }
 
 .cz-story-card:hover {
@@ -1083,7 +1083,7 @@ select.valid {
 }
 
 .project-style-two-items h2 {
-    font-size: 55px;
+    font-size: 45px;
 }
 
 .project-style-two-items p {

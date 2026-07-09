@@ -863,11 +863,11 @@
         {
             if ($limit)
                 $this->db->limit($limit);
-            $this->db->select('b.id,b.title,b.description,b.slug,b.posted,i.image,i.alt_text,b.tags, b.created_at as posted');
+            $this->db->select('b.id,b.title,b.description,b.slug,b.posted as postdate,i.image,i.alt_text,b.tags, b.created_at as posted');
             $this->db->from('blogs b');
             $this->db->join('images_master i', 'i.id=b.thumbnail');
             $this->db->where(['b.is_active' => 1, 'b.type' => $type]);
-            $this->db->order_by('posted', 'desc');
+            $this->db->order_by('postdate', 'desc');
             $this->db->limit(4);
             $qry = $this->db->get();
             if ($qry->num_rows() > 0) {
