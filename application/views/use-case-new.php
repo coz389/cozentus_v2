@@ -487,6 +487,10 @@ if (!empty($image)) {
         padding-top: 100px !important;
         padding-bottom: 100px !important;
     }
+
+    .process-style-one-items {
+        padding: 0px 0px !important;
+    }
 </style>
 <!-- <div class="breadcrumb-area text-center bg-cover text-dark bg-theme" style="background-image: url(<?= $banner ?>);">
     <div class="container mt-5">
@@ -580,58 +584,85 @@ if (!empty($image)) {
             </div>
         </div>
     <?php } ?>
-    <!-- Our Approach -->
+    <?php
+    // $section_4_array = json_decode($section_4_json);
+    // print_r($section_4_array);
+    // print_r($section_4_array[0]->heading);
+    ?>
+    <!-- Start Section 3   Our Approach-->
     <?php if (!empty($section_3_heading)) { ?>
-        <div class="cz-cs-sec default-padding">
-            <div class="container">
-                <div class="row align-center">
-                    <div class="col-lg-7 cz-cs-text order-lg-1 order-2">
-                        <h2 class="cz-cs-h2"><?= $section_3_heading ?></h2>
-                        <div class="cz-cs-lines"> <?= html_entity_decode($section_3_json) ?></div>
-
+        <div class="services-style-one-area default-padding-2" id="what-do-we-offer">
+            <div class=" container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="site-heading text-center">
+                            <h2 class="title split-text-right split-text-in-right"><?= html_entity_decode($section_3_heading) ?></h2>
+                        </div>
                     </div>
-                    <div class="col-lg-5 order-lg-2 order-1">
-                        <div class="cz-cs-photo"><img src="<?= base_url('uploads/images/') . $section_3_image ?>" alt="Our Approach"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="service-style-one-items fade-up-anim">
+                    <div class="row gutter-zero">
+                        <!-- Single Item -->
+                        <?php
+                        $section_3_array = json_decode($section_3_json);
+                        foreach ($section_3_array as $sec3) { ?>
+                            <div class="col-lg-4 col-md-6 service-style-one-single">
+                                <div class="service-style-one-item">
+                                    <h4><?= $sec3->heading ?></h4>
+                                    <p>
+                                        <?= $sec3->description ?>
+                                    </p>
+                                </div>
+                            </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
         </div>
     <?php } ?>
-    <!-- Business Outcomes -->
+    <!-- End Section 3  Our Approach -->
+    <!-- Start Section 4 Business Outcomes-->
     <?php if (!empty($section_4_heading)) { ?>
-        <div class="cz-cs-sec default-padding bg-gray">
+        <div class="process-style-one-area default-padding-2  bg-gray">
             <div class="container">
-                <div class="row align-center">
-                    <div class="col-lg-5">
-                        <div class="cz-cs-photo"><img src="<?= base_url('uploads/images/') . $section_4_image ?>" alt="Business Outcomes"></div>
-                    </div>
-                    <div class="col-lg-7 cz-cs-text">
-                        <h2 class="cz-cs-h2"><?= $section_4_heading ?></h2>
-                        <div class="cz-cs-lines">
-                            <?= html_entity_decode($section_4_json) ?>
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="site-heading text-center">
+                            <h2 class="title split-text-right split-text-in-right"><?= html_entity_decode($section_4_heading) ?></h2>
                         </div>
-                        <!-- <ul class="cz-outcome-list">
-                            <li><strong>Review time reduced by 4.2 hours per asset,</strong> accelerating delivery and
-                                freeing up time to focus on strategic initiatives.</li>
-                            <li><strong>Scalable and cost-effective deployment,</strong> with plans to integrate into
-                                core content platforms.</li>
-                            <li><strong>Human-in-the-loop governance</strong> ensured ethical and regulatory alignment
-                                throughout.</li>
-                        </ul> -->
-                        <!-- <div class="cz-outcome-stat">
-                            <h3>4.2 hours</h3>
-                            <span>reduced per asset review time</span>
-                        </div> -->
-                        <div class="cz-outcome-download">
-                            <a href="#" class="btn btn-style-one" data-bs-toggle="modal"
-                                data-bs-target="#contactModal">Download PDF <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="process-style-one-items">
+                            <!-- Single Item -->
+                            <?php
+                            $count = 1;
+                            $section_4_array = json_decode($section_4_json);
+                            foreach ($section_4_array  as $section_4) { ?>
+                                <div class="process-style-one-item fade-up-anim">
+                                    <!-- <h2>0<?= $count ?></h2> -->
+                                    <h4><?= html_entity_decode($section_4->heading) ?></h4>
+                                    <p>
+                                        <?= html_entity_decode($section_4->description) ?>
+                                    </p>
+                                </div>
+                            <?php $count++;
+                            } ?>
+                            <!-- End Single Item -->
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     <?php } ?>
-    <!-- End Business Outcomes -->
+    <!-- End Section 4 Business Outcomes-->
 
     <?php
     if (!empty($pserv)) {

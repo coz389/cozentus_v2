@@ -1,7 +1,7 @@
 <!-- Start Breadcrumb 
 ============================================= -->
 <div class="breadcrumb-area text-center bg-cover text-dark bg-theme" style="background-image: url(<?= base_url('assets/img/shape/banner-16.jpg') ?>);">
-    <div class="container mt-5">
+    <div class="container" style="margin-top: 108px;">
         <div class="row">
             <div class="col-lg-10 mx-auto">
                 <h1><?= $title ?></h1>
@@ -60,7 +60,7 @@
                                     </div>
                                 </div>
                                 <!-- <h1><?= $title ?></h1> -->
-                                <div>
+                                <div class="blog-inner-content">
                                     <?= html_entity_decode($content) ?>
                                 </div>
 

@@ -1429,58 +1429,54 @@
         $half = (int) ceil(count($clients) / 2);
         $clients_first  = array_slice($clients, 0, $half);
         $clients_second = array_slice($clients, $half);
-
+        if ($this->uri->segment(1) == "services") {
     ?>
-        <div class="testimonial-style-four-area default-padding overflow-hidden">
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 offset-lg-2">
-                        <div class="site-heading text-center">
-                            <h2 class="title split-text-right split-text-in-right">Our Technology Stack</h2>
+            <div class="testimonial-style-four-area default-padding overflow-hidden">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2">
+                            <div class="site-heading text-center">
+                                <h2 class="title split-text-right split-text-in-right">Our Technology Stack</h2>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="testimonial-style-four-left-carousel swiper ">
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                    <!-- Start Team Item -->
-                    <?php foreach ($clients_first as $ins) { ?>
-                        <div class="swiper-slide">
-                            <div class="testimonial-style-four-item">
-                                <div class="thumb">
-                                    <img src="<?= base_url('uploads/images/') . $ins['image'] ?>" alt="Image Not Found">
+                <div class="testimonial-style-four-left-carousel swiper ">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Start Team Item -->
+                        <?php foreach ($clients_first as $ins) { ?>
+                            <div class="swiper-slide">
+                                <div class="testimonial-style-four-item">
+                                    <div class="thumb">
+                                        <img src="<?= base_url('uploads/images/') . $ins['image'] ?>" alt="Image Not Found">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    <?php } ?>
-                    <!-- End Team Item -->
+                        <?php } ?>
+                        <!-- End Team Item -->
+                    </div>
                 </div>
-            </div>
-            <div class="testimonial-style-four-left-carousel2 swiper pt-5">
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                    <!-- Start Team Item -->
-                    <?php foreach ($clients_second as $ins2) { ?>
-                        <div class="swiper-slide">
-                            <div class="testimonial-style-four-item">
-                                <div class="thumb">
-                                    <img src="<?= base_url('uploads/images/') . $ins2['image'] ?>" alt="Image Not Found">
+                <div class="testimonial-style-four-left-carousel2 swiper pt-5">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Start Team Item -->
+                        <?php foreach ($clients_second as $ins2) { ?>
+                            <div class="swiper-slide">
+                                <div class="testimonial-style-four-item">
+                                    <div class="thumb">
+                                        <img src="<?= base_url('uploads/images/') . $ins2['image'] ?>" alt="Image Not Found">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    <?php } ?>
-                    <!-- End Team Item -->
+                        <?php } ?>
+                        <!-- End Team Item -->
+                    </div>
                 </div>
             </div>
-
-
-
-
-        </div>
-    <?php } ?>
+    <?php }
+    } ?>
     <!-- End Section 5 -->
 
     <!-- Start Section 6 Faq -->
@@ -1540,7 +1536,8 @@
             $serviceid = $pserv['id'];
         }
 
-        $blogs = $this->home_model->getlatestcasesbyservice($serviceid, 1);
+        // $blogs = $this->home_model->getlatestcasesbyservice($serviceid, 1);
+        $blogs = $this->home_model->getlatestblogs(1, 4);
     } else {
         $blogs = $this->home_model->getlatestblogs(1, 4);
     }

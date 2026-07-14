@@ -61,10 +61,6 @@
     </style>
 
 
-
-    <script>
-        var site_url = "<?= base_url() ?>";
-    </script>
     <!-- Google Tag Manager -->
     <script>
         (function(w, d, s, l, i) {
@@ -121,7 +117,11 @@
         }
     </script>
     <meta name="msvalidate.01" content="8AA3A7CA90031D1461EF7F53ACF355B0" />
+    <meta name="description"
+        content="Explore career opportunities at Cozentus. Join our AI-powered logistics and supply chain technology team.">
 
+    <link rel="canonical"
+        href="https://www.cozentus.com/career">
 </head>
 
 <body class="smooth-scroll-yes">

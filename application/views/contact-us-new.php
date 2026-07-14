@@ -1,3 +1,124 @@
+<style>
+    .address-card {
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .address-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .address-card.active {
+        transform: translateY(-5px);
+    }
+
+    .address-card.active .con-map-block {
+        background: linear-gradient(135deg, #2563eb, #3b82f6);
+        color: white;
+        transition: all 0.3s ease;
+    }
+
+    .address-card.active .con-map-block h3,
+    .address-card.active .con-map-block p {
+        color: white;
+    }
+
+    .address-card.active .con-map-block span {
+        background: white;
+    }
+
+    .con-map-block {
+        padding: 15px;
+        /*border-radius: 15px;*/
+        background: white;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        height: 100%;
+        min-height: 160px !important;
+        border: 1px solid rgba(37, 99, 235, 0.1);
+    }
+
+    .con-map-block h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: #041424;
+        transition: color 0.3s ease;
+    }
+
+    .con-map-block p {
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 0;
+        transition: color 0.3s ease;
+    }
+
+    .con-map-block span {
+        display: inline-block;
+        width: 50px;
+        height: 3px;
+        background: #2563eb;
+        margin-top: 15px;
+        border-radius: 2px;
+        transition: background 0.3s ease;
+    }
+
+    /* Map container styles */
+    #map {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        /*border-radius: 20px;*/
+    }
+
+    /* Custom marker popup styles */
+    .custom-popup {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .custom-popup h4 {
+        color: #2563eb;
+        margin-bottom: 8px;
+        font-size: 16px;
+    }
+
+    .custom-popup p {
+        color: #666;
+        margin: 0;
+        font-size: 12px;
+        line-height: 1.4;
+    }
+</style>
+<!-- Add these styles for better popup appearance -->
+<style>
+    .custom-popup h4 {
+        color: #2563eb;
+        margin: 0 0 5px 0;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .custom-popup p {
+        margin: 0;
+        font-size: 11px;
+        line-height: 1.4;
+        color: #666;
+    }
+
+    .leaflet-popup-content-wrapper {
+        border-radius: 0px !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .leaflet-popup-tip {
+        background: white;
+    }
+
+    /* Optional: Marker hover effect */
+    .custom-marker div:hover {
+        transform: scale(1.1);
+        background-color: #f97316 !important;
+        transition: all 0.3s ease;
+    }
+</style>
 <div id="smooth-content">
     <!-- Start Contact Us 
     ============================================= -->
@@ -148,7 +269,7 @@
 
     <!-- Start Map 
     ============================================= -->
-    <div class="maps-area default-padding-bottom overflow-hidden">
+    <!-- <div class="maps-area default-padding-bottom overflow-hidden">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -158,9 +279,283 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- End Map -->
+
+    <!-- Map Section start -->
+    <div class="maps-area default-padding-2 overflow-hidden bg-gray ">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="contact-style-one-info">
+                        <h2 class="split-text title"> Locate us on <span>the Globe</span></h2>
+                    </div>
+                    <!-- Map Container -->
+                    <div class="con-map mt-40">
+                        <div id="map" style="width: 100%; height: 450px; /*border-radius: 20px;*/ overflow: hidden;"></div>
+                    </div>
+
+                    <!-- Address Cards -->
+                    <div class="row justify-content-center" style="margin-top: 20px; row-gap: 20px;">
+                        <div class="col-lg-4 col-12 address-card" data-lat="20.34194" data-lng="85.80601" data-zoom="17" data-address="Odisha">
+                            <div class="con-map-block">
+                                <h3>Odisha, India</h3>
+                                <p>
+                                    SRB Tower, 5th and 6th Floor, Infocity, Bhubaneswar -751024, Odisha, India
+                                </p>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-12 address-card" data-lat="17.45867" data-lng="78.37059" data-zoom="17" data-address="Hyderabad">
+                            <div class="con-map-block">
+                                <h3>Hyderabad, India</h3>
+                                <p>
+                                    Cozentus Technologies, Unit No 814, 8th Floor, Jayabheri Silicon Towers, DHLF VC,
+                                    Silicon Tower, Hitech City Road, Kothaguda, Hyderabad, Telangana- 500 032
+                                </p>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-12 address-card" data-lat="51.58039" data-lng="-0.33742" data-zoom="17" data-address="Europe">
+                            <div class="con-map-block">
+                                <h3>Europe</h3>
+                                <p>
+                                    Ground Floor, Hygeia Building, 66-68 College Road, Harrow Middlesex, HA1 1BE, United Kingdom
+                                </p>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<!-- Leaflet CSS and JS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+    // Initialize the map
+    let map;
+    let markers = [];
+
+    // Define locations with their details
+    const locations = [{
+            name: "Odisha, India",
+            lat: 20.34194,
+            lng: 85.80601,
+            zoom: 17,
+            address: "SRB Tower, 5th and 6th Floor, Infocity, Bhubaneswar -751024, Odisha, India",
+            fullAddress: "Cozentus Technologies<br>SRB Tower, 5th and 6th Floor<br>Infocity, Bhubaneswar -751024<br>Odisha, India"
+        },
+        {
+            name: "Hyderabad, India",
+            lat: 17.45867,
+            lng: 78.37059,
+            zoom: 17,
+            address: "Cozentus Technologies, Unit No 814, 8th Floor, Jayabheri Silicon Towers, DHLF VC, Silicon Tower, Hitech City Road, Kothaguda, Hyderabad, Telangana- 500 032",
+            fullAddress: "Cozentus Technologies<br>Unit No 814, 8th Floor<br>Jayabheri Silicon Towers<br>Hitech City Road, Kothaguda<br>Hyderabad, Telangana- 500 032"
+        },
+        {
+            name: "Europe (UK)",
+            lat: 51.58039,
+            lng: -0.33742,
+            zoom: 17,
+            address: "Ground Floor, Hygeia Building, 66-68 College Road, Harrow Middlesex, HA1 1BE, United Kingdom",
+            fullAddress: "Cozentus Technologies<br>Ground Floor, Hygeia Building<br>66-68 College Road<br>Harrow, Middlesex, HA1 1BE<br>United Kingdom"
+        }
+    ];
+
+    // Initialize map when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        // Create map centered on global view
+        map = L.map('map').setView([20, 0], 2);
+
+        // COLORFUL MAP LAYERS - Choose one or add all with control
+
+        // Option 1: CartoDB Voyager (Best - Google Maps style)
+        const voyager = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; CartoDB',
+            subdomains: 'abcd',
+            maxZoom: 19
+        });
+
+        // Option 2: OpenStreetMap Standard
+        const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors',
+            maxZoom: 19
+        });
+
+        // Option 3: Satellite Imagery
+        const satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            attribution: '&copy; Esri',
+            maxZoom: 19
+        });
+
+        // Option 4: Stamen Terrain (Beautiful colors)
+        const terrain = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}{r}.png', {
+            attribution: 'Map tiles by Stamen Design',
+            subdomains: 'abcd',
+            maxZoom: 18
+        });
+
+        // Add default colorful layer
+        voyager.addTo(map);
+
+        // Optional: Add layer control to switch between map styles
+        const baseMaps = {
+            "🗺️ Google Style": voyager,
+            "🌍 Standard": osm,
+            "🛰️ Satellite": satellite,
+            "⛰️ Terrain": terrain
+        };
+        L.control.layers(baseMaps).addTo(map);
+
+        // Add markers for all locations
+        locations.forEach((location, index) => {
+            // Create custom marker icon with pulse animation
+            const customIcon = L.divIcon({
+                className: 'custom-marker',
+                html: `<div style="background-color: #2563eb; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.3); border: 2px solid white; transition: transform 0.3s ease;">
+                      <svg style="width: 16px; height: 16px; color: white;" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                      </svg>
+                    </div>`,
+                iconSize: [30, 30],
+                popupAnchor: [0, -15]
+            });
+
+            // Create marker
+            const marker = L.marker([location.lat, location.lng], {
+                    icon: customIcon
+                })
+                .addTo(map)
+                .bindPopup(`
+                <div class="custom-popup">
+                    <h4>${location.name}</h4>
+                    <p>${location.fullAddress}</p>
+                </div>
+            `);
+
+            markers.push(marker);
+        });
+
+        // Add click handlers to address cards
+        const addressCards = document.querySelectorAll('.address-card');
+        let currentlyActiveCard = null;
+
+        addressCards.forEach((card, index) => {
+            card.addEventListener('click', function(e) {
+                e.stopPropagation();
+
+                // Remove all active states
+                addressCards.forEach((c, i) => {
+                    c.classList.remove('active');
+                    const block = c.querySelector('.con-map-block');
+                    if (block) block.classList.remove('active');
+                    const cardP = c.querySelector('.con-map-block p');
+                    if (cardP) cardP.style.display = 'none';
+                });
+
+                // Activate clicked card
+                this.classList.add('active');
+                const conMapBlock = this.querySelector('.con-map-block');
+                if (conMapBlock) conMapBlock.classList.add('active');
+                const currentCardP = this.querySelector('.con-map-block p');
+                if (currentCardP) currentCardP.style.display = 'block';
+
+                currentlyActiveCard = this;
+
+                // Map actions
+                const location = locations[index];
+                map.flyTo([location.lat, location.lng], location.zoom, {
+                    duration: 1.5,
+                    easeLinearity: 0.25
+                });
+
+                setTimeout(() => {
+                    markers[index].openPopup();
+                }, 800);
+            });
+        });
+
+        // Add global view button
+        const addGlobalViewButton = () => {
+            const controlContainer = document.createElement('div');
+            controlContainer.className = 'leaflet-control leaflet-bar';
+            controlContainer.style.cssText = `
+                position: absolute;
+                bottom: 20px;
+                right: 20px;
+                z-index: 1000;
+                background: white;
+                padding: 10px 15px;
+                border-radius: 8px;
+                cursor: pointer;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+                font-family: 'Poppins', sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+                color: #2563eb;
+                transition: all 0.3s ease;
+            `;
+            controlContainer.innerHTML = '🌍 Global View';
+            controlContainer.onclick = () => {
+                map.flyTo([20, 0], 2, {
+                    duration: 1.5,
+                    easeLinearity: 0.25
+                });
+
+                addressCards.forEach(c => {
+                    c.classList.remove('active');
+                    const cardP = c.querySelector('.con-map-block p');
+                    if (cardP) cardP.style.display = 'none';
+                });
+                currentlyActiveCard = null;
+            };
+            controlContainer.onmouseover = () => {
+                controlContainer.style.backgroundColor = '#2563eb';
+                controlContainer.style.color = 'white';
+            };
+            controlContainer.onmouseout = () => {
+                controlContainer.style.backgroundColor = 'white';
+                controlContainer.style.color = '#2563eb';
+            };
+            document.querySelector('#map').appendChild(controlContainer);
+        };
+
+        addGlobalViewButton();
+
+        // Add scale control
+        L.control.scale({
+            metric: true,
+            imperial: true
+        }).addTo(map);
+    });
+
+    // Handle responsive map resize
+    window.addEventListener('resize', function() {
+        if (map) {
+            setTimeout(() => {
+                map.invalidateSize();
+            }, 100);
+        }
+    });
+</script>
+
+<!-- Map section end -->
+<script>
+    function scrollBottom() {
+
+        $('html,body').animate({
+            scrollTop: $('#ct-bt').offset().top - 100
+        }, 0)
+    }
+    scrollBottom();
+</script>
+
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const form = document.getElementById("contactForm");

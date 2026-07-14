@@ -114,7 +114,7 @@
                         // Check if title is equal to "1"
                         let category = e.is_webinar == 1 ? "Webinar" : '';
                         let tags = e.tags ? e.tags.split(',') : [];
-                        console.log(tags);
+                        console.log(2);
                         let btnText = (e.type == 7) ? "Listen Now" : "Read More";
                         temp += `<div class="col-xl-3 col-lg-4 col-md-6 mb-50">
                 <div class="blog-style-two fade-up-anim">

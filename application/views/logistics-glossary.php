@@ -28,7 +28,7 @@ if (!empty($image)) {
     }
 
     .tab button:hover {
-        background-color: var(--blue3);
+        background-color: #2264dc;
     }
 
     .tab button.active {
@@ -384,3 +384,23 @@ if (!empty($image)) {
     <!-- End Call to Action -->
 
 </div>
+<script>
+    function scrollToSection(sectionId) {
+        var section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            let marginTop = 100;
+            let scrollPosition = section.getBoundingClientRect().top + window.scrollY - marginTop;
+            window.scrollTo({
+                top: scrollPosition,
+                behavior: 'smooth'
+            });
+
+            var tabcontent = section.querySelector('.tabcontent');
+            tabcontent.style.display = 'block';
+        }
+    }
+</script>

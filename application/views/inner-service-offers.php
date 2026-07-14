@@ -768,7 +768,7 @@
                                             </span>
                                             <div class="cz-cap-info">
                                                 <h4><?= ucwords(strtolower($about_new->about_new_tite)) ?></h4>
-                                                <p><?= $about_new->about_new_desc ?></p>
+                                                <p><?= ucwords(strtolower(html_entity_decode($about_new->about_new_desc))) ?></p>
                                             </div>
                                         </div>
                                 <?php }
@@ -822,7 +822,7 @@
                                     </span>
                                     <div class="cz-step-info">
                                         <h4><?= ucwords(strtolower(html_entity_decode($wc['title']))) ?></h4>
-                                        <p><?= html_entity_decode($wc['short_description']) ?></p>
+                                        <p><?= ucwords(strtolower(html_entity_decode($wc['short_description']))) ?></p>
                                     </div>
                                 </div>
                             <?php } ?>

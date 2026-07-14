@@ -101,7 +101,8 @@
         <div class="modal-content p-3">
             <div class="modal-body">
                 <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close">
-                    <img src="<?= base_url() ?>assets/images/cross.svg" alt="">
+                    <!-- <img src="<?= base_url() ?>assets/images/cross.svg" alt=""> -->
+                    X
                 </button>
                 <div class="sec-head" data-aos="fade-up" data-aos-duration="1000">
                     <h2>

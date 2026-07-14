@@ -11,44 +11,18 @@
 </div>
 <!-- End Breadcrumb -->
 <div id="smooth-content">
-    <!-- Xopa Microsite Embed Section -->
-    <section class="career-embed" style="margin-top: 40px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="sec-head center" data-aos="fade-up" data-aos-duration="1000" id="jobs">
-
-                        <h3 style="text-align: center; margin-bottom: 30px;">Join Our Team</h3>
-
-                        <!-- Embedded Microsite -->
-                        <div id="xr-frame-wrap"
-                            data-xpid="cozentus-careers"
-                            data-xsn="cozentus-careers"
-                            data-xlng="en"
-                            data-xcls="x-no-lang">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <div class="about-style-two-area default-padding-2">
         <div class="container">
             <div class="row">
-                <div class="col-lg-10 mx-auto">
+                <div class="col-lg-12 mx-auto">
                     <div class="site-heading text-center">
                         <h2 class="title">Join Our Team</h2>
                     </div>
                     <!-- Embedded Microsite -->
-                    <div id="xr-frame-wrap"
-                        data-xpid="cozentus-careers"
-                        data-xsn="cozentus-careers"
-                        data-xlng="en"
-                        data-xcls="x-no-lang">
-                    </div>
+                    <!-- X0PA Career Portal Widget -->
+                    <div id="xr-frame-wrap" data-xpid="cozentus-careers" data-xsn="cozentus-careers" data-xlng="en" data-xcls="x-no-lang"></div>
+                    <!-- <iframe src="https://pie.x0pa.ai/public/microsites/cozentus-careers" title="Example Website" style="width: 100%; height: 650px;"></iframe> -->
                 </div>
-
             </div>
         </div>
     </div>

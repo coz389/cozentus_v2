@@ -321,14 +321,12 @@
                 $type = 3;
                 $this->db->where('b.ctype', 1);
             }
-
-            $this->db->select('b.id, b.title,b.type,b.slug, b.posted, b.is_webinar, i.image, i.alt_text, b.posted as date,b.tags');
+            $this->db->select('b.id, b.title,b.type,b.slug, b.posted, b.is_webinar,b.thumbnail, i.image, i.alt_text, b.posted as date,b.tags');
             $this->db->from('blogs b');
-            $this->db->join('images_master i', 'i.id = b.thumbnail');
+            $this->db->join('images_master i', 'i.id = b.thumbnail', 'left');
             $this->db->where(['b.is_active' => 1, 'b.type' => $type]);
-            $this->db->where(['b.end_date >=' => date('Y-m-d')]);
+            // $this->db->where(['b.end_date >=' => date('Y-m-d')]);
             $this->db->order_by("b.posted", "desc");
-
             if (!empty($service))
                 $this->db->where('serviceid', $service);
             if (!empty($author))
@@ -337,7 +335,6 @@
                 $this->db->like('title', $query);
 
             $qry = $this->db->get();
-
             if ($qry->num_rows() > 0) {
                 $results = $qry->result_array();
 
