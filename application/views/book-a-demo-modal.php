@@ -2,42 +2,75 @@
 <link rel="preconnect" fetchpriority="high" href="https://meetings.hubspot.com" crossorigin>
 <link rel="preconnect" fetchpriority="high" href="https://static.hsappstatic.net" crossorigin>
 
-<div id="smooth-content">
-    <!-- Start About 
-        ============================================= -->
-    <div class="about-style-two-area mt-180 mt-md-110 mt-xs-70" style="background-image: url(assets/img/shape/8.png);">
 
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5">
-                    <div class="about-style-two-info default-padding-bottom fade-up-anim">
-                        <h4>Company Overview</h4>
-                        <p>At Cozentus, we're dedicated to helping businesses unlock the full
-                            potential of their logistics and supply chain operations through the
-                            power of advanced technology.</p>
-                        <p>By leveraging AI, Machine Learning, and other advanced technologies,
-                            we develop tailored solutions that not only streamline processes but
-                            also deliver real results — improved efficiency, faster delivery,
-                            and measurable ROI.</p>
-
-
-
-                        <a class="btn btn-style-one btn-dark mt-10 wow fadeInUp" href="#" id="openMeetingModal">Schedule Your Meeting Now
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-
-
+<div class="about-style-two-area mt-180 mt-md-110 mt-xs-70">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12 col-12">
+                <div class="sec-head text-center aos-init" data-aos="fade-up" data-aos-duration="1000">
+                    <h2 style="color:#0a2670;">Book A Meeting</h2>
                 </div>
-                <div class="col-lg-6 offset-lg-1">
-                    <div class="about-style-two-thumb fade-up-anim">
-                        <img src="https://www.cozentus.com/uploads/images/cozentus.gif" alt="cozentus_meetings" style="height:400px">
+                <div class="sec-head text-center aos-init" data-aos="fade-up" data-aos-duration="1000">
+                    <h5>Talk to our expert for your supply chain logistics tech needs.</h5>
+                </div>
+                <div class="abt-img aos-init" data-aos="fade-left" data-aos-duration="1000">
+                    <div style="padding: 10px; border-radius: 2px;">
+
+                        <!-- Start of Meetings Embed Script -->
+                        <div class="meetings-iframe-container" data-src="https://meetings-na2.hubspot.com/gavin-webber?embed=true" id="hubspot-meeting" style="min-height: 600px;">
+                            <iframe src="https://meetings-na2.hubspot.com/gavin-webber?embed=true&amp;parentHubspotUtk=76e3b9a64ac839f26f6ec116ec3d2395&amp;parentPageUrl=https://www.cozentus.com/book-free-consultation" width="100%" data-hs-ignore="true" style="min-width: 312px; min-height: 615px; height: 756px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none;" data-lf-form-tracking-inspected-xbp1oaempnqaedvj="true" data-lf-yt-playback-inspected-xbp1oaempnqaedvj="true" data-lf-vimeo-playback-inspected-xbp1oaempnqaedvj="true"></iframe>
+                        </div>
+
+                        <!-- <script type="text/javascript"
+                            src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script> -->
+                        <!-- <script async src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js">
+                        </script> -->
+                        <!-- <link rel="preload" href="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"
+                            as="script"> -->
+                        <!-- End of Meetings Embed Script -->
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End About -->
+</div>
+
+<!-- Start About 
+        ============================================= -->
+<div class="about-style-two-area bg-gray bg-cover default-padding-2">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="about-style-two-info default-padding-bottom fade-up-anim">
+                    <h4>Company Overview</h4>
+                    <p>At Cozentus, we're dedicated to helping businesses unlock the full
+                        potential of their logistics and supply chain operations through the
+                        power of advanced technology.</p>
+                    <p>By leveraging AI, Machine Learning, and other advanced technologies,
+                        we develop tailored solutions that not only streamline processes but
+                        also deliver real results — improved efficiency, faster delivery,
+                        and measurable ROI.</p>
+
+
+
+                    <a class="btn btn-style-one btn-dark mt-10 wow fadeInUp" href="#" id="openMeetingModal">Schedule Your Meeting Now
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+
+            </div>
+            <div class="col-lg-6 offset-lg-1">
+                <div class="about-style-two-thumb fade-up-anim">
+                    <img src="https://www.cozentus.com/uploads/images/cozentus.gif" alt="cozentus_meetings" style="height:400px">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End About -->
 </div>
 
 

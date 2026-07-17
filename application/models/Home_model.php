@@ -260,7 +260,7 @@
                 $this->db->where('b.ctype', 0);
             }
 
-            $this->db->select('b.id, b.title, b.slug, b.posted, b.is_webinar, i.image, i.alt_text, b.posted as date,b.tags');
+            $this->db->select('b.id, b.title, b.slug, b.posted, b.is_webinar, i.image, i.alt_text, b.posted as date,b.tags,b.thumbnail');
             $this->db->from('blogs b');
             $this->db->join('images_master i', 'i.id = b.thumbnail');
             $this->db->where(['b.is_active' => 1, 'b.type' => $type]);

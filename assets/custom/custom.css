@@ -1169,9 +1169,10 @@ select.valid {
         padding-bottom: 50px;
     }
     .banner-style-three-area1 {
-        height: 35vh !important;
-        padding-top: 145px;
+        height: 40vh !important;
+        padding-top: 170px;
     }
+
     .brand-style-one-carousel {
         max-width: 100%;
         margin: auto;
@@ -1445,5 +1446,9 @@ select.valid {
     }
     .domain-capablity .info {
         margin-top: 20px;
+    }
+    .banner-style-three-area1 {
+        height: 30vh;
+        padding-top: 51px;
     }
 }

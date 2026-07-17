@@ -271,6 +271,107 @@
             border-radius: 0 !important;
         }
     }
+
+    /* ── Cookie Consent Banner ── */
+    .cookie-container {
+        position: fixed;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 800px;
+        background: rgba(10, 38, 112, 0.95);
+        backdrop-filter: blur(8px);
+        color: #fff;
+        padding: 16px 24px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        z-index: 999999;
+        transition: all 0.3s ease;
+    }
+
+    .cookie-container.d-none {
+        display: none !important;
+    }
+
+    .cookie-container .left-panel {
+        flex: 1;
+    }
+
+    .cookie-container p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #e0e0e0;
+    }
+
+    .cookie-container p a {
+        color: #4da6ff;
+        text-decoration: underline;
+        font-weight: 500;
+    }
+
+    .cookie-container p a:hover {
+        color: #80c0ff;
+    }
+
+    .cookie-container .right-panel {
+        display: flex;
+        gap: 12px;
+        flex-shrink: 0;
+    }
+
+    .cookie-container button {
+        padding: 8px 20px;
+        border: none;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.1s;
+    }
+
+    .cookie-container .accept-cookie {
+        background: #28a745;
+        color: #fff;
+    }
+
+    .cookie-container .accept-cookie:hover {
+        background: #218838;
+    }
+
+    .cookie-container .decline-cookie {
+        background: rgba(255, 255, 255, 0.15);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .cookie-container .decline-cookie:hover {
+        background: rgba(255, 255, 255, 0.25);
+    }
+
+    @media (max-width: 768px) {
+        .cookie-container {
+            flex-direction: column;
+            text-align: center;
+            bottom: 16px;
+            padding: 20px;
+        }
+
+        .cookie-container .right-panel {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .cookie-container button {
+            flex: 1;
+            max-width: 150px;
+        }
+    }
 </style>
 
 <!-- ============================================================ -->
@@ -294,7 +395,8 @@
             script.onload = function() {
                 hubspotLoaded = true;
                 // If modal already open before script finished — show embed
-                if (document.getElementById('openMeetingModalHeader').style.display === 'flex') {
+                const modalEl = document.getElementById('meetingModalHeader');
+                if (modalEl && modalEl.style.display === 'flex') {
                     showEmbed();
                 }
             };
@@ -349,18 +451,24 @@
         document.addEventListener('DOMContentLoaded', function() {
 
             // Open button
-            document.getElementById('openMeetingModalHeader')
-                .addEventListener('click', openModal);
+            const openBtn = document.getElementById('openMeetingModalHeader');
+            if (openBtn) {
+                openBtn.addEventListener('click', openModal);
+            }
 
             // Close button
-            document.getElementById('closeMeetingModalHeader')
-                .addEventListener('click', closeModal);
+            const closeBtn = document.getElementById('closeMeetingModalHeader');
+            if (closeBtn) {
+                closeBtn.addEventListener('click', closeModal);
+            }
 
             // Click outside modal box to close
-            document.getElementById('meetingModalHeader')
-                .addEventListener('click', function(e) {
+            const modalBox = document.getElementById('meetingModalHeader');
+            if (modalBox) {
+                modalBox.addEventListener('click', function(e) {
                     if (e.target === this) closeModal();
                 });
+            }
 
             // ESC key to close
             document.addEventListener('keydown', function(e) {
@@ -528,12 +636,23 @@
             </div>
         </div>
     </div>
+    <div id="cookieConsentModal" class="cookie-container d-none">
+        <div class="left-panel copy-container">
+            <p id="cookieText">We use cookies to enhance your experience on our website. By continuing to use this website, you consent to the use of cookies<a href="<?= base_url('privacy-statement') ?>">&nbsp;&nbsp;Privacy Policy</a></p>
+        </div>
+        <div class="right-panel btn-container">
+            <button id="acceptCookiesBtn" class="accept-cookie">ACCEPT</button>
+            <button id="rejectCookiesBtn" class="decline-cookie">DECLINE</button>
+        </div>
+    </div>
 
     <button id="backToTop" aria-label="Back to Top">
         ↑
     </button>
 
     <!-- End Footer Bottom -->
+
+
 
 </footer>
 <!-- End Footer -->
@@ -597,7 +716,50 @@
         formVal();
     });
 </script>
+<script>
+    $(document).ready(function() {
+        const cookieConsentModal = $('#cookieConsentModal');
+        const marquee = $('#marquee');
+        const acceptCookiesBtn = $('#acceptCookiesBtn');
+        const rejectCookiesBtn = $('#rejectCookiesBtn');
 
+        function setCookieConsent(value) {
+            const expiration = new Date();
+            expiration.setTime(expiration.getTime() + (24 * 60 * 60 * 1000));
+            const cookieString = `cookieConsent=${value}; expires=${expiration.toUTCString()}; path=/`;
+            document.cookie = cookieString;
+        }
+        acceptCookiesBtn.on('click', function() {
+            setCookieConsent('accepted');
+            cookieConsentModal.addClass('d-none');
+            marquee.css("bottom", "-20px");
+        });
+        rejectCookiesBtn.on('click', function() {
+            setCookieConsent('rejected');
+            cookieConsentModal.addClass('d-none');
+            marquee.css("bottom", "-20px");
+        });
+        const cookieConsent = getCookieValue('cookieConsent');
+        console.log('[CookieConsent] Current cookie value:', cookieConsent);
+        if (!cookieConsent) {
+            console.log('[CookieConsent] Cookie not set. Showing popup.');
+            cookieConsentModal.removeClass('d-none');
+        } else {
+            console.log('[CookieConsent] Cookie already set. Popup hidden.');
+        }
+    });
+
+    function getCookieValue(cookieName) {
+        const nameEQ = cookieName + "=";
+        const ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+</script>
 
 <!--Start of Tawk.to Script-->
 
@@ -626,60 +788,62 @@
 
     const slidingText = document.getElementById("sliding-text");
 
-    let currentIndex = 0;
+    if (slidingText) {
+        let currentIndex = 0;
 
-    // Initial render
-    function renderWord(word) {
-        slidingText.innerHTML = "";
+        // Initial render
+        function renderWord(word) {
+            slidingText.innerHTML = "";
 
-        word.split("").forEach((char, index) => {
-            const span = document.createElement("span");
-            span.classList.add("char");
-            span.textContent = char === " " ? "\u00A0" : char;
-            slidingText.appendChild(span);
-        });
-    }
-
-    renderWord(wordsArray[currentIndex]);
-
-    async function animateTextChange() {
-
-        const chars = slidingText.querySelectorAll(".char");
-
-        // STEP 1: Remove current text
-        // Right → Left
-        for (let i = chars.length - 1; i >= 0; i--) {
-            chars[i].classList.add("hide");
-            await sleep(40);
+            word.split("").forEach((char, index) => {
+                const span = document.createElement("span");
+                span.classList.add("char");
+                span.textContent = char === " " ? "\u00A0" : char;
+                slidingText.appendChild(span);
+            });
         }
 
-        await sleep(200);
+        renderWord(wordsArray[currentIndex]);
 
-        // STEP 2: New word
-        currentIndex = (currentIndex + 1) % wordsArray.length;
-        const newWord = wordsArray[currentIndex];
+        async function animateTextChange() {
 
-        slidingText.innerHTML = "";
+            const chars = slidingText.querySelectorAll(".char");
 
-        // STEP 3: Add new text
-        // Left → Right
-        newWord.split("").forEach((char, index) => {
-            const span = document.createElement("span");
+            // STEP 1: Remove current text
+            // Right → Left
+            for (let i = chars.length - 1; i >= 0; i--) {
+                chars[i].classList.add("hide");
+                await sleep(40);
+            }
 
-            span.classList.add("char", "show");
-            span.style.animationDelay = `${index * 0.05}s`;
+            await sleep(200);
 
-            span.textContent = char === " " ? "\u00A0" : char;
+            // STEP 2: New word
+            currentIndex = (currentIndex + 1) % wordsArray.length;
+            const newWord = wordsArray[currentIndex];
 
-            slidingText.appendChild(span);
-        });
+            slidingText.innerHTML = "";
+
+            // STEP 3: Add new text
+            // Left → Right
+            newWord.split("").forEach((char, index) => {
+                const span = document.createElement("span");
+
+                span.classList.add("char", "show");
+                span.style.animationDelay = `${index * 0.05}s`;
+
+                span.textContent = char === " " ? "\u00A0" : char;
+
+                slidingText.appendChild(span);
+            });
+        }
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        setInterval(animateTextChange, 3500);
     }
-
-    function sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
-    setInterval(animateTextChange, 3500);
 
 
     // social share

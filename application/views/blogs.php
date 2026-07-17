@@ -1,5 +1,23 @@
-<!-- Start Blog 
-============================================= -->
+<?php
+if (!empty($image)) {
+    $banner = base_url('uploads/images/' . $image);
+} else {
+    $banner = base_url('assets/img/shape/banner-13.jpg');
+}
+
+?>
+<div class="banner-style-three-area1 overflow-hidden bg-gray bg-cover" style="background: url(<?= $banner ?>);">
+    <div class="container">
+        <div class="row align-center">
+            <div class="col-lg-12 pr-60 pr-md-15 pr-xs-15 mx-auto">
+                <div class="banner-style-three-info text-center">
+                    <h2 class="wow fadeInUp"><?= $title ?></h2>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
 <div class="blog-area blog-grid default-padding">
     <!-- <div class="container">
         <div class="row">
@@ -11,6 +29,7 @@
 
         </div>
     </div> -->
+
     <div class="container">
         <div class="blog-item-box">
 
@@ -114,7 +133,7 @@
                         // Check if title is equal to "1"
                         let category = e.is_webinar == 1 ? "Webinar" : '';
                         let tags = e.tags ? e.tags.split(',') : [];
-                        console.log(2);
+
                         let btnText = (e.type == 7) ? "Listen Now" : "Read More";
                         temp += `<div class="col-xl-3 col-lg-4 col-md-6 mb-50">
                 <div class="blog-style-two fade-up-anim">

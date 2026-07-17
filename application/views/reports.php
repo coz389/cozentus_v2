@@ -9,8 +9,8 @@ if (!empty($image)) {
 <div class="banner-style-three-area1 overflow-hidden bg-gray bg-cover" style="background: url(<?= $banner ?>);">
     <div class="container">
         <div class="row align-center">
-            <div class="col-lg-7 pr-60 pr-md-15 pr-xs-15">
-                <div class="banner-style-three-info">
+            <div class="col-lg-12 pr-60 pr-md-15 pr-xs-15 mx-auto">
+                <div class="banner-style-three-info text-center">
                     <h2 class="wow fadeInUp"><?= $title ?></h2>
                 </div>
             </div>
@@ -81,7 +81,6 @@ if (!empty($image)) {
                         // Check if title is equal to "1"
                         let category = e.is_webinar == 1 ? "Webinar" : '';
                         let tags = e.tags ? e.tags.split(',') : [];
-                        console.log(tags);
                         let btnText = (e.type == 7) ? "Listen Now" : "Read More";
                         temp += `<div class="col-xl-3 col-lg-4 col-md-6 mb-50">
                 <div class="blog-style-two fade-up-anim">

@@ -20,6 +20,7 @@
             </div>
         </div>
     </div>
+
     <div class="about-style-three-area default-padding bg-gray bg-cover" style="background: url(assets/img/shape/banner-16.jpg);">
         <div class="container">
             <div class="row">
