@@ -1099,6 +1099,7 @@ class Admin extends MX_Controller
     {
         $title = $this->input->post('title');
         $details = $this->input->post('description');
+        $short_description = $this->input->post('short_description');
         $name = $this->input->post('name');
         $link = urlencode($this->input->post('link'));
         $twitter_link = urlencode($this->input->post('twitter_link'));
@@ -1114,6 +1115,7 @@ class Admin extends MX_Controller
             'title' => $title,
             'image' => $image,
             'details' => $details,
+            'short_description' => $short_description,
             'name' => $name,
             'orderby' => $orderby,
             'link' => $link,
