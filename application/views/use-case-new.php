@@ -4,6 +4,7 @@ if (!empty($image)) {
 } else {
     $banner = base_url('assets/img/shape/banner-13.jpg');
 }
+$banner2 = base_url('assets/img/shape/banner-9.jpg');
 ?>
 <style>
     /* ═══════════════════════════════════════════════════════════
@@ -321,6 +322,28 @@ if (!empty($image)) {
         padding: 44px 0 90px;
     }
 
+    .cz-case-quote {
+        position: relative;
+        background: #f6f8fc;
+        border-left: 4px solid #2f73ff;
+        border-radius: 0 14px 14px 0;
+        padding: 24px 26px 24px 30px;
+        margin: 0 0 30px;
+        font-size: 16.5px;
+        line-height: 1.6;
+        font-style: italic;
+        color: #2b3b58;
+    }
+
+    .cz-case-quote cite {
+        display: block;
+        margin-top: 14px;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        color: #0c1b3a;
+    }
+
     /* responsive */
     @media (max-width: 991px) {
         .cz-cs-title {
@@ -624,15 +647,36 @@ if (!empty($image)) {
                             <h3>4.2 hours</h3>
                             <span>reduced per asset review time</span>
                         </div> -->
-                        <div class="cz-outcome-download">
+                        <!-- <div class="cz-outcome-download">
                             <a href="#" class="btn btn-style-one" data-bs-toggle="modal"
                                 data-bs-target="#contactModal">Download PDF <i class="fas fa-arrow-right"></i></a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
     <?php } ?>
+
+    <?php if (!empty($client_review_heading)) { ?>
+        <div class="cz-cs-sec default-padding-2" style="background-image: url(<?= $banner2 ?>);">
+            <div class="container">
+                <div class="row align-center">
+                    <div class="col-lg-12 cz-cs-text mx-auto">
+
+                        <blockquote class="cz-case-quote">
+                            <h4 style="font-style: normal;"><?= $client_review_heading ?></h4>
+                            <i class="fas fa-quote-left"></i>
+                            <?= html_entity_decode($client_review_desc) ?>
+                            <i class="fas fa-quote-right"></i>
+                            <br>
+                            <cite><?= $client_designation ?></cite>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
+
     <!-- End Business Outcomes -->
 
     <?php

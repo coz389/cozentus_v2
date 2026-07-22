@@ -204,6 +204,25 @@
                                                 </textarea>
                                 </div>
                             </div>
+                            <div class="case-type d-none Section 6">
+                                <hr>
+                                <h5>Section 6 (Client Review)</h5>
+                                <hr>
+                                <div class="form-group">
+                                    <label>Heading</label>
+                                    <input type="text" class="form-control" name="client_review_heading">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <textarea class="form-control multiple-op" name="client_review_desc" rows="4"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Designation</label>
+                                    <input type="text" class="form-control" name="client_designation">
+                                </div>
+                                <hr>
+                            </div>
 
 
 
@@ -238,165 +257,195 @@
                                 <label>Speaker Name</label>
                                 <input type="text" class="form-control" name="speaker_name" value="">
                             </div>
+                            <div class="form-group webinarIframe d-none">
+                                <label>Designation</label>
+                                <input type="text" class="form-control" name="client_designation" value="<?= $client_designation ?>">
+                            </div>
                             <hr>
-                            <div class="form-group blog-sec">
-                                <label>Author</label>
-                                <select class="form-control" name="author">
-                                    <option value="">Select Author</option>
-                                    <?php if (!empty($authors)) {
-                                        foreach ($authors as $at) {
-                                    ?>
-                                            <option value="<?= $at['id'] ?>"><?= $at['name'] ?></option>
-                                    <?php
-                                        }
-                                    } ?>
-                                </select>
-                            </div>
-                            <div class="form-group ">
-                                <label>Service</label>
-                                <select class="form-control" name="serviceid">
-                                    <option value="">Select Service</option>
-                                    <?php if (!empty($services)) {
-                                        foreach ($services as $at) {
-                                    ?>
-                                            <option value="<?= $at['id'] ?>"><?= $at['name'] ?></option>
-                                    <?php
-                                        }
-                                    } ?>
-                                </select>
-                            </div>
 
-                            <div class="form-group">
-                                <label>Short Description (Max 200 Charachters)</label>
-                                <input type="text" class="form-control" name="description" required>
-                            </div>
-                            <div class="form-group ">
-                                <label>Tags</label>
-                                <input type="text" class="form-control" id="tags" name="tags">
-                            </div>
-                            <div class="form-group">
-                                <label>Post Date</label>
-                                <div class="datepicker-popup input-group date datepicker">
-                                    <input type="text" class="form-control" name="date">
-                                    <span class="input-group-addon input-group-append border-left">
-                                        <span class="far fa-calendar input-group-text"></span>
-                                    </span>
+                            <div class="New Section webinarIframe d-none"">
+                                <h5>New Section</h5>
+                                <hr>
+                                <div class=" row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Heading</label>
+                                        <input type="text" class="form-control" name="new_podcast_heading" value="<?= $new_podcast_heading ?>">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="news-sec d-none">
-                                <div class="form-group">
-                                    <label>End Date</label>
-                                    <div class="datepicker-popup input-group date datepicker">
-                                        <input type="text" class="form-control" name="enddate">
-                                        <span class="input-group-addon input-group-append border-left">
-                                            <span class="far fa-calendar input-group-text"></span>
-                                        </span>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Title</label>
+                                        <input type="text" class="form-control" name="new_podcast_title" value="<?= $new_podcast_title ?>">
                                     </div>
                                 </div>
                             </div>
-                            <div class="case-type d-none">
-                                <div class="form-group">
-                                    <label>Botttom Heading</label>
-                                    <input type="text" class="form-control" name="botttom_heading" value="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Content</label>
-                                <textarea class="form-control" name="content" id="summernoteExample" rows="4"></textarea>
-                            </div>
 
-                            <div class="row">
-                                <div class="form-group col-6">
-                                    <label>Card Image Thumbnail (Max File Size 2MB)</label>
-                                    <br>
-                                    <button type="button" class="btn btn-primary select-image" data-img="thumb-image">Select Image</button>
-                                    <input type="hidden" class="thumb-image" name="thumbnail" />
-                                </div>
-                                <div class="form-group col-6">
-                                    <label>Image (Max File Size 2MB)</label>
-                                    <br>
-                                    <button type="button" class="btn btn-primary select-image" data-img="image">Select Image</button>
-                                    <input type="hidden" class="image" name="image" />
-                                </div>
-                            </div>
                             <div class="form-group">
-                                <label>Upload Pdf</label>
-                                <input type="file" name="file" class="form-control">
+                                <label>Description</label>
+                                <textarea class="form-control multiple-op" name="new_podcast_desc" rows="4"><?= $new_podcast_desc ?></textarea>
                             </div>
-                            <div class="form-group">
-                                <label>Page Head Script</label>
-                                <textarea rows="4" class="form-control" name="page_header"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-icon-text" id="sbt-btn">
-                                <i class="far fa-check-square btn-icon-prepend"></i>
-                                Submit
-                            </button>
-                        </form>
                     </div>
+
+                    <hr>
+                    <div class="form-group blog-sec">
+                        <label>Author</label>
+                        <select class="form-control" name="author">
+                            <option value="">Select Author</option>
+                            <?php if (!empty($authors)) {
+                                foreach ($authors as $at) {
+                            ?>
+                                    <option value="<?= $at['id'] ?>"><?= $at['name'] ?></option>
+                            <?php
+                                }
+                            } ?>
+                        </select>
+                    </div>
+                    <div class="form-group ">
+                        <label>Service</label>
+                        <select class="form-control" name="serviceid">
+                            <option value="">Select Service</option>
+                            <?php if (!empty($services)) {
+                                foreach ($services as $at) {
+                            ?>
+                                    <option value="<?= $at['id'] ?>"><?= $at['name'] ?></option>
+                            <?php
+                                }
+                            } ?>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Short Description (Max 200 Charachters)</label>
+                        <input type="text" class="form-control" name="description" required>
+                    </div>
+                    <div class="form-group ">
+                        <label>Tags</label>
+                        <input type="text" class="form-control" id="tags" name="tags">
+                    </div>
+                    <div class="form-group">
+                        <label>Post Date</label>
+                        <div class="datepicker-popup input-group date datepicker">
+                            <input type="text" class="form-control" name="date">
+                            <span class="input-group-addon input-group-append border-left">
+                                <span class="far fa-calendar input-group-text"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="news-sec d-none">
+                        <div class="form-group">
+                            <label>End Date</label>
+                            <div class="datepicker-popup input-group date datepicker">
+                                <input type="text" class="form-control" name="enddate">
+                                <span class="input-group-addon input-group-append border-left">
+                                    <span class="far fa-calendar input-group-text"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-type d-none">
+                        <div class="form-group">
+                            <label>Botttom Heading</label>
+                            <input type="text" class="form-control" name="botttom_heading" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Content</label>
+                        <textarea class="form-control" name="content" id="summernoteExample4" rows="4"></textarea>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label>Card Image Thumbnail (Max File Size 2MB)</label>
+                            <br>
+                            <button type="button" class="btn btn-primary select-image" data-img="thumb-image">Select Image</button>
+                            <input type="hidden" class="thumb-image" name="thumbnail" />
+                        </div>
+                        <div class="form-group col-6">
+                            <label>Image (Max File Size 2MB)</label>
+                            <br>
+                            <button type="button" class="btn btn-primary select-image" data-img="image">Select Image</button>
+                            <input type="hidden" class="image" name="image" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Upload Pdf</label>
+                        <input type="file" name="file" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Page Head Script</label>
+                        <textarea rows="4" class="form-control" name="page_header"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-icon-text" id="sbt-btn">
+                        <i class="far fa-check-square btn-icon-prepend"></i>
+                        Submit
+                    </button>
+                    </form>
                 </div>
             </div>
-            <div class="msg text-center"></div>
         </div>
+        <div class="msg text-center"></div>
     </div>
-    <script>
-        $("#post-type").change(function() {
-            let type = $(this).val();
-            if (type == 3) {
-                $(".case-type").removeClass("d-none");
-            } else {
-                $(".case-type").addClass("d-none");
-            }
-            if (type == 1 || type == 3) {
-                $(".news-sec").addClass('d-none');
-                $(".webinarIframe").addClass('d-none');
+</div>
+<script>
+    $("#post-type").change(function() {
+        let type = $(this).val();
+        if (type == 3) {
+            $(".case-type").removeClass("d-none");
+        } else {
+            $(".case-type").addClass("d-none");
+        }
+        if (type == 1 || type == 3) {
+            $(".news-sec").addClass('d-none');
+            $(".webinarIframe").addClass('d-none');
 
-                $(".blog-sec").removeClass('d-none');
-            }
-            if (type == 6 || type == 7) {
-                $(".webinarIframe").removeClass('d-none');
-            } else {
-                $(".blog-sec").addClass('d-none');
-                $(".news-sec").removeClass('d-none');
-                $(".webinarIframe").addClass('d-none');
-            }
-            if (type != 1) {
-                $(".sblog").addClass("d-none");
-            }
-        })
-        $(document).ready(function(e) {
-            $("#blog-form").on('submit', (function(e) {
-                e.preventDefault();
-                $.ajax({
-                    url: site_url + "admin/insertupdateblog",
-                    type: "POST",
-                    data: new FormData(this),
-                    dataType: 'json',
-                    contentType: false,
-                    cache: false,
-                    processData: false,
-                    beforeSend: function() {
-                        $('#sbt-btn').addClass('loading');
-                    },
-                    complete: function() {
-                        $('#sbt-btn').removeClass('loading');
-                    },
-                    success: function(res) {
-                        $(".msg").html(res.msg);
-                        if (res.status) {
-                            $("#blog-form")[0].reset();
-                        }
+            $(".blog-sec").removeClass('d-none');
+        }
+        if (type == 6 || type == 7) {
+            $(".webinarIframe").removeClass('d-none');
+        } else {
+            $(".blog-sec").addClass('d-none');
+            $(".news-sec").removeClass('d-none');
+            $(".webinarIframe").addClass('d-none');
+        }
+        if (type != 1) {
+            $(".sblog").addClass("d-none");
+        }
+    })
+    $(document).ready(function(e) {
+        $("#blog-form").on('submit', (function(e) {
+            e.preventDefault();
+            $.ajax({
+                url: site_url + "admin/insertupdateblog",
+                type: "POST",
+                data: new FormData(this),
+                dataType: 'json',
+                contentType: false,
+                cache: false,
+                processData: false,
+                beforeSend: function() {
+                    $('#sbt-btn').addClass('loading');
+                },
+                complete: function() {
+                    $('#sbt-btn').removeClass('loading');
+                },
+                success: function(res) {
+                    $(".msg").html(res.msg);
+                    if (res.status) {
+                        $("#blog-form")[0].reset();
                     }
-                });
-            }));
-        });
-        $(document).ready(function() {
-            $('#title').on('input', function() {
-                var title = $(this).val().toLowerCase();
-                var slug = title.replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
-                $('#slug').val(slug);
+                }
             });
+        }));
+    });
+    $(document).ready(function() {
+        $('#title').on('input', function() {
+            var title = $(this).val().toLowerCase();
+            var slug = title.replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+            $('#slug').val(slug);
+        });
 
 
 
-        })
-    </script>
+    })
+</script>

@@ -1838,6 +1838,17 @@ class Admin extends MX_Controller
         //'image' => $toolbenefits_content[$i]['image'],  'heading' => $toolbenefits_content[$i]['heading'], 'description' => $toolbenefits_content[$i]['description']];
         // }	
 
+
+        $client_review_heading = $this->input->post('client_review_heading');
+        $client_review_desc = $this->input->post('client_review_desc');
+        $client_designation = $this->input->post('client_designation');
+
+        $sub_title = $this->input->post('sub_title');
+
+        $new_podcast_heading = $this->input->post('new_podcast_heading');
+        $new_podcast_title = $this->input->post('new_podcast_title');
+        $new_podcast_desc = $this->input->post('new_podcast_desc');
+
         if (!$downloadfile) {
             $downloadfile = $this->input->post('download_exist') ?? '';
         }
@@ -1897,6 +1908,13 @@ class Admin extends MX_Controller
             'section_4_image' => $section_4_image,
             'section_4_heading' => $section_4_heading,
             'section_4_json' => $section_4_json, //json_encode($section_4_json),
+            'client_review_heading' => $client_review_heading,
+            'client_review_desc' => $client_review_desc,
+            'client_designation' => $client_designation,
+            'sub_title' => $sub_title,
+            'new_podcast_heading' => $new_podcast_heading,
+            'new_podcast_title' => $new_podcast_title,
+            'new_podcast_desc' => $new_podcast_desc,
         );
         // echo print_r($data);
         // exit;

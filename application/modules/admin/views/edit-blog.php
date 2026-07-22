@@ -14,6 +14,10 @@
                                 <label>Slug</label>
                                 <input type="text" class="form-control" name="slug" id="slug" value="<?= $slug ?>" required>
                             </div>
+                            <div class="form-group <?= $type == 7 ? '' : 'd-none' ?>">
+                                <label>Sub Title</label>
+                                <input type="text" class="form-control" name="sub_title" id="sub_title" value="<?= $sub_title ?>" required>
+                            </div>
                             <div class="">
                                 <div class="form-group <?= $type == 3 ? '' : 'd-none' ?>">
                                     <label>Case Type</label>
@@ -253,6 +257,25 @@
                                                 </textarea>
                                             </div>
                                         </div>
+
+                                        <div class="Section 6">
+                                            <h5>Section 6 (Client Review)</h5>
+                                            <hr>
+                                            <div class="form-group">
+                                                <label>Heading</label>
+                                                <input type="text" class="form-control" name="client_review_heading" value="<?= $client_review_heading ?>">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Description</label>
+                                                <textarea class="form-control multiple-op" name="client_review_desc" rows="4"><?= $client_review_desc ?></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Designation</label>
+                                                <input type="text" class="form-control" name="client_designation" value="<?= $client_designation ?>">
+                                            </div>
+                                            <hr>
+                                        </div>
                                     </div>
                                 <?php } ?>
                                 <hr>
@@ -282,8 +305,11 @@
                                 <label>Enter Youtube/Podcast Iframe</label>
                                 <input type="textarea" class="form-control" name="video" value="<?= htmlspecialchars($video) ?>">
                             </div>
-
-
+                            <?php $tags_array = explode(",", $tags); ?>
+                            <div class="form-group <?= $type == 7 ? '' : 'd-none' ?> ">
+                                <label>Tags</label>
+                                <input type="text" class="form-control" id="tags" name="tags" value="<?= implode(", ", $tags_array ?? []) ?>">
+                            </div>
 
                             <hr>
                             <div class="form-group <?= $type == 7 ? '' : 'd-none' ?> ">
@@ -317,87 +343,115 @@
                                 <label>Speaker Name</label>
                                 <input type="text" class="form-control" name="speaker_name" value="<?= $speaker_name ?>">
                             </div>
+                            <div class="form-group <?= $type == 7 ? '' : 'd-none' ?>">
+                                <label>Designation</label>
+                                <input type="text" class="form-control" name="client_designation" value="<?= $client_designation ?>">
+                            </div>
                             <hr>
 
-
-                            <div class="row">
-                                <div class="form-group col-6">
-                                    <label>Card Image Thumbnail (Max File Size 2MB)</label>
-                                    <br>
-                                    <button type="button" class="btn btn-primary select-image" data-img="thumb-image"><?= !empty($thumbnail) ? 'Image Exist' : 'Select Image' ?></button>
-                                    <input type="hidden" class="thumb-image" name="thumbnail" value="<?= $thumbnail ?>" />
+                            <div class="New Section <?= $type == 7 ? '' : 'd-none' ?>"">
+                                <h5>New Section</h5>
+                                <hr>
+                                <div class=" row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Heading</label>
+                                            <input type="text" class="form-control" name="new_podcast_heading" value="<?= $new_podcast_heading ?>">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Title</label>
+                                            <input type="text" class="form-control" name="new_podcast_title" value="<?= $new_podcast_title ?>">
+                                        </div>
+                                    </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <label>Image (Max File Size 2MB)</label>
-                                    <br>
-                                    <button type="button" class="btn btn-primary select-image" data-img="image"><?= !empty($image) ? 'Image Exist' : 'Select Image' ?></button>
-                                    <input type="hidden" class="image" name="image" value="<?= $image ?>" />
+                                    <label>Description</label>
+                                    <textarea class="form-control multiple-op" name="new_podcast_desc" rows="4"><?= $new_podcast_desc ?></textarea>
                                 </div>
-                            </div>
-                            <input type="hidden" name="id" value="<?= $id ?>">
-                            <input type="hidden" name="type" value="<?= $type ?>">
-                            <input type="hidden" name="download_exist" value="<?= $download ?>">
-                            <div class="form-group <?= $type == 3 ? '' : 'd-none' ?>">
-                                <label>Upload Pdf</label>
-                                <input type="file" name="file" class="form-control">
-                                <span><?= $download ?> file exist</span>
-                            </div>
+                        </div>
+                    <hr>
 
-                            <div class="form-group">
-                                <label>Page Head Script</label>
-                                <textarea rows="4" class="form-control" name="page_header"><?= html_entity_decode($page_header) ?></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-icon-text" id="sbt-btn">
-                                <i class="far fa-check-square btn-icon-prepend"></i>
-                                Submit
-                            </button>
-                        </form>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label>Card Image Thumbnail (Max File Size 2MB)</label>
+                            <br>
+                            <button type="button" class="btn btn-primary select-image" data-img="thumb-image"><?= !empty($thumbnail) ? 'Image Exist' : 'Select Image' ?></button>
+                            <input type="hidden" class="thumb-image" name="thumbnail" value="<?= $thumbnail ?>" />
+                        </div>
+                        <div class="form-group">
+                            <label>Image (Max File Size 2MB)</label>
+                            <br>
+                            <button type="button" class="btn btn-primary select-image" data-img="image"><?= !empty($image) ? 'Image Exist' : 'Select Image' ?></button>
+                            <input type="hidden" class="image" name="image" value="<?= $image ?>" />
+                        </div>
                     </div>
+                    <input type="hidden" name="id" value="<?= $id ?>">
+                    <input type="hidden" name="type" value="<?= $type ?>">
+                    <input type="hidden" name="download_exist" value="<?= $download ?>">
+                    <div class="form-group <?= $type == 3 ? '' : 'd-none' ?>">
+                        <label>Upload Pdf</label>
+                        <input type="file" name="file" class="form-control">
+                        <span><?= $download ?> file exist</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Page Head Script</label>
+                        <textarea rows="4" class="form-control" name="page_header"><?= html_entity_decode($page_header) ?></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-icon-text" id="sbt-btn">
+                        <i class="far fa-check-square btn-icon-prepend"></i>
+                        Submit
+                    </button>
+                    </form>
                 </div>
             </div>
-            <div class="msg text-center"></div>
         </div>
+        <div class="msg text-center"></div>
     </div>
-    <script>
-        $(document).ready(function(e) {
-            $("#blog-form").on('submit', (function(e) {
-                e.preventDefault();
-                $.ajax({
-                    url: site_url + "admin/insertupdateblog",
-                    type: "POST",
-                    data: new FormData(this),
-                    dataType: 'json',
-                    contentType: false,
-                    cache: false,
-                    processData: false,
-                    beforeSend: function() {
-                        $('#sbt-btn').addClass('loading');
-                    },
-                    complete: function() {
-                        $('#sbt-btn').removeClass('loading');
-                    },
-                    success: function(res) {
-                        $(".msg").html(res.msg);
-                    }
-                });
-            }));
-        });
-        $(document).ready(function() {
-            $('#title').on('input', function() {
-                var title = $(this).val().toLowerCase();
-                var slug = title.replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
-                $('#slug').val(slug);
+</div>
+<script>
+    $(document).ready(function(e) {
+        $("#blog-form").on('submit', (function(e) {
+            e.preventDefault();
+            $.ajax({
+                url: site_url + "admin/insertupdateblog",
+                type: "POST",
+                data: new FormData(this),
+                dataType: 'json',
+                contentType: false,
+                cache: false,
+                processData: false,
+                beforeSend: function() {
+                    $('#sbt-btn').addClass('loading');
+                },
+                complete: function() {
+                    $('#sbt-btn').removeClass('loading');
+                },
+                success: function(res) {
+                    $(".msg").html(res.msg);
+                }
             });
+        }));
+    });
+    $(document).ready(function() {
+        $('#title').on('input', function() {
+            var title = $(this).val().toLowerCase();
+            var slug = title.replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+            $('#slug').val(slug);
+        });
 
-            $("#service-slug").change(function() {
+        $("#service-slug").change(function() {
 
-                var sname = $("#service-slug :selected").text();
-                // console.log(sname);
-                $("#service-name").val(sname);
-            })
+            var sname = $("#service-slug :selected").text();
+            // console.log(sname);
+            $("#service-name").val(sname);
         })
-        $(".rec-delete").click(function() {
-            let id = $(this).attr("data-id");
-            $("#" + id).remove();
-        })
-    </script>
+    })
+    $(".rec-delete").click(function() {
+        let id = $(this).attr("data-id");
+        $("#" + id).remove();
+    })
+</script>

@@ -6,18 +6,7 @@ if (!empty($image)) {
 }
 
 ?>
-<div class="banner-style-three-area1 overflow-hidden bg-gray bg-cover" style="background: url(<?= $banner ?>);">
-    <div class="container">
-        <div class="row align-center">
-            <div class="col-lg-12 pr-60 pr-md-15 pr-xs-15 mx-auto">
-                <div class="banner-style-three-info text-center">
-                    <h2 class="wow fadeInUp"><?= $title ?></h2>
-                </div>
-            </div>
 
-        </div>
-    </div>
-</div>
 <div class="blog-area blog-grid default-padding">
     <!-- <div class="container">
         <div class="row">
@@ -34,13 +23,14 @@ if (!empty($image)) {
         <div class="blog-item-box">
 
             <div class="row">
-                <div class="col-md-8 mx-auto pagi-area text-center mb-3">
+                <div class="col-md-8 mx-auto pagi-area text-center mb-4">
+                    <h2 class="wow fadeInUp  mb-4"><?= $title ?></h2>
                     <?php
                     if (($type != 6) &&  ($type != 7)) { ?>
                         <div class="filter-container">
-                            <h3>
+                            <!-- <h3>
                                 Filter By
-                            </h3>
+                            </h3> -->
                             <div class="row">
                                 <div class="col-lg-4 col-6 mb-3">
                                     <div class="form-group">

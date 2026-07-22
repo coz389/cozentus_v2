@@ -6,18 +6,7 @@ if (!empty($image)) {
 }
 
 ?>
-<div class="banner-style-three-area1 overflow-hidden bg-gray bg-cover" style="background: url(<?= $banner ?>);">
-    <div class="container">
-        <div class="row align-center">
-            <div class="col-lg-12 pr-60 pr-md-15 pr-xs-15 mx-auto">
-                <div class="banner-style-three-info text-center">
-                    <h2 class="wow fadeInUp"><?= $title ?></h2>
-                </div>
-            </div>
 
-        </div>
-    </div>
-</div>
 <div class="blog-area blog-grid default-padding">
 
     <div class="container">
