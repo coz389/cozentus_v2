@@ -715,7 +715,7 @@
                                 }
                             ?>
                                 <img src="https://img.youtube.com/vi/<?= $videoId ?>/hqdefault.jpg">
-                                <a href=" <?= urldecode($pserv['advantage_video']) ?>" class="popup-youtube video-button-v1"><i class="fas fa-play"></i></a>
+                                <a href="<?= !empty($videoId) ? 'https://www.youtube.com/watch?v=' . $videoId : urldecode($pserv['advantage_video']) ?>" class="popup-youtube video-button-v1"><i class="fas fa-play"></i></a>
                             <?php } else { ?>
                                 <div class="illustration my-image">
                                     <img class="wow fadeInUp" data-wow-delay="300ms" src="<?= base_url('uploads/images/') . $pserv['advantage_image'] ?>" alt="<?= $pserv['advantage_alt_text'] ?>">

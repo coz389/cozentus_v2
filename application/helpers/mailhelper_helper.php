@@ -315,3 +315,48 @@ function validateEmail($email, $blocked_tlds = ['xyz'], $blocked_domains = ['xyz
     return ['ok' => true, 'email' => $normalized_email];
     // return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
 }
+
+
+function get_youtube_duration($videoId)
+{
+    if (empty($videoId)) {
+        return '';
+    }
+
+    $url = "https://www.youtube.com/watch?v=" . $videoId;
+
+    // Use cURL as file_get_contents is often disabled (allow_url_fopen = Off) on live servers
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+    curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36');
+    curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+    // Ignore SSL verification issues if any on live server
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+    $html = curl_exec($ch);
+    curl_close($ch);
+
+    if ($html === false) {
+        return '';
+    }
+
+    // Look for <meta itemprop="duration" content="PT22M18S">
+    if (preg_match('/<meta itemprop="duration" content="([^"]+)">/', $html, $matches)) {
+        $isoDuration = $matches[1]; // e.g., "PT22M18S" or "PT1H22M18S"
+
+        try {
+            $interval = new DateInterval($isoDuration);
+            if ($interval->h > 0) {
+                return $interval->format('%H:%I:%S'); // e.g., 01:22:18
+            } else {
+                return $interval->format('%I:%S');    // e.g., 22:18
+            }
+        } catch (Exception $e) {
+            return '';
+        }
+    }
+
+    return '';
+}

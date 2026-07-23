@@ -850,6 +850,7 @@
     var pageLink = window.location.href;
     var pageTitle = String(document.title).replace(/\&/g, '%26');
 
+
     function fbs_click() {
         window.open(`http://www.facebook.com/sharer.php?u=${pageLink}&quote=${pageTitle}`, 'sharer',
             'toolbar=0,status=0,width=626,height=436');

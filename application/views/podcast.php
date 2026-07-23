@@ -439,6 +439,18 @@
             align-items: flex-start;
         }
     }
+
+    .inner_content_li ul,
+    .inner_content_li li {
+        margin: 0;
+        padding: 0;
+        list-style: none !important;
+    }
+
+    .cz-pod-featured-body ul,
+    .cz-pod-featured-body li {
+        list-style: disc !important;
+    }
 </style>
 <div id="smooth-content">
     <!-- Intro + subscribe
@@ -448,17 +460,17 @@
             <div class="row align-center">
                 <div class="col-lg-7">
                     <span class="cz-pod-eyebrow"><?= $new_podcast_heading ?></span>
-                    <h2 class="cz-pod-intro-title"><?= $new_podcast_title ?></h2>
+                    <h2 class="cz-pod-intro-title"><?= $title; ?> <?php $new_podcast_title ?></h2>
                     <p class="cz-pod-intro-text"><?= $new_podcast_desc ?></p>
                 </div>
                 <div class="col-lg-4 offset-lg-1">
                     <div class="cz-pod-subscribe">
                         <h5>Listen &amp; subscribe</h5>
-                        <ul>
-                            <li><a href="<?= urldecode($pserv['google_pod']) ?>" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
-                            <li><a href="<?= urldecode($pserv['spotify_pod']) ?>" target="_blank"><i class="fab fa-spotify"></i> Spotify</a></li>
-                            <li><a href="<?= urldecode($pserv['apple_pod']) ?>" target="_blank"><i class="fab fa-apple"></i> Apple Podcasts</a></li>
-                            <li><a href="<?= urldecode($pserv['sound_pod']) ?>" target="_blank"><i class="fas fa-rss"></i> Sound Cloud</a></li>
+                        <ul class="inner_content_li">
+                            <li class="inner_content_li"><a href="<?= urldecode($pserv['google_pod']) ?>" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
+                            <li class="inner_content_li"><a href="<?= urldecode($pserv['spotify_pod']) ?>" target="_blank"><i class="fab fa-spotify"></i> Spotify</a></li>
+                            <li class="inner_content_li"><a href="<?= urldecode($pserv['apple_pod']) ?>" target="_blank"><i class="fab fa-apple"></i> Apple Podcasts</a></li>
+                            <li class="inner_content_li"><a href="<?= urldecode($pserv['sound_pod']) ?>" target="_blank"><i class="fab fa-soundcloud"></i> Sound Cloud</a></li>
                         </ul>
                     </div>
                 </div>
@@ -466,12 +478,24 @@
         </div>
     </div>
     <!-- End Intro -->
-
     <!-- Featured episode
         ============================================= -->
     <div class="cz-pod-featured">
         <div class="container">
             <div class="cz-pod-featured-box">
+                <div class="row">
+                    <div class="col-lg-10 max-auto mb-4">
+                        <?php $tags_array = explode(",", $tags);
+                        if (count($tags_array) > 1) {
+                            foreach ($tags_array as $tags) {
+                        ?>
+                                <span class="cz-pod-badge"><?= $tags ?></span>
+                        <?php }
+                        } ?>
+                        <span class="cz-pod-ep"><?= $sub_title; ?> <?= date('F d, Y', strtotime($posted)) ?></span>
+                        <!-- <h3><a href="<?= !empty($videoId) ? 'https://www.youtube.com/watch?v=' . $videoId : urldecode($pserv['video']) ?>" class="popup-youtube"><?php $title; ?></a></h3> -->
+                    </div>
+                </div>
                 <div class="row align-center">
                     <div class="col-lg-6">
                         <?php
@@ -482,26 +506,24 @@
                             if (preg_match('/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|v\/))([^\&\?\/]+)/', $videoUrl, $matches)) {
                                 $videoId = $matches[1];
                             }
+                            $videoDuration = get_youtube_duration($videoId);
                         ?>
 
                             <!-- YouTube thumbnail: swap the ID in both the img src and the href -->
-                            <a href="<?= urldecode($pserv['video']) ?>" class="popup-youtube cz-pod-thumb cz-pod-thumb-lg">
+                            <a href="<?= !empty($videoId) ? 'https://www.youtube.com/watch?v=' . $videoId : $videoUrl ?>" class="popup-youtube cz-pod-thumb cz-pod-thumb-lg">
                                 <img src="https://img.youtube.com/vi/<?= $videoId ?>/hqdefault.jpg"
                                     alt="Building an AI-ready supply chain data foundation">
                                 <span class="cz-pod-play"><i class="fas fa-play"></i></span>
-                                <span class="cz-pod-duration">22:18</span>
+                                <span class="cz-pod-duration"><?= $videoDuration ?></span>
                             </a>
                         <?php } ?>
                     </div>
                     <div class="col-lg-6 cz-pod-featured-body">
-                        <?php $tags_array = explode(",", $tags);
-                        foreach ($tags_array as $tags) {
-                        ?>
-                            <span class="cz-pod-badge"><?= $tags ?></span>
-                        <?php } ?>
-                        <span class="cz-pod-ep"><?= $sub_title; ?> &nbsp;•&nbsp;<?= date('F d, Y', strtotime($posted)) ?></span>
-                        <h3><a href="<?= urldecode($pserv['video']) ?>" class="popup-youtube"><?= $title; ?></a></h3>
                         <div><?= html_entity_decode($content) ?></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-10 max-auto mt-2">
                         <div class="cz-pod-guest">
                             <!-- <img src="assets/img/team/1.jpg" alt="Guest"> -->
                             <div>
@@ -509,8 +531,8 @@
                                 <span><?= $client_designation; ?></span>
                             </div>
                         </div>
-                        <a href="<?= urldecode($pserv['video']) ?>" class="btn btn-style-one popup-youtube">Watch
-                            Episode <i class="fas fa-play"></i></a>
+                        <a href="<?= urldecode($pserv['google_pod']) ?>" target="__blank" class="btn btn-style-one">Watch All
+                            Episode <i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
@@ -523,6 +545,7 @@
 
     <?php
     $latest_podcasts = $this->db->where('type', $pserv['type'])
+        ->where('slug !=', $slug)
         ->order_by('posted', 'DESC')
         ->limit(3)
         ->get('blogs')
@@ -549,14 +572,15 @@
                                 if (preg_match('/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|v\/))([^\&\?\/]+)/', $videoUrl, $matches)) {
                                     $videoId = $matches[1];
                                 }
+                                $videoDuration2 = get_youtube_duration($videoId);
                             ?>
 
                                 <!-- YouTube thumbnail: swap the ID in both the img src and the href -->
-                                <a href="<?= urldecode($latest_podcast['video']) ?>" class="popup-youtube cz-pod-thumb cz-pod-thumb-lg">
+                                <a href="<?= !empty($videoId) ? 'https://www.youtube.com/watch?v=' . $videoId : urldecode($latest_podcast['video']) ?>" class="popup-youtube cz-pod-thumb cz-pod-thumb-lg">
                                     <img src="https://img.youtube.com/vi/<?= $videoId ?>/hqdefault.jpg"
                                         alt="Building an AI-ready supply chain data foundation">
                                     <span class="cz-pod-play"><i class="fas fa-play"></i></span>
-                                    <span class="cz-pod-duration">22:18</span>
+                                    <span class="cz-pod-duration"><?= $videoDuration2 ?></span>
                                 </a>
                             <?php } ?>
                             <div class="cz-pod-body">
@@ -567,14 +591,14 @@
                                         <span class="cz-pod-badge"><?= $tags ?></span>
                                 <?php }
                                 } ?>
-                                <span class="cz-pod-meta"> <?= $latest_podcast['sub_title'] ?>&nbsp;•&nbsp;<?= date('F d, Y', strtotime($latest_podcast['posted'])) ?></span>
+                                <span class="cz-pod-meta"> <?= $latest_podcast['sub_title'] ?> <?= date('F d, Y', strtotime($latest_podcast['posted'])) ?></span>
                                 <h4>
                                     <a href="<?= base_url('podcast/' . $latest_podcast['slug']) ?>">
                                         <?= $latest_podcast['title'] ?>
                                     </a>
                                 </h4>
                                 <p><?= implode(' ', array_slice(preg_split('/\s+/', trim(strip_tags(html_entity_decode($latest_podcast['content'])))), 0, 10)) . '...'; ?></p>
-                                <a href="<?= urldecode($latest_podcast['video']) ?>" class="cz-pod-link popup-youtube">Watch
+                                <a href="<?= !empty($videoId) ? 'https://www.youtube.com/watch?v=' . $videoId : urldecode($latest_podcast['video']) ?>" class="cz-pod-link popup-youtube">Watch
                                     now <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>

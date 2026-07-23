@@ -16,7 +16,7 @@
                             </div>
                             <div class="form-group <?= $type == 7 ? '' : 'd-none' ?>">
                                 <label>Sub Title</label>
-                                <input type="text" class="form-control" name="sub_title" id="sub_title" value="<?= $sub_title ?>" required>
+                                <input type="text" class="form-control" name="sub_title" id="sub_title" value="<?= $sub_title ?>">
                             </div>
                             <div class="">
                                 <div class="form-group <?= $type == 3 ? '' : 'd-none' ?>">
@@ -353,25 +353,25 @@
                                 <h5>New Section</h5>
                                 <hr>
                                 <div class=" row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label>Heading</label>
-                                            <input type="text" class="form-control" name="new_podcast_heading" value="<?= $new_podcast_heading ?>">
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label>Title</label>
-                                            <input type="text" class="form-control" name="new_podcast_title" value="<?= $new_podcast_title ?>">
-                                        </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Heading</label>
+                                        <input type="text" class="form-control" name="new_podcast_heading" value="<?= $new_podcast_heading ?>">
                                     </div>
                                 </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Title</label>
+                                        <input type="text" class="form-control" name="new_podcast_title" value="<?= $new_podcast_title ?>">
+                                    </div>
+                                </div>
+                            </div>
 
-                                <div class="form-group">
-                                    <label>Description</label>
-                                    <textarea class="form-control multiple-op" name="new_podcast_desc" rows="4"><?= $new_podcast_desc ?></textarea>
-                                </div>
-                        </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea class="form-control multiple-op" name="new_podcast_desc" rows="4"><?= $new_podcast_desc ?></textarea>
+                            </div>
+                    </div>
                     <hr>
 
                     <div class="row">

@@ -35,6 +35,10 @@
                                 <input type="text" class="form-control" name="slug" id="slug" required>
                             </div>
                             <div class="form-group webinarIframe d-none">
+                                <label>Sub Title</label>
+                                <input type="text" class="form-control" name="sub_title" id="sub_title">
+                            </div>
+                            <div class="form-group webinarIframe d-none">
 
                                 <input type="checkbox" name="is_webinar" value="1">&nbsp Webinar
                             </div>
