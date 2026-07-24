@@ -360,3 +360,27 @@ function get_youtube_duration($videoId)
 
     return '';
 }
+
+function get_pdf_pages($file_name)
+{
+    // Aapki PDF file ka path
+    // $file_path = 'C:\Users\cz0390\Downloads\10101025300682_Jul2026.pdf';
+    $file_path = FCPATH . 'uploads/pdf/' . $file_name;
+
+    if (file_exists($file_path)) {
+        // PDF file ko read karein
+        $file_content = file_get_contents($file_path);
+
+        // Regex se pages count dhoondein
+        if (preg_match_all("/\/Type\s*\/Page\b/", $file_content, $matches)) {
+            $pages = count($matches[0]);
+        } elseif (preg_match("/\/Count\s+(\d+)/", $file_content, $matches)) {
+            $pages = $matches[1];
+        } else {
+            $pages = "Unknown";
+        }
+        return $pages;
+    } else {
+        return 1;
+    }
+}

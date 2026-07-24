@@ -91,9 +91,9 @@
                                     <div class="form-group">
                                         <label>Image (Max File Size 2MB)</label>
                                         <br>
-                                        <button type="button" class="btn btn-primary select-image" data-img="image">
+                                        <button type="button" class="btn btn-primary select-image" data-img="section_5_image">
                                             Select Image</button>
-                                        <input type="hidden" class="image" name="section_5_image" />
+                                        <input type="hidden" class="section_5_image" name="section_5_image" />
                                     </div>
                                 </div>
                                 <div class="repeater">

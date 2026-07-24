@@ -96,7 +96,7 @@ $banner2 = base_url('assets/img/shape/banner-9.jpg');
         font-size: 18px;
         line-height: 1.6;
         color: #6b7280;
-        max-width: 920px;
+        /* max-width: 920px; */
         margin: 0;
     }
 

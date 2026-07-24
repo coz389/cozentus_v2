@@ -451,6 +451,12 @@
     .cz-pod-featured-body li {
         list-style: disc !important;
     }
+
+    .btn i {
+        font-weight: 400;
+        transform: rotate(0deg) !important;
+        margin-left: 10px;
+    }
 </style>
 <div id="smooth-content">
     <!-- Intro + subscribe

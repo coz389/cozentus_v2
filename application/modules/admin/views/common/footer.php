@@ -95,24 +95,129 @@
     if ($("#summernoteExample").length) {
         $('#summernoteExample').summernote({
             height: 300,
-            tabsize: 2
+            tabsize: 2,
+            callbacks: {
+                // Clear default <p><br></p>
+                onInit: function() {
+                    const content = $(this).val().trim();
+
+                    if (content === '' || content === '<p><br></p>') {
+                        $(this).summernote('code', '');
+                    }
+                },
+                onPaste: function(e) {
+                    e.preventDefault();
+                    const clipboard = e.originalEvent.clipboardData || window.clipboardData;
+                    if (!clipboard) return;
+                    let text = clipboard.getData('text/plain');
+                    // Normalize line endings
+                    text = text.replace(/\r\n/g, '\n');
+                    // Remove extra blank lines
+                    text = text.replace(/\n{2,}/g, '\n');
+                    document.execCommand('insertText', false, text);
+                }
+            }
         });
     }
     $('#summernoteExample1').summernote({
         height: 300,
-        tabsize: 2
+        tabsize: 2,
+        callbacks: {
+            // Clear default <p><br></p>
+            onInit: function() {
+                const content = $(this).val().trim();
+
+                if (content === '' || content === '<p><br></p>') {
+                    $(this).summernote('code', '');
+                }
+            },
+            onPaste: function(e) {
+                e.preventDefault();
+                const clipboard = e.originalEvent.clipboardData || window.clipboardData;
+                if (!clipboard) return;
+                let text = clipboard.getData('text/plain');
+                // Normalize line endings
+                text = text.replace(/\r\n/g, '\n');
+                // Remove extra blank lines
+                text = text.replace(/\n{2,}/g, '\n');
+                document.execCommand('insertText', false, text);
+            }
+        }
     });
     $('#summernoteExample2').summernote({
         height: 300,
-        tabsize: 2
+        tabsize: 2,
+        callbacks: {
+            // Clear default <p><br></p>
+            onInit: function() {
+                const content = $(this).val().trim();
+
+                if (content === '' || content === '<p><br></p>') {
+                    $(this).summernote('code', '');
+                }
+            },
+            onPaste: function(e) {
+                e.preventDefault();
+                const clipboard = e.originalEvent.clipboardData || window.clipboardData;
+                if (!clipboard) return;
+                let text = clipboard.getData('text/plain');
+                // Normalize line endings
+                text = text.replace(/\r\n/g, '\n');
+                // Remove extra blank lines
+                text = text.replace(/\n{2,}/g, '\n');
+                document.execCommand('insertText', false, text);
+            }
+        }
     });
     $('#summernoteExample3').summernote({
         height: 300,
-        tabsize: 2
+        tabsize: 2,
+        callbacks: {
+            // Clear default <p><br></p>
+            onInit: function() {
+                const content = $(this).val().trim();
+
+                if (content === '' || content === '<p><br></p>') {
+                    $(this).summernote('code', '');
+                }
+            },
+            onPaste: function(e) {
+                e.preventDefault();
+                const clipboard = e.originalEvent.clipboardData || window.clipboardData;
+                if (!clipboard) return;
+                let text = clipboard.getData('text/plain');
+                // Normalize line endings
+                text = text.replace(/\r\n/g, '\n');
+                // Remove extra blank lines
+                text = text.replace(/\n{2,}/g, '\n');
+                document.execCommand('insertText', false, text);
+            }
+        }
     });
     $('#summernoteExample4').summernote({
         height: 300,
-        tabsize: 2
+        tabsize: 2,
+        callbacks: {
+            // Clear default <p><br></p>
+            onInit: function() {
+                const content = $(this).val().trim();
+
+                if (content === '' || content === '<p><br></p>') {
+                    $(this).summernote('code', '');
+                }
+            },
+            onPaste: function(e) {
+                e.preventDefault();
+                const clipboard = e.originalEvent.clipboardData || window.clipboardData;
+                if (!clipboard) return;
+                let text = clipboard.getData('text/plain');
+                // Normalize line endings
+                text = text.replace(/\r\n/g, '\n');
+                // Remove extra blank lines
+                text = text.replace(/\n{2,}/g, '\n');
+                document.execCommand('insertText', false, text);
+            }
+        }
     });
 
     (function($) {
