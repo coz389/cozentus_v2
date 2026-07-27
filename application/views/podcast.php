@@ -552,6 +552,7 @@
     <?php
     $latest_podcasts = $this->db->where('type', $pserv['type'])
         ->where('slug !=', $slug)
+        ->join('images_master i', 'i.id = thumbnail', 'left')
         ->order_by('posted', 'DESC')
         ->limit(3)
         ->get('blogs')

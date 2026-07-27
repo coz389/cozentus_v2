@@ -74,7 +74,7 @@
 
     .cz-rep-cover img {
         width: 100%;
-        aspect-ratio: 4 / 3;
+        aspect-ratio: 3/ 4 !important;
         object-fit: cover;
         display: block;
         transition: transform .5s ease;
@@ -91,9 +91,17 @@
         transform: scale(1.05);
     }
 
-    .cz-rep-cover-lg img {
-        aspect-ratio: 3 / 4;
+    .cz-rep-cover-1 img {
+        width: 100%;
+        /* aspect-ratio: 5/ 4 !important; */
+        object-fit: cover;
+        display: block;
+        transition: transform .5s ease;
     }
+
+    /* .cz-rep-cover-lg img {
+        aspect-ratio: 3 / 4;
+    } */
 
     .cz-rep-type {
         position: absolute;
@@ -286,14 +294,14 @@
         transition: box-shadow .3s ease, transform .3s ease;
     }
 
-    .cz-rep-card:hover {
+    /* .cz-rep-card:hover {
         box-shadow: 0 18px 40px rgba(8, 24, 56, .1);
         transform: translateY(-4px);
-    }
+    } */
 
-    .cz-rep-card .cz-rep-cover {
+    /* .cz-rep-card .cz-rep-cover {
         border-radius: 0;
-    }
+    } */
 
     .cz-rep-body {
         padding: 22px 24px 24px;
@@ -548,7 +556,7 @@
 
     .btn i {
         font-weight: 400;
-        transform: rotate(0deg) !important;
+        transform: rotate(-45deg) !important;
         margin-left: 10px;
     }
 </style>
@@ -556,39 +564,50 @@
 
     <!-- Intro
         ============================================= -->
-    <div class="cz-rep-intro">
-        <div class="container">
-            <div class="row align-center">
-                <div class="col-lg-7">
-                    <span class="cz-rep-eyebrow">Knowledge Hub</span>
-                    <h2 class="cz-rep-intro-title">Research and playbooks for modern supply chains</h2>
-                    <p class="cz-rep-intro-text">In-depth reports, practical eBooks and step-by-step guides from
-                        our engineers and domain experts — grounded in real logistics deployments, not theory.
-                        Download any resource free and put it to work today.</p>
-                </div>
-                <div class="col-lg-4 offset-lg-1">
-                    <div class="cz-rep-stats">
-                        <div class="cz-rep-stat">
-                            <h3>40+</h3>
-                            <span>Reports &amp; guides published</span>
-                        </div>
-                        <div class="cz-rep-stat">
-                            <h3>12k+</h3>
-                            <span>Downloads by supply chain teams</span>
+    <?php
+    if (!empty($pserv['new_podcast_heading'])) {
+        if (!empty($pserv['new_podcast_extra'])) {
+            $new_podcast_extra_arr = json_decode($pserv['new_podcast_extra']);
+        }
+    ?>
+        <div class="cz-rep-intro">
+            <div class="container">
+                <div class="row align-center">
+                    <div class="col-lg-7">
+                        <span class="cz-rep-eyebrow"><?= $pserv['new_podcast_heading'] ?></span>
+                        <!-- <h2 class="cz-rep-intro-title"><?= $pserv['new_podcast_title'] ?></h2> -->
+                        <h2 class="cz-rep-intro-title"><?= $title ?></h2>
+                        <p class="cz-rep-intro-text"><?= $pserv['new_podcast_desc'] ?></p>
+                    </div>
+                    <div class="col-lg-4 offset-lg-1">
+                        <div class="cz-rep-stats">
+                            <?php if (count($new_podcast_extra_arr) > 0) {
+                                foreach ($new_podcast_extra_arr as $new_podcast_extra) {
+                            ?>
+                                    <div class="cz-rep-stat">
+                                        <h3><?= $new_podcast_extra->heading ?></h3>
+                                        <span><?= $new_podcast_extra->description ?></span>
+                                    </div>
+                            <?php }
+                            } ?>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    <?php } ?>
     <!-- End Intro -->
     <!-- Featured report
         ============================================= -->
 
     <?php
-    // print_r($pserv);
-    // echo base_url('uploads/pdf/' . $download);
-    // echo get_pdf_pages();
+    if (!empty($image)) {
+        $image = $image;
+    } else {
+        $image = $thumbnail;
+    }
+    $tags_array = explode(",", $pserv['tags']);
     ?>
     <div class="cz-rep-featured">
         <div class="container">
@@ -597,13 +616,20 @@
                     <div class="col-lg-5">
                         <div class="cz-rep-cover cz-rep-cover-lg">
                             <img src="<?= base_url('uploads/images/' . $image) ?>" alt="<?= $title ?>">
-                            <span class="cz-rep-type"> Whitepaper</span>
+                            <?php if (count($tags_array) >= 1) {
+                                foreach ($tags_array as $tags) {
+                            ?>
+                                    <span class="cz-rep-type"> <?= $tags ?></span>
+
+                            <?php }
+                            } ?>
                         </div>
                     </div>
                     <div class="col-lg-7 cz-rep-featured-body">
                         <span class="cz-rep-meta"><i class="far fa-file-alt"></i> <?= get_pdf_pages($download) ?> pages &nbsp;•&nbsp; <?= get_pdf_pages($download) ?> min
-                            read &nbsp;•&nbsp; Logistics Technology</span>
-                        <h3><a href="#cz-rep-download"><?= $title ?></a></h3>
+                            read </span>
+                        <h3><a href="#cz-rep-download"><?= $pserv['new_podcast_title'] ?></a></h3>
+                        <!-- <h3><a href="#cz-rep-download"><?= $title ?></a></h3> -->
                         <div><?= html_entity_decode($content) ?></div>
 
                         <a href="#cz-rep-download" class="btn btn-style-one mt-4">Download PDF <i class="fas fa-download"></i></a>
@@ -616,6 +642,15 @@
 
     <!-- All resources
         ============================================= -->
+    <?php
+    $latest_reports = $this->db->where('type', $pserv['type'])
+        ->where('slug !=', $slug)
+        ->join('images_master i', 'i.id = thumbnail', 'left')
+        ->order_by('posted', 'DESC')
+        ->limit(3)
+        ->get('blogs')
+        ->result_array();
+    ?>
     <div class="cz-rep-list default-padding">
         <div class="container">
 
@@ -623,63 +658,32 @@
                 <h2 class="cz-rep-h2">Latest Resources</h2>
             </div>
             <div class="row fade-up-anim">
-                <!-- 1 -->
-                <div class="col-lg-4 col-md-6 cz-rep-col" data-category="whitepaper">
-                    <div class="cz-rep-card">
-                        <a href="#cz-rep-download" class="cz-rep-cover">
-                            <img src="<?= base_url('assets/img/blog/2.jpg') ?>" alt="Report cover">
-                            <span class="cz-rep-type"> Logistics Technology</span>
-                        </a>
-                        <div class="cz-rep-body">
-                            <h4><a href="#cz-rep-download">Custom TMS vs Off-The-Shelf TMS: what's best for freight
-                                    forwarders?</a></h4>
-                            <p>Where generic TMS platforms break down — and how forwarders build an edge with
-                                ownership and flexibility.</p>
-                            <div class="cz-rep-foot">
-                                <span class="cz-rep-pages"><i class="far fa-file-alt"></i> 18 pages</span>
-                                <a href="#cz-rep-download" class="cz-rep-link">Download <i class="fas fa-download"></i></a>
+                <?php foreach ($latest_reports  as $latest_report) {
+                    $tags_array = explode(",", $latest_report['tags']); ?>
+                    <div class="col-lg-4 col-md-6 cz-rep-col">
+                        <div class="cz-rep-card">
+                            <a href="<?= base_url('report/' . $latest_report['slug']) ?>" class="cz-rep-cover-1">
+                                <img src="<?= base_url('uploads/images/' .  $latest_report['image']) ?>" alt="Report cover">
+                                <?php if (count($tags_array) > 0) {
+                                    foreach ($tags_array as $tags) {
+                                ?>
+                                        <span class="cz-rep-type"> <?= $tags ?></span>
+                                <?php }
+                                } ?>
+                            </a>
+                            <div class="cz-rep-body">
+                                <h4><a href="<?= base_url('report/' . $latest_report['slug']) ?>"><?= $latest_report['title'] ?></a></h4>
+                                <p>
+                                    <?= implode(' ', array_slice(preg_split('/\s+/', trim(strip_tags(html_entity_decode($latest_report['content'])))), 0, 10)) . '...'; ?>
+                                </p>
+                                <div class="cz-rep-foot">
+                                    <span class="cz-rep-pages"><i class="far fa-file-alt"></i> <?= get_pdf_pages($latest_report['download']) ?> pages</span>
+                                    <a href="<?= base_url('report/' . $latest_report['slug']) ?>" class="cz-rep-link">Download <i class="fas fa-download"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- 2 -->
-                <div class="col-lg-4 col-md-6 cz-rep-col" data-category="report">
-                    <div class="cz-rep-card">
-                        <a href="#cz-rep-download" class="cz-rep-cover">
-                            <img src="<?= base_url('assets/img/blog/3.jpg') ?>" alt="Report cover">
-                            <span class="cz-rep-type"> Report</span>
-                        </a>
-                        <div class="cz-rep-body">
-                            <h4><a href="#cz-rep-download">The State of AI in Freight &amp; Logistics 2026</a></h4>
-                            <p>Benchmark data on where AI is delivering ROI across the supply chain — and where it
-                                is still hype.</p>
-                            <div class="cz-rep-foot">
-                                <span class="cz-rep-pages"><i class="far fa-file-alt"></i>7 pages</span>
-                                <a href="#cz-rep-download" class="cz-rep-link">Download <i class="fas fa-download"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 3 -->
-                <div class="col-lg-4 col-md-6 cz-rep-col" data-category="ebook">
-                    <div class="cz-rep-card">
-                        <a href="#cz-rep-download" class="cz-rep-cover">
-                            <img src="<?= base_url('assets/img/blog/1.jpg') ?>" alt="eBook cover">
-                            <span class="cz-rep-type"> Document Processing</span>
-                        </a>
-                        <div class="cz-rep-body">
-                            <h4><a href="#cz-rep-download">A Practical Guide to Intelligent Document Processing</a></h4>
-                            <p>Human-in-the-loop patterns that make document AI accurate and safe enough to trust
-                                in production.</p>
-                            <div class="cz-rep-foot">
-                                <span class="cz-rep-pages"><i class="far fa-file-alt"></i> 32 pages</span>
-                                <a href="#cz-rep-download" class="cz-rep-link">Download <i class="fas fa-download"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php } ?>
             </div>
 
             <!-- <div class="cz-rep-more">
@@ -707,25 +711,51 @@
                         </ul>
                     </div>
                     <div class="col-lg-5 offset-lg-1">
-                        <form class="cz-rep-form" action="#" method="post">
+                        <form class="cz-rep-form" action="#" id="contactForm" data-form="insertcontact" <?= !empty($download) ? "data-download='" . base_url('uploads/pdf/') . $download . "' data-file-name='" . $download . "'" : '' ?>>
                             <div class="cz-rep-field">
-                                <label>Name <span>*</span></label>
-                                <input type="text" name="name" placeholder="Your full name" required>
+                                <div class="form-group">
+                                    <label>Name <span>*</span></label>
+                                    <input type="text" name="name" id="name" placeholder="Your full name">
+                                    <span class="alert-error"></span>
+                                </div>
                             </div>
                             <div class="cz-rep-field">
-                                <label>Work Email Address <span>*</span></label>
-                                <input type="email" name="email" placeholder="you@company.com" required>
+                                <div class="form-group">
+                                    <label>Work Email Address <span>*</span></label>
+                                    <input type="email" name="email" id="email" placeholder="you@company.com">
+                                    <span class="alert-error"></span>
+                                </div>
                             </div>
                             <div class="cz-rep-field">
-                                <label>Company</label>
-                                <input type="text" name="company" placeholder="Company name">
+                                <div class="form-group">
+                                    <label>Company</label>
+                                    <input type="text" name="organisation" id="organisation" placeholder=" Company name">
+                                    <span class="alert-error"></span>
+                                </div>
                             </div>
                             <div class="cz-rep-check">
-                                <input type="checkbox" id="cz-rep-privacy" name="privacy" required>
-                                <label for="cz-rep-privacy">I agree to the <a href="#">Privacy Policy</a> and to
-                                    being contacted about this resource.</label>
+                                <div class="form-group">
+                                    <input type="checkbox" id="cz-rep-privacy" name="privacy_policy">
+                                    <label for="cz-rep-privacy">I agree to the <a href="#">Privacy Policy</a> and to
+                                        being contacted about this resource.</label>
+                                    <span class="alert-error"></span>
+                                </div>
                             </div>
-                            <button type="submit" class="btn btn-style-one">Download PDF <i class="fas fa-download"></i></button>
+                            <!-- Google ReCAPTCHA -->
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <div class="g-recaptcha" data-sitekey="<?= $recaptcha_site_key ?>"></div>
+                                        <span class="alert-error"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Alert Message -->
+                            <div class="col-lg-12 alert-notification mb-3" role="alert">
+                                <div id="message" class="alert-msg text-danger"></div>
+                            </div>
+
+                            <button type="submit" id="submitBtn" class="btn btn-style-one">Download PDF <i class="fas fa-download"></i></button>
                         </form>
                     </div>
                 </div>
@@ -764,3 +794,178 @@
     <!-- End Call to Action -->
 
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("contactForm");
+        const downloadUrl = form.dataset.download;
+
+        // Helper to grab the error span relative to the form group
+        const getErrorSpan = (element) => {
+            if (!element) return null;
+            const group = element.closest(".form-group");
+            return group ? group.querySelector(".alert-error") : null;
+        };
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+
+            let isValid = true;
+
+            // 1. Validate Name
+            const nameInput = document.getElementById("name");
+            const nameError = getErrorSpan(nameInput);
+            if (nameError) {
+                if (nameInput.value.trim().length < 3) {
+                    nameError.textContent = "Please Enter Name";
+                    nameInput.classList.add("error");
+                    nameInput.classList.remove("valid");
+                    isValid = false;
+                } else {
+                    nameError.textContent = "";
+                    nameInput.classList.remove("error");
+                    nameInput.classList.add("valid");
+                }
+            }
+
+            // 2. Validate Email
+            const emailInput = document.getElementById("email");
+            const emailError = getErrorSpan(emailInput);
+            if (emailError) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                const emailValue = emailInput.value.trim();
+                if (!emailRegex.test(emailValue)) {
+                    emailError.textContent = "Please enter a valid email address.";
+                    emailInput.classList.add("error");
+                    emailInput.classList.remove("valid");
+                    isValid = false;
+                } else {
+                    // Pre-check for blocked domains to give instant corporate email feedback
+                    const domain = emailValue.split("@")[1]?.toLowerCase();
+                    const blockedDomains = ["gmail.com", "gmail.in", "gmail.net", "gmail.org", "gmail.info", "gmail.edu", "yahoo.com", "outlook.com", "aol.com", "icloud.com", "zoho.com", "protonmail.com", "mail.com", "gmx.com", "yandex.com"];
+                    if (blockedDomains.includes(domain)) {
+                        emailError.textContent = "Please enter a business or corporate email address.";
+                        emailInput.classList.add("error");
+                        emailInput.classList.remove("valid");
+                        isValid = false;
+                    } else {
+                        emailError.textContent = "";
+                        emailInput.classList.remove("error");
+                        emailInput.classList.add("valid");
+                    }
+                }
+            }
+            // 1. Validate Name
+            const organisationInput = document.getElementById("organisation");
+            const organisationError = getErrorSpan(organisationInput);
+            if (organisationError) {
+                if (organisationInput.value.trim().length < 3) {
+                    organisationError.textContent = "Please Enter Company Name";
+                    organisationInput.classList.add("error");
+                    organisationInput.classList.remove("valid");
+                    isValid = false;
+                } else {
+                    organisationError.textContent = "";
+                    organisationInput.classList.remove("error");
+                    organisationInput.classList.add("valid");
+                }
+            }
+            // 5. Validate Privacy Checkbox
+            const agreeInput = document.getElementById("cz-rep-privacy");
+            const agreeError = getErrorSpan(agreeInput);
+            if (agreeError) {
+                if (!agreeInput.checked) {
+                    agreeError.textContent = "You must agree to the privacy policy.";
+                    isValid = false;
+                } else {
+                    agreeError.textContent = "";
+                }
+            }
+
+            // 6. Validate Google ReCAPTCHA
+            // const recaptchaDiv = document.querySelector(".g-recaptcha");
+            // const recaptchaError = getErrorSpan(recaptchaDiv);
+            // if (recaptchaError) {
+            //     if (typeof grecaptcha === "undefined" || grecaptcha.getResponse() === "") {
+            //         recaptchaError.textContent = "Please complete the CAPTCHA.";
+            //         isValid = false;
+            //     } else {
+            //         recaptchaError.textContent = "";
+            //     }
+            // }
+
+            // 7. Perform Submission if everything is valid
+            console.log(isValid);
+            if (isValid) {
+                const formData = new FormData(form);
+                const submitBtn = document.getElementById("submitBtn");
+                const messageDiv = document.getElementById("message");
+                // Build absolute destination URL: base_url + data-form
+                const contextUrl = typeof site_url !== "undefined" ? site_url : (typeof base_url !== "undefined" ? base_url : "/");
+                const actionEndpoint = contextUrl + form.dataset.form;
+
+                submitBtn.disabled = true;
+                const originalBtnHtml = submitBtn.innerHTML;
+                submitBtn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
+                messageDiv.innerHTML = "";
+
+                fetch(actionEndpoint, {
+                        method: "POST",
+                        body: formData
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("Network response was not ok");
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnHtml;
+
+                        if (data.status) {
+                            // Display styled success alert
+                            messageDiv.innerHTML = data.msg || '<p class="alert alert-success">Form Submitted Successfully!</p>';
+                            form.reset();
+                            if (typeof grecaptcha !== "undefined") {
+                                grecaptcha.reset();
+                            }
+                            // Remove validation classes
+                            document.querySelectorAll(".form-control").forEach(el => el.classList.remove("valid", "error"));
+
+
+                            setTimeout(() => {
+                                if (downloadUrl) {
+                                    const link = document.createElement("a");
+                                    link.href = downloadUrl;
+                                    link.download = form.dataset.fileName || "";
+                                    document.body.appendChild(link);
+                                    link.click();
+                                    document.body.removeChild(link);
+
+                                } else {
+                                    window.location.href = contextUrl + "thankyou";
+                                }
+
+                            }, 1500);
+
+                            // Redirect after short delay so user can read message
+                            // setTimeout(() => {
+                            //     window.location.href = contextUrl + "thankyou";
+                            // }, 1500);
+                        } else {
+                            // Display server validation error
+                            messageDiv.innerHTML = data.msg || '<p class="alert alert-warning">Please correct the inputs and try again.</p>';
+                        }
+                    })
+                    .catch(error => {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnHtml;
+                        messageDiv.innerHTML = '<p class="alert alert-danger">An error occurred during submission. Please try again.</p>';
+                        console.error("Error submitting form:", error);
+                    });
+            }
+        });
+    });
+</script>

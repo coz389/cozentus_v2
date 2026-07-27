@@ -434,6 +434,7 @@ class Admin extends MX_Controller
     public function editblog($id)
     {
         $data = $this->admin_model->getblog(['id' => $id]);
+        // print_r($data);
         $data['authors'] = $this->admin_model->getauthors();
         $data['services'] = $this->admin_model->getservices();
         $this->load->view('common/header', $data);
@@ -1629,8 +1630,6 @@ class Admin extends MX_Controller
 
     function insertupdateblog()
     {
-        // print_r($_POST);
-        // exit;
         $id = $this->input->post('id');
         $title = $this->input->post('title');
         $sheading = $this->input->post('sheading');
@@ -1848,6 +1847,19 @@ class Admin extends MX_Controller
         $new_podcast_heading = $this->input->post('new_podcast_heading');
         $new_podcast_title = $this->input->post('new_podcast_title');
         $new_podcast_desc = $this->input->post('new_podcast_desc');
+        $new_podcast_extra_heading = $this->input->post('new_podcast_extra_heading');
+        $new_podcast_extra_description = $this->input->post('new_podcast_extra_description');
+        $new_podcast_extra_dtArr = [];
+        if (!empty($new_podcast_extra_heading)) {
+            for ($i = 0; $i <= count($new_podcast_extra_heading); $i++) {
+                if (!empty($new_podcast_extra_heading[$i]))
+                    $new_podcast_extra_dtArr[] = [
+                        'heading' => $new_podcast_extra_heading[$i],
+                        'description' => rtrim($new_podcast_extra_description[$i])
+                    ];
+            }
+        }
+        $new_podcast_extra_dtArr = json_encode($new_podcast_extra_dtArr);
 
         if (!$downloadfile) {
             $downloadfile = $this->input->post('download_exist') ?? '';
@@ -1915,6 +1927,7 @@ class Admin extends MX_Controller
             'new_podcast_heading' => $new_podcast_heading,
             'new_podcast_title' => $new_podcast_title,
             'new_podcast_desc' => $new_podcast_desc,
+            'new_podcast_extra' => $new_podcast_extra_dtArr,
         );
         // echo print_r($data);
         // exit;

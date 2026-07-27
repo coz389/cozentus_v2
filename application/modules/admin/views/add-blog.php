@@ -358,6 +358,61 @@
                         <textarea class="form-control" name="content" id="summernoteExample4" rows="4"></textarea>
                     </div>
 
+                    <!-- Reports : New Section Start -->
+                    <div class="New Section reports d-none">
+                        <h5>New Section (Top)</h5>
+                        <hr>
+                        <div class=" row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Heading</label>
+                                    <input type="text" class="form-control" name="new_podcast_heading">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Title</label>
+                                    <input type="text" class="form-control" name="new_podcast_title">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control multiple-op" name="new_podcast_desc" rows="4"></textarea>
+                        </div>
+                        <div class=" row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Point 1</label>
+                                    <input type="text" class="form-control" name="new_podcast_extra_heading[]">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <input type="text" class="form-control" name="new_podcast_extra_description[]">
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Point 2</label>
+                                    <input type="text" class="form-control" name="new_podcast_extra_heading[]">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <input type="text" class="form-control" name="new_podcast_extra_description[]">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reports : New Section End -->
+
                     <div class="row">
                         <div class="form-group col-6">
                             <label>Card Image Thumbnail (Max File Size 2MB)</label>
@@ -414,6 +469,9 @@
         }
         if (type != 1) {
             $(".sblog").addClass("d-none");
+        }
+        if (type == 5) {
+            $(".reports").removeClass("d-none");
         }
     })
     $(document).ready(function(e) {
