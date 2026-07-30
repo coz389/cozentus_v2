@@ -307,13 +307,13 @@
                                                     <li><a href="<?= base_url('blogs') ?>">Blogs</a></li>
                                                     <li><a href="<?= base_url('podcast') ?>">Podcast</a></li>
                                                     <li><a href="<?= base_url('webinars') ?>">Webinars</a></li>
-                                                    <!-- <li><a href="<?= base_url('case-studies') ?>">Success Stories</a></li> -->
                                                 </ul>
                                             </div>
                                             <div class="col-menu">
                                                 <!-- <h4>Homepage Light</h4> -->
                                                 <ul class="menu-col">
-                                                    <li><a href="<?= base_url('use-cases') ?>">Use Cases</a></li>
+                                                    <li><a href="<?= base_url('case-studies') ?>">Success Stories</a></li>
+                                                    <!-- <li><a href="<?= base_url('use-cases') ?>">Use Cases</a></li> -->
                                                     <li><a href="<?= base_url('reports') ?>">Reports, ebooks and Guides</a></li>
 
                                                 </ul>

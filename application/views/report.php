@@ -565,38 +565,39 @@
     <!-- Intro
         ============================================= -->
     <?php
-    if (!empty($pserv['new_podcast_heading'])) {
-        if (!empty($pserv['new_podcast_extra'])) {
-            $new_podcast_extra_arr = json_decode($pserv['new_podcast_extra']);
-        }
+    // if (!empty($pserv['new_podcast_heading'])) {
+    if (!empty($pserv['new_podcast_extra'])) {
+        $new_podcast_extra_arr = json_decode($pserv['new_podcast_extra']);
+    }
     ?>
-        <div class="cz-rep-intro">
-            <div class="container">
-                <div class="row align-center">
-                    <div class="col-lg-7">
-                        <span class="cz-rep-eyebrow"><?= $pserv['new_podcast_heading'] ?></span>
-                        <!-- <h2 class="cz-rep-intro-title"><?= $pserv['new_podcast_title'] ?></h2> -->
-                        <h2 class="cz-rep-intro-title"><?= $title ?></h2>
-                        <p class="cz-rep-intro-text"><?= $pserv['new_podcast_desc'] ?></p>
-                    </div>
-                    <div class="col-lg-4 offset-lg-1">
-                        <div class="cz-rep-stats">
-                            <?php if (count($new_podcast_extra_arr) > 0) {
-                                foreach ($new_podcast_extra_arr as $new_podcast_extra) {
-                            ?>
-                                    <div class="cz-rep-stat">
-                                        <h3><?= $new_podcast_extra->heading ?></h3>
-                                        <span><?= $new_podcast_extra->description ?></span>
-                                    </div>
-                            <?php }
-                            } ?>
+    <div class="cz-rep-intro">
+        <div class="container">
+            <div class="row align-center">
+                <div class="col-lg-8">
+                    <span class="cz-rep-eyebrow"><?= $pserv['new_podcast_heading'] ?></span>
+                    <!-- <h2 class="cz-rep-intro-title"><?= $pserv['new_podcast_title'] ?></h2> -->
+                    <h2 class="cz-rep-intro-title"><?= $title ?></h2>
+                    <p class="cz-rep-intro-text"><?= $pserv['new_podcast_desc'] ?></p>
+                </div>
+                <div class="col-lg-4">
+                    <div class="cz-rep-stats">
+                        <?php if (count($new_podcast_extra_arr) > 0) {
+                            foreach ($new_podcast_extra_arr as $new_podcast_extra) {
+                        ?>
+                                <div class="cz-rep-stat">
+                                    <h3><?= $new_podcast_extra->heading ?></h3>
+                                    <span><?= $new_podcast_extra->description ?></span>
+                                </div>
+                        <?php }
+                        } ?>
 
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    <?php } ?>
+    </div>
+    <?php //} 
+    ?>
     <!-- End Intro -->
     <!-- Featured report
         ============================================= -->
@@ -608,6 +609,8 @@
         $image = $thumbnail;
     }
     $tags_array = explode(",", $pserv['tags']);
+    // echo count($tags_array) - 1;
+    // print_r($tags_array);
     ?>
     <div class="cz-rep-featured">
         <div class="container">
@@ -616,13 +619,7 @@
                     <div class="col-lg-5">
                         <div class="cz-rep-cover cz-rep-cover-lg">
                             <img src="<?= base_url('uploads/images/' . $image) ?>" alt="<?= $title ?>">
-                            <?php if (count($tags_array) >= 1) {
-                                foreach ($tags_array as $tags) {
-                            ?>
-                                    <span class="cz-rep-type"> <?= $tags ?></span>
-
-                            <?php }
-                            } ?>
+                            <span class="cz-rep-type"> <?= $tags_array[count($tags_array) - 1] ?></span>
                         </div>
                     </div>
                     <div class="col-lg-7 cz-rep-featured-body">
@@ -659,17 +656,13 @@
             </div>
             <div class="row fade-up-anim">
                 <?php foreach ($latest_reports  as $latest_report) {
-                    $tags_array = explode(",", $latest_report['tags']); ?>
+                    $tags_arrays = explode(",", $latest_report['tags']);
+                ?>
                     <div class="col-lg-4 col-md-6 cz-rep-col">
                         <div class="cz-rep-card">
                             <a href="<?= base_url('report/' . $latest_report['slug']) ?>" class="cz-rep-cover-1">
                                 <img src="<?= base_url('uploads/images/' .  $latest_report['image']) ?>" alt="Report cover">
-                                <?php if (count($tags_array) > 0) {
-                                    foreach ($tags_array as $tags) {
-                                ?>
-                                        <span class="cz-rep-type"> <?= $tags ?></span>
-                                <?php }
-                                } ?>
+                                <!-- <span class="cz-rep-type"> <?= $tags_arrays[0] ?></span> -->
                             </a>
                             <div class="cz-rep-body">
                                 <h4><a href="<?= base_url('report/' . $latest_report['slug']) ?>"><?= $latest_report['title'] ?></a></h4>

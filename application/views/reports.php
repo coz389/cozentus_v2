@@ -11,6 +11,48 @@ if (!empty($image)) {
 
     <div class="container">
         <div class="blog-item-box">
+            <div class="row">
+                <div class="col-md-8 mx-auto pagi-area text-center mb-4">
+                    <h2 class="wow fadeInUp  mb-4"><?= $title ?></h2>
+                    <?php
+                    if (($type != 6) &&  ($type != 7)) { ?>
+                        <div class="filter-container">
+                            <!-- <h3>
+                                Filter By
+                            </h3> -->
+                            <div class="row">
+                                <div class="col-lg-4 col-6 mb-3">
+                                    <div class="form-group">
+                                        <select id="services" class="form-control">
+                                            <option value="">All</option>
+                                            <?php if (!empty($services))
+                                                foreach ($services as $sv) {
+                                                    echo '<option value="' . $sv['serviceid'] . '">' . $sv['name'] . '</option>';
+                                                } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-6 mb-3">
+                                    <div class="form-group">
+                                        <select id="authors" class="form-control">
+                                            <option value="">Author</option>
+                                            <?php if (!empty($authors))
+                                                foreach ($authors as $sv) {
+                                                    echo '<option value="' . $sv['id'] . '">' . $sv['name'] . '</option>';
+                                                } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-12 mb-3">
+                                    <div class="form-group">
+                                        <input class="form-control" id="query" placeholder="Search here..." type="text">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php }  ?>
+                </div>
+            </div>
             <div class="row" id="blogs-list">
             </div>
         </div>
