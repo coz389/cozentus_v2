@@ -161,15 +161,18 @@
                         </div>
                     </div>
                     <!-- Google ReCAPTCHA -->
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <div class="g-recaptcha" data-sitekey="<?= $recaptcha_site_key ?>"></div>
                                 <span class="alert-error"></span>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <input type="hidden" name="service" value="<?= $pserv['card_heading'] ?>">
+                    <input type="hidden" name="parent_id" value="<?= $pserv['pserv'] ?>">
+                    <input type="hidden" name="path" value="<?= $this->uri->uri_string() ?>">
+                    <input type="hidden" name="type" value="<?= $type ?>">
                     <!-- Alert Message -->
                     <div class="col-lg-12 alert-notification mb-3" role="alert">
                         <div id="message" class="alert-msg text-danger"></div>
@@ -519,16 +522,16 @@
                                     <a href="<?= base_url('about') ?>">About</a>
                                 </li>
                                 <li>
-                                    <a href="<?= base_url('industries') ?>">Industries</a>
+                                    <a href="<?= base_url('contact') ?>">Contact Us</a>
                                 </li>
                                 <li>
-                                    <a href="<?= base_url('team') ?>">Our Team</a>
+                                    <a href="<?= base_url('book-free-consultation') ?>">Book a Meeting</a>
                                 </li>
                                 <li>
-                                    <a href="<?= base_url('blogs') ?>">Blogs</a>
+                                    <a href="<?= base_url('career') ?>">Career</a>
                                 </li>
                                 <li>
-                                    <a href="<?= base_url('news-and-events') ?>">News And Events</a>
+                                    <a href="<?= base_url('news-and-events') ?>">Events</a>
                                 </li>
                                 <li>
                                     <a href="<?= base_url('glossary-logistics-automation') ?>">Glossary</a>
@@ -541,17 +544,21 @@
                             <h4 class="widget-title">Insights</h4>
                             <ul>
                                 <li>
+                                    <a href="<?= base_url('blogs') ?>">Blogs</a>
+                                </li>
+                                <li>
                                     <a href="<?= base_url('case-studies') ?>">Case Studies</a>
                                 </li>
                                 <li>
-                                    <a href="<?= base_url('use-cases') ?>">Use Case</a>
+                                    <a href="<?= base_url('reports') ?>">Whitepaper</a>
                                 </li>
                                 <li>
-                                    <a href="<?= base_url('career') ?>">Career</a>
+                                    <a href="<?= base_url('podcast') ?>">Podcasts</a>
                                 </li>
                                 <li>
-                                    <a href="<?= base_url('contact') ?>">Contact</a>
+                                    <a href="<?= base_url('webinars') ?>">Webinars</a>
                                 </li>
+
                             </ul>
                         </div>
                         <!-- End Single Item -->
@@ -685,7 +692,7 @@
 <!-- <script defer src="<?= base_url('assets/custom/app.js?v=1.0') ?>"></script>
  <script defer src="<?= base_url('assets/custom/form.js?v=1.0') ?>"></script> -->
 
-<script defer src="<?= base_url('assets/custom/webinar-form.js') ?>"></script>
+<!-- <script defer src="<?= base_url('assets/custom/webinar-form.js') ?>"></script> -->
 
 
 

@@ -129,7 +129,7 @@
                     <div class="contact-stye-one col-lg-5 mb-md-50 mb-xs-50">
 
                         <div class="contact-style-one-info">
-                            <h2 class="split-text title">Get in touch with a transformation expert</h2>
+                            <h2 class="split-text title">Get In Touch With a Transformation Expert</h2>
                             <ul>
                                 <li class="wow fadeInUp">
                                     <div class="icon">
@@ -210,7 +210,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <select name="service" id="interested" class="form-control">
+                                            <select name="service" id="interested" class="form-select">
                                                 <option value="">Select Service</option>
                                                 <?php if (!empty($pservcont)) foreach ($pservcont as $ser) {
                                                     echo "<option value='" . $ser['name'] . "'>" . $ser['name'] . "</option>";
@@ -235,14 +235,18 @@
                                     </div>
                                 </div>
                                 <!-- Google ReCAPTCHA -->
-                                <div class="row">
+                                <!-- <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <div class="g-recaptcha" data-sitekey="<?= $recaptcha_site_key ?>"></div>
                                             <span class="alert-error"></span>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
+                                <input type="hidden" name="service" value="<?= $pserv['card_heading'] ?>">
+                                <input type="hidden" name="parent_id" value="<?= $pserv['pserv'] ?>">
+                                <input type="hidden" name="path" value="<?= $this->uri->uri_string() ?>">
+                                <input type="hidden" name="type" value="<?= $type ?>">
                                 <!-- Alert Message -->
                                 <div class="col-lg-12 alert-notification mb-3" role="alert">
                                     <div id="message" class="alert-msg text-danger"></div>
@@ -288,11 +292,11 @@
             <div class="row">
                 <div class="col-12">
                     <div class="contact-style-one-info">
-                        <h2 class="split-text title"> Locate us on <span>the Globe</span></h2>
+                        <h2 class="split-text title"> Locate Us On The Globe </h2>
                     </div>
                     <!-- Map Container -->
                     <div class="con-map mt-40">
-                        <div id="map" style="width: 100%; height: 450px; /*border-radius: 20px;*/ overflow: hidden;"></div>
+                        <div id="map" style="width: 100%; height: 450px; /*border-radius: 20px;*/ overflow: hidden;z-index: 0;"></div>
                     </div>
 
                     <!-- Address Cards -->
@@ -665,16 +669,16 @@
             }
 
             // 6. Validate Google ReCAPTCHA
-            const recaptchaDiv = document.querySelector(".g-recaptcha");
-            const recaptchaError = getErrorSpan(recaptchaDiv);
-            if (recaptchaError) {
-                if (typeof grecaptcha === "undefined" || grecaptcha.getResponse() === "") {
-                    recaptchaError.textContent = "Please complete the CAPTCHA.";
-                    isValid = false;
-                } else {
-                    recaptchaError.textContent = "";
-                }
-            }
+            // const recaptchaDiv = document.querySelector(".g-recaptcha");
+            // const recaptchaError = getErrorSpan(recaptchaDiv);
+            // if (recaptchaError) {
+            //     if (typeof grecaptcha === "undefined" || grecaptcha.getResponse() === "") {
+            //         recaptchaError.textContent = "Please complete the CAPTCHA.";
+            //         isValid = false;
+            //     } else {
+            //         recaptchaError.textContent = "";
+            //     }
+            // }
 
             // 7. Perform Submission if everything is valid
             if (isValid) {
@@ -709,9 +713,9 @@
                             // Display styled success alert
                             messageDiv.innerHTML = data.msg || '<p class="alert alert-success">Form Submitted Successfully!</p>';
                             form.reset();
-                            if (typeof grecaptcha !== "undefined") {
-                                grecaptcha.reset();
-                            }
+                            // if (typeof grecaptcha !== "undefined") {
+                            //     grecaptcha.reset();
+                            // }
                             // Remove validation classes
                             document.querySelectorAll(".form-control").forEach(el => el.classList.remove("valid", "error"));
 

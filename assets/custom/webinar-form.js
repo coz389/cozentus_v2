@@ -66,7 +66,7 @@ function formVal() {
                 var formData = new FormData(form);
 
                 // ✅ Attach fresh CSRF token for CI
-                formData.append(csrf_token_name, csrf_hash);
+                // formData.append(csrf_token_name, csrf_hash);
 
                 $.ajax({
                     type: "POST",

@@ -432,6 +432,10 @@
                         <input type="file" name="file" class="form-control">
                     </div>
                     <div class="form-group">
+                        <label>Image Gallery IDS (<small>1,2,3</small>)</label>
+                        <input type="text" class="form-control" id="image_gallery_ids" name="image_gallery_ids">
+                    </div>
+                    <div class="form-group">
                         <label>Page Head Script</label>
                         <textarea rows="4" class="form-control" name="page_header"></textarea>
                     </div>
@@ -470,7 +474,7 @@
         if (type != 1) {
             $(".sblog").addClass("d-none");
         }
-        if (type == 5) {
+        if (type == 5 || type == 2) {
             $(".reports").removeClass("d-none");
         }
     })

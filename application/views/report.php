@@ -498,7 +498,7 @@
     /* responsive */
     @media (max-width: 991px) {
         .cz-rep-intro-title {
-            font-size: 32px;
+            font-size: 24px;
         }
 
         .cz-rep-stats {
@@ -552,6 +552,7 @@
     .cz-rep-featured-body ul,
     .cz-rep-featured-body li {
         list-style: disc !important;
+        margin-left: 10px;
     }
 
     .btn i {
@@ -694,13 +695,12 @@
                 <div class="row align-center">
                     <div class="col-lg-6 cz-rep-download-info">
                         <span class="cz-rep-eyebrow">Free download</span>
-                        <h2>Get the full report in your inbox</h2>
-                        <p>Enter your details and we'll send the PDF straight over. No spam — just practical
-                            research you can share with your team.</p>
+                        <h2>Get the full whitepaper</h2>
+                        <p>Enter your details and we’ll send the PDF straight to your inbox. No sales chase — just practical, research-backed insight you can act on and share with your team.</p>
                         <ul class="cz-rep-download-points">
-                            <li><i class="fas fa-check"></i> Instant access to the complete PDF</li>
-                            <li><i class="fas fa-check"></i> Free to share across your organisation</li>
-                            <li><i class="fas fa-check"></i> Written by practitioners, not marketers</li>
+                            <li><i class="fas fa-check"></i> The complete report, delivered instantly</li>
+                            <li><i class="fas fa-check"></i> Yours to share across your organisation</li>
+                            <li><i class="fas fa-check"></i> Grounded in real logistics expertise, not marketing</li>
                         </ul>
                     </div>
                     <div class="col-lg-5 offset-lg-1">
@@ -735,14 +735,18 @@
                                 </div>
                             </div>
                             <!-- Google ReCAPTCHA -->
-                            <div class="row">
+                            <!-- <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <div class="g-recaptcha" data-sitekey="<?= $recaptcha_site_key ?>"></div>
                                         <span class="alert-error"></span>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
+                            <input type="hidden" name="service" value="<?= $pserv['card_heading'] ?>">
+                            <input type="hidden" name="parent_id" value="<?= $pserv['pserv'] ?>">
+                            <input type="hidden" name="path" value="<?= $this->uri->uri_string() ?>">
+                            <input type="hidden" name="type" value="<?= $type ?>">
                             <!-- Alert Message -->
                             <div class="col-lg-12 alert-notification mb-3" role="alert">
                                 <div id="message" class="alert-msg text-danger"></div>
@@ -771,10 +775,10 @@
                                 your business. Let's talk about where the biggest gains are hiding.
                             </p>
                             <div class="cta-buttons">
-                                <a class="btn btn-style-one btn-border mb-2" href="contact-us.html">
+                                <a class="btn btn-style-one btn-border mb-2" href="<?= base_url('book-free-consultation') ?>">
                                     Book a Meeting <i class="fas fa-arrow-right"></i>
                                 </a>
-                                <a class="btn btn-style-one mb-2" href="contact-us.html">
+                                <a class="btn btn-style-one mb-2" href="<?= base_url('contact') ?>">
                                     Talk to an Expert <i class="fas fa-arrow-right"></i>
                                 </a>
                             </div>
@@ -921,9 +925,9 @@
                             // Display styled success alert
                             messageDiv.innerHTML = data.msg || '<p class="alert alert-success">Form Submitted Successfully!</p>';
                             form.reset();
-                            if (typeof grecaptcha !== "undefined") {
-                                grecaptcha.reset();
-                            }
+                            // if (typeof grecaptcha !== "undefined") {
+                            //     grecaptcha.reset();
+                            // }
                             // Remove validation classes
                             document.querySelectorAll(".form-control").forEach(el => el.classList.remove("valid", "error"));
 

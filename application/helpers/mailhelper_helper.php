@@ -317,6 +317,35 @@ function validateEmail($email, $blocked_tlds = ['xyz'], $blocked_domains = ['xyz
 }
 
 
+/**
+ * Pull the 11-char YouTube video ID out of whatever the CMS stored in `blogs.video`:
+ * a plain watch/short/embed URL, or a full <iframe> embed snippet (with or without
+ * protocol, with or without ?si= tracking params).
+ * Returns '' when nothing usable is found.
+ */
+function get_youtube_id($raw)
+{
+    if (empty($raw) || !is_string($raw)) {
+        return '';
+    }
+
+    // The editor stores HTML-encoded markup sometimes; decode before matching.
+    $raw = urldecode(html_entity_decode($raw, ENT_QUOTES, 'UTF-8'));
+
+    $pattern = '~(?:youtu\.be/|youtube(?:-nocookie)?\.com/(?:watch\?(?:.*&)?v=|embed/|shorts/|live/|v/))([A-Za-z0-9_-]{11})~i';
+
+    if (preg_match($pattern, $raw, $m)) {
+        return $m[1];
+    }
+
+    // Bare ID stored on its own.
+    if (preg_match('~^[A-Za-z0-9_-]{11}$~', trim($raw))) {
+        return trim($raw);
+    }
+
+    return '';
+}
+
 function get_youtube_duration($videoId)
 {
     if (empty($videoId)) {

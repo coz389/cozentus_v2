@@ -356,6 +356,8 @@ $banner2 = base_url('assets/img/shape/banner-9.jpg');
 
         .cz-cs-text {
             padding: 30px 0 0;
+            padding-right: calc(var(--bs-gutter-x) * .5);
+            padding-left: calc(var(--bs-gutter-x) * .5);
         }
 
         .cz-glance-title {

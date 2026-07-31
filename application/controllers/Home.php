@@ -711,6 +711,8 @@ class Home extends CI_Controller
             $this->load->view('common/header', $data);
             if ($data['pserv']['is_webinar'] == 1) {
                 $this->load->view('webinar');
+            } else if ($data['pserv']['type'] == 2) {
+                $this->load->view('news_event');
             } elseif ($data['pserv']['type'] == 3 && $data['pserv']['ctype'] == 0) {
                 $this->load->view('use-case-new', $data);
             } elseif ($data['pserv']['type'] == 7 && $data['pserv']['ctype'] == 0) {
@@ -1288,7 +1290,7 @@ class Home extends CI_Controller
 
     function insertcontact()
     {
-
+        /*
         if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])) {
             $secret_key  = $this->config->item('recaptcha_secret_key');
             $verify_response = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $secret_key . '&response=' . $_POST['g-recaptcha-response']);
@@ -1304,7 +1306,8 @@ class Home extends CI_Controller
             $res['msg'] = 'Captcha response not provided';
             $res['status'] = false;
         }
-
+        */
+        $res['status'] = true;
         if ($res['status']) {
             // $data['name'] = $this->input->post('fname') . ' ' . $this->input->post('lname');
             $data['name'] = $this->input->post('name');
@@ -1364,7 +1367,8 @@ class Home extends CI_Controller
                     } else {
                         $sub = "New Enquiry Received";
                     }
-                    $message = sendEmailOAuth2('gavin@cozentus.com', $sub, $msg, ['david@cozentus.com', 'supplychain@cozentus.com', 'alok.jena@cozentus.com']);
+                    // $message = sendEmailOAuth2('gavin@cozentus.com', $sub, $msg, ['david@cozentus.com', 'supplychain@cozentus.com', 'alok.jena@cozentus.com']);
+                    $message = sendEmailOAuth2('sushantakumar.patra@cozentus.com', $sub, $msg, ['alok.jena@cozentus.com']);
                     $msg2 = "<table>
 							<tr><td>Hi, " . $data['name'] . "</td></tr>
 							<tr><td>We appreciate your interest in Cozentus. </td></tr>
@@ -1409,7 +1413,8 @@ class Home extends CI_Controller
         }*/
         $res['status'] = true;
         if ($res['status']) {
-            $data['name'] = $this->input->post('fname') . ' ' . $this->input->post('lname');
+            // $data['name'] = $this->input->post('fname') . ' ' . $this->input->post('lname');
+            $data['name'] = $this->input->post('name');
             $data['email'] = $this->input->post('email');
             $data['phone'] = $this->input->post('phone');
             //$data['interest'] = $this->input->post('service');
@@ -1420,16 +1425,18 @@ class Home extends CI_Controller
             $this->db->insert('contact_master', $data);
             if ($this->db->affected_rows() > 0) {
                 $msg = "<table>
-			<tr><th>Name : <th><td>" . $data['name'] . "</td></tr>
-			<tr><th>Email : <th><td>" . $data['email'] . "</td></tr>
-			<tr><th>Phone : <th><td>" . $data['phone'] . "</td></tr>
-			<tr><th>Area of Interest : <th><td>" . $data['interest'] . "</td></tr>
-			<tr><th>Organization : <th><td>" . $data['company'] . "</td></tr>
-			<tr><th>Emplyees : <th><td>" . $data['employees'] . "</td></tr>
-			</table>";
+                    <tr><th>Name : <th><td>" . $data['name'] . "</td></tr>
+                    <tr><th>Email : <th><td>" . $data['email'] . "</td></tr>
+                    <tr><th>Area of Interest : <th><td>" . $data['interest'] . "</td></tr>
+                </table>";
                 $sub = "New Enquiry Received";
-                $this->sendEmail('supplychain@cozentus.com', $msg, $sub);
-                $this->sendEmail($data['email'], ['topic' => $data['interest'], 'name' => $data['name']], "Your Enquiry Request Received", true);
+                // $message1 = sendEmailOAuth('supplychain@cozentus.com', $sub, $msg);
+                $message1 = sendEmailOAuth('alok.jena@cozentus.com', $sub, $msg);
+                $msg2 = "<table>
+                    <tr><th>topic : <th><td>" . $data['interest'] . "</td></tr>
+                    <tr><th>Name : <th><td>" . $data['name'] . "</td></tr>             
+                </table>";
+                $message2 = sendEmailOAuth($data['email'], "Your Enquiry Request Received", $msg2);
                 $res['status'] = true;
                 $res['msg'] = '<p class="alert alert-success">Form Submitted</p>';
             } else {

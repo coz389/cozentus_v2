@@ -638,7 +638,7 @@
                                 <a class="btn btn-style-one btn-border mb-2" href="https://www.youtube.com/@cozentus" target="_blank">
                                     Subscribe on YouTube <i class="fab fa-youtube"></i>
                                 </a>
-                                <a class="btn btn-style-one mb-2" href="contact-us.html">
+                                <a class="btn btn-style-one mb-2" href="<?= base_url('contact') ?>">
                                     Be a Guest <i class="fas fa-arrow-right"></i>
                                 </a>
                             </div>

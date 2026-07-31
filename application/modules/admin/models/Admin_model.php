@@ -732,6 +732,7 @@ class Admin_model extends CI_Model
         $this->db->from('images_master i');
         $this->db->join('gallery_logo_master gm', 'gm.imageid=i.id');
         $this->db->where('gm.type', $type);
+        $this->db->order_by('i.id', 'desc');
         $qry = $this->db->get();
         if ($qry->num_rows() > 0) {
             return $qry->result_array();

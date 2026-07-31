@@ -391,20 +391,20 @@
                                                     </div>
                                                     <div class="social-overlay">
                                                         <ul>
-                                                            <li>
+                                                            <!-- <li>
                                                                 <a href="<?= urldecode($team['twitter_link']) ?? '#' ?>" target="__blank">
                                                                     <i class="fab fa-twitter"></i>
                                                                 </a>
-                                                            </li>
+                                                            </li> -->
                                                             <li>
                                                                 <a href="<?= urldecode($team['link']) ?? '#' ?>" target="__blank"><i class="fab fa-linkedin-in"></i></a>
                                                             </li>
-                                                            <li>
+                                                            <!-- <li>
                                                                 <a href="<?= urldecode($team['insta_link']) ?? '#' ?>" target="__blank"><i class="fab fa-instagram"></i></a>
                                                             </li>
                                                             <li>
                                                                 <a href="<?= urldecode($team['facebook_link']) ?? '#' ?>" target="__blank"><i class="fab fa-facebook-f"></i></a>
-                                                            </li>
+                                                            </li> -->
                                                         </ul>
                                                         <div class="icon">
                                                             <i class="fas fa-plus"></i>

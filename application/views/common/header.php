@@ -312,10 +312,9 @@
                                             <div class="col-menu">
                                                 <!-- <h4>Homepage Light</h4> -->
                                                 <ul class="menu-col">
-                                                    <li><a href="<?= base_url('case-studies') ?>">Success Stories</a></li>
-                                                    <!-- <li><a href="<?= base_url('use-cases') ?>">Use Cases</a></li> -->
-                                                    <li><a href="<?= base_url('reports') ?>">Reports, ebooks and Guides</a></li>
-
+                                                    <li><a href="<?= base_url('case-studies') ?>">Case Studies</a></li>
+                                                    <li><a href="<?= base_url('reports') ?>">Whitepaper</a></li>
+                                                    <li><a href="<?= base_url('news-and-events') ?>">Events</a></li>
                                                 </ul>
                                             </div>
                                         </div>

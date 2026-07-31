@@ -1,6 +1,6 @@
 <!-- Start Breadcrumb 
 ============================================= -->
-<div class="breadcrumb-area text-center bg-cover text-dark bg-theme" style="background-image: url(<?= base_url('assets/img/shape/banner-16.jpg') ?>);">
+<!-- <div class="breadcrumb-area text-center bg-cover text-dark bg-theme" style="background-image: url(<?= base_url('assets/img/shape/banner-16.jpg') ?>);">
     <div class="container mt-5">
         <div class="row">
             <div class="col-lg-10 mx-auto">
@@ -8,7 +8,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- End Breadcrumb -->
 <div id="smooth-content">
     <div class="about-style-two-area default-padding-2">

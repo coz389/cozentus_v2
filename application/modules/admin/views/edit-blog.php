@@ -312,7 +312,7 @@
                             </div>
                             <hr>
                             <!-- Report New Section Start -->
-                            <?php if ($type == 5) {  ?>
+                            <?php if ($type == 5 || $type == 2) {  ?>
                                 <div class="New Section">
                                     <h5>New Section(Top)</h5>
                                     <hr>
@@ -335,8 +335,8 @@
                                         <textarea class="form-control multiple-op" name="new_podcast_desc" rows="4"><?= $new_podcast_desc ?></textarea>
                                     </div>
                                     <?php
-                                    if (!empty($new_podcast_extra)) {
-                                        $new_podcast_extra_array = json_decode($new_podcast_extra ?? []);
+                                    $new_podcast_extra_array = !empty($new_podcast_extra) ? json_decode($new_podcast_extra) : [];
+                                    if (count($new_podcast_extra_array) > 0) {
                                         $i = 0;
                                         foreach ($new_podcast_extra_array as  $new_podcast_extra) {
                                             $i++;
@@ -472,12 +472,15 @@
                             <input type="hidden" name="id" value="<?= $id ?>">
                             <input type="hidden" name="type" value="<?= $type ?>">
                             <input type="hidden" name="download_exist" value="<?= $download ?>">
-                            <div class="form-group <?= $type == 3 ? '' : 'd-none' ?>">
+                            <div class="form-group">
                                 <label>Upload Pdf</label>
                                 <input type="file" name="file" class="form-control">
                                 <span><?= $download ?> file exist</span>
                             </div>
-
+                            <div class="form-group">
+                                <label>Image Gallery IDS (<small>1,2,3</small>)</label>
+                                <input type="text" class="form-control" id="image_gallery_ids" name="image_gallery_ids" value="<?= implode(",", json_decode($image_gallery_ids) ?? []) ?>">
+                            </div>
                             <div class="form-group">
                                 <label>Page Head Script</label>
                                 <textarea rows="4" class="form-control" name="page_header"><?= html_entity_decode($page_header) ?></textarea>

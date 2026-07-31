@@ -472,34 +472,47 @@ if ($this->session->userdata('interest') != 'Webinar') { ?>
                 <h2>Request On-demand Webinar</h2>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form data-form="insertWebinarcontact" class="contact-form mt-40 webinar">
+            <form data-form="insertWebinarcontact" id="contactForm" class="contact-form mt-40 webinar">
                 <div class="modal-body">
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Name" aria-label="Name" name="fname" required>
+                            <div class="form-group">
+                                <input class="form-control" id="name" name="name" placeholder="Name" type="text">
+                                <span class="alert-error"></span>
+                            </div>
+
                         </div>
                         <div class="col">
-                            <input type="email" class="form-control" placeholder=" Work Email Address" aria-label="Email" required>
+                            <div class="form-group">
+                                <input class="form-control" id="email" name="email" placeholder="Email" type="email">
+                                <span class="alert-error"></span>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-12">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck" name="privacy_policy">
-                            <label class=" form-check-label" for="gridCheck">
-                                I agree to the Cozentus Privacy Policy (<a href="<?= base_url('privacy-statement') ?>">Privacy Statement</a>)
-                            </label>
+                    <div class="col-12 mt-4">
+                        <div class="form-group">
+                            <input type="checkbox" name="privacy_policy" id="agree">
+                            <label for="agree">&nbsp;&nbsp;I agree to the
+                                Cozentus Privacy Policy (<a
+                                    href="<?= base_url('privacy-statement') ?>">Privacy
+                                    Statement</a>)</label>
+                            <br>
+                            <span class="alert-error"></span>
                         </div>
                     </div>
 
                     <input type="hidden" name="service" value="Webinar" />
-                    <div class="g-recaptcha" data-sitekey="<?php echo $recaptcha_site_key; ?>"></div>
+                    <!-- <div class="g-recaptcha" data-sitekey="<?php echo $recaptcha_site_key; ?>"></div> -->
                     <input type="hidden" name="path" value="<?= $this->uri->uri_string() ?>">
                     <input type="hidden" name="type" value="<?= $type ?>">
-
+                    <!-- Alert Message -->
+                    <div class="col-lg-12 alert-notification mb-3" role="alert">
+                        <div id="message" class="alert-msg text-danger"></div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="sbt-btn"><?= $type == 3 ? "Submit" : "Submit" ?></button>
+                    <button class="btn btn-primary" type="submit" id="submitBtn"><?= $type == 3 ? "Submit" : "Submit" ?></button>
                 </div>
             </form>
         </div>
@@ -551,67 +564,81 @@ if ($this->session->userdata('interest') != 'Webinar') { ?>
         ============================================= -->
 
     <?php
-    $latest_podcasts = $this->db->where('type', $pserv['type'])
-        ->where('slug !=', $pserv['slug'])
-        ->order_by('posted', 'DESC')
-        ->limit(3)
-        ->get('blogs')
-        ->result_array();
-    // print_r($latest_podcasts);
+    $latest_podcasts = array();
+    if (!empty($pserv['type']) && !empty($pserv['slug'])) {
+        $latest_podcasts = $this->db->where('type', $pserv['type'])
+            ->where('slug !=', $pserv['slug'])
+            ->order_by('posted', 'DESC')
+            ->limit(3)
+            ->get('blogs')
+            ->result_array();
+    }
     ?>
-    <div class="cz-pod-list default-padding-2">
-        <div class="container">
+    <?php if (!empty($latest_podcasts)) { ?>
+        <div class="cz-pod-list default-padding-2">
+            <div class="container">
 
-            <div class="cz-pod-list-head">
-                <h2 class="cz-pod-h2">Latest Webinar</h2>
-            </div>
+                <div class="cz-pod-list-head">
+                    <h2 class="cz-pod-h2">Latest Webinar</h2>
+                </div>
 
-            <div class="row fade-up-anim">
-                <!-- 1 -->
-                <?php foreach ($latest_podcasts  as $latest_podcast) { ?>
-                    <div class="col-lg-4 col-md-6 cz-pod-col" data-category="ai-data">
-                        <div class="cz-pod-card">
-                            <?php
-                            if (!empty($latest_podcast['video'])) {
-                                // Extract YouTube video ID
-                                $videoUrl = urldecode($latest_podcast['video']);
-                                $videoId = '';
-                                if (preg_match('/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|v\/))([^\&\?\/]+)/', $videoUrl, $matches)) {
-                                    $videoId = $matches[1];
-                                }
-                                $videoDuration2 = get_youtube_duration($videoId);
-                            ?>
+                <div class="row fade-up-anim">
+                    <?php foreach ($latest_podcasts as $latest_podcast) {
+                        // `video` may hold a plain URL or a full <iframe> embed - only a clean ID is usable.
+                        $videoId = get_youtube_id(isset($latest_podcast['video']) ? $latest_podcast['video'] : '');
+                        $watchUrl = $videoId ? 'https://www.youtube.com/watch?v=' . $videoId : '';
+                        $videoDuration2 = $videoId ? get_youtube_duration($videoId) : '';
 
-                                <!-- YouTube thumbnail: swap the ID in both the img src and the href -->
-                                <a href="<?= !empty($videoId) ? 'https://www.youtube.com/watch?v=' . $videoId : urldecode($latest_podcast['video']) ?>" class="popup-youtube cz-pod-thumb cz-pod-thumb-lg">
-                                    <img src="https://img.youtube.com/vi/<?= $videoId ?>/hqdefault.jpg"
-                                        alt="Building an AI-ready supply chain data foundation">
-                                    <span class="cz-pod-play"><i class="fas fa-play"></i></span>
-                                    <span class="cz-pod-duration"><?= $videoDuration2 ?></span>
-                                </a>
-                            <?php } ?>
-                            <div class="cz-pod-body">
-                                <span class="cz-pod-meta"> <?= date('F d, Y', strtotime($latest_podcast['posted'])) ?></span>
-                                <h4>
-                                    <a href="<?= base_url('podcast/' . $latest_podcast['slug']) ?>">
-                                        <?= $latest_podcast['title'] ?>
+                        $postedTs = !empty($latest_podcast['posted']) ? strtotime($latest_podcast['posted']) : false;
+                        $excerptWords = preg_split('/\s+/', trim(strip_tags(html_entity_decode(isset($latest_podcast['content']) ? $latest_podcast['content'] : ''))), -1, PREG_SPLIT_NO_EMPTY);
+                        $excerpt = !empty($excerptWords) ? implode(' ', array_slice($excerptWords, 0, 10)) . '...' : '';
+                    ?>
+                        <div class="col-lg-4 col-md-6 cz-pod-col" data-category="ai-data">
+                            <div class="cz-pod-card">
+                                <?php if ($videoId) { ?>
+                                    <!-- YouTube thumbnail: swap the ID in both the img src and the href -->
+                                    <a href="<?= html_escape($watchUrl) ?>"
+                                        class="popup-youtube cz-pod-thumb cz-pod-thumb-lg">
+                                        <img src="https://img.youtube.com/vi/<?= html_escape($videoId) ?>/hqdefault.jpg"
+                                            alt="<?= html_escape(isset($latest_podcast['title']) ? $latest_podcast['title'] : 'Webinar') ?>">
+                                        <span class="cz-pod-play"><i class="fas fa-play"></i></span>
+                                        <?php if ($videoDuration2) { ?>
+                                            <span class="cz-pod-duration"><?= html_escape($videoDuration2) ?></span>
+                                        <?php } ?>
                                     </a>
-                                </h4>
-                                <p><?= implode(' ', array_slice(preg_split('/\s+/', trim(strip_tags(html_entity_decode($latest_podcast['content'])))), 0, 10)) . '...'; ?></p>
-                                <a href="<?= !empty($videoId) ? 'https://www.youtube.com/watch?v=' . $videoId : urldecode($latest_podcast['video']) ?>" class="cz-pod-link popup-youtube">Watch
-                                    now <i class="fas fa-arrow-right"></i></a>
+                                <?php } ?>
+                                <div class="cz-pod-body">
+                                    <?php if ($postedTs) { ?>
+                                        <span class="cz-pod-meta"><?= date('F d, Y', $postedTs) ?></span>
+                                    <?php } ?>
+                                    <h4>
+                                        <a href="<?= base_url('podcast/' . (isset($latest_podcast['slug']) ? $latest_podcast['slug'] : '')) ?>">
+                                            <?= html_escape(isset($latest_podcast['title']) ? $latest_podcast['title'] : '') ?>
+                                        </a>
+                                    </h4>
+                                    <?php if ($excerpt) { ?>
+                                        <p><?= html_escape($excerpt) ?></p>
+                                    <?php } ?>
+                                    <?php if ($videoId) { ?>
+                                        <a href="<?= html_escape($watchUrl) ?>" class="cz-pod-link popup-youtube">Watch
+                                            now <i class="fas fa-arrow-right"></i></a>
+                                    <?php } else { ?>
+                                        <a href="<?= base_url('podcast/' . (isset($latest_podcast['slug']) ? $latest_podcast['slug'] : '')) ?>" class="cz-pod-link">Read
+                                            more <i class="fas fa-arrow-right"></i></a>
+                                    <?php } ?>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                <?php } ?>
+                    <?php } ?>
+                </div>
+
+                <!-- <div class="cz-pod-more">
+                    <a href="#" class="btn btn-style-one btn-border">Load more episodes <i class="fas fa-arrow-right"></i></a>
+                </div> -->
+
             </div>
-
-            <!-- <div class="cz-pod-more">
-                <a href="#" class="btn btn-style-one btn-border">Load more episodes <i class="fas fa-arrow-right"></i></a>
-            </div> -->
-
         </div>
-    </div>
+    <?php } ?>
     <!-- End All episodes -->
 
     <!-- Call to Action
@@ -631,7 +658,7 @@ if ($this->session->userdata('interest') != 'Webinar') { ?>
                                 <a class="btn btn-style-one btn-border mb-2" href="https://www.youtube.com/@cozentus" target="_blank">
                                     Subscribe on YouTube <i class="fab fa-youtube"></i>
                                 </a>
-                                <a class="btn btn-style-one mb-2" href="contact-us.html">
+                                <a class="btn btn-style-one mb-2" href="<?= base_url('contact') ?>">
                                     Be a Guest <i class="fas fa-arrow-right"></i>
                                 </a>
                             </div>
@@ -644,3 +671,152 @@ if ($this->session->userdata('interest') != 'Webinar') { ?>
     <!-- End Call to Action -->
 
 </div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("contactForm");
+        // Helper to grab the error span relative to the form group
+        const getErrorSpan = (element) => {
+            if (!element) return null;
+            const group = element.closest(".form-group");
+            return group ? group.querySelector(".alert-error") : null;
+        };
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+
+            let isValid = true;
+
+            // 1. Validate Name
+            const nameInput = document.getElementById("name");
+            const nameError = getErrorSpan(nameInput);
+            if (nameError) {
+                if (nameInput.value.trim().length < 3) {
+                    nameError.textContent = "Please Enter Name";
+                    nameInput.classList.add("error");
+                    nameInput.classList.remove("valid");
+                    isValid = false;
+                } else {
+                    nameError.textContent = "";
+                    nameInput.classList.remove("error");
+                    nameInput.classList.add("valid");
+                }
+            }
+
+            // 2. Validate Email
+            const emailInput = document.getElementById("email");
+            const emailError = getErrorSpan(emailInput);
+            if (emailError) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                const emailValue = emailInput.value.trim();
+                if (!emailRegex.test(emailValue)) {
+                    emailError.textContent = "Please enter a valid email address.";
+                    emailInput.classList.add("error");
+                    emailInput.classList.remove("valid");
+                    isValid = false;
+                } else {
+                    // Pre-check for blocked domains to give instant corporate email feedback
+                    const domain = emailValue.split("@")[1]?.toLowerCase();
+                    const blockedDomains = ["gmail.com", "gmail.in", "gmail.net", "gmail.org", "gmail.info", "gmail.edu", "yahoo.com", "outlook.com", "aol.com", "icloud.com", "zoho.com", "protonmail.com", "mail.com", "gmx.com", "yandex.com"];
+                    if (blockedDomains.includes(domain)) {
+                        emailError.textContent = "Please enter a business or corporate email address.";
+                        emailInput.classList.add("error");
+                        emailInput.classList.remove("valid");
+                        isValid = false;
+                    } else {
+                        emailError.textContent = "";
+                        emailInput.classList.remove("error");
+                        emailInput.classList.add("valid");
+                    }
+                }
+            }
+
+            // 5. Validate Privacy Checkbox
+            const agreeInput = document.getElementById("agree");
+            const agreeError = getErrorSpan(agreeInput);
+            if (agreeError) {
+                if (!agreeInput.checked) {
+                    agreeError.textContent = "You must agree to the privacy policy.";
+                    isValid = false;
+                } else {
+                    agreeError.textContent = "";
+                }
+            }
+
+            // 6. Validate Google ReCAPTCHA
+            // const recaptchaDiv = document.querySelector(".g-recaptcha");
+            // const recaptchaError = getErrorSpan(recaptchaDiv);
+            // if (recaptchaError) {
+            //     if (typeof grecaptcha === "undefined" || grecaptcha.getResponse() === "") {
+            //         recaptchaError.textContent = "Please complete the CAPTCHA.";
+            //         isValid = false;
+            //     } else {
+            //         recaptchaError.textContent = "";
+            //     }
+            // }
+
+            // 7. Perform Submission if everything is valid
+            if (isValid) {
+                const formData = new FormData(form);
+                const submitBtn = document.getElementById("submitBtn");
+                const messageDiv = document.getElementById("message");
+                // Build absolute destination URL: base_url + data-form
+                const contextUrl = typeof site_url !== "undefined" ? site_url : (typeof base_url !== "undefined" ? base_url : "/");
+                const actionEndpoint = contextUrl + form.dataset.form;
+
+                submitBtn.disabled = true;
+                const originalBtnHtml = submitBtn.innerHTML;
+                submitBtn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
+                messageDiv.innerHTML = "";
+
+                fetch(actionEndpoint, {
+                        method: "POST",
+                        body: formData
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("Network response was not ok");
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnHtml;
+
+                        if (data.status) {
+                            // Display styled success alert
+                            messageDiv.innerHTML = data.msg || '<p class="alert alert-success">Form Submitted Successfully!</p>';
+                            form.reset();
+                            // if (typeof grecaptcha !== "undefined") {
+                            //     grecaptcha.reset();
+                            // }
+                            // Remove validation classes
+                            document.querySelectorAll(".form-control").forEach(el => el.classList.remove("valid", "error"));
+
+
+                            // Reload the page after a short delay so user can read the message
+                            setTimeout(() => {
+                                window.location.reload();
+                            }, 1500);
+
+                            // Redirect after short delay so user can read message
+                            // setTimeout(() => {
+                            //     window.location.href = contextUrl + "thankyou";
+                            // }, 1500);
+                        } else {
+                            // Display server validation error
+                            messageDiv.innerHTML = data.msg || '<p class="alert alert-warning">Please correct the inputs and try again.</p>';
+                        }
+                    })
+                    .catch(error => {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnHtml;
+                        messageDiv.innerHTML = '<p class="alert alert-danger">An error occurred during submission. Please try again.</p>';
+                        console.error("Error submitting form:", error);
+                    });
+            }
+        });
+    });
+</script>

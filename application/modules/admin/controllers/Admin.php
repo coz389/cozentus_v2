@@ -1864,6 +1864,7 @@ class Admin extends MX_Controller
         if (!$downloadfile) {
             $downloadfile = $this->input->post('download_exist') ?? '';
         }
+        $image_gallery_ids = $this->input->post('image_gallery_ids');
         $data = array(
             'title' => $title,
             'sheading' => $sheading,
@@ -1928,6 +1929,7 @@ class Admin extends MX_Controller
             'new_podcast_title' => $new_podcast_title,
             'new_podcast_desc' => $new_podcast_desc,
             'new_podcast_extra' => $new_podcast_extra_dtArr,
+            "image_gallery_ids" => json_encode(explode(",", $image_gallery_ids)),
         );
         // echo print_r($data);
         // exit;
