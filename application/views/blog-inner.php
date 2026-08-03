@@ -1,7 +1,7 @@
 <!-- Start Breadcrumb 
 ============================================= -->
 <div class="breadcrumb-area text-center bg-cover text-dark bg-theme" style="background-image: url(<?= base_url('assets/img/shape/banner-16.jpg') ?>);">
-    <div class="container" style="margin-top: 108px;">
+    <div class="container my-container">
         <div class="row">
             <div class="col-lg-10 mx-auto">
                 <h1><?= $title ?></h1>
@@ -116,7 +116,7 @@
                                                 <div class="blog-one-meta">
                                                     <ul>
                                                         <li>
-                                                            <?= date('F d, Y', strtotime($blog['posted'])) ?>
+                                                            <?= date('F d, Y', strtotime($blog['created_at'])) ?>
                                                         </li>
                                                     </ul>
                                                 </div>

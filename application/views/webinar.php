@@ -574,7 +574,7 @@ if ($this->session->userdata('interest') != 'Webinar') { ?>
             ->result_array();
     }
     ?>
-    <?php if (!empty($latest_podcasts)) { ?>
+    <?php if (count($latest_podcasts) > 0) { ?>
         <div class="cz-pod-list default-padding-2">
             <div class="container">
 
@@ -589,7 +589,7 @@ if ($this->session->userdata('interest') != 'Webinar') { ?>
                         $watchUrl = $videoId ? 'https://www.youtube.com/watch?v=' . $videoId : '';
                         $videoDuration2 = $videoId ? get_youtube_duration($videoId) : '';
 
-                        $postedTs = !empty($latest_podcast['posted']) ? strtotime($latest_podcast['posted']) : false;
+                        $postedTs = !empty($latest_podcast['created_at']) ? strtotime($latest_podcast['created_at']) : false;
                         $excerptWords = preg_split('/\s+/', trim(strip_tags(html_entity_decode(isset($latest_podcast['content']) ? $latest_podcast['content'] : ''))), -1, PREG_SPLIT_NO_EMPTY);
                         $excerpt = !empty($excerptWords) ? implode(' ', array_slice($excerptWords, 0, 10)) . '...' : '';
                     ?>

@@ -718,7 +718,7 @@ $banner2 = base_url('assets/img/shape/banner-9.jpg');
                                         <div class="blog-one-meta">
                                             <ul>
                                                 <li>
-                                                    <?= date('F d, Y', strtotime($cs['posted'])) ?>
+                                                    <?= date('F d, Y', strtotime($cs['created_at'])) ?>
                                                 </li>
                                             </ul>
                                         </div>

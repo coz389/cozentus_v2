@@ -51,7 +51,7 @@
             </div>
         </div>
     </div>
-    <div class="about-style-two-area default-padding-2 " style="background: url(<?= base_url('assets/img/shape/banner-4.jpg') ?>);">
+    <div class="about-style-two-area default-padding-2 " style="background: url(<?= base_url('assets/img/shape/banner-19.jpg') ?>);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">

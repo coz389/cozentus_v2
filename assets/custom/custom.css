@@ -1174,6 +1174,9 @@ select.valid {
         margin: auto;
     }
 }
+.breadcrumb-area .container {
+    margin-top: 108px !important;
+}
 @media (min-width: 1600px) {
     .breadcrumb-area {
         max-width: 100%;
@@ -1186,17 +1189,382 @@ select.valid {
         padding-top: 50px;
     }
 }
+
+/* Portrait and Landscape (1024x1366) */
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+    h1 {
+        font-size: 30px;
+        font-weight: 600;
+    }
+    h2 {
+        font-size: 28px;
+        font-weight: 600;
+    }
+    h3 {
+        font-size: 24px;
+        font-weight: 600;
+    }
+    h4 {
+        font-size: 22px;
+        font-weight: 500;
+    }
+    h5 {
+        font-size: 20px;
+        font-weight: 400;
+    }
+    p {
+        font-size: 15px;
+        font-weight: 400;
+    }
+    .default-padding {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    .banner-box {
+        position: relative;
+        overflow: hidden;
+        display: block;
+        width: 100%;
+        height: 45vh;
+    }
+    .banner-content-left {
+        position: absolute;
+        top: 60%;
+        left: 35%;
+        transform: translate(-50%, -50%);
+        width: 950px;
+        height: 400px;
+        border-radius: 12px;
+        padding: 40px 45px;
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        z-index: 2;
+        animation: bannerFadeUp 0.8s ease both;
+    }
+    .banner-content {
+        position: absolute;
+        top: 50%;
+        left: 45%;
+        transform: translate(-50%, -50%);
+        width: 950px;
+        height: 400px;
+        border-radius: 12px;
+        padding: 40px 45px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        z-index: 2;
+        animation: bannerFadeUp 0.8s ease both;
+    }
+    .banner-content-left h1 {
+        line-height: 1.2;
+        font-family: "Sora", sans-serif;
+        letter-spacing: 0;
+        margin: 0;
+        margin-bottom: 15px;
+        font-weight: 500;
+        color: #ffffff;
+        font-size: 40px;
+        text-align: left;
+    }
+    .banner-content-left p {
+        font-size: 18px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.85);
+        line-height: 1.7;
+        margin-bottom: 0;
+        text-align: left;
+    }
+
+    .banner-content h1 {
+        line-height: 1.2;
+        font-family: "Sora", sans-serif;
+        letter-spacing: 0;
+        margin: 0;
+        margin-bottom: 15px;
+        font-weight: 500;
+        color: #ffffff;
+        font-size: 40px;
+        text-align: center;
+    }
+    .banner-content p {
+        font-size: 18px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.85);
+        line-height: 1.7;
+        margin-bottom: 0;
+        text-align: center;
+    }
+    .btn {
+        display: inline-block;
+        padding: 10px 26px;
+        background: var(--color-primary);
+        font-size: 15px;
+        font-weight: 400;
+        border-radius: 8px;
+        position: relative;
+        z-index: 1;
+        padding-top: 15px;
+        color: var(--white);
+        box-shadow: none !important;
+        border: none;
+        overflow: hidden;
+    }
+    .card-style-one-item {
+        position: relative;
+        padding: 40px !important;
+        border-radius: 10px;
+        display: inline-block;
+        height: 100%;
+    }
+    .funfact-style-one-item .js-counter {
+        display: flex;
+        align-items: center;
+        font-size: 36px;
+        line-height: 1;
+        font-weight: 600;
+    }
+    .funfact-style-one-item h4 {
+        margin-top: 36px;
+    }
+    h4 {
+        font-size: 22px;
+        font-weight: 600;
+    }
+    .funfact-style-one-item p {
+        font-size: 15px;
+    }
+    ul.project-tags li {
+        display: inline-block;
+        background: var(--bg-gradient);
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        border-radius: 8px;
+        padding: 3px 12px;
+        padding-bottom: 2px;
+        font-size: 12px;
+    }
+    .project-style-two-items h2 {
+        font-size: 28px;
+    }
+    .project-style-two-items p {
+        perspective: 400px;
+        font-size: 15px;
+    }
+    .banner-style-three-area {
+        height: 40vh;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .banner-style-three-info h2 {
+        font-size: 28px !important;
+        margin-bottom: 25px;
+        color: #ffffff;
+    }
+    .banner-style-three-info h2 strong,
+    .cz-our-story h2 {
+        font-size: 28px !important;
+        text-transform: capitalize;
+    }
+    .project-style-two-items h2 {
+        font-size: 28px;
+    }
+    .project-style-two-items p {
+        perspective: 400px;
+        font-size: 15px;
+    }
+    .title {
+        font-size: 28px;
+    }
+}
+
+/* Portrait and Landscape (834x1194) */
+@media only screen and (min-device-width: 834px) and (max-device-width: 1194px) and (-webkit-min-device-pixel-ratio: 2) {
+    h1 {
+        font-size: 30px;
+        font-weight: 600;
+    }
+    h2 {
+        font-size: 28px;
+        font-weight: 600;
+    }
+    h3 {
+        font-size: 24px;
+        font-weight: 600;
+    }
+    h4 {
+        font-size: 22px;
+        font-weight: 500;
+    }
+    h5 {
+        font-size: 20px;
+        font-weight: 400;
+    }
+    p {
+        font-size: 15px;
+        font-weight: 400;
+    }
+    .default-padding {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    .banner-box {
+        position: relative;
+        overflow: hidden;
+        display: block;
+        width: 100%;
+        height: 40vh;
+    }
+    .banner-content-left {
+        position: absolute;
+        top: 60%;
+        left: 45%;
+        transform: translate(-50%, -50%);
+        width: 950px;
+        height: 400px;
+        border-radius: 12px;
+        padding: 40px 45px;
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        z-index: 2;
+        animation: bannerFadeUp 0.8s ease both;
+    }
+    .banner-content-right {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 950px;
+        height: 400px;
+        border-radius: 12px;
+        padding: 40px 45px;
+        display: flex;
+        flex-direction: column;
+        justify-content: right;
+        z-index: 2;
+        animation: bannerFadeUp 0.8s ease both;
+    }
+    .banner-content-left h1 {
+        line-height: 1.2;
+        font-family: "Sora", sans-serif;
+        letter-spacing: 0;
+        margin: 0;
+        margin-bottom: 15px;
+        font-weight: 500;
+        color: #ffffff;
+        font-size: 35px;
+        text-align: left;
+    }
+    .banner-content-left p {
+        font-size: 16px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.85);
+        line-height: 1.7;
+        margin-bottom: 0;
+        text-align: left;
+    }
+
+    .banner-content h1 {
+        line-height: 1.2;
+        font-family: "Sora", sans-serif;
+        letter-spacing: 0;
+        margin: 0;
+        margin-bottom: 15px;
+        font-weight: 500;
+        color: #ffffff;
+        font-size: 35px;
+        text-align: center;
+    }
+    .banner-content p {
+        font-size: 16px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.85);
+        line-height: 1.7;
+        margin-bottom: 0;
+        text-align: center;
+    }
+    .btn {
+        display: inline-block;
+        padding: 10px 26px;
+        background: var(--color-primary);
+        font-size: 15px;
+        font-weight: 400;
+        border-radius: 8px;
+        position: relative;
+        z-index: 1;
+        padding-top: 15px;
+        color: var(--white);
+        box-shadow: none !important;
+        border: none;
+        overflow: hidden;
+    }
+    .card-style-one-item {
+        position: relative;
+        padding: 40px !important;
+        border-radius: 10px;
+        display: inline-block;
+        height: 100%;
+    }
+    .funfact-style-one-item .js-counter {
+        display: flex;
+        align-items: center;
+        font-size: 36px;
+        line-height: 1;
+        font-weight: 600;
+    }
+    .funfact-style-one-item h4 {
+        margin-top: 36px;
+    }
+    h4 {
+        font-size: 22px;
+        font-weight: 600;
+    }
+    .funfact-style-one-item p {
+        font-size: 15px;
+    }
+    .banner-style-three-area {
+        height: 30vh;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .banner-style-three-info h2 {
+        font-size: 28px !important;
+        margin-bottom: 25px;
+        color: #ffffff;
+    }
+    .banner-style-three-info h2 strong,
+    .cz-our-story h2 {
+        font-size: 28px !important;
+        text-transform: capitalize;
+    }
+    .project-style-two-items h2 {
+        font-size: 28px;
+    }
+    .project-style-two-items p {
+        perspective: 400px;
+        font-size: 15px;
+    }
+    .title {
+        font-size: 28px;
+    }
+}
 @media (max-width: 991px) {
     .service-style-one-items .row.gutter-zero > [class*="col-"] {
         flex: 0 0 calc(50% - 5px);
         max-width: calc(50% - 5px);
     }
+
     /* ── Home Page  Start ── */
     /* ──Home Page  Start ── */
 }
-
 /* ── Mobile ── */
 @media (max-width: 767px) {
+    .breadcrumb-area h1 {
+        font-size: 30px !important;
+    }
     h1 {
         font-size: 30px;
         font-weight: 600;
@@ -1446,5 +1814,11 @@ select.valid {
     .banner-style-three-area1 {
         height: 30vh;
         padding-top: 51px;
+    }
+    .breadcrumb-area {
+        padding: 40px 0 !important;
+    }
+    .breadcrumb-area .container {
+        margin-top: 0px !important;
     }
 }

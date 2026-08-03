@@ -629,10 +629,10 @@
     <!-- Featured event
         ============================================= -->
     <?php
-    if (!empty($image)) {
-        $image = $image;
-    } else {
+    if (!empty($thumbnail)) {
         $image = $thumbnail;
+    } else {
+        $image = $image;
     }
     $tags_array = explode(",", $pserv['tags']);
     $image_gallery_ids_array = json_decode($pserv['image_gallery_ids']);
@@ -684,6 +684,7 @@
     <?php
     $latest_events = $this->db->where('type', $pserv['type'])
         ->where('slug !=', $slug)
+        ->where('is_active', 1)
         ->join('images_master i', 'i.id = thumbnail', 'left')
         ->order_by('posted', 'DESC')
         ->limit(3)
@@ -716,12 +717,12 @@
                                 <a href="<?= base_url('event/' . $latest_event['slug']) ?>" class="item" data-title="Manifest Vegas — exhibition floor">
                                     <img src="<?= base_url('uploads/images/' .  $latest_event['image']) ?>" alt="<?= $latest_event['alt_text'] ?>">
                                 </a>
-                                <span class="cz-ne-date"><strong><?= date('d', strtotime($latest_event['posted'])) ?></strong> <?= date('M Y', strtotime($latest_event['posted'])) ?></span>
+                                <span class="cz-ne-date"><strong><?= date('d', strtotime($latest_event['created_at'])) ?></strong> <?= date('M Y', strtotime($latest_event['created_at'])) ?></span>
                             </div>
                             <div class="cz-ne-body">
                                 <span class="cz-ne-tag"> <?= $tags_arrays[count($tags_arrays) - 1] ?></span>
-                                <h4><a href="<?= base_url('event/' . $latest_event['slug']) ?>" class="cz-ne-gallery-trigger"><?= $latest_event['new_podcast_title'] ?></a></h4>
-                                <p> <?= implode(' ', array_slice(preg_split('/\s+/', trim(strip_tags(html_entity_decode($latest_event['content'])))), 0, 10)) . '...'; ?></p>
+                                <h4><a href="<?= base_url('event/' . $latest_event['slug']) ?>" class="cz-ne-gallery-trigger"><?= $latest_event['title'] ?></a></h4>
+                                <p> <?= implode(' ', array_slice(preg_split('/\s+/', trim(strip_tags(html_entity_decode($latest_event['new_podcast_desc'])))), 0, 10)) . '...'; ?></p>
                                 <div class="cz-ne-foot">
                                     <span class="cz-ne-loc"><i class="fas fa-map-marker-alt"></i><?= $tags_arrays[0] ?></span>
                                 </div>

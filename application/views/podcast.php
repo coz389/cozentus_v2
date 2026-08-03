@@ -450,6 +450,7 @@
     .cz-pod-featured-body ul,
     .cz-pod-featured-body li {
         list-style: disc !important;
+        margin: 0px 0px 0px 10px;
     }
 
     .btn i {

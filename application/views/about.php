@@ -194,7 +194,7 @@
             <div class="row">
                 <div class="col-xl-5">
                     <div class="services-style-two-colum-large text-light fade-up-anim" style="background-image: url(<?= base_url('assets/img/shape/banner-8.jpg') ?>);">
-                        <h3 class="text-end"><a href="services-details.html">Powered by Expertise.<br> Driven by Innovation.</a></h3>
+                        <h3 class="text-end"><a href="#">Powered by Expertise.<br> Driven by Innovation.</a></h3>
 
                         <ul class="service-list mt-70 mt-xs-30">
                             <li>
@@ -202,7 +202,7 @@
                                     <img src="<?= base_url('assets/img/about/supply-chain.png') ?>" alt="Image Not Found">
                                 </div>
                                 <div class="info">
-                                    <h4><a href="services-details.html">Supply Chain Domain Excellence</a></h4>
+                                    <h4><a href="#">Supply Chain Domain Excellence</a></h4>
                                     <p>
                                         Helping logistics businesses solve complex operational challenges.
                                     </p>
@@ -213,7 +213,7 @@
                                     <img src="<?= base_url('assets/img/about/trade.png') ?>" alt="Image Not Found">
                                 </div>
                                 <div class="info">
-                                    <h4><a href="services-details.html">Global Delivery Excellence</a></h4>
+                                    <h4><a href="#">Global Delivery Excellence</a></h4>
                                     <p>
                                         Delivering consistent quality through teams across the UK, US, and India.
                                     </p>
@@ -228,21 +228,21 @@
                         <div class="services-style-two-item">
                             <div class="top-info">
                                 <img src="<?= base_url('assets/img/about/artificial-intelligence.png') ?>" alt="Image Not Found">
-                                <h4><a href="services-details.html">AI & Technology <br> Innovation</a></h4>
+                                <h4><a href="#">AI & Technology <br> Innovation</a></h4>
                                 <ul class="list-style-one">
                                     <li>AI-Powered Automation</li>
                                     <li>Cloud & AI Technologies</li>
                                     <li>Future-Ready Solutions</li>
                                 </ul>
                             </div>
-                            <a href="services.html" class="btn-simple">Explore More <i class="fas fa-long-arrow-right"></i></a>
+                            <!-- <a href="services.html" class="btn-simple">Explore More <i class="fas fa-long-arrow-right"></i></a> -->
                         </div>
                         <!-- End Single Item -->
                         <!-- Single Item -->
                         <div class="services-style-two-item fade-up-anim">
                             <div class="top-info">
                                 <img src="<?= base_url('assets/img/about/excellence.png') ?>" alt="Image Not Found">
-                                <h4><a href="services-details.html">Built Around <br>Customer Success</a></h4>
+                                <h4><a href="#">Built Around <br>Customer Success</a></h4>
                                 <ul class="list-style-one">
                                     <li>Client-Centric Approach</li>
                                     <li>Scalable & Adaptive Solutions</li>

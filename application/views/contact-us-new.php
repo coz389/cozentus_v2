@@ -167,9 +167,6 @@
                     <div class="contact-stye-one col-lg-7 pl-60 pl-md-15 pl-xs-15">
                         <div class="contact-form-card" style="background-image: url(assets/img/shape/3.png);">
                             <h4 class="sub-title">Free Consultation</h4>
-                            <p>
-                                Want to work with a dynamic experienced team of next-gen technocrats?
-                            </p>
                             <form data-form="insertcontact" id="contactForm" data-aos="fade-right" data-aos-duration="1000" class="contact-form-custom">
                                 <div class="row">
                                     <div class="col-lg-12">
@@ -196,7 +193,7 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <input class="form-control" id="organisation" name="organisation" placeholder="Organisation" type="text">
+                                            <input class="form-control" id="organisation" name="organisation" placeholder="Organization" type="text">
                                             <span class="alert-error"></span>
                                         </div>
                                     </div>
@@ -227,9 +224,7 @@
                                         <div class="form-group">
                                             <input type="checkbox" name="privacy_policy" id="agree">
                                             <label for="agree">&nbsp;&nbsp;I agree to the
-                                                Cozentus Privacy Policy (<a
-                                                    href="<?= base_url('privacy-statement') ?>">Privacy
-                                                    Statement</a>)</label>
+                                                Cozentus <a href="<?= base_url('privacy-statement') ?>">Privacy Policy</a> </label>
                                             <span class="alert-error"></span>
                                         </div>
                                     </div>

@@ -848,7 +848,7 @@
             body {
                 display: block;
                 min-height: auto;
-                padding: 34px 16px;
+                /* padding: 34px 16px; */
             }
 
             .cz-ai-wrap {
@@ -942,6 +942,79 @@
                 font-size: 16px;
             }
         }
+
+        /* Portrait and Landscape (1024x1366) */
+        @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+            .cz-journey-center h2 {
+                font-weight: 500;
+                font-size: 38px;
+                margin-bottom: 25px;
+            }
+
+            .accordion-style-one-item button.accordion-button:not(.collapsed) {
+                background: var(--dark-secondary);
+                color: var(--white);
+                padding: 15px 30px;
+                border-radius: 0;
+                border: none;
+            }
+
+            .accordion-style-one-item button.accordion-button {
+                box-shadow: none;
+                padding: 25px 30px;
+                font-size: 15px;
+                border: 1px solid #d7d7ff;
+                background: transparent;
+                border-radius: 10px;
+                padding-right: 85px;
+                line-height: 1.4;
+            }
+
+            p {
+                font-size: 12px;
+                font-weight: 400;
+            }
+
+            .cz-journey-center h2 {
+                font-weight: 500;
+                font-size: 28px;
+                margin-bottom: 25px;
+            }
+        }
+
+        /* Portrait and Landscape (834x1194) */
+        @media only screen and (min-device-width: 834px) and (max-device-width: 1194px) and (-webkit-min-device-pixel-ratio: 2) {
+            .cz-journey-center h2 {
+                font-weight: 500;
+                font-size: 38px;
+                margin-bottom: 25px;
+            }
+
+            .accordion-style-one-item button.accordion-button:not(.collapsed) {
+                background: var(--dark-secondary);
+                color: var(--white);
+                padding: 15px 30px;
+                border-radius: 0;
+                border: none;
+            }
+
+            .accordion-style-one-item button.accordion-button {
+                box-shadow: none;
+                padding: 25px 30px;
+                font-size: 15px;
+                border: 1px solid #d7d7ff;
+                background: transparent;
+                border-radius: 10px;
+                padding-right: 85px;
+                line-height: 1.4;
+            }
+
+            p {
+                font-size: 12px;
+                font-weight: 400;
+            }
+        }
+
 
         @media (max-width: 480px) {
             .cz-ai-step {
