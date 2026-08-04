@@ -337,7 +337,18 @@
                         <li class="mobile-only">
                             <a href="<?= base_url('book-free-consultation') ?>">Book a Meeting</a>
                         </li>
-                        <!-- <li><a href="contact-us.html">Contact</a></li> -->
+                        <!-- <li class="button">
+                            <a class="btn btn-style-one btn-border-dark" href="#" id="openMeetingModalHeader">Book a Meeting
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </li>
+                        <li class="button">
+                            <a class="btn btn-style-one btn-border-dark" href="<?= base_url('contact') ?>">Get In Touch
+                                <i class="fas fa-arrow-right"></i></a>
+                        </li> -->
+                        <li class="tablet-only"><a href="<?= base_url('book-free-consultation') ?>">Book a Meeting</a></li>
+                        <li class="tablet-only"><a href="<?= base_url('contact') ?>">Get In Touch</a></li>
+
                     </ul>
                 </div><!-- /.navbar-collapse -->
 

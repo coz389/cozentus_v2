@@ -672,6 +672,44 @@
             padding-top: 18px;
         }
     }
+
+    /* Portrait and Landscape (1024x1366) */
+    @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+        .cz-step-num {
+            flex: 0 0 35px;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #fff;
+            background: linear-gradient(135deg, #2f73ff, #6f4cff);
+            box-shadow: 0 12px 22px -8px rgba(47, 115, 255, .6);
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    /* Portrait and Landscape (834x1194) */
+    @media only screen and (min-device-width: 834px) and (max-device-width: 1194px) and (-webkit-min-device-pixel-ratio: 2) {
+        .cz-step-num {
+            flex: 0 0 35px;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #fff;
+            background: linear-gradient(135deg, #2f73ff, #6f4cff);
+            box-shadow: 0 12px 22px -8px rgba(47, 115, 255, .6);
+            position: relative;
+            z-index: 1;
+        }
+    }
 </style>
 <div id="smooth-content" class="domain-capablity">
     <?php

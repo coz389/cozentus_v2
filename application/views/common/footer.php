@@ -2,30 +2,9 @@
 <!-- ============================================================ -->
 <!-- MEETING MODAL -->
 <!-- ============================================================ -->
-<div id="meetingModalHeader" style="
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: 99999;
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(4px);
-            align-items: center;
-            justify-content: center;
-        ">
+<div id="meetingModalHeader">
     <!-- Modal Box -->
-    <div style="
-                background: #fff;
-                width: 90%;
-                max-width: 860px;
-                max-height: 90vh;
-                border-radius: 12px;
-                overflow: hidden;
-                position: relative;
-                box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-                display: flex;
-                flex-direction: column;
-            ">
+    <div class="meetingModalInnerHeader">
         <!-- Modal Header -->
         <div style="
                     background: #0a2670;
@@ -212,12 +191,12 @@
     /* ── Base modal ── */
     #meetingModalHeader {
         display: none;
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        z-index: 999999 !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999999;
         /* higher than navbar */
         background: rgba(0, 0, 0, 0.7);
         backdrop-filter: blur(4px);
