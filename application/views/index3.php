@@ -615,7 +615,7 @@
                 <div class="row">
                     <!-- Single Item -->
                     <?php foreach ($blogs as $key => $blog) { ?>
-                        <div class="col-xl-3 col-lg-6">
+                        <div class="col-xl-3 col-lg-6 col-md-6">
                             <div class="blog-style-two fade-up-anim">
                                 <div class="thumb zoom-thumb">
                                     <a href="<?= base_url('blog/') . $blog['slug'] ?>">

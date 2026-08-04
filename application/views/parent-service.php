@@ -945,6 +945,12 @@
 
         /* Portrait and Landscape (1024x1366) */
         @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+            .banner-style-three-area {
+                height: 50vh;
+                padding-top: 80px;
+                padding-bottom: 50px;
+            }
+
             .cz-journey-center h2 {
                 font-weight: 500;
                 font-size: 38px;
@@ -984,6 +990,12 @@
 
         /* Portrait and Landscape (834x1194) */
         @media only screen and (min-device-width: 834px) and (max-device-width: 1194px) and (-webkit-min-device-pixel-ratio: 2) {
+            .banner-style-three-area {
+                height: 30vh;
+                padding-top: 80px;
+                padding-bottom: 50px;
+            }
+
             .cz-journey-center h2 {
                 font-weight: 500;
                 font-size: 38px;
