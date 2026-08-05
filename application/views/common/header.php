@@ -330,13 +330,13 @@
                                 </li>
                             </ul>
                         </li>
-
-                        <li class="mobile-only">
-                            <a href="<?= base_url('contact') ?>">Get In Touch</a>
-                        </li>
                         <li class="mobile-only">
                             <a href="<?= base_url('book-free-consultation') ?>">Book a Meeting</a>
                         </li>
+                        <li class="mobile-only">
+                            <a href="<?= base_url('contact') ?>">Get In Touch</a>
+                        </li>
+
                         <!-- <li class="button">
                             <a class="btn btn-style-one btn-border-dark" href="#" id="openMeetingModalHeader">Book a Meeting
                                 <i class="fas fa-arrow-right"></i>

@@ -674,7 +674,7 @@
     }
 
     /* Portrait and Landscape (1024x1366) */
-    @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+    @media screen and (min-width: 1021px) and (max-width: 1360px) {
         .cz-step-num {
             flex: 0 0 35px;
             width: 35px;
@@ -690,10 +690,17 @@
             position: relative;
             z-index: 1;
         }
+
+        .cz-cap-info h4 {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            color: #0c1b3a !important;
+            margin-bottom: 6px;
+        }
     }
 
     /* Portrait and Landscape (834x1194) */
-    @media only screen and (min-device-width: 834px) and (max-device-width: 1194px) and (-webkit-min-device-pixel-ratio: 2) {
+    @media screen and (min-width: 768px) and (max-width: 1020px) {
         .cz-step-num {
             flex: 0 0 35px;
             width: 35px;
@@ -708,6 +715,13 @@
             box-shadow: 0 12px 22px -8px rgba(47, 115, 255, .6);
             position: relative;
             z-index: 1;
+        }
+
+        .cz-cap-info h4 {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            color: #0c1b3a !important;
+            margin-bottom: 6px;
         }
     }
 </style>

@@ -2,7 +2,7 @@
     /* Tablet Landscape / Small Laptop*/
     @media screen and (min-width: 1021px) and (max-width: 1360px) {
         .banner-style-three-area {
-            height: 45vh;
+            height: fit-content;
             padding-top: 80px;
             padding-bottom: 50px;
         }
@@ -15,7 +15,7 @@
         }
 
         .banner-style-three-area {
-            height: 65vh;
+            height: fit-content;
             padding-top: 80px;
             padding-bottom: 50px;
         }

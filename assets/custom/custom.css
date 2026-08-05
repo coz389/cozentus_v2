@@ -1392,7 +1392,7 @@ select.valid {
         font-size: 15px;
     }
     .banner-style-three-area {
-        height: 50vh;
+        height: fit-content;
         padding-top: 50px;
         padding-bottom: 50px;
     }
@@ -1424,6 +1424,12 @@ select.valid {
     .inner-service-page p {
         font-size: 16px !important;
         color: #60616c;
+    }
+    .breadcrumb-area h1 {
+        display: block;
+        font-weight: 600;
+        margin-top: -10px;
+        font-size: 30px;
     }
 }
 
@@ -1652,6 +1658,15 @@ select.valid {
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
         background: #000;
     }
+    .breadcrumb-area .container {
+        margin-top: 108px !important;
+    }
+    .breadcrumb-area h1 {
+        display: block;
+        font-weight: 600;
+        margin-top: -10px;
+        font-size: 30px;
+    }
 }
 
 /* Tablet Landscape / Small Laptop*/
@@ -1811,14 +1826,15 @@ select.valid {
         font-size: 15px;
     }
     .banner-style-three-area {
-        height: 80vh;
+        height: fit-content;
         padding-top: 80px;
         padding-bottom: 50px;
     }
+    /*
     .banner-style-three-area,
     .banner-style-three-area div {
         align-items: center !important;
-    }
+    }*/
     .banner-style-three-info h2 {
         font-size: 28px !important;
         margin-bottom: 25px;
@@ -1826,21 +1842,21 @@ select.valid {
     }
     .banner-style-three-info h2 strong,
     .cz-our-story h2 {
-        font-size: 28px !important;
+        font-size: 20px !important;
         text-transform: capitalize;
     }
     .project-style-two-items h2 {
-        font-size: 28px;
+        font-size: 20px;
     }
     .project-style-two-items p {
         perspective: 400px;
         font-size: 15px;
     }
     .title {
-        font-size: 28px;
+        font-size: 20px;
     }
     .inner-service-page h2 {
-        font-size: 28px !important;
+        font-size: 20px !important;
         margin-bottom: 25px;
         color: #000662;
     }
@@ -1882,6 +1898,7 @@ select.valid {
         font-size: 16px !important;
         color: #60616c;
     }
+
     .mfp-iframe-scaler iframe {
         position: absolute;
         display: block;
@@ -1891,6 +1908,12 @@ select.valid {
         height: 100%;
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
         background: #000;
+    }
+    .breadcrumb-area h1 {
+        display: block;
+        font-weight: 600;
+        margin-top: -10px;
+        font-size: 22px;
     }
 }
 
@@ -2086,7 +2109,7 @@ select.valid {
         font-size: 15px;
     }
     .banner-style-three-area {
-        height: 80vh;
+        height: fit-content;
         padding-top: 80px;
         padding-bottom: 50px;
     }
@@ -2110,10 +2133,11 @@ select.valid {
     .title {
         font-size: 28px;
     }
+    /*
     .chat-bot-thumb {
         display: block;
         margin-top: 30px !important;
-    }
+    }*/
     .chat-bot-thumb .illustration {
         height: 300px !important;
         padding: 20px 10px;
@@ -2175,6 +2199,18 @@ select.valid {
         margin-bottom: 25px;
         line-height: 1.3;
         font-size: 18px;
+    }
+    .breadcrumb-area {
+        padding: 80px 0 !important;
+    }
+    .breadcrumb-area h1 {
+        display: block;
+        font-weight: 600;
+        margin-top: -10px;
+        font-size: 22px;
+    }
+    .breadcrumb-area .container {
+        margin-top: 8px !important;
     }
 }
 
