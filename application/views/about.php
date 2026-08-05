@@ -1,19 +1,38 @@
 <style>
-    /* Portrait and Landscape (1024x1366) */
-    @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+    /* Tablet Landscape / Small Laptop*/
+    @media screen and (min-width: 1021px) and (max-width: 1360px) {
         .banner-style-three-area {
-            height: 50vh;
+            height: 45vh;
             padding-top: 80px;
             padding-bottom: 50px;
         }
     }
 
-    /* Portrait and Landscape (834x1194) */
-    @media only screen and (min-device-width: 834px) and (max-device-width: 1194px) and (-webkit-min-device-pixel-ratio: 2) {
+    /*Tablet Portrait */
+    @media screen and (min-width: 768px) and (max-width: 1020px) {
+        #smooth-content {
+            margin-top: 0px;
+        }
+
         .banner-style-three-area {
-            height: 30vh;
+            height: 65vh;
             padding-top: 80px;
             padding-bottom: 50px;
+        }
+
+        .chat-bot-thumb .illustration {
+            height: 300px !important;
+            padding: 20px 10px;
+        }
+
+        .illustration img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+        }
+
+        .chat-bot-thumb {
+            display: block;
         }
     }
 </style>

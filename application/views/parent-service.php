@@ -943,8 +943,8 @@
             }
         }
 
-        /* Portrait and Landscape (1024x1366) */
-        @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+        /* Tablet Landscape / Small Laptop*/
+        @media screen and (min-width: 1021px) and (max-width: 1360px) {
             .banner-style-three-area {
                 height: 50vh;
                 padding-top: 80px;
@@ -988,8 +988,8 @@
             }
         }
 
-        /* Portrait and Landscape (834x1194) */
-        @media only screen and (min-device-width: 834px) and (max-device-width: 1194px) and (-webkit-min-device-pixel-ratio: 2) {
+        /*Tablet Portrait */
+        @media screen and (min-width: 768px) and (max-width: 1020px) {
             .banner-style-three-area {
                 height: 30vh;
                 padding-top: 80px;
