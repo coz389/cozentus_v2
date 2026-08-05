@@ -55,7 +55,7 @@
                                 <img src="<?= base_url('uploads/images/') . $br['image'] ?>" alt="<?= $br['alt_text'] ?>">
                             <?php } ?>
                             <div class="<?= $br['text_alignment_class'] ?>">
-                                <h1 class="animated-title d-none"> <?= html_entity_decode($br['title']) ?> </h1>
+                                <h1 class="animated-title mt-4 d-none"> <?= html_entity_decode($br['title']) ?> </h1>
                                 <p class="animated-paragraph animate d-none"> <?= html_entity_decode($br['short_description']) ?></p>
                                 <?php if (!empty($br['cta_btn']) && !empty($br['cta_link'])) { ?>
                                     <div class=" button button-animation  mt-30 d-block d-none <?= $br['btn_alignment_class']  ?>">

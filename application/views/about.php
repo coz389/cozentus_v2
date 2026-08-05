@@ -3,7 +3,7 @@
     @media screen and (min-width: 1021px) and (max-width: 1360px) {
         .banner-style-three-area {
             height: fit-content;
-            padding-top: 80px;
+            padding-top: 120px;
             padding-bottom: 50px;
         }
     }

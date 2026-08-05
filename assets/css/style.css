@@ -10713,7 +10713,7 @@ footer .gradient-text {
     }
 
     .chat-bot-thumb {
-        display: none;
+        display: block;
     }
 
     .chat-bot-thumb .illustration img:nth-child(2) {

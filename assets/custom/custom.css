@@ -528,7 +528,7 @@ select.valid {
     overflow: hidden;
     display: block;
     width: 100%;
-    height: 75vh; /* fixed height taaki iframe ka container collapse na ho */
+    height: 75dvh; /* fixed height taaki iframe ka container collapse na ho */
 }
 .banner-box img {
     display: block;
@@ -1480,13 +1480,12 @@ select.valid {
         font-size: 15px;
         font-weight: 400;
     }
-
     .banner-box {
         position: relative;
         overflow: hidden;
         display: block;
         width: 100%;
-        height: 40vh;
+        height: 40dvh;
     }
     .banner-content-left {
         position: absolute;
@@ -1858,7 +1857,7 @@ select.valid {
     }
     .banner-style-three-info h2 strong,
     .cz-our-story h2 {
-        font-size: 20px !important;
+        font-size: 28px !important;
         text-transform: capitalize;
     }
     .project-style-two-items h2 {
@@ -1992,7 +1991,7 @@ select.valid {
         overflow: hidden;
         display: block;
         width: 100%;
-        height: 65vh;
+        height: 65dvh;
     }
     .banner-content {
         position: absolute;
@@ -2080,14 +2079,14 @@ select.valid {
     }
     .btn {
         display: inline-block;
-        padding: 10px 26px;
+        padding: 9px 20px;
         background: var(--color-primary);
         font-size: 15px;
         font-weight: 400;
         border-radius: 8px;
         position: relative;
         z-index: 1;
-        padding-top: 15px;
+        padding-top: 8px;
         color: var(--white);
         box-shadow: none !important;
         border: none;
@@ -2253,15 +2252,6 @@ select.valid {
     }
 }
 
-@media (max-width: 991px) {
-    .service-style-one-items .row.gutter-zero > [class*="col-"] {
-        flex: 0 0 calc(50% - 5px);
-        max-width: calc(50% - 5px);
-    }
-
-    /* ── Home Page  Start ── */
-    /* ──Home Page  Start ── */
-}
 /* ── Mobile ── */
 @media (max-width: 767px) {
     .breadcrumb-area h1 {
@@ -2342,12 +2332,13 @@ select.valid {
     #smooth-content {
         margin-top: -35px;
     }
+
     .banner-box {
         position: relative;
         overflow: hidden;
         display: block;
         width: 100%;
-        height: 40vh;
+        height: 40dvh;
     }
     .btn {
         display: inline-block;
