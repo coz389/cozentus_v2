@@ -55,7 +55,7 @@
 
 
 
-                    <a class="btn btn-style-one btn-dark mt-10 wow fadeInUp" href="#" id="openMeetingModal">Schedule Your Meeting Now
+                    <a class="btn btn-style-one btn-dark mt-10 wow fadeInUp" href="<?= base_url('about') ?>" id="openMeetingModal111">More Details
                         <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>

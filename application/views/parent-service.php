@@ -874,7 +874,7 @@
             }
 
             .cz-ai-center p {
-                font-size: clamp(17px, 4.5vw, 26px);
+                font-size: clamp(17px, 4.5vw, 20px);
             }
 
             .cz-ai-dots {
@@ -986,6 +986,13 @@
                 font-size: 28px;
                 margin-bottom: 25px;
             }
+
+            .cz-ai-center h2 {
+                font-size: 28px;
+                line-height: 40px;
+                color: #0c1b3a;
+                font-weight: 600;
+            }
         }
 
         /*Tablet Portrait */
@@ -1024,6 +1031,13 @@
             p {
                 font-size: 12px;
                 font-weight: 400;
+            }
+
+            .cz-ai-center h2 {
+                font-size: 28px;
+                line-height: 40px;
+                color: #0c1b3a;
+                font-weight: 600;
             }
         }
 

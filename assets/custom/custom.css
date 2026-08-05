@@ -1282,7 +1282,7 @@ select.valid {
     }
     .banner-content {
         position: absolute;
-        top: 50%;
+        top: 60%;
         left: 45%;
         transform: translate(-50%, -50%);
         width: 950px;
@@ -1431,6 +1431,12 @@ select.valid {
         margin-top: -10px;
         font-size: 30px;
     }
+    .cz-ai-center h2 {
+        font-size: 28px;
+        line-height: 40px;
+        color: #0c1b3a;
+        font-weight: 600;
+    }
 }
 
 /* Portrait and Landscape (834x1194) */
@@ -1474,6 +1480,7 @@ select.valid {
         font-size: 15px;
         font-weight: 400;
     }
+
     .banner-box {
         position: relative;
         overflow: hidden;
@@ -1667,6 +1674,12 @@ select.valid {
         margin-top: -10px;
         font-size: 30px;
     }
+    .cz-ai-center h2 {
+        font-size: 28px;
+        line-height: 40px;
+        color: #0c1b3a;
+        font-weight: 600;
+    }
 }
 
 /* Tablet Landscape / Small Laptop*/
@@ -1710,6 +1723,9 @@ select.valid {
         font-size: 12px;
         font-weight: 400;
     }
+    #smooth-content {
+        margin-top: 0px;
+    }
     .banner-box {
         position: relative;
         overflow: hidden;
@@ -1719,7 +1735,7 @@ select.valid {
     }
     .banner-content-left {
         position: absolute;
-        top: 60%;
+        top: 70%;
         left: 45%;
         transform: translate(-50%, -50%);
         width: 950px;
@@ -1902,7 +1918,7 @@ select.valid {
     .mfp-iframe-scaler iframe {
         position: absolute;
         display: block;
-        top: -320px;
+        top: 5px;
         left: 0;
         width: 100%;
         height: 100%;
@@ -1914,6 +1930,12 @@ select.valid {
         font-weight: 600;
         margin-top: -10px;
         font-size: 22px;
+    }
+    .cz-ai-center h2 {
+        font-size: 20px;
+        line-height: 40px;
+        color: #0c1b3a;
+        font-weight: 600;
     }
 }
 
@@ -2182,16 +2204,27 @@ select.valid {
         font-size: 16px !important;
         color: #60616c;
     }
+    .mfp-container {
+        text-align: center;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: -150px;
+        padding: 0 8px;
+        box-sizing: border-box;
+    }
+    /*
     .mfp-iframe-scaler iframe {
         position: absolute;
         display: block;
-        top: -320px;
+        top: -150px;
         left: 0;
         width: 100%;
         height: 100%;
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
         background: #000;
-    }
+    }*/
     .project-style-one-item h3 {
         font-size: 18px;
     }
@@ -2211,6 +2244,12 @@ select.valid {
     }
     .breadcrumb-area .container {
         margin-top: 8px !important;
+    }
+    .cz-ai-center h2 {
+        font-size: 20px;
+        line-height: 40px;
+        color: #0c1b3a;
+        font-weight: 600;
     }
 }
 

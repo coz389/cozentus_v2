@@ -437,8 +437,8 @@
             // slidesPerView: 4,
             breakpoints: {
                 768: {
-                    slidesPerView: 1,
-                    spaceBetween: 40,
+                    slidesPerView: 2,
+                    spaceBetween: 20,
                 },
                 992: {
                     slidesPerView: 2,
