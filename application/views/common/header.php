@@ -149,8 +149,10 @@
 
     <div id="preloader" class="preloader">
         <div class="animation-preloader">
+
             <div class="spinner"></div>
-            <div class="txt-loading">
+            <img src="<?= base_url('assets/img/logo.png') ?>" alt="Logo" style="width: 250px;">
+            <!-- <div class="txt-loading">
                 <span data-text-preloader="C" class="letters-loading">C</span>
                 <span data-text-preloader="O" class="letters-loading">O</span>
                 <span data-text-preloader="Z" class="letters-loading">Z</span>
@@ -159,7 +161,7 @@
                 <span data-text-preloader="T" class="letters-loading">T</span>
                 <span data-text-preloader="U" class="letters-loading">U</span>
                 <span data-text-preloader="S" class="letters-loading">S</span>
-            </div>
+            </div> -->
             <p class="text-center">Loading</p>
         </div>
         <div class="loader">
