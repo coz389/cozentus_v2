@@ -1,393 +1,499 @@
-<header class="inner-main-header style-2">
-    <img src="assets/images/about-img.jpg" alt="">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-12  mx-auto">
-                <div class="banner-content text-center d-block blog-detail" data-aos="fade-up" data-aos-duration="1000">
-                    <h1 data-aos="fade-up" data-aos-duration="1000">Streamlining Supply Chains With Custom IT Solutions
-                    </h1>
+<style>
+    /* Tablet Landscape / Small Laptop*/
+    @media screen and (min-width: 1021px) and (max-width: 1360px) {
+        .banner-style-three-area {
+            height: fit-content;
+            padding-top: 120px;
+            padding-bottom: 50px;
+        }
+    }
 
-                    <!-- <p class="para">
-                        Transform your supply chain with the latest technology and elevate your bottom line
-                    </p> -->
-                    <a href="<?= base_url('contact') ?>" data-aos="fade-up" data-aos-duration="1000" class="main-btn">
-                        <span>Contact Us</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+    /*Tablet Portrait */
+    @media screen and (min-width: 768px) and (max-width: 1020px) {
+        #smooth-content {
+            margin-top: 0px;
+        }
 
-<section class="abt-sec sec">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-8 col-12 mx-auto">
-                <div class="abt-con" data-aos="fade-right" data-aos-duration="1000">
-                    <div class="sec-head text-center">
-                        <h2>Enhancing Supply Chain Efficiency with <span>Next-Gen </span>Custom IT Solutions</h2>
-                    </div>
-                    <p class="para text-center">The founders of Cozentus bring with them a wealth of experience
-                        accumulated over a period of more than two decades in developing custom IT solutions supply
-                        chain and logistics industry. Supported by a team of experienced technical and functional
-                        experts, we not only provide businesses with fast, agile and scalable solutions, but also foster
-                        revenue generation and boost ROI.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+        .banner-style-three-area {
+            height: fit-content;
+            padding-top: 80px;
+            padding-bottom: 50px;
+        }
 
+        .chat-bot-thumb .illustration {
+            height: 300px !important;
+            padding: 20px 10px;
+        }
 
-<section class="wh-sec sec pt-0">
-    <div class="container">
-        <div class="row">
-            <div class="col-12" data-aos="fade-up" data-aos-duration="1000">
-                <div class="sec-head center">
-                    <h2>Who <span>we are</span></h2>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="" style="background: #F9F8F6;">
+        .illustration img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+        }
+
+        .chat-bot-thumb {
+            display: block;
+        }
+    }
+</style>
+<div id="smooth-content">
+    <!-- Start Banner Area 
+    ============================================= -->
+    <div class="banner-style-three-area overflow-hidden bg-gray bg-cover" style="background: url(<?= base_url('assets/img/about/BG.png') ?>);">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="sec-head">
-                        <h2>Our Story</h2>
-                    </div>
-                    <p class="para">Forged from a legacy of building successful ventures, Cozentus is built by a
-                        seasoned leadership team, channelling vast supply chain automation experience into
-                        collaborations with major supply chain and logistics clientele.</p>
-                </div>
-                <div class="col-lg-6">
-                    <div class="wh-img text-center d-block pb-5 pt-5">
-                        <iframe width="560" height="315"
-                            src="https://www.youtube.com/embed/IrQ7HiXWR7k?si=mz62YhTt17VnqD93"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="wh-img pb-5 pt-5 text-center d-block" data-aos="fade-right" data-aos-duration="1000">
-                        <img class="w-100" src="assets/images/our-focus.png" alt="Our Focus">
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="sec-head">
-                        <h2>Our Focus</h2>
-                    </div>
-                    <p class="para">We automate the business and operational workflows, thus improving performance and
-                        efficiency for our client companies. Our aim is to unlock the industry growth potential by
-                        bridging the technology innovation gaps with a focus on new-age tech solutions. With our domain
-                        experience, we catalyze speed and agility in our delivery systems.</p>
-                </div>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="sec-head">
-                        <h2>Our Approach</h2>
-                    </div>
-                    <p class="para">Our in-house innovation hub constantly cultivates pioneering ideas, delivers agile,
-                        high-quality solutions, and aligns seamlessly with client objectives. We collaborate with our
-                        client teams as their extended arm, to build and optimize—planning and execution processes,
-                        specific to their business outcomes. Our tech-driven industry expertise and adaptable engagement
-                        models ensure success marked by innovation, teamwork, and technological excellence.</p>
-                </div>
-                <div class="col-lg-6">
-                    <div class="wh-img text-center d-block pb-5 pt-5">
-                        <img class="w-100" src="assets/images/our-aaproch.jpg" alt="Our Approach">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+            <div class="row align-center">
+                <div class="col-lg-7 pr-60 pr-md-15 pr-xs-15">
+                    <div class="banner-style-three-info">
+                        <h2 class="wow fadeInUp" style="color: #ffffff;">The Technology Partner <strong>Built for Logistics</strong></h2>
+                        <p class="fade-up-anim" style="color: #ffffff;">
+                            One industry, total focus. We build the technology your logistics operation runs on, and you own it.
+                        </p>
+                        <div class="button mt-30 fade-up-anim">
+                            <a href="<?= base_url('book-free-consultation') ?>" class="btn btn-style-one light">Let’s Talk <i class="fas fa-arrow-right"></i></a>
+                        </div>
 
-<section class="df-sec pt-0 sec">
-    <div class="container">
-        <div class="df-grid">
-            <div class="df-card" data-aos="fade-up" data-aos-duration="1000">
-                <h3>Our People</h3>
-                <p class="para">Three co-founders supported by a core team of five maestros, each an authority in his or
-                    her field.</p>
-                <a href="<?= base_url('team') ?>" class="read-more">
-                    <span>Meet the team</span>
-                    <img src="assets/images/blue-arrow.svg" alt="">
-                </a>
-            </div>
-            <div class="df-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-                <h3>Mission Vision and Value</h3>
-                <p class="para">Enabling businesses to move to the next level by delivering innovative digital supply
-                    chain solutions.</p>
-                <a href="<?= base_url('mission') ?>" class="read-more">
-                    <span>Read more</span>
-                    <img src="assets/images/blue-arrow.svg" alt="">
-                </a>
-            </div>
-            <div class="df-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                <h3>Culture & Values</h3>
-                <p class="para">Delivering quality through a confluence of experience and innovation</p>
-                <a href="<?= base_url('about#lifeatcozentus') ?>" class="read-more">
-                    <span>Read more</span>
-                    <img src="assets/images/blue-arrow.svg" alt="">
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<section class="wh-sec sec pt-0">
-    <div class="container">
-        <div class="row">
-            <div class="col-12" data-aos="fade-up" data-aos-duration="1000">
-                <div class="sec-head center">
-                    <h2>Our <span>Workplace,</span> Our <span>Future</span></h2>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="wh-row mt-40">
-        <div class="l-part" data-aos="fade-left" data-aos-duration="1000">
-            <div class="wh-con container-left">
-                <p class="para">We nurture a vibrant workplace by embracing joy, ensuring employee happiness that goes
-                    beyond the work desk.</p>
-                <ul class="point-list">
-                    <li>Valued, respected, empowered employees</li>
-                    <li>Inclusive workplace environment</li>
-                    <li>Employee well-being</li>
-                    <li>Personal growth</li>
-                    <li>Beyond work desk</li>
-                </ul>
-            </div>
-        </div>
-        <div class="r-part" data-aos="fade-right" data-aos-duration="1000">
-            <div class="wh-img">
-                <img src="assets/images/work-place.jpg" alt="Our Workplace">
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<?php if (!empty($gallery)) { ?>
-    <section class="sec jobs-sec pt-0" id="lifeatcozentus">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="sec-head center" data-aos="fade-up" data-aos-duration="1000">
-                        <h2>Photo <span>Gallery</span></h2>
                     </div>
-                    <div class="swiper gal-swiper">
-                        <div class="swiper-wrapper">
-                            <?php
-                            foreach ($gallery as $jb) { ?>
-                                <div class="swiper-slide">
-                                    <div class="gal-item">
-                                        <img src="<?= base_url('uploads/images/') . $jb['image'] ?>"
-                                            alt="<?= $jb['alt_text'] ?>" />
-                                    </div>
-                                </div>
-                            <?php } ?>
+                </div>
+                <div class="col-lg-5">
+                    <div class="chat-bot-thumb text-center">
+                        <div class="illustration">
+                            <img class="wow fadeInUp" data-wow-delay="300ms" src="<?= base_url('assets/img/about/about-banner.png') ?>" alt="Image Not Found">
+
                         </div>
                     </div>
-                    <div class="dt-nav-area">
-                        <button class="gal-prev">
-                            <img src="<?= base_url() ?>assets/images/prev.svg" alt="">
-                        </button>
-                        <button class="gal-next">
-                            <img src="<?= base_url() ?>assets/images/next.svg" alt="">
-                        </button>
-                    </div>
                 </div>
             </div>
         </div>
-    </section>
-<?php } ?>
-<?php if (!empty($videos)) { ?>
-    <section class="sec jobs-sec pt-0">
+    </div>
+    <!-- End banner -->
+    <!-- ═══════════════════════════════════════════
+            Section 2: Our Story
+    ═══════════════════════════════════════════ -->
+    <div class="cz-our-story default-padding" id="our-story">
         <div class="container">
-            <div class="row">
+            <div class="row mb-5">
                 <div class="col-12">
-                    <div class="sec-head center" data-aos="fade-up" data-aos-duration="1000" id="j-btn">
-                        <h2>Video <span>Gallery</span></h2>
-                        <!--<p class="para">-->
-                        <!--Explore Cozentus-->
-                        <!--</p>-->
+                    <div class="cz-section-heading">
+                        <h2 class="cz-main-title text-dark">Where Logistics Knowledge Meets Engineering</h2>
+                        <p class="cz-desc-wide">With more than two decades spent building custom technology for supply chain logistics, the founders of Cozentus bring a depth of domain expertise few in the industry can match. Backed by a seasoned leadership team and a workforce of experienced technical and functional specialists, we partner with major logistics and supply chain organizations as an extension of their own teams, building and optimizing the systems that run their operations. Through our in-house innovation hub and adaptable engagement models, we deliver with the speed, quality and precision that complex logistics demands.</p>
                     </div>
-                    <div class="vid-swiper-container">
+                </div>
+            </div>
+            <div class="row">
 
-                        <div class="swiper vid-swiper">
-                            <div class="swiper-wrapper">
-                                <?php
-                                foreach ($videos as $jb) { ?>
-                                    <div class="swiper-slide">
-                                        <div class="vid-wrapper youtube-video-place" data-url="<?= urldecode($jb['video']) ?>">
-                                            <!--<button class="play-btn" >-->
-                                            <!--    <img src="<? //=base_url('assets/images/play-icon.svg')
-                                                                ?>" alt="">-->
-                                            <!--</button>-->
-                                        </div>
-                                    </div>
-                                <?php } ?>
-
+                <!-- Card 1 -->
+                <div class="col-lg-3 col-md-6 mb-30">
+                    <div class="cz-story-card cz-fade-in cz-fade-in-delay-1 text-center">
+                        <div class="cz-story-icon-box">
+                            <div class="cz-story-icon-inner">
+                                <img src="<?= base_url('assets/img/about/pride.png') ?>" alt="Image Not Found">
                             </div>
                         </div>
-                        <div class="dt-nav-area">
-                            <button class="vd-prev">
-                                <img src="<?= base_url() ?>assets/images/prev.svg" alt="">
-                            </button>
-                            <button class="vd-next">
-                                <img src="<?= base_url() ?>assets/images/next.svg" alt="">
-                            </button>
+                        <h4>Pride</h4>
+                        <p>We hold ourselves to a standard higher than the brief. Every build reflects us.</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-lg-3 col-md-6 mb-30">
+                    <div class="cz-story-card cz-fade-in cz-fade-in-delay-2 text-center">
+                        <div class="cz-story-icon-box">
+                            <div class="cz-story-icon-inner">
+                                <img src="<?= base_url('assets/img/about/commintment.png') ?>" alt="Image Not Found">
+                            </div>
                         </div>
+                        <h4>Commitment</h4>
+                        <p>We don't walk away when it gets hard. We push until it works.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-<?php } ?>
-
-
-<?php if (!empty($newEvents)) { ?>
-    <section class="blog-sec sec pt-0">
-        <div class="container">
-            <div class="row">
-                <div class="sec-head center" data-aos="fade-up" data-aos-duration="1000" id="j-btn">
-                    <h2><span>Events & Awards</span></h2>
-                </div>
-                <div class="col-12">
-                    <div class="bl-grid" id="blogs-list">
-                        <?php
-                        foreach ($newEvents as $newEvent) { ?>
-                            <a href="<?= base_url('event/') ?><?= $newEvent['slug'] ?>" class="bl-card">
-                                <div class="bl-img">
-                                    <img src="<?= base_url('uploads/images/') . $newEvent['image'] ?>"
-                                        alt="<?= $newEvent['alt_text'] ?>" />
-                                </div>
-                                <div class="dt-date">
-                                    <img src="<?= base_url('assets/images/ar-bl-right.svg') ?>" alt="Read More">
-                                    <span><?= $newEvent['posted'] ?></span>
-                                </div>
-                                <h3><?= $newEvent['title'] ?></h3>
-                                <?php if ($newEvent['is_webinar'] == 1) { ?>
-                                    <span class="web-heading">Webinar</span>
-                                <?php } ?>
-                                <span href="javascript:void(0)" class="read-more">
-                                    <span>Read More</span>
-                                    <img src="<?= base_url('assets/images/ar-bl-right.svg') ?>" alt="Read More">
-                                </span>
-                            </a>
-                        <?php } ?>
+                <!-- Card 3 -->
+                <div class="col-lg-3 col-md-6 mb-30">
+                    <div class="cz-story-card cz-fade-in cz-fade-in-delay-3 text-center">
+                        <div class="cz-story-icon-box">
+                            <div class="cz-story-icon-inner">
+                                <img src="<?= base_url('assets/img/about/quality.png') ?>" alt="Image Not Found">
+                            </div>
+                        </div>
+                        <h4>Quality</h4>
+                        <p>Delivered fast doesn't mean delivered loose. We don't trade one for the other.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-<?php } ?>
-
-<section class="sec cs-ft-sec light-bg ">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="sec-head center" data-aos="fade-up" data-aos-duration="1000">
-                    <h2>Case studies and <span>featured insights</span></h2>
-                </div>
-                <div class="df-grid mt-60" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="df-card">
-                        <h3>Case Study</h3>
-                        <p class="para">Discover how our innovative solutions have helped transform businesses and
-                            create measurable impact for our clients. Read our case studies to learn more.</p>
-                        <a href="<?= base_url('case-studies') ?>" class="read-more">
-                            <span>Read more</span>
-                            <img src="assets/images/blue-arrow.svg" alt="">
-                        </a>
-                    </div>
-                    <div class="df-card">
-                        <h3>Featured Insights</h3>
-                        <p class="para">Explore the latest ideas, insights, and strategic topics in our blog section.
-                        </p>
-                        <a href="<?= base_url('blogs') ?>" class="read-more">
-                            <span>Read More</span>
-                            <img src="assets/images/blue-arrow.svg" alt="">
-                        </a>
+                <!-- Card 4 -->
+                <div class="col-lg-3 col-md-6 mb-30">
+                    <div class="cz-story-card cz-fade-in text-center">
+                        <div class="cz-story-icon-box">
+                            <div class="cz-story-icon-inner">
+                                <img src="<?= base_url('assets/img/about/transparency.png') ?>" alt="Image Not Found">
+                            </div>
+                        </div>
+                        <h4>Transparency</h4>
+                        <p>You know where things stand. Always. No surprises, no spin.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+    <!-- End Our Story -->
 
-<?php //if (!empty($servicehomecard)) { 
-?>
-<!-- <section class="solution-sec sec">
+    <!-- Start Projects 
+    ============================================= -->
+
+    <style>
+
+    </style>
+    <div class="project-style-two-area default-padding">
+
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <div class="sec-head" data-aos="fade-up" data-aos-duration="1000">
-                        <h2>Our <span>Solutions</span></h2>
-                    </div>
-                    <div class="swiper solution-swiper mt-50" data-aos="fade-up" data-aos-duration="1000">
-                        <div class="swiper-wrapper">
-                            <?php //foreach ($servicehomecard as $ser) { 
-                            ?>
-                                <div class="swiper-slide">
-                                    <a href="<? //=base_url('main-service/').$ser['slug']
-                                                ?>" class="vtr-card-wrapper">
-                                        <img src="<? //= base_url('uploads/images/') . $ser['image'] 
-                                                    ?>" alt="<? //= $ser['alt_text'] 
-                                                                ?>">
-                                        <div class="con">
-                                            <h3><? //= $ser['card_heading'] 
-                                                ?></h3>
-                                            <p class="para white">
-                                                <? //= $ser['card_description'] 
-                                                ?></p>
-                                        </div>
-                                    </a>
+
+                <div class="col-lg-12">
+                    <!-- <div class="heading-style-two">
+                        <h1 class="text-transform-up " style="font-size: 100px;">Values That <strong>Power Our Work</strong></h1>
+                    </div> -->
+                    <div class="project-style-two-items">
+                        <!-- Single Item -->
+                        <div class="project-style-two-item">
+                            <img src="<?= base_url('assets/img/about/Mission-1.jpg') ?>" alt="Mission">
+                            <div class="info bg-dark text-light" style="background-image: url(<?= base_url('assets/img/shape/10.png') ?>);">
+                                <div class="top">
+
+                                    <h2>Mission</h2>
+                                    <p class="split-text-right split-text-in-right">To be the most trusted AI-powered technology partner for the global logistics industry.</p>
+
                                 </div>
-                            <?php //} 
-                            ?>
+                                <div class="bottom">
+                                    <ul class="project-tags mb-30">
+                                        <li>Trusted Partner</li>
+                                        <li>AI Logistics</li>
+                                        <li>Reliability</li>
+                                        <li>Global Supply Chain</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Item -->
+                        <!-- Single Item -->
+                        <div class="project-style-two-item">
+                            <img src="<?= base_url('assets/img/about/Vission-1.jpg') ?>" alt="Vission">
+                            <div class="info bg-dark text-light" style="background-image: url(<?= base_url('assets/img/shape/10.png') ?>);">
+                                <div class="top">
+
+                                    <h2>Vision</h2>
+                                    <p class="split-text-right split-text-in-right">We combine logistics expertise, intelligent technology, and AI to deliver tailored solutions that create measurable impact for our clients.</p>
+                                </div>
+                                <div class="bottom">
+                                    <ul class="project-tags mb-30">
+                                        <li>Logistics Innovation</li>
+                                        <li>Intelligent Automation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Item -->
+                        <!-- Single Item -->
+                        <div class="project-style-two-item">
+                            <img src="<?= base_url('assets/img/about/Value-1.jpg') ?>" alt="Values">
+                            <div class="info bg-dark text-light" style="background-image: url(<?= base_url('assets/img/shape/10.png') ?>);">
+                                <div class="top">
+                                    <h2>Values</h2>
+                                    <p class="split-text-right split-text-in-right">Pride, Commitment, Quality, Transparency</p>
+                                </div>
+                                <div class="bottom">
+                                    <ul class="project-tags mb-30">
+                                        <li>Engineering Quality</li>
+                                        <li>Accountability</li>
+                                        <li>Craftsmanship</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Item -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Project -->
+
+
+    <!-- Start Services 
+    ============================================= -->
+    <div class="services-style-two-area default-padding bg-gray blurry-shape-right-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="site-heading text-center">
+
+                        <h2 class="title split-text-right split-text-in-right">What Sets Cozentus Apart</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-5">
+                    <div class="services-style-two-colum-large text-light fade-up-anim" style="background-image: url(<?= base_url('assets/img/shape/banner-8.jpg') ?>);">
+                        <h3 class="text-end"><a href="#">Powered by Expertise.<br> Driven by Innovation.</a></h3>
+
+                        <ul class="service-list mt-70 mt-xs-30">
+                            <li>
+                                <div class="icon">
+                                    <img src="<?= base_url('assets/img/about/supply-chain.png') ?>" alt="Image Not Found">
+                                </div>
+                                <div class="info">
+                                    <h4><a href="#">Supply Chain Domain Excellence</a></h4>
+                                    <p>
+                                        Helping logistics businesses solve complex operational challenges.
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon">
+                                    <img src="<?= base_url('assets/img/about/trade.png') ?>" alt="Image Not Found">
+                                </div>
+                                <div class="info">
+                                    <h4><a href="#">Global Delivery Excellence</a></h4>
+                                    <p>
+                                        Delivering consistent quality through teams across the UK, US, and India.
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-7">
+                    <div class="services-style-two-items fade-up-anim">
+                        <!-- Single Item -->
+                        <div class="services-style-two-item">
+                            <div class="top-info">
+                                <img src="<?= base_url('assets/img/about/artificial-intelligence.png') ?>" alt="Image Not Found">
+                                <h4><a href="#">AI & Technology <br> Innovation</a></h4>
+                                <ul class="list-style-one">
+                                    <li>AI-Powered Automation</li>
+                                    <li>Cloud & AI Technologies</li>
+                                    <li>Future-Ready Solutions</li>
+                                </ul>
+                            </div>
+                            <!-- <a href="services.html" class="btn-simple">Explore More <i class="fas fa-long-arrow-right"></i></a> -->
+                        </div>
+                        <!-- End Single Item -->
+                        <!-- Single Item -->
+                        <div class="services-style-two-item fade-up-anim">
+                            <div class="top-info">
+                                <img src="<?= base_url('assets/img/about/excellence.png') ?>" alt="Image Not Found">
+                                <h4><a href="#">Built Around <br>Customer Success</a></h4>
+                                <ul class="list-style-one">
+                                    <li>Client-Centric Approach</li>
+                                    <li>Scalable & Adaptive Solutions</li>
+                                    <li>Delivering Measurable Business Value</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <!-- End Single Item -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Services -->
+
+    <!-- Start Language Support 
+    ============================================= -->
+    <div class="language-support-area blurry-shape default-padding bg-dark text-light">
+        <div class="container">
+            <div class="row align-center">
+                <div class="col-lg-5">
+                    <div>
+                        <img class="fade-up-anim" src="<?= base_url('assets/img/about/map-wb.png') ?>" alt="cozentus location" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+
+                    </div>
+                    <!-- <div class="language-support-country-flag text-center">
+                        <img src="assets/img/shape/14.png" alt="Image Not Found">
+                        <img src="assets/img/icon/flag-can.png" alt="Image Not Found">
+                        <img src="assets/img/icon/flag-china.png" alt="Image Not Found">
+                        <img src="assets/img/icon/flag-dub.png" alt="Image Not Found">
+                        <img src="assets/img/icon/flat-am.png" alt="Image Not Found">
+                        <img src="assets/img/icon/flag-uks.png" alt="Image Not Found">
+                        <div class="round-move"></div>
+                        <div class="round-move-two"></div>
+                        <div class="fun-fact">
+                            <div class="js-counter">16+</div>
+                            <h4>Countries</h4>
+                        </div> 
+                    </div> -->
+                </div>
+                <div class="col-lg-6 offset-lg-1">
+                    <div class="language-support-info">
+                        <h2 class="title split-text-right split-text-in-right">Where we operate</h2>
+                        <p>
+                            Teams across the US, UK and India give our clients local partnership and round-the-clock delivery. Wherever you are, you have people in your time zone and a global team building behind them.
+                        <ul class="list-style-two">
+                            <li>Local partnership, wherever you are</li>
+                            <li>Round-the-clock delivery across time zones</li>
+                            <li>One global team, fully accountable</li>
+                        </ul>
+                        <a class="btn btn-style-one btn-border mt-35" href="<?= base_url('book-free-consultation') ?>">Book a Meeting <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Language Support -->
+
+
+    <!-- Workplace 
+    ============================================= -->
+    <div class="testimonial-style-two-area default-padding-top pb-80 pb-xs-70 bg-gray blurry-shape-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="site-heading text-center">
+                        <h2 class="title split-text-right split-text-in-right">Our workplace, our strength</h2>
+                    </div>
+                    <div class="content">
+                        <p>
+                            We foster a people-first culture where employees feel valued, respected, and empowered. By prioritizing well-being, inclusion, and growth, we create an environment that inspires success beyond the workplace.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="testimonial-provider-thumbs transform-up-animation">
+                        <div class="testimonial-provider-item transform-animation-item">
+                            <img src="<?= base_url('assets/img/about/about-1.png') ?>" alt="Image Not Found">
+                        </div>
+                        <div class="testimonial-provider-item transform-animation-item">
+                            <img src="<?= base_url('assets/img/about/about-2.png') ?>" alt="Image Not Found">
+                        </div>
+                        <div class="testimonial-provider-item transform-animation-item">
+                            <img src="<?= base_url('assets/img/about/about-3.png') ?>" alt="Image Not Found">
+                            <img src="<?= base_url('assets/img/about/about-4.png') ?>" alt="Image Not Found">
+                        </div>
+                        <div class="testimonial-provider-item transform-animation-item">
+                            <img src="<?= base_url('assets/img/about/about-7.jpg') ?>" alt="Image Not Found">
+                            <img src="<?= base_url('assets/img/about/about-8.jpg') ?>" alt="Image Not Found">
+                        </div>
+                        <div class="testimonial-provider-item transform-animation-item">
+                            <img src="<?= base_url('assets/img/about/about-9.jpg') ?>" alt="Image Not Found">
+                        </div>
+                        <div class="testimonial-provider-item transform-animation-item">
+                            <img src="<?= base_url('assets/img/about/about-6.png') ?>" alt="Image Not Found">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section> -->
-<?php //} 
-?>
+    </div>
+    <!-- End Workplace -->
 
-<!-- <section class="abt-cta-sec">
-        <div class="container">
-            <div class="row align-items-center">
-                <!--<div class="col-lg-6 col-12">-->
-<!--    <div class="abt-cta-bl-grid">-->
-<!--        <div class="bl-card">-->
-<!--            <span>Americas</span>-->
-<!--        </div>-->
-<!--        <div class="bl-card">-->
-<!--            <span>Asia Pacific</span>-->
-<!--        </div>-->
-<!--        <div class="bl-card">-->
-<!--            <span>Europe</span>-->
-<!--        </div>-->
-<!--        <div class="bl-card">-->
-<!--            <span>Middle East and Africa</span>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-<!-- <div class="col-12 text-center">
-                    <h3 class="abt-cta-head" data-aos="fade-up" data-aos-duration="1000">
-                        Let's get in touch
-                    </h3>
-                    <a href="<?= base_url('contact') ?>" data-aos="fade-up" data-aos-duration="1000" class="main-btn center">
-                        <span>Contact Us</span>
-                    </a>
+    <!-- Start Team 
+    ============================================= -->
+
+    <?php if (!empty($ourteams)) { ?>
+        <div class="team-style-two-area default-padding bottom-less  bg-gray blurry-shape-left-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="site-heading text-center">
+
+                            <h2 class="title split-text-right split-text-in-right">The People Behind Cozentus</h2>
+                            <p>
+                                A leadership team with decades of expertise across supply chain logistics and the technology behind it.
+                            </p>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-        </div> -->
-<!-- </section> -->
+            <div class="container">
+                <div class="team-style-two-items">
+
+                    <div class="row align-center">
+                        <div class="team-carousel swiper">
+                            <div class="swiper-wrapper">
+                                <?php foreach ($ourteams as $team) {
+                                ?>
+                                    <div class="swiper-slide">
+                                        <div class="col-lg-12 col-md-6 mb-30">
+                                            <div class="team-style-two-item fade-up-anim">
+                                                <div class="thumb">
+                                                    <img src="<?= base_url('uploads/images/') . $team['image'] ?>" alt="Image Not Found">
+                                                    <div class="text-overlay">
+                                                        <p>
+                                                            <?= html_entity_decode($team['short_description']) ?>
+                                                        </p>
+                                                    </div>
+                                                    <div class="social-overlay">
+                                                        <ul>
+                                                            <!-- <li>
+                                                                <a href="<?= urldecode($team['twitter_link']) ?? '#' ?>" target="__blank">
+                                                                    <i class="fab fa-twitter"></i>
+                                                                </a>
+                                                            </li> -->
+                                                            <li>
+                                                                <a href="<?= urldecode($team['link']) ?? '#' ?>" target="__blank"><i class="fab fa-linkedin-in"></i></a>
+                                                            </li>
+                                                            <!-- <li>
+                                                                <a href="<?= urldecode($team['insta_link']) ?? '#' ?>" target="__blank"><i class="fab fa-instagram"></i></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="<?= urldecode($team['facebook_link']) ?? '#' ?>" target="__blank"><i class="fab fa-facebook-f"></i></a>
+                                                            </li> -->
+                                                        </ul>
+                                                        <div class="icon">
+                                                            <i class="fas fa-plus"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="info">
+                                                    <h4><a href="<?= base_url('team/') . $team['slug'] ?>"><?= $team['name'] ?></a></h4>
+                                                    <span><?= $team['title'] ?></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                            <br>
+                            <div class="swiper-pagination"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
+    <!-- End Team -->
+    <!-- Call to Action
+    ============================================= -->
+    <div class="home-blog-two-area default-padding">
+        <div class="container">
+            <div class="blog-style-two-box bg-dark" styles="background-image: url(<?= base_url('assets/img/shape/10.png') ?>); background-size: cover;">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="cta-box text-center fade-up-anim">
+                            <h2 class="cta-title mb-20">Ready to Transform Your Supply Chain?</h2>
+                            <p class="cta-description mb-30">
+                                Let's discuss how our AI-powered solutions can help you optimize operations and drive measurable results. Our team is ready to understand your unique challenges.
+                            </p>
+                            <div class="cta-buttons d-flex  flex-column flex-md-row justify-content-center gap-4">
+                                <a class="btn btn-style-one btn-border mb-2" href="<?= base_url('book-free-consultation') ?>">
+                                    Book a Meeting <i class="fas fa-arrow-right"></i>
+                                </a>
+                                <a class="btn btn-style-one mb-2" href="<?= base_url('contact') ?>">
+                                    Send Message <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End Call to Action -->
+</div>

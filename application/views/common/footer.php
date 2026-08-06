@@ -1,354 +1,10 @@
-<?php if (!empty($pserv['main_cta_btn'])) { ?>
-    <a href="<?= !empty($pserv['main_cta_pdf']) ? 'javascript:void(0)' : $pserv['main_cta_link'] ?>"
-        class="main-btn sticky-btn <?= !empty($pserv['main_cta_pdf']) ? 'open-contact-modal' : '' ?>">
-        <span><?= $pserv['main_cta_btn'] ?></span>
-    </a>
-
-    <div class="modal fade cc-modal" id="css-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <div class="modal-body">
-                    <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close">
-                        <img src="<?= base_url() ?>assets/images/cross.svg" alt="">
-                    </button>
-                    <!-- <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                        <img src="<?= base_url() ?>assets/images/cross.svg" alt="">
-                    </button> -->
-                    <div class="sec-head" data-aos="fade-up" data-aos-duration="1000">
-                        <h2>
-                            <?= !empty($pserv['main_cta_pdf']) ? "Download" : "Get <span>In Touch</span>" ?>
-                        </h2>
-                    </div>
-                    <form data-form="insertcontact"
-                        <?= !empty($pserv['main_cta_pdf']) ? "data-download='" . base_url('uploads/pdf/') . $pserv['main_cta_pdf'] . "' data-file-name='" . $pserv['main_cta_pdf'] . "'" : '' ?>
-                        class="contact-form mt-40 form">
-                        <div class="row">
-                            <div class="col-lg-6 col-12">
-                                <div class="form-group">
-                                    <label for="" class="label-text">
-                                        First Name
-                                    </label>
-                                    <div class="inp-group">
-                                        <input type="text" name="fname" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-12">
-                                <div class="form-group">
-                                    <label for="" class="label-text">
-                                        Last Name
-                                    </label>
-                                    <div class="inp-group">
-                                        <input type="text" name="lname" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-12">
-                                <div class="form-group">
-                                    <label for="" class="label-text">
-                                        Work Email Address
-                                    </label>
-                                    <div class="inp-group">
-                                        <input type="email" name="email" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-12">
-                                <div class="form-group">
-                                    <label for="" class="label-text">
-                                        Contact Number
-                                    </label>
-                                    <div class="inp-group">
-                                        <input type="text" name="phone" id="phonem" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-12">
-                                <div class="form-group">
-                                    <label for="" class="label-text">
-                                        Organisation Name
-                                    </label>
-                                    <div class="inp-group">
-                                        <input type="text" name="organisation" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-12">
-                                <div class="form-group">
-                                    <label for="" class="label-text">
-                                        Designation
-                                    </label>
-                                    <div class="inp-group">
-                                        <input type="text" name="employees" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-12">
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <label class="form-check-label" for="exampleCheck1">&nbsp;&nbsp;I agree to the
-                                            Cozentus Privacy Policy (<a href="<?= base_url('privacy-statement') ?>">Privacy
-                                                Statement</a>)</label>
-                                        <input type="checkbox" name="privacy_policy" class="form-check-input"
-                                            id="exampleCheck1">
-                                    </div>
-                                </div>
-                            </div>
-                            <input type="hidden" name="service" value="<?= $pserv['card_heading'] ?>">
-                            <div class="g-recaptcha" data-sitekey="<?php echo $recaptcha_site_key; ?>"></div>
-                            <div class="col-12">
-                                <div class="btn-flex mt-40">
-                                    <button class="main-btn" type="submit">
-                                        <span><?= !empty($pserv['main_cta_pdf']) ? "Download Pdf" : "Schedule a Meeting" ?></span>
-                                    </button>
-
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
-<?php } ?>
-
-<footer class="main-footer">
-    <img loading="lazy" src="<?= base_url('assets/images/coz-ft-bg.webp') ?>" alt="footer Background">
-    <div class="container">
-        <div class="ft-top">
-            <a href="" class="ft-logo">
-                <img width="220" height="24" class="height_auto" src="<?= base_url('assets/images/footer-logo.webp') ?>"
-                    alt="footer Logo">
-            </a>
-        </div>
-        <div class="ft-middle">
-            <div class="row">
-                <div class="col-lg-2 col-6">
-                    <h3 class="ft-head">
-                        Quick Links
-                    </h3>
-                    <ul class="ft-list">
-                        <li>
-                            <a href="<?= base_url('about') ?>">
-                                About
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url('industries') ?>">
-                                Industries
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url('team') ?>">
-                                Our Team
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url('blogs') ?>">
-                                Blogs
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url('news-and-events') ?>">
-                                News And Events
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url('glossary-logistics-automation') ?>">
-                                Glossary
-                            </a>
-                        </li>
-
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-6">
-                    <h3 class="ft-head">
-                        Insights
-                    </h3>
-                    <ul class="ft-list">
-                        <li>
-                            <a href="<?= base_url('case-studies') ?>">
-                                Case Studies
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url('use-cases') ?>">
-                                Use Case
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url('career') ?>">
-                                Career
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url('contact') ?>">
-                                Contact
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-6">
-                    <h3 class="ft-head">
-                        Solutions
-                    </h3>
-                    <ul class="ft-list">
-                        <li>
-                            <a href="<?= base_url('domain-capabilities') ?>">
-                                Domain Capabilities
-                            </a>
-                        </li>
-                        <!-- <li>
-                            <a href="<?= base_url('main-service/logistics-solutions-') ?>">
-                                Logistics Solutions
-                            </a>
-                        </li>-->
-                        <li>
-                            <a href="<?= base_url('services') ?>">
-                                Services
-                            </a>
-                        </li>
-
-                    </ul>
-                </div>
-
-                <div class="col-lg-5 col-12">
-                    <h3 class="ft-head">
-                        Join our mailing list for monthly updates
-                    </h3>
-                    <div class="subs-wrap">
-                        <form id="subs-form1">
-                            <input type="email" name="email" placeholder="Enter your email address">
-                            <button type="submit" id="sub-btn">
-                                <img width="15" height="15" class="height_auto"
-                                    src="<?= base_url('assets/images/arr.svg') ?>" alt="Arrow">
-                            </button>
-                        </form>
-                        <div id="subs-msg1" class="subs-msg text-success mt-2"></div>
-                        <div id="subs-msg2" class="subs-msg text-danger mt-2"></div>
-                    </div>
-                    <ul class="ft-soc-list">
-                        <li>
-                            <a href="https://www.linkedin.com/company/cozentus/" target="_blank">
-                                <img src="<?= base_url('assets/images/linkedin.svg') ?>" width="20" height="20"
-                                    class="height_auto" alt="Linkedin">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.facebook.com/CozentusTechnologies/" width="20" height="20"
-                                arget="_blank">
-                                <img src="<?= base_url('assets/images/facebook.svg') ?>" width="20" height="20"
-                                    class="height_auto" alt="Facebook">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/cozentus/?hl=en" width="20" height="20" target="_blank">
-                                <img src="<?= base_url('assets/images/insta.svg') ?>" width="20" height="20"
-                                    class="height_auto" alt="Instagram">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.youtube.com/@cozentus" target="_blank">
-                                <img width="20" height="20" class="height_auto"
-                                    src="<?= base_url('assets/images/youtube-dark.svg') ?>" alt="Youtube">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="ft-bottom">
-            <!-- <p>© 2023 | All Rights Reserved Cozentus Technologies Pvt Ltd | <a href="https://dimerse.com/" target="_blank">Code & Design Credits</a></p> -->
-            <p>© <?php echo date("Y"); ?> | All Rights Reserved Cozentus Technologies Pvt Ltd.</p>
-            <ul>
-                <li>
-                    <a href="<?= base_url('privacy-statement') ?>">
-                        Privacy Statement
-                    </a>
-                </li>
-                <li>
-                    <a href="<?= base_url('cookie-policy') ?>">
-                        Cookie Policy
-                    </a>
-                </li>
-                <li>
-                    <a target="_blank"
-                        href="<?= base_url('uploads/pdf/Cozentus-Technologies-Annual-Return-FY 22-23.pdf') ?>">
-                        Annual Return FY22-23
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</footer>
-<?= !empty($head_foot['footer']) ? html_entity_decode($head_foot['footer']) : '' ?>
-<?php
-$commonpageheader = $this->home_model->get_header_footer('common');
-if (!empty($commonpageheader['footer'])) {
-    echo html_entity_decode($commonpageheader['footer']);
-}
-?>
-<?php if (($this->session->userdata('marquee_txt')) != '') { ?>
-    <div id="marquee" class="marquee-container">
-        <div class="marquee">
-            <div class="marquee-content">
-                <a href="<?php echo $this->session->userdata('btn_link'); ?>" style="color: white; text-decoration: none;"
-                    target="_blank">
-                    <p><?php echo $this->session->userdata('marquee_txt'); ?> &nbsp;&nbsp;&nbsp;&nbsp;<button
-                            class="marquee_button" style="color: black;">
-                            <?php echo $this->session->userdata('btn_label'); ?></button>
-                    </p>
-                </a>
-            </div>
-        </div>
-    </div>
-<?php } ?>
-<div id="cookieConsentModal" class="cookie-container d-none">
-    <div class="left-panel copy-container">
-        <p id="cookieText">We use cookies to enhance your experience on our website. By continuing to use this website,
-            you consent to the use of cookies<a href="<?= base_url('privacy-statement') ?>">&nbsp;&nbsp;Privacy
-                Policy</a></p>
-    </div>
-    <div class="right-panel btn-container">
-        <button id="acceptCookiesBtn" class="accept-cookie">ACCEPT</button>
-        <button id="rejectCookiesBtn" class="decline-cookie">DECLINE</button>
-    </div>
-</div>
-
-
-
-
-
 <!-- Book a demo modal start -->
 <!-- ============================================================ -->
 <!-- MEETING MODAL -->
 <!-- ============================================================ -->
-<div id="meetingModalHeader" style="
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: 99999;
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(4px);
-            align-items: center;
-            justify-content: center;
-        ">
+<div id="meetingModalHeader">
     <!-- Modal Box -->
-    <div style="
-                background: #fff;
-                width: 90%;
-                max-width: 860px;
-                max-height: 90vh;
-                border-radius: 12px;
-                overflow: hidden;
-                position: relative;
-                box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-                display: flex;
-                flex-direction: column;
-            ">
+    <div class="meetingModalInnerHeader">
         <!-- Modal Header -->
         <div style="
                     background: #0a2670;
@@ -407,13 +63,126 @@ if (!empty($commonpageheader['footer'])) {
             </div>
 
             <!-- HubSpot Embed Container -->
-            <div class="meetings-iframe-container" id="hubspot-meeting-header"
+            <!-- <div class="meetings-iframe-container" id="hubspot-meeting-header"
                 data-src="https://meetings.hubspot.com/david4662?embed=true" style="min-height: 600px; display:none;">
+            </div> -->
+            <div class="meetings-iframe-container" id="hubspot-meeting-header"
+                data-src="https://meetings-na2.hubspot.com/gavin-webber?embed=true" style="min-height: 600px; display:none;">
             </div>
 
         </div>
     </div>
 </div>
+
+
+<div class="modal fade cc-modal" id="css-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content p-3">
+            <div class="modal-body">
+                <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close">
+                    <!-- <img src="<?= base_url() ?>assets/images/cross.svg" alt=""> -->
+                    X
+                </button>
+                <div class="sec-head" data-aos="fade-up" data-aos-duration="1000">
+                    <h2>
+                        <?= !empty($pserv['main_cta_pdf']) ? "Download" : "Get <span>In Touch</span>" ?>
+                    </h2>
+                </div>
+                <form data-form="insertcontact"
+                    <?= !empty($pserv['main_cta_pdf']) ? "data-download='" . base_url('uploads/pdf/') . $pserv['main_cta_pdf'] . "' data-file-name='" . $pserv['main_cta_pdf'] . "'" : '' ?>
+                    class="contact-form-custom">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <input class="form-control" id="name" name="name" placeholder="Name" type="text">
+                                <span class="alert-error"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input class="form-control" id="email" name="email" placeholder="Email" type="email">
+                                <span class="alert-error"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input class="form-control" id="phone" name="phone" placeholder="Phone" type="text">
+                                <span class="alert-error"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input class="form-control" id="organisation" name="organisation" placeholder="Organisation" type="text">
+                                <span class="alert-error"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input class="form-control" id="employees" name="employees" placeholder="Designation" type="text">
+                                <span class="alert-error"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <input type="checkbox" name="privacy_policy" id="agree">
+                                <label for="agree">&nbsp;&nbsp;I agree to the
+                                    Cozentus Privacy Policy (<a
+                                        href="<?= base_url('privacy-statement') ?>">Privacy
+                                        Statement</a>)</label>
+                                <span class="alert-error"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Google ReCAPTCHA -->
+                    <!-- <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <div class="g-recaptcha" data-sitekey="<?= $recaptcha_site_key ?>"></div>
+                                <span class="alert-error"></span>
+                            </div>
+                        </div>
+                    </div> -->
+                    <input type="hidden" name="service" value="<?= $pserv['card_heading'] ?>">
+                    <input type="hidden" name="parent_id" value="<?= $pserv['pserv'] ?>">
+                    <input type="hidden" name="path" value="<?= $this->uri->uri_string() ?>">
+                    <input type="hidden" name="type" value="<?= $type ?>">
+                    <!-- Alert Message -->
+                    <div class="col-lg-12 alert-notification mb-3" role="alert">
+                        <div id="message" class="alert-msg text-danger"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <button class="btn btn-style-one" type="submit" id="submitBtn" data-aos="fade-up" data-aos-duration="1200">
+                                <?= !empty($pserv['main_cta_pdf']) ? "Download Pdf" : "Schedule a Meeting" ?><i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- ============================================================ -->
 <!-- STYLES -->
@@ -422,12 +191,12 @@ if (!empty($commonpageheader['footer'])) {
     /* ── Base modal ── */
     #meetingModalHeader {
         display: none;
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        z-index: 999999 !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999999;
         /* higher than navbar */
         background: rgba(0, 0, 0, 0.7);
         backdrop-filter: blur(4px);
@@ -484,6 +253,107 @@ if (!empty($commonpageheader['footer'])) {
             border-radius: 0 !important;
         }
     }
+
+    /* ── Cookie Consent Banner ── */
+    .cookie-container {
+        position: fixed;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 800px;
+        background: rgba(10, 38, 112, 0.95);
+        backdrop-filter: blur(8px);
+        color: #fff;
+        padding: 16px 24px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        z-index: 999999;
+        transition: all 0.3s ease;
+    }
+
+    .cookie-container.d-none {
+        display: none !important;
+    }
+
+    .cookie-container .left-panel {
+        flex: 1;
+    }
+
+    .cookie-container p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #e0e0e0;
+    }
+
+    .cookie-container p a {
+        color: #4da6ff;
+        text-decoration: underline;
+        font-weight: 500;
+    }
+
+    .cookie-container p a:hover {
+        color: #80c0ff;
+    }
+
+    .cookie-container .right-panel {
+        display: flex;
+        gap: 12px;
+        flex-shrink: 0;
+    }
+
+    .cookie-container button {
+        padding: 8px 20px;
+        border: none;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.1s;
+    }
+
+    .cookie-container .accept-cookie {
+        background: #28a745;
+        color: #fff;
+    }
+
+    .cookie-container .accept-cookie:hover {
+        background: #218838;
+    }
+
+    .cookie-container .decline-cookie {
+        background: rgba(255, 255, 255, 0.15);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .cookie-container .decline-cookie:hover {
+        background: rgba(255, 255, 255, 0.25);
+    }
+
+    @media (max-width: 768px) {
+        .cookie-container {
+            flex-direction: column;
+            text-align: center;
+            bottom: 16px;
+            padding: 20px;
+        }
+
+        .cookie-container .right-panel {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .cookie-container button {
+            flex: 1;
+            max-width: 150px;
+        }
+    }
 </style>
 
 <!-- ============================================================ -->
@@ -498,7 +368,7 @@ if (!empty($commonpageheader['footer'])) {
         function preloadHubSpot() {
             if (scriptLoaded) return;
             scriptLoaded = true;
-            console.log('HubSpot script loading...');
+            // console.log('HubSpot script loading...');
             const script = document.createElement('script');
             script.src = 'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js';
             script.async = true;
@@ -507,7 +377,8 @@ if (!empty($commonpageheader['footer'])) {
             script.onload = function() {
                 hubspotLoaded = true;
                 // If modal already open before script finished — show embed
-                if (document.getElementById('openMeetingModalHeader').style.display === 'flex') {
+                const modalEl = document.getElementById('meetingModalHeader');
+                if (modalEl && modalEl.style.display === 'flex') {
                     showEmbed();
                 }
             };
@@ -532,11 +403,11 @@ if (!empty($commonpageheader['footer'])) {
 
             if (hubspotLoaded) {
                 // Script already loaded — show immediately
-                console.log('HubSpot script loaded');
+                // console.log('HubSpot script loaded');
                 showEmbed();
             } else if (!scriptLoaded) {
                 // Not started yet — load now
-                log('Loading HubSpot script...');
+                // log('Loading HubSpot script...');
                 preloadHubSpot();
             }
             // else: script is loading — onload will call showEmbed()
@@ -550,10 +421,10 @@ if (!empty($commonpageheader['footer'])) {
         }
         // ── 5. ✅ Load immediately when DOM is ready ──
         if (document.readyState === 'loading') {
-            console.log('document loading, waiting for DOMContentLoaded');
+            // console.log('document loading, waiting for DOMContentLoaded');
             document.addEventListener('DOMContentLoaded', preloadHubSpot);
         } else {
-            log('document already ready, loading HubSpot script');
+            // log('document already ready, loading HubSpot script');
             preloadHubSpot(); // already ready — run immediately
         }
 
@@ -562,18 +433,24 @@ if (!empty($commonpageheader['footer'])) {
         document.addEventListener('DOMContentLoaded', function() {
 
             // Open button
-            document.getElementById('openMeetingModalHeader')
-                .addEventListener('click', openModal);
+            const openBtn = document.getElementById('openMeetingModalHeader');
+            if (openBtn) {
+                openBtn.addEventListener('click', openModal);
+            }
 
             // Close button
-            document.getElementById('closeMeetingModalHeader')
-                .addEventListener('click', closeModal);
+            const closeBtn = document.getElementById('closeMeetingModalHeader');
+            if (closeBtn) {
+                closeBtn.addEventListener('click', closeModal);
+            }
 
             // Click outside modal box to close
-            document.getElementById('meetingModalHeader')
-                .addEventListener('click', function(e) {
+            const modalBox = document.getElementById('meetingModalHeader');
+            if (modalBox) {
+                modalBox.addEventListener('click', function(e) {
                     if (e.target === this) closeModal();
                 });
+            }
 
             // ESC key to close
             document.addEventListener('keydown', function(e) {
@@ -586,58 +463,379 @@ if (!empty($commonpageheader['footer'])) {
 <!-- Book a demo modal end -->
 
 
+<!-- Start Footer 
+    ============================================= -->
+<footer class="footer-style-one box-layout bg-dark text-light">
+
+    <div class="footer-shape">
+        <img src="<?= base_url('assets/img/shape/globe.png') ?>" alt="Image Not Found">
+    </div>
+    <div class="container">
+        <div class="f-items default-padding">
+            <div class="row">
+                <div class="col-xl-5 col-lg-5">
+                    <div class="f-item contact">
+                        <h4 class="widget-title"> Contact</h4>
+                        <p>
+                            SRB Tower, 5th and 6th Floor, Infocity, Bhubaneswar -751024, Odisha, India
+                        </p>
+                        <ul class="contact">
+                            <li>
+                                <p>Phone Number</p>
+                                <h4><a href="tel:+91 977 712 6600">+91 977 712 6600 (India)</a></h4>
+                            </li>
+                            <li>
+                                <p>Email</p>
+                                <h4><a href="mailto:supplychain@cozentus.com">supplychain@cozentus.com</a></h4>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-6 offset-xl-1 col-lg-7">
+                    <div class="footer-style-one-items">
+                        <!-- Single Item -->
+                        <div class="f-item link">
+                            <h4 class="widget-title">Quick Links</h4>
+                            <ul>
+                                <li>
+                                    <a href="<?= base_url('about') ?>">About</a>
+                                </li>
+                                <li>
+                                    <a href="<?= base_url('contact') ?>">Contact Us</a>
+                                </li>
+                                <li>
+                                    <a href="<?= base_url('book-free-consultation') ?>">Book a Meeting</a>
+                                </li>
+                                <li>
+                                    <a href="<?= base_url('career') ?>">Career</a>
+                                </li>
+                                <li>
+                                    <a href="<?= base_url('news-and-events') ?>">Events</a>
+                                </li>
+                                <li>
+                                    <a href="<?= base_url('glossary-logistics-automation') ?>">Glossary</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- End Single Item -->
+                        <!-- Single Item -->
+                        <div class="f-item link">
+                            <h4 class="widget-title">Insights</h4>
+                            <ul>
+                                <li>
+                                    <a href="<?= base_url('blogs') ?>">Blogs</a>
+                                </li>
+                                <li>
+                                    <a href="<?= base_url('case-studies') ?>">Case Studies</a>
+                                </li>
+                                <li>
+                                    <a href="<?= base_url('reports') ?>">Whitepaper</a>
+                                </li>
+                                <li>
+                                    <a href="<?= base_url('podcast') ?>">Podcasts</a>
+                                </li>
+                                <li>
+                                    <a href="<?= base_url('webinars') ?>">Webinars</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <!-- End Single Item -->
+                        <!-- Single Item -->
+                        <div class="f-item link">
+                            <h4 class="widget-title">Solutions</h4>
+                            <ul>
+                                <li>
+                                    <a href="<?= base_url('domain-capabilities') ?>">Domain Capabilities</a>
+                                </li>
+                                <li>
+                                    <a href="<?= base_url('services') ?>">Services</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <!-- End Single Item -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Start Footer Bottom -->
+    <div class="footer-bottom-one">
+        <div class="container">
+            <div class="content">
+                <div class="row align-center">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="logo">
+                            <a href="#"><img src="<?= base_url('assets/img/logo-light.png') ?>" alt="Logo"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <ul class="footer-item-social text-end">
+                            <li>
+                                <a href="https://www.facebook.com/CozentusTechnologies/" target="_blank">
+                                    <i class="fab fa-facebook-f"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/company/cozentus/" target="_blank">
+                                    <i class="fab fa-linkedin-in"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/cozentus/?hl=en" target="_blank">
+                                    <i class="fab fa-instagram"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://www.youtube.com/@cozentus" target="_blank">
+                                    <i class="fab fa-youtube"></i></a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Footer Bottom -->
+
+    <!-- Start Footer Bottom -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <p>© <a href="#"><?= date('Y') ?></a> All Rights Reserved Cozentus Technologies Pvt Ltd.</p>
+                </div>
+                <div class="col-lg-6 text-end">
+                    <ul>
+                        <li>
+                            <a href="<?= base_url('privacy-statement') ?>"> Privacy Statement</a>
+                        </li>
+                        <li>
+                            <a href="<?= base_url('cookie-policy') ?>">Cookie Policy</a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="<?= base_url('uploads/pdf/Cozentus-Technologies-Annual-Return-FY 22-23.pdf') ?>">Annual Return FY22-23</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="cookieConsentModal" class="cookie-container d-none">
+        <div class="left-panel copy-container">
+            <p id="cookieText">We use cookies to enhance your experience on our website. By continuing to use this website, you consent to the use of cookies<a href="<?= base_url('privacy-statement') ?>">&nbsp;&nbsp;Privacy Policy</a></p>
+        </div>
+        <div class="right-panel btn-container">
+            <button id="acceptCookiesBtn" class="accept-cookie">ACCEPT</button>
+            <button id="rejectCookiesBtn" class="decline-cookie">DECLINE</button>
+        </div>
+    </div>
+
+    <button id="backToTop" aria-label="Back to Top">
+        ↑
+    </button>
+
+    <!-- End Footer Bottom -->
 
 
 
+</footer>
+<!-- End Footer -->
 
+<!-- jQuery Frameworks
+    ============================================= -->
 
+<script src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>"></script>
+<script src="<?= base_url('assets/js/jquery.appear.js') ?>"></script>
+<script src="<?= base_url('assets/js/jquery.easing.min.js') ?>"></script>
+<script src="<?= base_url('assets/js/jquery.magnific-popup.min.js') ?>"></script>
+<script src="<?= base_url('assets/js/swiper-bundle.min.js') ?>"></script>
+<script src="<?= base_url('assets/js/wow.min.js') ?>"></script>
+<script src="<?= base_url('assets/js/progress-bar.min.js') ?>"></script>
+<script src="<?= base_url('assets/js/isotope.pkgd.min.js') ?>"></script>
+<script src="<?= base_url('assets/js/imagesloaded.pkgd.min.js') ?>"></script>
+<script src="<?= base_url('assets/js/count-to.js') ?>"></script>
+<script src="<?= base_url('assets/js/YTPlayer.min.js') ?>"></script>
+<script src="<?= base_url('assets/js/validnavs.js') ?>"></script>
+<script src="<?= base_url('assets/js/gsap.js') ?>"></script>
+<script src="<?= base_url('assets/js/lenis.min.js') ?>"></script>
+<script src="<?= base_url('assets/js/ScrollTrigger.min.js') ?>"></script>
+<script src="<?= base_url('assets/js/SplitText.min.js') ?>"></script>
+<script src="<?= base_url('assets/js/main.js') ?>"></script>
 
-
-
-<!-- <script src="https://code.jquery.com/jquery-3.6.1.js"></script> -->
-
-<!-- validate cdn -->
-
-
+<!-- Custom Extra JS--->
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
-<!-- bootstrap -->
-<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-<!-- swiper -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.4/swiper-bundle.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="<?= base_url('assets/js/lightbox.min.js') ?>"></script>
-<?php if (base_url() != 'https://infisuite.in/dev/cozweb/') { ?>
-    <script defer src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.0/build/js/intlTelInput.js"></script>
-    <script defer src="<?= base_url('assets/js/webinar-form.js') ?>"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.0/build/js/intlTelInput.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<!-- <script defer src="<?= base_url('assets/custom/app.js?v=1.0') ?>"></script>
+ <script defer src="<?= base_url('assets/custom/form.js?v=1.0') ?>"></script> -->
 
-<?php } ?>
-<script defer src="<?= base_url('assets/js/app.js?v=1.0') ?>"></script>
-<script defer src="<?= base_url('assets/js/form.js') ?>"></script>
-<!-- <script src="https://www.youtube.com/s/player/8c8d0e7a/www-embed-player.vflset/www-embed-player.js" async></script> -->
+<!-- <script defer src="<?= base_url('assets/custom/webinar-form.js') ?>"></script> -->
+
+
+
 <script>
-    AOS.init();
-    lightbox.option({
-        'resizeDuration': 200,
-        'wrapAround': true
-    })
-    var menu = ['Move Forward, Think Agile', 'Drive Digital Transformation', 'Achieve Supply Chain Mastery'];
-    sliderDelay = 3500;
-    var swiper = new Swiper(".main-banner-swiper", {
-        pagination: {
-            el: ".main-banner-swiper-pagination",
-            clickable: true,
-            renderBullet: function(index, className) {
-                return '<span class="' + className + ' banner-pagi-wrap" style="--anim: progress ' +
-                    sliderDelay / 1000 + 's linear forwards"><p>' + (menu[index]) + '</p></span>';
-            },
-        },
-        autoplay: {
-            delay: sliderDelay,
-            disableOnInteraction: false
+    const backToTopBtn = document.getElementById("backToTop");
+
+    /* Show button after scrolling */
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add("show");
+        } else {
+            backToTopBtn.classList.remove("show");
+        }
+
+    });
+
+    /* Smooth scroll to top */
+    backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    });
+
+    $(".open-contact-modal").on("click", function() {
+        $("#css-modal").modal('show');
+        formVal();
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        const cookieConsentModal = $('#cookieConsentModal');
+        const marquee = $('#marquee');
+        const acceptCookiesBtn = $('#acceptCookiesBtn');
+        const rejectCookiesBtn = $('#rejectCookiesBtn');
+
+        function setCookieConsent(value) {
+            const expiration = new Date();
+            expiration.setTime(expiration.getTime() + (24 * 60 * 60 * 1000));
+            const cookieString = `cookieConsent=${value}; expires=${expiration.toUTCString()}; path=/`;
+            document.cookie = cookieString;
+        }
+        acceptCookiesBtn.on('click', function() {
+            setCookieConsent('accepted');
+            cookieConsentModal.addClass('d-none');
+            marquee.css("bottom", "-20px");
+        });
+        rejectCookiesBtn.on('click', function() {
+            setCookieConsent('rejected');
+            cookieConsentModal.addClass('d-none');
+            marquee.css("bottom", "-20px");
+        });
+        const cookieConsent = getCookieValue('cookieConsent');
+        console.log('[CookieConsent] Current cookie value:', cookieConsent);
+        if (!cookieConsent) {
+            console.log('[CookieConsent] Cookie not set. Showing popup.');
+            cookieConsentModal.removeClass('d-none');
+        } else {
+            console.log('[CookieConsent] Cookie already set. Popup hidden.');
         }
     });
 
+    function getCookieValue(cookieName) {
+        const nameEQ = cookieName + "=";
+        const ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+</script>
+
+<!--Start of Tawk.to Script-->
+
+<script type="text/javascript">
+    var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+    (function() {
+        var s1 = document.createElement("script"),
+            s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/69bbcba76b81021c34520b0b/1jk2p722m';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+    })();
+</script>
+<!--End of Tawk.to Script-->
+<script>
+    //Home page banner text sliding
+
+    const wordsArray = [
+        "AI-Powered",
+        "Data-Driven",
+        "Future-Ready",
+    ];
+
+    const slidingText = document.getElementById("sliding-text");
+
+    if (slidingText) {
+        let currentIndex = 0;
+
+        // Initial render
+        function renderWord(word) {
+            slidingText.innerHTML = "";
+
+            word.split("").forEach((char, index) => {
+                const span = document.createElement("span");
+                span.classList.add("char");
+                span.textContent = char === " " ? "\u00A0" : char;
+                slidingText.appendChild(span);
+            });
+        }
+
+        renderWord(wordsArray[currentIndex]);
+
+        async function animateTextChange() {
+
+            const chars = slidingText.querySelectorAll(".char");
+
+            // STEP 1: Remove current text
+            // Right → Left
+            for (let i = chars.length - 1; i >= 0; i--) {
+                chars[i].classList.add("hide");
+                await sleep(40);
+            }
+
+            await sleep(200);
+
+            // STEP 2: New word
+            currentIndex = (currentIndex + 1) % wordsArray.length;
+            const newWord = wordsArray[currentIndex];
+
+            slidingText.innerHTML = "";
+
+            // STEP 3: Add new text
+            // Left → Right
+            newWord.split("").forEach((char, index) => {
+                const span = document.createElement("span");
+
+                span.classList.add("char", "show");
+                span.style.animationDelay = `${index * 0.05}s`;
+
+                span.textContent = char === " " ? "\u00A0" : char;
+
+                slidingText.appendChild(span);
+            });
+        }
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        setInterval(animateTextChange, 3500);
+    }
+
+
+    // social share
+    var pageLink = window.location.href;
     var pageTitle = String(document.title).replace(/\&/g, '%26');
+
 
     function fbs_click() {
         window.open(`http://www.facebook.com/sharer.php?u=${pageLink}&quote=${pageTitle}`, 'sharer',
@@ -662,995 +860,12 @@ if (!empty($commonpageheader['footer'])) {
         return false;
     }
 
-    // upload 
-    // $("#resume").change(function() {
-    //     var file = this.files[0];
-    //     $(this).parent().find('label span').text(file.name);
-    //     $(this).parent().find('label .cross').fadeIn();
-    //     $(this).parent().find('label .cross').css('display', 'flex');
-    //     $(this).parent().find('label').addClass('active');
-    // });
-    // $('.resume-cross').click(function(e) {
-    //     e.preventDefault();
-    //     $(this).parent().parent().find('input').val('');
-    //     $(this).parent().parent().find('span').text('Upload Resume');
-    //     $(this).fadeOut();
-    //     $(this).parent().parent().find('label').removeClass('active');
-    // })
-
-    $(document).ready(function() {
-        $("#resume").change(function() {
-            var file = this.files[0];
-            if (file) {
-                $(this).parent().find('.resume-cross').css('display', 'flex');
-            } else {
-                $(this).parent().find('.resume-cross').css('display', 'none');
-            }
-        });
-        $('.resume-cross').click(function(e) {
-            e.preventDefault();
-            $(this).parent().parent().find('input').val('');
-            $(this).parent().parent().find('span').text('Upload Resume');
-            $(this).fadeOut();
-            $(this).parent().parent().find('label').removeClass('active');
-        });
-    });
-
-    // social share
-    var pageLink = window.location.href;
-    var pageTitle = String(document.title).replace(/\&/g, '%26');
-
-    function fbs_click() {
-        window.open(`http://www.facebook.com/sharer.php?u=${pageLink}&quote=${pageTitle}`, 'sharer',
-            'toolbar=0,status=0,width=626,height=436');
-        return false;
-    }
-
-    function tbs_click() {
-        window.open(`https://twitter.com/intent/tweet?text=${pageTitle}&url=${pageLink}`, 'sharer',
-            'toolbar=0,status=0,width=626,height=436');
-        return false;
-    }
-
-    function lbs_click() {
-        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${pageLink}`, 'sharer',
-            'toolbar=0,status=0,width=626,height=436');
-        return false;
-    }
-
     function rbs_click() {
         window.open(`https://www.reddit.com/submit?url=${pageLink}`, 'sharer', 'toolbar=0,status=0,width=626,height=436');
         return false;
     }
-
-    function pbs_click() {
-        window.open(
-            `https://www.pinterest.com/pin/create/button/?&text=${pageTitle}&url=${pageLink}&description=${pageTitle}`,
-            'sharer', 'toolbar=0,status=0,width=626,height=436');
-        return false;
-    }
-
-    // mega menu
-    function menuv() {
-        $('.inner .cl li a').hover(function() {
-            var id = $(this).attr('data-target');
-            console.log("hh", id);
-            // if(id){
-
-            if ($(this).hasClass('fde')) {
-                $('.inner .cl:not(:first-child) ul').css('display', 'none');
-                $(this).parent().siblings().find('a').removeClass('active')
-                $(this).addClass('active');
-            } else {
-                if ($(this).hasClass('fde2')) {
-                    $(this).parent().siblings().find('a').removeClass('active')
-                    $(this).addClass('active');
-                    $('.inner .cl:not(:nth-child(2)):not(:first-child) ul').css('display', 'none');
-                }
-            }
-            $(id).css('display', 'block');
-            $('.cl:first-child').css('background', 'white')
-            $('.cl:first-child').css('border-right', '1px solid rgba(0,0,0,0.15)')
-            $(id).parent().css('background', 'white');
-            $(id).parent().css('border-right', '1px solid rgba(0,0,0,0.15)');
-            // }
-        })
-    }
-    // header steps tool
-    var toBeSent = [];
-    var stepOne = ``;
-    $(".opts-btn").click(function() {
-        // $(this).parent().siblings().find('.opts-btn').removeClass('active');
-        var le = $('.opts-btn.active').length;
-        var t = false;
-        if ($(this).hasClass('active')) {
-            $(this).removeClass('active')
-            t = true;
-        }
-        if (le < 3 && !t) {
-            // $(this).parent().siblings().find('.opts-btn-2').removeClass('active');
-            $(this).addClass('active');
-            t = false;
-        }
-    });
-    $(".opts-btn-2").click(function() {
-        var le = $('.opts-btn-2.active').length;
-        var t = false;
-        if ($(this).hasClass('active')) {
-            $(this).removeClass('active')
-            t = true;
-        }
-        if (le < 3 && !t) {
-            // $(this).parent().siblings().find('.opts-btn-2').removeClass('active');
-            $(this).addClass('active');
-            t = false;
-        }
-
-    });
-    var chk = 1;
-
-    function checkBtns() {
-        return $('.hm-tool-steps:not(.d-none) .opts button').hasClass('active');
-    }
-    var glVal = [];
-    $('.step-next').click(function() {
-
-        if (chk == 2) {
-            if (checkBtns()) {
-                console.log(glVal.join(','), "lastStep")
-                lastStep(glVal.join(','));
-            }
-        } else {
-            if (checkBtns()) {
-                $('.hm-tool-steps:not(.d-none) .opts button.active').each(function() {
-                    glVal.push($(this).data('val'))
-                })
-                $('.second-step').removeClass('d-none');
-                $('.first-step').addClass('d-none');
-                chk = chk + 1;
-            }
-        }
-        $('.ques-remain span').html(chk);
-    })
-
-    function lastStep(vl) {
-        // var step = $(this).parent().parent().data('step');
-        // var vl = $("#tag-inp").val();
-        // console.log(vl);
-
-
-        $.ajax({
-            type: "POST",
-            dataType: "json",
-            data: {
-                val: vl
-            },
-            url: site_url + "home/servicesbytags",
-            beforeSend: function() {
-                $('.step-next').attr('disabled', true);
-                $('.step-next').css('background', '#1d1d1d');
-                $('.step-next').css('cursor', 'not-allowed');
-            },
-            success: function(res) {
-                const arr = Object.keys(res).map(key => res[key]);
-                var html = ``;
-                arr.forEach(e => {
-                    html += `<div class="swiper-slide">
-                    <a href="${site_url+e.is_parent}" class="vtr-card-wrapper">
-                    <img src="${site_url+'uploads/images/'+e.image}" alt="">
-                    <div class="con">
-                        <h3>${e.card_heading}</h3>
-                        <p class="para white">
-                            ${e.card_description}
-                        </p>
-                    </div>
-                </a>
-            </div>`;
-                })
-                //console.log(html);
-                var temp = `
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="d-flex justify-content-between align-items-center gap-5 flex-wrap">
-                            <div class="sec-head center mb-0" data-aos="fade-up" data-aos-duration="1000">
-                                <h2>Our <span>Offerings</span></h2>
-                            </div>
-                            <button class="main-btn secondary reset-steps" data-aos="fade-up" data-aos-duration="1000"><span>Reset</span></button>
-                        </div>
-                        <div class="swiper solution-swiper0 mt-50" data-aos="fade-up" data-aos-duration="1000">
-                            <div class="swiper-wrapper">
-                                ${html}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-                $('.tool-main-sec').html(temp);
-                swiperCall();
-                $('.reset-steps').click(function() {
-                    location.reload();
-                })
-                AOS.init();
-            }
-        })
-    }
-
-
-
-    function swiperCall() {
-        var swiper = new Swiper(".solution-swiper0", {
-            pagination: {
-                el: ".swiper-pagination",
-            },
-            autoplay: {
-                delay: 5000
-            },
-            breakpoints: {
-                0: {
-                    slidesPerView: 1,
-                    spaceBetween: 20,
-                },
-                640: {
-                    slidesPerView: 1.5,
-                    spaceBetween: 20,
-                },
-                768: {
-                    slidesPerView: 2.5,
-                    spaceBetween: 40,
-                },
-                1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 85,
-                },
-            },
-        });
-    }
-
-    var swiper = new Swiper(".services-swiper", {
-        pagination: {
-            el: ".swiper-pagination",
-        },
-        autoplay: {
-            delay: 5000
-        },
-        navigation: {
-            nextEl: ".dt-next",
-            prevEl: ".dt-prev",
-        },
-        breakpoints: {
-            0: {
-                slidesPerView: 1.5,
-                spaceBetween: 20,
-            },
-            640: {
-                slidesPerView: 1.5,
-                spaceBetween: 20,
-            },
-            768: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-            },
-            1024: {
-                slidesPerView: 3,
-                spaceBetween: 20,
-            },
-        },
-    });
-    var swiper = new Swiper(".prr-swiper", {
-        // pagination: {
-        //     el: ".swiper-pagination",
-        // },
-        navigation: {
-            nextEl: ".prr-next",
-            prevEl: ".prr-prev",
-        },
-        autoplay: {
-            delay: 5000
-        },
-        slidesPerView: 1,
-        spaceBetween: 20,
-    });
-    var swiper = new Swiper(".gal-swiper", {
-        pagination: {
-            el: ".swiper-pagination",
-        },
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false
-        },
-        navigation: {
-            nextEl: ".gal-next",
-            prevEl: ".gal-prev",
-        },
-        breakpoints: {
-            0: {
-                slidesPerView: 1.5,
-                spaceBetween: 20,
-            },
-            640: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-            },
-            768: {
-                slidesPerView: 3,
-                spaceBetween: 20,
-            },
-            1024: {
-                slidesPerView: 4,
-                spaceBetween: 20,
-            },
-        },
-    });
-    var swiper = new Swiper(".tools-p-swiper", {
-        pagination: {
-            el: ".swiper-pagination",
-        },
-        autoplay: {
-            delay: 5000
-        },
-        navigation: {
-            nextEl: ".tp-next",
-            prevEl: ".tp-prev",
-        },
-        breakpoints: {
-            0: {
-                slidesPerView: 1,
-                spaceBetween: 20,
-            },
-            640: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-            },
-            768: {
-                slidesPerView: 3,
-                spaceBetween: 30,
-            },
-            1024: {
-                slidesPerView: 4,
-                spaceBetween: 50,
-            },
-        },
-    });
-    var swiper = new Swiper(".vid-swiper", {
-        // pagination: {
-        //     el: ".swiper-pagination",
-        // },
-        navigation: {
-            nextEl: ".vd-next",
-            prevEl: ".vd-prev",
-        },
-        loop: false,
-        breakpoints: {
-            0: {
-                slidesPerView: 1.5,
-                spaceBetween: 20,
-            },
-            640: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-            },
-            768: {
-                slidesPerView: 3,
-                spaceBetween: 20,
-            },
-            1024: {
-                slidesPerView: 4,
-                spaceBetween: 20,
-            },
-        },
-    });
-    var swiper = new Swiper(".solution-swiper", {
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-        slidesPerGroup: 4,
-        breakpoints: {
-            0: {
-                slidesPerView: 1,
-                spaceBetween: 20,
-            },
-            640: {
-                slidesPerView: 1.5,
-                spaceBetween: 20,
-            },
-            768: {
-                slidesPerView: 2.5,
-                spaceBetween: 40,
-            },
-            1024: {
-                slidesPerView: 3,
-                spaceBetween: 85,
-            },
-        },
-    });
-    var swiper = new Swiper(".cs-swiper", {
-        pagination: {
-            el: ".swiper-pagination",
-        },
-        autoplay: {
-            delay: 5000
-        },
-        navigation: {
-            nextEl: ".dt-next",
-            prevEl: ".dt-prev",
-        },
-        centeredSlides: true,
-        loop: true,
-        breakpoints: {
-            0: {
-                slidesPerView: 1,
-                spaceBetween: 20,
-            },
-            640: {
-                slidesPerView: 1.5,
-                spaceBetween: 20,
-            },
-            768: {
-                slidesPerView: 3.5,
-                spaceBetween: 30,
-            },
-            1024: {
-                slidesPerView: 3.5,
-                spaceBetween: 30,
-            },
-        },
-    });
-    var swiper = new Swiper(".insight-swiper", {
-        pagination: {
-            el: ".swiper-pagination",
-        },
-        autoplay: {
-            delay: 5000
-        },
-        centeredSlides: false,
-        loop: false,
-        breakpoints: {
-            0: {
-                slidesPerView: 1,
-                spaceBetween: 20,
-            },
-            640: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-            },
-            768: {
-                slidesPerView: 3,
-                spaceBetween: 20,
-            },
-            1024: {
-                slidesPerView: 4,
-                spaceBetween: 20,
-            },
-        },
-    });
-    var swiper = new Swiper(".solution-swiper-2", {
-        pagination: {
-            el: ".swiper-pagination",
-        },
-        autoplay: {
-            delay: 5000
-        },
-        breakpoints: {
-            0: {
-                slidesPerView: 1.5,
-                spaceBetween: 20,
-            },
-            640: {
-                slidesPerView: 1.5,
-                spaceBetween: 20,
-            },
-            768: {
-                slidesPerView: 2.5,
-                spaceBetween: 20,
-            },
-            1024: {
-                slidesPerView: 3,
-                spaceBetween: 20,
-            },
-        },
-    });
-    var swiper = new Swiper(".css-swiper", {
-        pagination: {
-            el: ".swiper-pagination",
-        },
-        autoplay: {
-            delay: 5000
-        },
-        breakpoints: {
-            0: {
-                slidesPerView: 1.5,
-                spaceBetween: 20,
-            },
-            640: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-            },
-            768: {
-                slidesPerView: 3,
-                spaceBetween: 20,
-            },
-            1024: {
-                slidesPerView: 4,
-                spaceBetween: 20,
-            },
-        },
-    });
-    var swiper = new Swiper(".dash-slider", {
-        slidesPerView: 1,
-        spaceBetween: 0,
-        pagination: {
-            el: ".swiper-pagination",
-        },
-        autoplay: {
-            delay: 5000
-        },
-        navigation: {
-            nextEl: ".ds-next",
-            prevEl: ".ds-prev",
-        }
-    });
-    var swiper = new Swiper(".solution-swiper11", {
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-        slidesPerGroup: 4,
-        breakpoints: {
-            0: {
-                slidesPerView: 1,
-                slidesPerGroup: 1, // mobile — 1 at a time
-                spaceBetween: 20,
-            },
-            640: {
-                slidesPerView: 2,
-                slidesPerGroup: 2, // tablet — 2 at a time
-                spaceBetween: 20,
-            },
-            768: {
-                slidesPerView: 3,
-                slidesPerGroup: 3, // small desktop — 3 at a time
-                spaceBetween: 30,
-            },
-            1024: {
-                slidesPerView: 4, // ← show 4 slides
-                slidesPerGroup: 4, // ← scroll 4 at a time
-                spaceBetween: 20,
-            },
-        },
-    });
-
-    var swiper = new Swiper("#crewSwiper", {
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-        slidesPerGroup: 4,
-        breakpoints: {
-            0: {
-                slidesPerView: 1,
-                slidesPerGroup: 1, // mobile — 1 at a time
-                spaceBetween: 20,
-            },
-            640: {
-                slidesPerView: 2,
-                slidesPerGroup: 2, // tablet — 2 at a time
-                spaceBetween: 20,
-            },
-            768: {
-                slidesPerView: 3,
-                slidesPerGroup: 3, // small desktop — 3 at a time
-                spaceBetween: 30,
-            },
-            1024: {
-                slidesPerView: 4, // ← show 4 slides
-                slidesPerGroup: 4, // ← scroll 4 at a time
-                spaceBetween: 20,
-            },
-        },
-    });
-    var swiper = new Swiper("#MissionSwiper", {
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        navigation: {
-            nextEl: "#MissionSwiper .array-next",
-            prevEl: "#MissionSwiper .array-prev",
-        },
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-        slidesPerGroup: 1,
-        breakpoints: {
-            0: {
-                slidesPerView: 1,
-                slidesPerGroup: 1, // mobile — 1 at a time
-                spaceBetween: 20,
-            },
-            640: {
-                slidesPerView: 2,
-                slidesPerGroup: 2, // tablet — 2 at a time
-                spaceBetween: 20,
-            },
-            768: {
-                slidesPerView: 1,
-                slidesPerGroup: 1, // small desktop — 3 at a time
-                spaceBetween: 30,
-            },
-            1024: {
-                slidesPerView: 1, // ← show 4 slides
-                slidesPerGroup: 1, // ← scroll 4 at a time
-                spaceBetween: 20,
-            },
-        },
-    });
-    $(window).scroll(function() {
-        if ($(window).scrollTop() >= 300) {
-            $('.main-nav').addClass('is-sticky');
-        } else {
-            $('.main-nav').removeClass('is-sticky');
-        }
-    })
-    $('.con-map-block').click(function() {
-        $(this).find('p').fadeToggle();
-        $(this).toggleClass('active');
-    })
-
-    $(document).ready(function() {
-        $.ajax({
-            type: "GET",
-            url: site_url + "home/getservicemenu",
-            dataType: "json",
-            success: function(res) {
-                // console.log(res.desk);
-                $(".service-m-dropdown").html(res.desk);
-                $(".service-m-dropdown-footer").html(res.ft);
-                $(".mobile-menu").html(res.mob);
-
-                menuv();
-            }
-        })
-    });
-
-    function stopOtherVideo() {
-        var vid = $('video.test-vid');
-        vid.each(function(e) {
-            var currentVid = $(this);
-            $(this).on('play', function() {
-                vid.each(function(e) {
-                    if ($(this).attr('src') != currentVid.attr('src')) {
-                        $(this)[0].pause();
-                    }
-                });
-            })
-        })
-    }
-
-    $("#subs-form1").submit(function(e) {
-        e.preventDefault();
-        let form = $(this).serialize();
-        $.ajax({
-            type: "POST",
-            dataType: "JSON",
-            data: form,
-            url: site_url + 'subscribeformsubmit',
-            beforeSend: function() {
-                $("#sub-btn").addClass('loading');
-            },
-            complete: function() {
-                $("#sub-btn").removeClass('loading');
-            },
-            success: function(res) {
-                if (res.status) {
-                    $("#subs-msg1").removeClass('text-danger').html(
-                        "Thank you for subscribing to Cozentus.");
-                    $("#subs-form1")[0].reset();
-                } else {
-                    $("#subs-msg2").removeClass('text-success').html(res.msg);
-                }
-                setTimeout(() => {
-                    $("#subs-msg1").html('');
-                    $("#subs-msg2").html('');
-                }, 5000);
-                //window.location.href = site_url + "/thankyou";
-            }
-        });
-    })
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl)
-    })
-
-    //console.clear();
-
-    window.addEventListener('load', function() {
-        // Remove the hash from the URL
-        history.replaceState("", document.title, window.location.pathname + window.location.search);
-    });
-    $(".open-contact-modal").on("click", function() {
-        $("#css-modal").modal('show');
-        formVal();
-    });
-    var input = document.querySelector("#phonem");
-    //console.log("phone", input)
-
-    var iti = window.intlTelInput(input, {
-        //   initialCountry:"in",
-        utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.0/build/js/utils.js",
-    });
-
-    window.iti = iti;
-</script>
-<script>
-    $(document).ready(function() {
-        const cookieConsentModal = $('#cookieConsentModal');
-        const marquee = $('#marquee');
-        const acceptCookiesBtn = $('#acceptCookiesBtn');
-        const rejectCookiesBtn = $('#rejectCookiesBtn');
-
-        function setCookieConsent(value, domain) {
-            const expiration = new Date();
-            // expiration.setTime(expiration.getTime() + (24 * 60 * 60 * 1000));
-            // ✅ Expires in 365 days instead of 1 day
-            expiration.setTime(expiration.getTime() + (365 * 24 * 60 * 60 * 1000));
-            const cookieString =
-                `cookieConsent=${value}; expires=${expiration.toUTCString()}; path=/; domain=${domain}`;
-            document.cookie = cookieString;
-        }
-        acceptCookiesBtn.on('click', function() {
-            setCookieConsent('accepted', 'cozentus.com');
-            cookieConsentModal.addClass('d-none');
-            marquee.css("bottom", "-20px");
-        });
-        rejectCookiesBtn.on('click', function() {
-            setCookieConsent('rejected', 'cozentus.com');
-            cookieConsentModal.addClass('d-none');
-            marquee.css("bottom", "-20px");
-        });
-        const cookieConsent = getCookieValue('cookieConsent');
-        if (!cookieConsent) {
-            cookieConsentModal.removeClass('d-none');
-        }
-    });
-
-    function getCookieValue(cookieName) {
-        const cookies = document.cookie.split('; ');
-        for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i].split('=');
-            if (cookie[0] === cookieName) {
-                return cookie[1];
-            }
-        }
-        return null;
-    }
 </script>
 
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $(".testimonial .indicators li").click(function() {
-            var i = $(this).index();
-            var targetElement = $(".testimonial .tabs li");
-            targetElement.eq(i).addClass('active');
-            targetElement.not(targetElement[i]).removeClass('active');
-        });
-        $(".testimonial .tabs li").click(function() {
-            var targetElement = $(".testimonial .tabs li");
-            targetElement.addClass('active');
-            targetElement.not($(this)).removeClass('active');
-        });
-    });
-    $(document).ready(function() {
-        $(".slider .swiper-pagination span").each(function(i) {
-            $(this).text(i + 1).prepend("0");
-        });
-    });
-</script>
-<!-- New Section Tab start-->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-
-        const tabItems = document.querySelectorAll('.coz-tab-item');
-        const tabPanels = document.querySelectorAll('.coz-tab-panel');
-
-        tabItems.forEach(function(tab) {
-            tab.addEventListener('click', function() {
-                const tabIndex = this.getAttribute('data-tab');
-
-                // ── Remove active from all tabs ──
-                tabItems.forEach(function(t) {
-                    t.classList.remove('active');
-                });
-
-                // ── Hide all panels ──
-                tabPanels.forEach(function(p) {
-                    p.classList.remove('active');
-                    p.style.display = 'none';
-                });
-
-                // ── Activate clicked tab ──
-                this.classList.add('active');
-
-                // ── Show matching panel ──
-                const activePanel = document.querySelector(
-                    '.coz-tab-panel[data-panel="' + tabIndex + '"]'
-                );
-                if (activePanel) {
-                    activePanel.style.display = 'flex';
-                    // Small delay for animation
-                    setTimeout(function() {
-                        activePanel.classList.add('active');
-                    }, 10);
-                }
-            });
-        });
-    });
-</script>
-<!-- New Section Tab close -->
-<!-- Counter Section start -->
-<script>
-    (function() {
-        let counted = false;
-
-        // ── Animate a single counter ──
-        function animateCounter(el) {
-            const target = parseInt(el.getAttribute('data-target')) || 0;
-            const duration = 3000; // 2 seconds
-            const steps = 60;
-            const increment = target / steps;
-            let current = 0;
-            let step = 0;
-
-            const timer = setInterval(function() {
-                step++;
-                current = Math.min(Math.round(increment * step), target);
-                el.textContent = current;
-
-                if (step >= steps) {
-                    el.textContent = target; // ensure exact final value
-                    clearInterval(timer);
-                }
-            }, duration / steps);
-        }
-
-        // ── Start all counters ──
-        function startCounters() {
-            if (counted) return;
-            counted = true;
-
-            const counters = document.querySelectorAll('.counter-value');
-            counters.forEach(function(counter, index) {
-                // Stagger each counter start
-                setTimeout(function() {
-                    animateCounter(counter);
-                }, index * 150);
-            });
-        }
-
-        // ── Trigger when section is visible ──
-        const section = document.getElementById('counters-section');
-
-        if (section && 'IntersectionObserver' in window) {
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        startCounters();
-                        observer.disconnect();
-                    }
-                });
-            }, {
-                threshold: 0.3
-            });
-
-            observer.observe(section);
-        } else {
-            // Fallback — start on page load
-            window.addEventListener('load', startCounters);
-        }
-    })();
-
-    (function() {
-        let counted = false;
-
-        function animateCounter(el) {
-            const target = parseInt(el.getAttribute("data-target")) || 0;
-            const duration = 2000; // 2 seconds
-            const steps = 60;
-            const increment = target / steps;
-            let current = 0;
-            let step = 0;
-            const timer = setInterval(function() {
-                step++;
-                current = Math.min(Math.round(increment * step), target);
-                el.textContent = current;
-                if (step >= steps) {
-                    el.textContent = target;
-                    clearInterval(timer);
-                }
-            }, duration / steps);
-        }
-
-        function startCounters() {
-            if (counted) return;
-            counted = true;
-            document.querySelectorAll(".stat-num").forEach(function(counter) {
-                animateCounter(counter);
-            });
-        }
-        const section = document.getElementById("counters-section1");
-        if (section && "IntersectionObserver" in window) {
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        startCounters();
-                        observer.disconnect();
-                    }
-                });
-            }, {
-                threshold: 0.3
-            });
-            observer.observe(section);
-        } else {
-            window.addEventListener("load", startCounters);
-        }
-    })();
-</script>
-<!-- Counter Section End -->
-
-
-<!--Start of Tawk.to Script-->
-<!-- <script type="text/javascript">
-    var Tawk_API = Tawk_API || {},
-        Tawk_LoadStart = new Date();
-    (function() {
-        var s1 = document.createElement("script"),
-            s0 = document.getElementsByTagName("script")[0];
-        s1.async = true;
-        s1.src = 'https://embed.tawk.to/69bbcdfdbb7f0b1c337b31e8/1jk2ppa86';
-        s1.charset = 'UTF-8';
-        s1.setAttribute('crossorigin', '*');
-        s0.parentNode.insertBefore(s1, s0);
-    })();
-</script> -->
-<!--End of Tawk.to Script-->
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-    var Tawk_API = Tawk_API || {},
-        Tawk_LoadStart = new Date();
-
-    Tawk_API.onLoad = function() {
-        Tawk_API.setAttributes({
-            'name': 'Talk to Expert'
-        }, function(error) {});
-    };
-
-    (function() {
-        var s1 = document.createElement("script"),
-            s0 = document.getElementsByTagName("script")[0];
-        s1.async = true;
-        s1.src = 'https://embed.tawk.to/69bbcba76b81021c34520b0b/1jk2p722m';
-        s1.charset = 'UTF-8';
-        s1.setAttribute('crossorigin', '*');
-        s0.parentNode.insertBefore(s1, s0);
-    })();
-</script>
-<!--End of Tawk.to Script-->
 </body>
 
 </html>

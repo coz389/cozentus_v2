@@ -14,6 +14,10 @@
                                 <label>Slug</label>
                                 <input type="text" class="form-control" name="slug" id="slug" value="<?= $slug ?>" required>
                             </div>
+                            <div class="form-group <?= $type == 7 ? '' : 'd-none' ?>">
+                                <label>Sub Title</label>
+                                <input type="text" class="form-control" name="sub_title" id="sub_title" value="<?= $sub_title ?>">
+                            </div>
                             <div class="">
                                 <div class="form-group <?= $type == 3 ? '' : 'd-none' ?>">
                                     <label>Case Type</label>
@@ -253,6 +257,25 @@
                                                 </textarea>
                                             </div>
                                         </div>
+
+                                        <div class="Section 6">
+                                            <h5>Section 6 (Client Review)</h5>
+                                            <hr>
+                                            <div class="form-group">
+                                                <label>Heading</label>
+                                                <input type="text" class="form-control" name="client_review_heading" value="<?= $client_review_heading ?>">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Description</label>
+                                                <textarea class="form-control multiple-op" name="client_review_desc" rows="4"><?= $client_review_desc ?></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Designation</label>
+                                                <input type="text" class="form-control" name="client_designation" value="<?= $client_designation ?>">
+                                            </div>
+                                            <hr>
+                                        </div>
                                     </div>
                                 <?php } ?>
                                 <hr>
@@ -282,43 +305,155 @@
                                 <label>Enter Youtube/Podcast Iframe</label>
                                 <input type="textarea" class="form-control" name="video" value="<?= htmlspecialchars($video) ?>">
                             </div>
+                            <?php $tags_array = explode(",", $tags); ?>
+                            <div class="form-group">
+                                <label>Tags</label>
+                                <input type="text" class="form-control" id="tags" name="tags" value="<?= implode(", ", $tags_array ?? []) ?>">
+                            </div>
+                            <hr>
+                            <!-- Report New Section Start -->
+                            <?php if ($type == 5 || $type == 2) {  ?>
+                                <div class="New Section">
+                                    <h5>New Section(Top)</h5>
+                                    <hr>
+                                    <div class=" row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Heading</label>
+                                                <input type="text" class="form-control" name="new_podcast_heading" value="<?= $new_podcast_heading ?>">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Title</label>
+                                                <input type="text" class="form-control" name="new_podcast_title" value="<?= $new_podcast_title ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <textarea class="form-control multiple-op" name="new_podcast_desc" rows="4"><?= $new_podcast_desc ?></textarea>
+                                    </div>
+                                    <?php
+                                    $new_podcast_extra_array = !empty($new_podcast_extra) ? json_decode($new_podcast_extra) : [];
+                                    if (count($new_podcast_extra_array) > 0) {
+                                        $i = 0;
+                                        foreach ($new_podcast_extra_array as  $new_podcast_extra) {
+                                            $i++;
+                                    ?>
+                                            <div class=" row">
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <label>Point <?= $i ?></label>
+                                                        <input type="text" class="form-control" name="new_podcast_extra_heading[]" value="<?= $new_podcast_extra->heading ?>">
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <label>Description</label>
+                                                        <input type="text" class="form-control" name="new_podcast_extra_description[]" value="<?= $new_podcast_extra->description ?>">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php }
+                                    } else { ?>
+                                        <div class=" row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label>Point 1</label>
+                                                    <input type="text" class="form-control" name="new_podcast_extra_heading[]" value="">
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label>Description</label>
+                                                    <input type="text" class="form-control" name="new_podcast_extra_description[]" value="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class=" row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label>Point 2</label>
+                                                    <input type="text" class="form-control" name="new_podcast_extra_heading[]" value="">
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label>Description</label>
+                                                    <input type="text" class="form-control" name="new_podcast_extra_description[]" value="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
+                                </div>
+                            <?php } ?>
+                            <!-- Report New Section End -->
+                            <!-- Podcast: New Section Start -->
+                            <?php if ($type == 7) {  ?>
+                                <div class="form-group">
+                                    <label>Apple podcasts URL</label>
 
+                                    <?php $apple_pod = urldecode($apple_pod ?? ''); ?>
+
+                                    <input type="text" class="form-control" name="apple_pod" value="<?= urldecode($apple_pod) ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label>Google podcasts URL</label>
+
+                                    <?php $google_pod = urldecode($google_pod ?? ''); ?>
+
+                                    <input type="text" class="form-control" name="google_pod" value="<?= urldecode($google_pod) ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label>Spotify podcasts URL</label>
+                                    <?php $spotify_pod = urldecode($spotify_pod ?? ''); ?>
+
+                                    <input type="text" class="form-control" name="spotify_pod" value="<?= urldecode($spotify_pod) ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label>Sound cloud URL</label>
+                                    <?php $sound_pod = urldecode($sound_pod ?? ''); ?>
+
+                                    <input type="text" class="form-control" name="sound_pod" value="<?= urldecode($sound_pod) ?>">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Speaker Name</label>
+                                    <input type="text" class="form-control" name="speaker_name" value="<?= $speaker_name ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label>Designation</label>
+                                    <input type="text" class="form-control" name="client_designation" value="<?= $client_designation ?>">
+                                </div>
+                                <hr>
+                                <div class="New Section">
+                                    <h5>New Section</h5>
+                                    <hr>
+                                    <div class=" row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Heading</label>
+                                                <input type="text" class="form-control" name="new_podcast_heading" value="<?= $new_podcast_heading ?>">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Title</label>
+                                                <input type="text" class="form-control" name="new_podcast_title" value="<?= $new_podcast_title ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <textarea class="form-control multiple-op" name="new_podcast_desc" rows="4"><?= $new_podcast_desc ?></textarea>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                            <!-- Podcast: New Section End -->
 
 
                             <hr>
-                            <div class="form-group <?= $type == 7 ? '' : 'd-none' ?> ">
-                                <label>Apple podcasts URL</label>
-
-                                <?php $apple_pod = urldecode($apple_pod ?? ''); ?>
-
-                                <input type="text" class="form-control" name="apple_pod" value="<?= urldecode($apple_pod) ?>">
-                            </div>
-                            <div class="form-group  <?= $type == 7 ? '' : 'd-none' ?>">
-                                <label>Google podcasts URL</label>
-
-                                <?php $google_pod = urldecode($google_pod ?? ''); ?>
-
-                                <input type="text" class="form-control" name="google_pod" value="<?= urldecode($google_pod) ?>">
-                            </div>
-                            <div class="form-group <?= $type == 7 ? '' : 'd-none' ?>">
-                                <label>Spotify podcasts URL</label>
-                                <?php $spotify_pod = urldecode($spotify_pod ?? ''); ?>
-
-                                <input type="text" class="form-control" name="spotify_pod" value="<?= urldecode($spotify_pod) ?>">
-                            </div>
-                            <div class="form-group <?= $type == 7 ? '' : 'd-none' ?>">
-                                <label>Sound cloud URL</label>
-                                <?php $sound_pod = urldecode($sound_pod ?? ''); ?>
-
-                                <input type="text" class="form-control" name="sound_pod" value="<?= urldecode($sound_pod) ?>">
-                            </div>
-
-                            <div class="form-group <?= $type == 7 ? '' : 'd-none' ?>">
-                                <label>Speaker Name</label>
-                                <input type="text" class="form-control" name="speaker_name" value="<?= $speaker_name ?>">
-                            </div>
-                            <hr>
-
 
                             <div class="row">
                                 <div class="form-group col-6">
@@ -337,12 +472,15 @@
                             <input type="hidden" name="id" value="<?= $id ?>">
                             <input type="hidden" name="type" value="<?= $type ?>">
                             <input type="hidden" name="download_exist" value="<?= $download ?>">
-                            <div class="form-group <?= $type == 3 ? '' : 'd-none' ?>">
+                            <div class="form-group">
                                 <label>Upload Pdf</label>
                                 <input type="file" name="file" class="form-control">
                                 <span><?= $download ?> file exist</span>
                             </div>
-
+                            <div class="form-group">
+                                <label>Image Gallery IDS (<small>1,2,3</small>)</label>
+                                <input type="text" class="form-control" id="image_gallery_ids" name="image_gallery_ids" value="<?= implode(",", json_decode($image_gallery_ids) ?? []) ?>">
+                            </div>
                             <div class="form-group">
                                 <label>Page Head Script</label>
                                 <textarea rows="4" class="form-control" name="page_header"><?= html_entity_decode($page_header) ?></textarea>

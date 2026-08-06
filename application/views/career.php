@@ -1,405 +1,145 @@
-<header class="inner-main-header style-2">
-    <img src="<?= base_url('assets/images/career-banner-img.webp') ?>" alt="">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-12">
-                <div class="banner-content text-center d-block blog-detail" data-aos="fade-up" data-aos-duration="1000">
-                    <h1>Sculpting Talent</h1>
-                    <p class="para">
-                        Be a part of innovation. Join Cozentus
-                    </p>
-                    <a href="#jobs" class="main-btn">
-                        <span>Join Us</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-<!-- Xopa Microsite Embed Section -->
-<section class="career-embed" style="margin-top: 40px;">
-    <div class="container">
+<!-- Start Breadcrumb 
+============================================= -->
+<!-- <div class="breadcrumb-area text-center bg-cover text-dark bg-theme" style="background-image: url(<?= base_url('assets/img/shape/banner-16.jpg') ?>);">
+    <div class="container mt-5">
         <div class="row">
-            <div class="col-12">
-                <div class="sec-head center" data-aos="fade-up" data-aos-duration="1000" id="jobs">
-
-                    <h3 style="text-align: center; margin-bottom: 30px;">Join Our Team</h3>
-
-                    <!-- Embedded Microsite -->
-                    <div id="xr-frame-wrap" data-xpid="cozentus-careers" data-xsn="cozentus-careers" data-xlng="en"
-                        data-xcls="x-no-lang">
+            <div class="col-lg-10 mx-auto">
+                <h1><?= $title ?></h1>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- End Breadcrumb -->
+<div id="smooth-content">
+    <div class="about-style-two-area default-padding-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 mx-auto">
+                    <div class="site-heading text-center">
+                        <h2 class="title">Join Our Team</h2>
                     </div>
+                    <!-- Embedded Microsite -->
+                    <!-- X0PA Career Portal Widget -->
+                    <div id="xr-frame-wrap" data-xpid="cozentus-careers" data-xsn="cozentus-careers" data-xlng="en" data-xcls="x-no-lang"></div>
+                    <!-- <iframe src="https://pie.x0pa.ai/public/microsites/cozentus-careers" title="Example Website" style="width: 100%; height: 650px;"></iframe> -->
                 </div>
             </div>
         </div>
     </div>
-</section>
-<section class="abt-sec sec">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 col-12">
-                <div class="abt-con">
-                    <div class="sec-head" data-aos="fade-up" data-aos-duration="1000">
-                        <h2>
-                            Surge Ahead <span>with Cozentus</span>
-                        </h2>
-                    </div>
-                    <p class="para" data-aos="fade-up" data-aos-duration="1000">
-                        Cozentus is the destination for aspiring talents who crave cutting-edge challenges. If you're
-                        thrilled by next-gen technology, Cozentus offers you the unparalleled opportunity to immerse
-                        yourself in its realm. With a culture rooted in open-mindedness, innovation, and continuous
-                        learning, Cozentus magnetizes top talent.
+    <div class="about-style-two-area default-padding-2 bg-gray bg-cover">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <h2 class="title"> Surge Ahead <span>with Cozentus</span></h2>
+                    <p>
+                        Cozentus is the destination for aspiring talents who crave cutting-edge challenges. If you're thrilled by next-gen technology, Cozentus offers you the unparalleled opportunity to immerse yourself in its realm. With a culture rooted in open-mindedness, innovation, and continuous learning, Cozentus magnetizes top talent.
                         <br><br>
                         If that is who you are, explore opportunities below.
                         <br><br>
                         Can’t find an opportunity? Send your CV to
                     </p>
-                    <a href="mailto:career@cozentus.com" class="main-wrap" data-aos="fade-up" data-aos-duration="1000">
-                        <img src="<?= base_url('assets/images/mail-icon.svg') ?>" alt="">
+                    <a href="mailto:career@cozentus.com">
+                        <img src="<?= base_url('assets/custom/images/mail-icon.svg') ?>" alt="">
                         <span>career@cozentus.com.</span>
                     </a>
                 </div>
-            </div>
-            <div class="col-lg-5 offset-lg-1 col-12">
-                <div class="abt-img">
-                    <img src="<?= base_url('assets/images/abt-img.jpg') ?>" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<section class="our-vl-sec light-bg sec">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="sec-head center mb-60" data-aos="fade-up" data-aos-duration="1000">
-                    <h2>
-                        Attributes <span>We Value</span>
-                    </h2>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="vl-grid" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="vl-wrap">
-                        <img src="assets/images/aspiration.svg" alt="">
-                        <div class="det">
-                            <h3>Success-driven</h3>
-                            <p class="para">
-                                We prize goal-centric individuals who are focused on achieving professional growth and
-                                success
-                            </p>
-                        </div>
-                    </div>
-                    <div class="vl-wrap">
-                        <img src="assets/images/commitment.svg" alt="">
-                        <div class="det">
-                            <h3>Committed</h3>
-                            <p class="para">
-                                If you are committed to surmounting every obstacle we’re looking for you
-                            </p>
-                        </div>
-                    </div>
-                    <div class="vl-wrap">
-                        <img src="assets/images/strategy.svg" alt="">
-                        <div class="det">
-                            <h3>Troubleshooter</h3>
-                            <p class="para">
-                                At Cozentus you plan and design in a stress-free ambience
-                            </p>
-                        </div>
-                    </div>
-                    <div class="vl-wrap">
-                        <img src="assets/images/communication.svg" alt="">
-                        <div class="det">
-                            <h3>Transparent</h3>
-                            <p class="para">
-                                At Cozentus we believe in complete transparency and free flow of information
-                            </p>
-                        </div>
+                <div class="col-lg-5">
+                    <div class="about-style-two-thumb fade-up-anim">
+                        <img class="img-reveal" src="<?= base_url('assets/custom/images/abt-img.jpg') ?>" alt="Image Not Found">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
-
-<!--<section class="sec jobs-sec">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="sec-head center"  data-aos="fade-up" data-aos-duration="1000">
-                    
-                    <!--<p class="para">-->
-<!--Here’s your opportunity-->
-<!--</p>-->
-</div>
-<!--<div class="filter-bar job-search">                       
-                        <div class="flt-search">
-                            <img src="<?= base_url('assets/images/search.svg') ?>" alt="">
-                            <input type="text" id="query" placeholder="Job Search ..." />
-                        </div>
-                    </div> -->
-
-<!--<div class="job-grid mt-60" id="jobs-list">
-                  
-                 
-                </div>-->
-
-</div>
-</div>
-</div>
-</section>
-
-<?php if (!empty($gallery)) { ?>
-    <section class="sec jobs-sec pt-0" id="lifeatcozentus" style="margin-top: 40px;">
+    <div class="about-style-two-area default-padding-2 " style="background: url(<?= base_url('assets/img/shape/banner-19.jpg') ?>);">
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <div class="sec-head center" data-aos="fade-up" data-aos-duration="1000">
-                        <h2>
-                            Life At <span>Cozentus</span>
-                        </h2>
-                    </div>
-                    <div class="swiper gal-swiper">
-                        <div class="swiper-wrapper">
-                            <?php
-                            foreach ($gallery as $jb) { ?>
-                                <div class="swiper-slide">
-                                    <div class="gal-item">
-                                        <img src="<?= base_url('uploads/images/') . $jb['image'] ?>"
-                                            alt="<?= $jb['alt_text'] ?>" />
-                                    </div>
-                                </div>
-                            <?php } ?>
-                        </div>
-                    </div>
-                    <div class="dt-nav-area">
-                        <button class="gal-prev">
-                            <img src="<?= base_url() ?>assets/images/prev.svg" alt="">
-                        </button>
-                        <button class="gal-next">
-                            <img src="<?= base_url() ?>assets/images/next.svg" alt="">
-                        </button>
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="site-heading text-center">
+                        <h2 class="title">Attributes <span>We Value</span></h2>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-<?php } ?>
-<?php if (!empty($videos)) { ?>
-    <section class="sec jobs-sec pt-0">
+
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <div class="sec-head center" data-aos="fade-up" data-aos-duration="1000" id="j-btn">
-                        <h2>
-                            Our Workspace, <span>Your Future</span>
-                        </h2>
-                        <!--<p class="para">-->
-                        <!--Explore Cozentus-->
-                        <!--</p>-->
-                    </div>
-                    <div class="vid-swiper-container">
-
-                        <div class="swiper vid-swiper">
-                            <div class="swiper-wrapper">
-                                <?php
-                                foreach ($videos as $jb) { ?>
-                                    <div class="swiper-slide">
-                                        <div class="vid-wrapper youtube-video-place" data-url="<?= urldecode($jb['video']) ?>">
-                                            <!--<button class="play-btn" >-->
-                                            <!--    <img src="<? //=base_url('assets/images/play-icon.svg')
-                                                                ?>" alt="">-->
-                                            <!--</button>-->
-                                        </div>
-                                    </div>
-                                <?php } ?>
-
+                <!-- Card 1 -->
+                <div class="col-lg-3 col-md-6 mb-30">
+                    <div class="cz-story-card cz-fade-in cz-fade-in-delay-1 text-center">
+                        <div class="cz-story-icon-box">
+                            <div class="cz-story-icon-inner">
+                                <img src="<?= base_url('assets/img/about/pride.png') ?>" alt="Image Not Found">
                             </div>
                         </div>
-                        <div class="dt-nav-area">
-                            <button class="vd-prev">
-                                <img src="<?= base_url() ?>assets/images/prev.svg" alt="">
-                            </button>
-                            <button class="vd-next">
-                                <img src="<?= base_url() ?>assets/images/next.svg" alt="">
-                            </button>
+                        <h4>Success-driven</h4>
+                        <p> We prize goal-centric individuals who are focused on achieving professional growth and success</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-lg-3 col-md-6 mb-30">
+                    <div class="cz-story-card cz-fade-in cz-fade-in-delay-2 text-center">
+                        <div class="cz-story-icon-box">
+                            <div class="cz-story-icon-inner">
+                                <img src="<?= base_url('assets/img/about/commintment.png') ?>" alt="Image Not Found">
+                            </div>
+                        </div>
+                        <h4>Committed</h4>
+                        <p> If you are committed to surmounting every obstacle we’re looking for you</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-lg-3 col-md-6 mb-30">
+                    <div class="cz-story-card cz-fade-in cz-fade-in-delay-3 text-center">
+                        <div class="cz-story-icon-box">
+                            <div class="cz-story-icon-inner">
+                                <img src="<?= base_url('assets/img/about/quality.png') ?>" alt="Image Not Found">
+                            </div>
+                        </div>
+                        <h4>Troubleshooter</h4>
+                        <p> At Cozentus you plan and design in a stress-free ambience</p>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="col-lg-3 col-md-6 mb-30">
+                    <div class="cz-story-card cz-fade-in text-center">
+                        <div class="cz-story-icon-box">
+                            <div class="cz-story-icon-inner">
+                                <img src="<?= base_url('assets/img/about/transparency.png') ?>" alt="Image Not Found">
+                            </div>
+                        </div>
+                        <h4>Transparent</h4>
+                        <p> At Cozentus we believe in complete transparency and free flow of information</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Call to Action
+    ============================================= -->
+    <div class="home-blog-two-area default-padding-2">
+        <div class="container">
+            <div class="blog-style-two-box bg-dark" styles="background-image: url(<?= base_url('assets/img/shape/10.png') ?>); background-size: cover;">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="cta-box text-center fade-up-anim">
+                            <h2 class="cta-title mb-20">Ready to Transform Your Supply Chain?</h2>
+                            <p class="cta-description mb-30">
+                                Let's discuss how our AI-powered solutions can help you optimize operations and drive measurable results. Our team is ready to understand your unique challenges.
+                            </p>
+                            <div class="cta-buttons d-flex  flex-column flex-md-row justify-content-center gap-4">
+                                <a class="btn btn-style-one btn-border mb-2" href="<?= base_url('book-free-consultation') ?>">
+                                    Book a Meeting <i class="fas fa-arrow-right"></i>
+                                </a>
+                                <a class="btn btn-style-one mb-2" href="<?= base_url('contact') ?>">
+                                    Send Message <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-<?php } ?>
-<section class="sec cta-sec">
-    <img src="<?= base_url('assets/images/cc1.svg') ?>" class="c1" alt="">
-    <img src="<?= base_url('assets/images/cc2.svg') ?>" class="c2" alt="">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-7 col-12">
-                <div class="cta-con">
-                    <div class="sec-head center">
-                        <h2>
-                            Looking for <span>Something Else?</span>
-                        </h2>
-                    </div>
-                    <p class="para text-center mb-30">
-                        Write or talk to us.
-                    </p>
-                    <a href="<?= base_url('contact') ?>" class="main-btn center">
-                        <span>Contact Us</span>
-                    </a>
-                </div>
-            </div>
-        </div>
     </div>
-</section>
-
-<div class="modal fade cc-modal" id="csr-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <img src="assets/images/cross.svg" alt="">
-                </button>
-                <form class="contact-form mt-40 form" data-form="insertcareer">
-                    <div class="row">
-                        <div class="col-lg-6 col-12">
-                            <div class="form-group">
-                                <label for="" class="label-text">
-                                    First Name
-                                </label>
-                                <div class="inp-group">
-                                    <input type="text" name="fname" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-12">
-                            <div class="form-group">
-                                <label for="" class="label-text">
-                                    Last Name
-                                </label>
-                                <div class="inp-group">
-                                    <input type="text" name="lname" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-12">
-                            <div class="form-group">
-                                <label for="" class="label-text">
-                                    Email Address
-                                </label>
-                                <div class="inp-group">
-                                    <input type="email" name="email" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-12">
-                            <div class="form-group">
-                                <label for="" class="label-text">
-                                    Contact Number
-                                </label>
-                                <div class="inp-group">
-                                    <input type="text" name="phone" id="phone" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-12">
-                            <div class="form-group">
-                                <label for="" class="label-text">
-                                    Resume
-                                </label>
-                                <div class="inp-group">
-                                    <div class="res-input">
-                                        <input type="file" id="resume" name="resume" />
-                                        <label for="resume">
-                                            <span>Upload Resume</span>
-                                            <div class="cross resume-cross">
-                                                X
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <input type="hidden" name="position" id="position">
-                        <div class="col-12">
-                            <div class="btn-flex mt-40">
-                                <button type="submit" class="main-btn">
-                                    <span>Apply Now</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+    <!-- End Call to Action -->
 </div>
-
-<script>
-    $(".know-more-btn").click(function() {
-        var post = $(this).data('id');
-        console.log(post);
-        $("#position").val(post);
-        $("#csr-modal").modal("show");
-    });
-</script>
-<script>
-    $(document).ready(function() {
-        getjobs();
-    });
-
-
-    $("#query").on('input', function() {
-        getjobs();
-    });
-
-    function getjobs() {
-        // var service = $("#services").val();
-        // var author = $("#authors").val();
-        var query = $("#query").val();
-        $.ajax({
-            url: site_url + 'getbjoblist',
-            type: "post",
-            data: {
-                query: query
-            },
-            dataType: "json",
-            success: function(res) {
-                var temp = ``;
-
-                if (res.length) {
-                    res.forEach(e => {
-                        temp += `
-                       
-                        <div class="job-card" data-aos="fade-up" data-aos-duration="1000"><h2>
-                            ${e.title}
-                        </h2>
-                        <p class="para">
-                            ${e.description}
-                        </p>
-                        <ul class="ct-li">
-                        <li class="ct-li-item">
-                            ${e.tags}
-
-                         </li>
-                         </ul>
-                         <div class="job-card-btns">
-                            <a href="${site_url+'career-inner/'+e.slug}" class="main-btn">
-                                <span>Know More</span>
-                            </a>
-                        </div></div>`
-                    })
-                    $("#jobs-list").html(res);
-                } else {
-                    temp += `<h3>Not Found</h3>`;
-                }
-                $("#jobs-list").html(temp);
-            }
-        });
-    }
-</script>

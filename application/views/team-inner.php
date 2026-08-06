@@ -1,95 +1,77 @@
-<style>
-    .team-inner-img {
-        position: sticky;
-        /* top: 174px; */
-        width: 100%;
-        padding-top: 109%;
-        margin-top: 0px !important;
-        background: var(--blue3);
-    }
+<div id="smooth-content" class="service">
 
-    .crew-socials {
-        right: 0;
-        bottom: 60px;
-        display: flex;
-        gap: 10px;
-        transform: translateY(10px);
-        transition: all 0.3s ease;
+    <?php
+    if (!empty($image)) {
+        $banner = base_url('uploads/images/' . $image);
+    } else {
+        $banner = base_url('assets/img/shape/banner-16.jpg');
     }
-
-    /* ICON STYLE */
-    .crew-socials a {
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        color: #111;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        font-size: 18px;
-        transform: scale(0.8);
-        transition: all 0.3s ease;
-    }
-
-    /* HOVER EFFECT */
-    .crew-socials a:hover {
-        background: #2264dc;
-        cursor: pointer;
-    }
-</style>
-<header class="inner-main-header style-2" style="padding-top:80px;">
-    <img src="<?= base_url('assets/images/team-inner-bg.jpg') ?>" alt="">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 offset-lg-6 col-md-12">
-                <div class="banner-content text-white blog-detail">
-                    <h2><?= $team['name'] ?></h2>
+    ?>
+    <div class="breadcrumb-area text-center bg-cover" style="background: url(<?= $banner ?>);">
+        <div class="container">
+            <div class="row align-center">
+                <div class="col-lg-7 pr-60 pr-md-15 pr-xs-15">
+                    <div class="banner-style-three-info">
+                        <h2 class="wow fadeInUp"><?= $team['name'] ?></h2>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</header>
+    <div class="team-single-area default-padding">
+        <div class="container">
+            <div class="team-single-items">
+                <div class="row">
+                    <div class="col-lg-5 left-info">
+                        <div class="thumb fade-up-anim">
+                            <img src="<?= base_url('uploads/images/') . $team['image'] ?>" alt="<?= $team['alt_text'] ?>">
+                        </div>
+                    </div>
+                    <div class="col-lg-7 right-info pl-60 pl-md-15 pl-xs-15">
+                        <div class="about">
+                            <h2 class="title"><?= $team['name'] ?></h2>
+                            <span><?= $team['title'] ?></span>
+                            <p>
+                                <?= html_entity_decode($team['details']) ?>
+                            </p>
 
-<section class="team-inner-con-sec sec" style="padding-top:60px;">
-    <div class="container">
-        <div class="row align-items-start">
-            <!-- Image -->
-            <div class="col-lg-4 col-12">
-                <div class="team-inner-img mb-4">
-                    <img src="<?= base_url('uploads/images/') . $team['image'] ?>" alt="<?= $team['alt_text'] ?>"
-                        class="img-fluid rounded shadow">
-                </div>
-            </div>
-            <!-- Content -->
-            <div class="col-lg-6 offset-lg-1 col-12">
-                <div class="team-inner-con">
-                    <!-- <div class="banner-content blog-detail">
-                        <h2><?= $team['name'] ?></h2>
-                    </div> -->
-                    <!-- Details -->
-                    <div class="details">
-                        <?= html_entity_decode($team['details']) ?>
+                            <!-- <ul>
+                                <li>
+                                    <strong>Email:</strong>
+                                    <a href="mailto:support@digital.com">support@digital.com</a>
+                                </li>
+                                <li>
+                                    <strong>Phone:</strong>
+                                    <a href="tel:123-456-7890">+44-20-7328-4499</a>
+                                </li>
+                            </ul> -->
+                        </div>
+                        <div class="social">
+                            <!-- <a class="btn btn-style-one" href="contact-us.html">Contact Me <i class="fas fa-arrow-right"></i></a> -->
+                            <div class="share-link">
+                                <i class="fas fa-share-alt"></i>
+                                <ul>
+                                    <li class="twitter">
+                                        <a href="<?= urldecode($team['twitter_link']) ?? '#' ?>" target="__blank">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li class="facebook">
+                                        <a href="<?= urldecode($team['link']) ?? '#' ?>" target="__blank"><i class="fab fa-linkedin-in"></i></a>
+                                    </li>
+                                    <li class="twitter">
+                                        <a href="<?= urldecode($team['insta_link']) ?? '#' ?>" target="__blank"><i class="fab fa-instagram"></i></a>
+                                    </li>
+                                    <li class="facebook">
+                                        <a href="<?= urldecode($team['facebook_link']) ?? '#' ?>" target="__blank"><i class="fab fa-facebook-f"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
                     </div>
-                    <!-- Designation -->
-                    <p class="designation mt-4 mb-2">
-                    <h3><?= $team['name'] ?></h3>
-                    <strong><?= $team['title'] ?></strong>
-                    </p>
-                    <!-- LinkedIn -->
-                    <div class="crew-socials">
-                        <a href="<?= urldecode($team['twitter_link']) ?? '#' ?>" target="_blank"> <i class="fab fa-x"></i></a>
-                        <a href="<?= urldecode($team['facebook_link']) ?? '#' ?>" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="<?= urldecode($team['insta_link']) ?? '#' ?>" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="<?= urldecode($team['link']) ?? '#' ?>" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <!-- <a href="<?= urldecode($team['link']) ?>" target="_blank" class="linkedin-ic d-inline-block mt-2">
-                        <img src="<?= base_url('assets/images/linkedin-w-icon.svg') ?>" alt="LinkedIn"
-                            style="width:28px; height:auto;">
-                    </a> -->
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>

@@ -1,410 +1,3 @@
-<header class="inner-main-header style-2">
-    <img src="<?= base_url('assets/images/contact-banner.jpg') ?>" alt="">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-12  mx-auto">
-                <div class="banner-content text-center d-block blog-detail" data-aos="fade-up" data-aos-duration="1000">
-                    <h1>Take Your Supply Chain to the Next Level</h1>
-                    <button class="main-btn" onclick="scrollBottom()">
-                        <span>Talk to an expert</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-<style>
-    /* ─── CONTACT BAR ────────────────────────────── */
-    .contact-bar-inner {
-        max-width: 1420px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .cb-item {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        padding: 1.6rem 2rem;
-        border: 1px solid rgb(12 89 219);
-        position: relative;
-        overflow: hidden;
-        cursor: pointer;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        margin: 10px;
-        background: rgb(255, 255, 255);
-        z-index: 1;
-    }
-
-    .cb-item::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 100%;
-        background: linear-gradient(90deg, #2563eb, #3b82f6);
-        transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: -1;
-    }
-
-    .cb-item:hover::before {
-        width: 100%;
-    }
-
-    .cb-item::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: linear-gradient(90deg, #2563eb, #3b82f6);
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .cb-item:hover::after {
-        transform: scaleX(1);
-    }
-
-
-    .cb-item .cb-icon,
-    .cb-item div {
-        position: relative;
-        z-index: 2;
-        transition: color 0.3s ease;
-    }
-
-    .cb-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    }
-
-    .cb-item:hover .cb-icon {
-        border-color: #e5e7eb;
-        border-style: solid;
-        transform: scale(1.12) rotate(-6deg);
-        box-shadow: 0 6px 20px rgba(37, 99, 235, .4);
-    }
-
-    .cb-item:hover .cb-icon svg {
-        color: #fff;
-    }
-
-    .cb-item:hover .cb-label {
-        color: #e5e7eb;
-    }
-
-    .cb-item:hover .cb-value {
-        color: #e5e7eb;
-    }
-
-    .cb-item:hover a {
-        color: #e5e7eb;
-    }
-
-    .cb-icon {
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        background: rgba(37, 99, 235, .15);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        transition: background .3s, transform .3s, box-shadow .3s;
-    }
-
-    .cb-icon i {
-        color: #2563eb;
-        transition: color .3s;
-    }
-
-    .cb-label {
-        font-size: 1.25rem;
-        line-height: 1.75rem;
-        color: rgb(4 20 36 / 1);
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: .08em;
-        transition-property: all;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .cb-value {
-        font-size: 1.25rem;
-        line-height: 1.75rem;
-        font-weight: 500;
-        color: rgb(12 89 219 / 1);
-        margin-top: .15rem;
-        transition: color .3s;
-        transition-duration: 500ms;
-        transition-property: all;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .con-form-wrap .card img {
-        height: 650px;
-        object-fit: fill;
-    }
-
-    .con-form-wrap {
-        padding: 5em 0px !important;
-    }
-
-    @media (max-width: 575px) {
-        .contact-bar-inner {
-            max-width: 1420px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .con-form-wrap .card img {
-            height: 250px;
-            width: 100%;
-            object-fit: fill;
-        }
-    }
-</style>
-
-<!-- ─── CONTACT BAR ──────────────────────────────────── -->
-<section class="con-map-sec sec">
-    <div class="contact-bar animate-up delay-1">
-        <div class="contact-bar-inner">
-            <div class="cb-item">
-                <div class="cb-icon">
-                    <svg stroke="currentColor" fill="currentColor"
-                        stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z"></path>
-                    </svg>
-                </div>
-                <div>
-                    <div class="cb-label">Call Us Anytime</div>
-                    <div class="cb-value">+91 977 712 6600 (India)</div>
-                </div>
-            </div>
-            <div class="cb-item">
-                <div class="cb-icon">
-                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
-                        height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                        <path fill="none" d="M0 0h24v24H0V0z"></path>
-                        <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0-8 4.99L4 6h16zm0 12H4V8l8 5 8-5v10z"></path>
-                    </svg>
-                </div>
-                <div>
-                    <div class="cb-label">Send E-Mail</div>
-                    <div class="cb-value"><a href="mailto:supplychain@cozentus.com" class="__cf_email__" data-cfemail="e38b868f8f8ca38f8c848a8e8c9586cd8a8d">supplychain@cozentus.com</a></div>
-                </div>
-            </div>
-            <div class="cb-item">
-                <div class="cb-icon">
-                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"></path>
-                    </svg>
-                </div>
-                <div>
-                    <div class="cb-label">Address</div>
-                    <div class="cb-value">
-                        SRB Tower, 5th and 6th Floor, Infocity, Bhubaneswar -751024, Odisha, India</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="con-main-sec" id="ct-bt">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-12">
-                <div class="con-form-wrap">
-                    <div class="sec-head" data-aos="fade-up" data-aos-duration="1000">
-                        <h1>
-                            Get in touch with a transformation expert
-                        </h1>
-                    </div>
-                    <form data-form="insertcontact" data-aos="fade-right" data-aos-duration="1000"
-                        class="contact-form mt-40 form">
-                        <div class="row">
-                            <div class="col-lg-6 col-12">
-                                <div class="form-group">
-                                    <label for="" class="label-text">
-                                        First Name
-                                    </label>
-                                    <div class="inp-group">
-                                        <input type="text" name="fname" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-12">
-                                <div class="form-group">
-                                    <label for="" class="label-text">
-                                        Last Name
-                                    </label>
-                                    <div class="inp-group">
-                                        <input type="text" name="lname" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-12">
-                                <div class="form-group">
-                                    <label for="" class="label-text">
-                                        Work Email Address
-                                    </label>
-                                    <div class="inp-group">
-                                        <input type="email" name="email" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-12">
-                                <div class="form-group">
-                                    <label for="" class="label-text">
-                                        Contact Number
-                                    </label>
-                                    <div class="inp-group">
-                                        <input type="text" name="phone" id="phone" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-12">
-                                <div class="form-group">
-                                    <label for="" class="label-text">
-                                        Organisation Name
-                                    </label>
-                                    <div class="inp-group">
-                                        <input type="text" name="organisation" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-12">
-                                <div class="form-group">
-                                    <label for="" class="label-text">
-                                        Designation
-                                    </label>
-                                    <div class="inp-group">
-                                        <input type="text" name="employees" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-12">
-                                <div class="form-group">
-                                    <label for="" class="label-text">
-                                        Services Interested In
-                                    </label>
-                                    <div class="inp-group">
-                                        <div class="select-wrap">
-                                            <select name="service" id="">
-                                                <option value="">Select Service</option>
-                                                <?php if (!empty($pservcont))
-                                                    foreach ($pservcont as $ser) {
-                                                        echo "<option value='" . $ser['name'] . "'>" . $ser['name'] . "</option>";
-                                                    } ?>
-                                            </select>
-                                            <img src="<?= base_url('assets/images/select-drop.svg') ?>" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-12">
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <label class="form-check-label" for="exampleCheck1">&nbsp;&nbsp;I agree to the
-                                            Cozentus Privacy Policy (<a
-                                                href="<?= base_url('privacy-statement') ?>">Privacy
-                                                Statement</a>)</label>
-                                        <input type="checkbox" name="privacy_policy" class="form-check-input"
-                                            id="exampleCheck1">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="g-recaptcha" data-sitekey="<?php echo $recaptcha_site_key; ?>"></div>
-                            <div class="col-12">
-                                <div class="btn-flex mt-40">
-                                    <button class="main-btn" id="sbt-btn">
-                                        <span>Schedule a Meeting</span>
-                                    </button>
-                                    <!--<button class="main-btn phone-btn with-icon tr-btn">-->
-                                    <!--    <img src="<?= base_url('assets/images/phone.svg') ?>" alt="">-->
-                                    <!--    <span>Get a Call back</span>-->
-                                    <!--</button>-->
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="col-lg-5 offset-lg-1 col-12">
-                <div class="con-form-wrap">
-                    <div class="card">
-                        <img src="<?= base_url('assets/images/Industries-Section-image.png') ?>" class="card-img-top" alt="..." data-aos="fade-left" data-aos-duration="1000">
-                        <div class="card-body" data-aos="" style="background-color: rgb(12 89 219); color: rgb(255 255 255);">
-                            <h3 class="card-title">Want to work with a <span>dynamic experienced</span> team of next-gen technocrats?</h3>
-                            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-</section>
-
-<!-- Map Section start -->
-<section class="con-map-sec sec">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="sec-head center" data-aos="fade-up" data-aos-duration="1000">
-                    <h2>
-                        Locate us on <span>the Globe</span>
-                    </h2>
-                </div>
-
-                <!-- Map Container -->
-                <div class="con-map mt-40">
-                    <div id="map" style="width: 100%; height: 450px; /*border-radius: 20px;*/ overflow: hidden;"></div>
-                </div>
-
-                <!-- Address Cards -->
-                <div class="row justify-content-center" style="margin-top: 10px; row-gap: 20px;">
-                    <div class="col-lg-4 col-12 address-card" data-lat="20.34194" data-lng="85.80601" data-zoom="17" data-address="Odisha">
-                        <div class="con-map-block">
-                            <h3>Odisha, India</h3>
-                            <p>
-                                SRB Tower, 5th and 6th Floor, Infocity, Bhubaneswar -751024, Odisha, India
-                            </p>
-                            <span></span>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-12 address-card" data-lat="17.45867" data-lng="78.37059" data-zoom="17" data-address="Hyderabad">
-                        <div class="con-map-block">
-                            <h3>Hyderabad, India</h3>
-                            <p>
-                                Cozentus Technologies, Unit No 814, 8th Floor, Jayabheri Silicon Towers, DHLF VC,
-                                Silicon Tower, Hitech City Road, Kothaguda, Hyderabad, Telangana- 500 032
-                            </p>
-                            <span></span>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-12 address-card" data-lat="51.58039" data-lng="-0.33742" data-zoom="17" data-address="Europe">
-                        <div class="con-map-block">
-                            <h3>Europe</h3>
-                            <p>
-                                Ground Floor, Hygeia Building, 66-68 College Road, Harrow Middlesex, HA1 1BE, United Kingdom
-                            </p>
-                            <span></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <style>
     .address-card {
         cursor: pointer;
@@ -526,7 +119,217 @@
         transition: all 0.3s ease;
     }
 </style>
+<div id="smooth-content">
+    <!-- Start Contact Us 
+    ============================================= -->
+    <div class="contact-style-one-area overflow-hidden default-padding">
+        <div class="container">
+            <div class="contact-style-one-items" style="background-image: url(assets/img/shape/map.png);">
+                <div class="row align-center">
+                    <div class="contact-stye-one col-lg-5 mb-md-50 mb-xs-50">
 
+                        <div class="contact-style-one-info">
+                            <h2 class="split-text title">Get In Touch With a Transformation Expert</h2>
+                            <ul>
+                                <li class="wow fadeInUp">
+                                    <div class="icon">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </div>
+                                    <div class="content">
+                                        <h4>Global Helpline</h4>
+                                        <a href="tel:+919777126600">+91 977 712 6600 (India)</a>
+                                    </div>
+                                </li>
+                                <li class="wow fadeInUp" data-wow-delay="300ms">
+                                    <div class="icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="info">
+                                        <h4>Our Location</h4>
+                                        <p>
+                                            SRB Tower, 5th and 6th Floor, Infocity, Bhubaneswar -751024, Odisha, India
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="wow fadeInUp" data-wow-delay="500ms">
+                                    <div class="icon">
+                                        <i class="fas fa-envelope-open-text"></i>
+                                    </div>
+                                    <div class="info">
+                                        <h4>Official Email</h4>
+                                        <a href="mailto:supplychain@cozentus.com">supplychain@cozentus.com</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="contact-stye-one col-lg-7 pl-60 pl-md-15 pl-xs-15">
+                        <div class="contact-form-card" style="background-image: url(assets/img/shape/3.png);">
+                            <h4 class="sub-title">Free Consultation</h4>
+                            <form data-form="insertcontact" id="contactForm" data-aos="fade-right" data-aos-duration="1000" class="contact-form-custom">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <input class="form-control" id="name" name="name" placeholder="Name" type="text">
+                                            <span class="alert-error"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <input class="form-control" id="email" name="email" placeholder="Email" type="email">
+                                            <span class="alert-error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <input class="form-control" id="phone" name="phone" placeholder="Phone" type="text">
+                                            <span class="alert-error"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <input class="form-control" id="organisation" name="organisation" placeholder="Organization" type="text">
+                                            <span class="alert-error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <input class="form-control" id="employees" name="employees" placeholder="Designation" type="text">
+                                            <span class="alert-error"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <select name="service" id="interested" class="form-select">
+                                                <option value="">Select Service</option>
+                                                <?php if (!empty($pservcont)) foreach ($pservcont as $ser) {
+                                                    echo "<option value='" . $ser['name'] . "'>" . $ser['name'] . "</option>";
+                                                } ?>
+                                            </select>
+                                            <span class="alert-error"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <input type="checkbox" name="privacy_policy" id="agree">
+                                            <label for="agree">&nbsp;&nbsp;I agree to the
+                                                Cozentus <a href="<?= base_url('privacy-statement') ?>">Privacy Policy</a> </label>
+                                            <span class="alert-error"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Google ReCAPTCHA -->
+                                <!-- <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <div class="g-recaptcha" data-sitekey="<?= $recaptcha_site_key ?>"></div>
+                                            <span class="alert-error"></span>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <input type="hidden" name="service" value="<?= $pserv['card_heading'] ?>">
+                                <input type="hidden" name="parent_id" value="<?= $pserv['pserv'] ?>">
+                                <input type="hidden" name="path" value="<?= $this->uri->uri_string() ?>">
+                                <input type="hidden" name="type" value="<?= $type ?>">
+                                <!-- Alert Message -->
+                                <div class="col-lg-12 alert-notification mb-3" role="alert">
+                                    <div id="message" class="alert-msg text-danger"></div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <button class="btn btn-style-one" type="submit" id="submitBtn" data-aos="fade-up" data-aos-duration="1200">
+                                            Get in Touch <i class="fas fa-arrow-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Contact -->
+
+    <!-- Start Map 
+    ============================================= -->
+    <!-- <div class="maps-area default-padding-bottom overflow-hidden">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="google-maps">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48388.929990966964!2d-74.00332!3d40.711233!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1653598669477!5m2!1sen!2sus"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- End Map -->
+
+    <!-- Map Section start -->
+    <div class="maps-area default-padding-2 overflow-hidden bg-gray ">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="contact-style-one-info">
+                        <h2 class="split-text title"> Locate Us On The Globe </h2>
+                    </div>
+                    <!-- Map Container -->
+                    <div class="con-map mt-40">
+                        <div id="map" style="width: 100%; height: 450px; /*border-radius: 20px;*/ overflow: hidden;z-index: 0;"></div>
+                    </div>
+
+                    <!-- Address Cards -->
+                    <div class="row justify-content-center" style="margin-top: 20px; row-gap: 20px;">
+                        <div class="col-lg-4 col-12 address-card" data-lat="20.34194" data-lng="85.80601" data-zoom="17" data-address="Odisha">
+                            <div class="con-map-block">
+                                <h3>Odisha, India</h3>
+                                <p>
+                                    SRB Tower, 5th and 6th Floor, Infocity, Bhubaneswar -751024, Odisha, India
+                                </p>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-12 address-card" data-lat="17.45867" data-lng="78.37059" data-zoom="17" data-address="Hyderabad">
+                            <div class="con-map-block">
+                                <h3>Hyderabad, India</h3>
+                                <p>
+                                    Cozentus Technologies, Unit No 814, 8th Floor, Jayabheri Silicon Towers, DHLF VC,
+                                    Silicon Tower, Hitech City Road, Kothaguda, Hyderabad, Telangana- 500 032
+                                </p>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-12 address-card" data-lat="51.58039" data-lng="-0.33742" data-zoom="17" data-address="Europe">
+                            <div class="con-map-block">
+                                <h3>Europe</h3>
+                                <p>
+                                    Ground Floor, Hygeia Building, 66-68 College Road, Harrow Middlesex, HA1 1BE, United Kingdom
+                                </p>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Leaflet CSS and JS -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -750,4 +553,183 @@
         }, 0)
     }
     scrollBottom();
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("contactForm");
+
+        // Helper to grab the error span relative to the form group
+        const getErrorSpan = (element) => {
+            if (!element) return null;
+            const group = element.closest(".form-group");
+            return group ? group.querySelector(".alert-error") : null;
+        };
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+
+            let isValid = true;
+
+            // 1. Validate Name
+            const nameInput = document.getElementById("name");
+            const nameError = getErrorSpan(nameInput);
+            if (nameError) {
+                if (nameInput.value.trim().length < 3) {
+                    nameError.textContent = "Name must be at least 3 characters.";
+                    nameInput.classList.add("error");
+                    nameInput.classList.remove("valid");
+                    isValid = false;
+                } else {
+                    nameError.textContent = "";
+                    nameInput.classList.remove("error");
+                    nameInput.classList.add("valid");
+                }
+            }
+
+            // 2. Validate Email
+            const emailInput = document.getElementById("email");
+            const emailError = getErrorSpan(emailInput);
+            if (emailError) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                const emailValue = emailInput.value.trim();
+                if (!emailRegex.test(emailValue)) {
+                    emailError.textContent = "Please enter a valid email address.";
+                    emailInput.classList.add("error");
+                    emailInput.classList.remove("valid");
+                    isValid = false;
+                } else {
+                    // Pre-check for blocked domains to give instant corporate email feedback
+                    const domain = emailValue.split("@")[1]?.toLowerCase();
+                    const blockedDomains = ["gmail.com", "gmail.in", "gmail.net", "gmail.org", "gmail.info", "gmail.edu", "yahoo.com", "outlook.com", "aol.com", "icloud.com", "zoho.com", "protonmail.com", "mail.com", "gmx.com", "yandex.com"];
+                    if (blockedDomains.includes(domain)) {
+                        emailError.textContent = "Please enter a business or corporate email address.";
+                        emailInput.classList.add("error");
+                        emailInput.classList.remove("valid");
+                        isValid = false;
+                    } else {
+                        emailError.textContent = "";
+                        emailInput.classList.remove("error");
+                        emailInput.classList.add("valid");
+                    }
+                }
+            }
+            /*
+            // 3. Validate Phone (Optional, but digits only if entered)
+            const phoneInput = document.getElementById("phone");
+            const phoneError = getErrorSpan(phoneInput);
+            if (phoneError) {
+                const phoneValue = phoneInput.value.trim();
+                if (phoneValue !== "" && !/^\d+$/.test(phoneValue)) {
+                    phoneError.textContent = "Phone number must contain digits only.";
+                    phoneInput.classList.add("error");
+                    phoneInput.classList.remove("valid");
+                    isValid = false;
+                } else {
+                    phoneError.textContent = "";
+                    phoneInput.classList.remove("error");
+                    if (phoneValue !== "") {
+                        phoneInput.classList.add("valid");
+                    }
+                }
+            }
+
+            // 4. Validate Service Dropdown
+            const serviceSelect = document.getElementById("interested");
+            const serviceError = getErrorSpan(serviceSelect);
+            if (serviceError) {
+                if (serviceSelect.value === "") {
+                    serviceError.textContent = "Please select a service.";
+                    serviceSelect.classList.add("error");
+                    serviceSelect.classList.remove("valid");
+                    isValid = false;
+                } else {
+                    serviceError.textContent = "";
+                    serviceSelect.classList.remove("error");
+                    serviceSelect.classList.add("valid");
+                }
+            }
+            */
+            // 5. Validate Privacy Checkbox
+            const agreeInput = document.getElementById("agree");
+            const agreeError = getErrorSpan(agreeInput);
+            if (agreeError) {
+                if (!agreeInput.checked) {
+                    agreeError.textContent = "You must agree to the privacy policy.";
+                    isValid = false;
+                } else {
+                    agreeError.textContent = "";
+                }
+            }
+
+            // 6. Validate Google ReCAPTCHA
+            // const recaptchaDiv = document.querySelector(".g-recaptcha");
+            // const recaptchaError = getErrorSpan(recaptchaDiv);
+            // if (recaptchaError) {
+            //     if (typeof grecaptcha === "undefined" || grecaptcha.getResponse() === "") {
+            //         recaptchaError.textContent = "Please complete the CAPTCHA.";
+            //         isValid = false;
+            //     } else {
+            //         recaptchaError.textContent = "";
+            //     }
+            // }
+
+            // 7. Perform Submission if everything is valid
+            if (isValid) {
+                const formData = new FormData(form);
+                const submitBtn = document.getElementById("submitBtn");
+                const messageDiv = document.getElementById("message");
+
+                // Build absolute destination URL: base_url + data-form
+                const contextUrl = typeof site_url !== "undefined" ? site_url : (typeof base_url !== "undefined" ? base_url : "/");
+                const actionEndpoint = contextUrl + form.dataset.form;
+
+                submitBtn.disabled = true;
+                const originalBtnHtml = submitBtn.innerHTML;
+                submitBtn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
+                messageDiv.innerHTML = "";
+
+                fetch(actionEndpoint, {
+                        method: "POST",
+                        body: formData
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("Network response was not ok");
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnHtml;
+
+                        if (data.status) {
+                            // Display styled success alert
+                            messageDiv.innerHTML = data.msg || '<p class="alert alert-success">Form Submitted Successfully!</p>';
+                            form.reset();
+                            // if (typeof grecaptcha !== "undefined") {
+                            //     grecaptcha.reset();
+                            // }
+                            // Remove validation classes
+                            document.querySelectorAll(".form-control").forEach(el => el.classList.remove("valid", "error"));
+
+                            // Redirect after short delay so user can read message
+                            setTimeout(() => {
+                                window.location.href = contextUrl + "thankyou";
+                            }, 1500);
+                        } else {
+                            // Display server validation error
+                            messageDiv.innerHTML = data.msg || '<p class="alert alert-warning">Please correct the inputs and try again.</p>';
+                        }
+                    })
+                    .catch(error => {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnHtml;
+                        messageDiv.innerHTML = '<p class="alert alert-danger">An error occurred during submission. Please try again.</p>';
+                        console.error("Error submitting form:", error);
+                    });
+            }
+        });
+    });
 </script>
