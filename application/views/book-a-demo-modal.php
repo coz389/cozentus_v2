@@ -2,15 +2,49 @@
 <link rel="preconnect" fetchpriority="high" href="https://meetings.hubspot.com" crossorigin>
 <link rel="preconnect" fetchpriority="high" href="https://static.hsappstatic.net" crossorigin>
 
-<!-- ============================================================ -->
-<!-- COMPANY OVERVIEW SECTION -->
-<!-- ============================================================ -->
-<section class="abt-sec sec">
+
+<div class="about-style-two-area mt-180 mt-md-110 mt-xs-70">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-6 col-12">
-                <div class="blog-content-area html-content html-editor" data-aos="fade-up" data-aos-duration="1000">
-                    <h2 class="mb-3">Company Overview:</h2>
+            <div class="col-lg-12 col-12">
+                <div class="sec-head text-center aos-init" data-aos="fade-up" data-aos-duration="1000">
+                    <h2 style="color:#0a2670;">Book A Meeting</h2>
+                </div>
+                <div class="sec-head text-center aos-init" data-aos="fade-up" data-aos-duration="1000">
+                    <h5>Talk to our expert for your supply chain logistics tech needs.</h5>
+                </div>
+                <div class="abt-img aos-init" data-aos="fade-left" data-aos-duration="1000">
+                    <div style="padding: 10px; border-radius: 2px;">
+
+                        <!-- Start of Meetings Embed Script -->
+                        <div class="meetings-iframe-container" data-src="https://meetings-na2.hubspot.com/gavin-webber?embed=true" id="hubspot-meeting" style="min-height: 600px;">
+                            <iframe src="https://meetings-na2.hubspot.com/gavin-webber?embed=true&amp;parentHubspotUtk=76e3b9a64ac839f26f6ec116ec3d2395&amp;parentPageUrl=https://www.cozentus.com/book-free-consultation" width="100%" data-hs-ignore="true" style="min-width: 312px; min-height: 615px; height: 756px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none;" data-lf-form-tracking-inspected-xbp1oaempnqaedvj="true" data-lf-yt-playback-inspected-xbp1oaempnqaedvj="true" data-lf-vimeo-playback-inspected-xbp1oaempnqaedvj="true"></iframe>
+                        </div>
+
+                        <!-- <script type="text/javascript"
+                            src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script> -->
+                        <!-- <script async src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js">
+                        </script> -->
+                        <!-- <link rel="preload" href="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"
+                            as="script"> -->
+                        <!-- End of Meetings Embed Script -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Start About 
+        ============================================= -->
+<div class="about-style-two-area bg-gray bg-cover default-padding-2">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="about-style-two-info default-padding-bottom fade-up-anim">
+                    <h4>Company Overview</h4>
                     <p>At Cozentus, we're dedicated to helping businesses unlock the full
                         potential of their logistics and supply chain operations through the
                         power of advanced technology.</p>
@@ -18,22 +52,27 @@
                         we develop tailored solutions that not only streamline processes but
                         also deliver real results — improved efficiency, faster delivery,
                         and measurable ROI.</p>
+
+
+
+                    <a class="btn btn-style-one btn-dark mt-10 wow fadeInUp" href="<?= base_url('about') ?>" id="openMeetingModal111">More Details
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
 
-                <!-- BUTTON — Opens Modal -->
-                <button class="main-btn mb-5" id="openMeetingModal" data-aos="fade-up" data-aos-duration="1000">
-                    <span>Schedule Your Meeting Now</span>
-                </button>
-            </div>
 
-            <div class="col-lg-6 col-12">
-                <div class="abt-img" data-aos="fade-left" data-aos-duration="1000">
-                    <img src="https://www.cozentus.com/uploads/images/cozentus.gif" alt="cozentus_meetings">
+            </div>
+            <div class="col-lg-6 offset-lg-1">
+                <div class="about-style-two-thumb fade-up-anim">
+                    <img src="https://www.cozentus.com/uploads/images/cozentus.gif" alt="cozentus_meetings" style="height:400px">
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
+<!-- End About -->
+</div>
+
 
 <!-- ============================================================ -->
 <!-- MEETING MODAL -->
@@ -120,8 +159,11 @@
             </div>
 
             <!-- HubSpot Embed Container -->
-            <div class="meetings-iframe-container" id="hubspot-meeting"
+            <!-- <div class="meetings-iframe-container" id="hubspot-meeting"
                 data-src="https://meetings.hubspot.com/david4662?embed=true" style="min-height: 600px; display:none;">
+            </div> -->
+            <div class="meetings-iframe-container" id="hubspot-meeting"
+                data-src="https://meetings-na2.hubspot.com/gavin-webber?embed=true" style="min-height: 600px; display:none;">
             </div>
 
         </div>
@@ -132,151 +174,151 @@
 <!-- STYLES -->
 <!-- ============================================================ -->
 <style>
-/* Spinner animation */
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
+    /* Spinner animation */
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
     }
 
-    100% {
-        transform: rotate(360deg);
+    /* Modal fade in */
+    @keyframes modalFadeIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
     }
-}
 
-/* Modal fade in */
-@keyframes modalFadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-#meetingModal>div {
-    animation: modalFadeIn 0.25s ease;
-}
-
-/* Close button hover */
-#closeMeetingModal:hover {
-    background: rgba(255, 255, 255, 0.3) !important;
-}
-
-/* Mobile responsive */
-@media (max-width: 576px) {
     #meetingModal>div {
-        width: 100% !important;
-        max-width: 100% !important;
-        max-height: 100vh !important;
-        border-radius: 0 !important;
+        animation: modalFadeIn 0.25s ease;
     }
-}
 
-/* ── Modal Body — no scroll ── */
-#meetingModal>div>div:last-child {
-    overflow: hidden !important;
-    padding: 0 !important;
-    flex: 1;
-}
+    /* Close button hover */
+    #closeMeetingModal:hover {
+        background: rgba(255, 255, 255, 0.3) !important;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 576px) {
+        #meetingModal>div {
+            width: 100% !important;
+            max-width: 100% !important;
+            max-height: 100vh !important;
+            border-radius: 0 !important;
+        }
+    }
+
+    /* ── Modal Body — no scroll ── */
+    #meetingModal>div>div:last-child {
+        overflow: hidden !important;
+        padding: 0 !important;
+        flex: 1;
+    }
 </style>
 
 <!-- ============================================================ -->
 <!-- JAVASCRIPT -->
 <!-- ============================================================ -->
 <script>
-(function() {
-    let hubspotLoaded = false;
-    let scriptLoaded = false;
+    (function() {
+        let hubspotLoaded = false;
+        let scriptLoaded = false;
 
-    // ── 1. Preload HubSpot script silently in background on page load ──
-    function preloadHubSpot() {
-        if (scriptLoaded) return;
-        scriptLoaded = true;
+        // ── 1. Preload HubSpot script silently in background on page load ──
+        function preloadHubSpot() {
+            if (scriptLoaded) return;
+            scriptLoaded = true;
 
-        const script = document.createElement('script');
-        script.src = 'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js';
-        script.async = true;
-        script.id = 'hs-meeting-script';
+            const script = document.createElement('script');
+            script.src = 'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js';
+            script.async = true;
+            script.id = 'hs-meeting-script';
 
-        script.onload = function() {
-            hubspotLoaded = true;
-            // If modal already open before script finished — show embed
-            if (document.getElementById('meetingModal').style.display === 'flex') {
-                showEmbed();
-            }
-        };
+            script.onload = function() {
+                hubspotLoaded = true;
+                // If modal already open before script finished — show embed
+                if (document.getElementById('meetingModal').style.display === 'flex') {
+                    showEmbed();
+                }
+            };
 
-        document.body.appendChild(script);
-    }
-
-    // ── 2. Show embed, hide loader ──
-    function showEmbed() {
-        const loader = document.getElementById('meeting-loader');
-        const meeting = document.getElementById('hubspot-meeting');
-
-        if (loader) loader.style.display = 'none';
-        if (meeting) meeting.style.display = 'block';
-    }
-
-    // ── 3. Open Modal ──
-    function openModal() {
-        const modal = document.getElementById('meetingModal');
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // prevent background scroll
-
-        if (hubspotLoaded) {
-            // Script already loaded — show immediately
-            showEmbed();
-        } else if (!scriptLoaded) {
-            // Not started yet — load now
-            preloadHubSpot();
+            document.body.appendChild(script);
         }
-        // else: script is loading — onload will call showEmbed()
-    }
 
-    // ── 4. Close Modal ──
-    function closeModal() {
-        const modal = document.getElementById('meetingModal');
-        modal.style.display = 'none';
-        document.body.style.overflow = ''; // restore scroll
-    }
+        // ── 2. Show embed, hide loader ──
+        function showEmbed() {
+            const loader = document.getElementById('meeting-loader');
+            const meeting = document.getElementById('hubspot-meeting');
 
-    // ── 5. Start preloading after page is idle ──
-    if (window.requestIdleCallback) {
-        requestIdleCallback(preloadHubSpot, {
-            timeout: 3000
-        });
-    } else {
-        window.addEventListener('load', function() {
-            setTimeout(preloadHubSpot, 1000);
-        });
-    }
+            if (loader) loader.style.display = 'none';
+            if (meeting) meeting.style.display = 'block';
+        }
 
-    // ── 6. Event Listeners ──
-    document.addEventListener('DOMContentLoaded', function() {
+        // ── 3. Open Modal ──
+        function openModal() {
+            const modal = document.getElementById('meetingModal');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // prevent background scroll
 
-        // Open button
-        document.getElementById('openMeetingModal')
-            .addEventListener('click', openModal);
+            if (hubspotLoaded) {
+                // Script already loaded — show immediately
+                showEmbed();
+            } else if (!scriptLoaded) {
+                // Not started yet — load now
+                preloadHubSpot();
+            }
+            // else: script is loading — onload will call showEmbed()
+        }
 
-        // Close button
-        document.getElementById('closeMeetingModal')
-            .addEventListener('click', closeModal);
+        // ── 4. Close Modal ──
+        function closeModal() {
+            const modal = document.getElementById('meetingModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = ''; // restore scroll
+        }
 
-        // Click outside modal box to close
-        document.getElementById('meetingModal')
-            .addEventListener('click', function(e) {
-                if (e.target === this) closeModal();
+        // ── 5. Start preloading after page is idle ──
+        if (window.requestIdleCallback) {
+            requestIdleCallback(preloadHubSpot, {
+                timeout: 3000
             });
+        } else {
+            window.addEventListener('load', function() {
+                setTimeout(preloadHubSpot, 1000);
+            });
+        }
 
-        // ESC key to close
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeModal();
+        // ── 6. Event Listeners ──
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // Open button
+            document.getElementById('openMeetingModal')
+                .addEventListener('click', openModal);
+
+            // Close button
+            document.getElementById('closeMeetingModal')
+                .addEventListener('click', closeModal);
+
+            // Click outside modal box to close
+            document.getElementById('meetingModal')
+                .addEventListener('click', function(e) {
+                    if (e.target === this) closeModal();
+                });
+
+            // ESC key to close
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeModal();
+            });
         });
-    });
 
-})();
+    })();
 </script>

@@ -1,1445 +1,1231 @@
-<?php
-if (!empty($pserv['inner_banner_image'])) { ?>
-    <header class="inner-main-header style-2">
-        <picture>
-            <source media="(max-width: 600px)"
-                srcset="<?= base_url('uploads/images/') . $pserv['inner_banner_mimage'] ?>" />
-            <img src="<?= base_url('uploads/images/') . $pserv['inner_banner_image'] ?>"
-                alt="<?= $pserv['alt_text_banner'] ?>" />
-        </picture>
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 col-md-12  mx-auto">
-                    <div class="banner-content text-center d-block blog-detail" data-aos="fade-up" data-aos-duration="1000">
-                        <h1 data-aos="fade-up" data-aos-duration="1000"><?= $pserv['inner_banner_heading'] ?></h1>
-                        <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="para" data-aos="fade-up"
-                            data-aos-duration="1000"><?= $pserv['inner_banner_description'] ?></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-<?php } ?>
-<?php
-if (!empty($pserv['advantage_heading'])) { ?>
-    <section class="abt-sec sec">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 col-12">
-                    <div class="abt-con">
-                        <div class="sec-head">
-                            <h2 data-aos="fade-up" data-aos-duration="1000">
-                                <?= $pserv['advantage_heading'] ?>
-                            </h2>
+<style>
+    /* ═══════════════════════════════════════════════════════════
+        child-services.html  —  Section 2 "What It Does" +
+        Section 3 "What It Solves"  (namespaced, theme-safe)
+        ═══════════════════════════════════════════════════════════ */
+
+    .my-image {
+        border-radius: 15px;
+        box-shadow: 0px 15px 60px -10px rgb(109 117 143 / 33%);
+        background: rgba(255, 255, 255, 0.4);
+        padding: 5px;
+    }
+
+    /* ── Section 2: enterprise split layout ── */
+    .cz-does-top {
+        margin-bottom: 20px;
+    }
+
+    /* small uppercase eyebrow label */
+    .cz-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: #2f73ff;
+        margin-bottom: 18px;
+    }
+
+    .cz-eyebrow::before {
+        content: "";
+        width: 30px;
+        height: 2px;
+        background: #2f73ff;
+        display: inline-block;
+    }
+
+    .cz-does-intro {
+        padding-right: 40px;
+    }
+
+    .cz-does-intro .title {
+        margin-bottom: 20px;
+    }
+
+    .cz-does-intro>p {
+        font-size: 16px;
+        line-height: 1.7;
+        color: #5a6478;
+        margin-bottom: 26px;
+    }
+
+    .cz-does-points {
+        list-style: none;
+        margin: 0 0 32px;
+        padding: 0;
+    }
+
+    .cz-does-points li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 15.5px;
+        font-weight: 600;
+        color: #0c1b3a;
+        margin-bottom: 14px;
+    }
+
+    .cz-does-points li i {
+        color: #2f73ff;
+        font-size: 16px;
+        width: 22px;
+        text-align: center;
+    }
+
+    /* capability list (right column) — clean rows, not cards */
+    .cz-cap-list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cz-cap {
+        display: flex;
+        align-items: flex-start;
+        gap: 18px;
+        padding: 22px 0;
+        border-bottom: 1px solid #eaedf2;
+        transition: padding-left .25s ease;
+    }
+
+    .cz-cap:first-child {
+        padding-top: 0;
+    }
+
+    .cz-cap:last-child {
+        border-bottom: 0;
+    }
+
+    .cz-cap:hover {
+        padding-left: 6px;
+    }
+
+    .cz-cap-ic {
+        flex: 0 0 56px;
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 23px;
+        color: #2f73ff;
+        background: linear-gradient(135deg, rgba(47, 115, 255, .12), rgba(47, 115, 255, .03));
+        transition: background .25s ease, color .25s ease;
+    }
+
+    .cz-cap:hover .cz-cap-ic {
+        color: #fff;
+        background: linear-gradient(135deg, #2f73ff, #6f4cff);
+    }
+
+    .cz-cap-info h4 {
+        font-size: 18px;
+        font-weight: 700;
+        color: #0c1b3a;
+        margin-bottom: 6px;
+    }
+
+    .cz-cap-info p {
+        font-size: 14.5px;
+        line-height: 1.55;
+        color: #5a6478;
+        margin: 0;
+    }
+
+    /* ── Section 2: horizontal process flow ── */
+    .cz-flow-wrap {
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    .cz-flow-label {
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: #8a97ad;
+        margin-bottom: 18px;
+    }
+
+    .cz-flow {
+        margin-top: 28px;
+        padding: 36px 24px;
+        background: #fff;
+        border: 1px solid #eef0f4;
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px 6px;
+    }
+
+    .cz-flow-step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        min-width: 130px;
+    }
+
+    .cz-flow-ic {
+        width: 84px;
+        height: 84px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        color: #2f73ff;
+        background: #f3f7ff;
+        border: 2px solid #dce8ff;
+        margin-bottom: 14px;
+    }
+
+    .cz-flow-ic.cz-flow-accent {
+        color: #fff;
+        background: linear-gradient(135deg, #2f73ff, #6f4cff);
+        border-color: transparent;
+        box-shadow: 0 12px 22px -8px rgba(47, 115, 255, .6);
+    }
+
+    .cz-flow-step h5 {
+        font-size: 16px;
+        font-weight: 700;
+        color: #0c1b3a;
+        margin: 0;
+    }
+
+    .cz-flow-arrow {
+        font-size: 22px;
+        color: #b9c4d6;
+        margin: 0 6px 26px;
+    }
+
+    /* ── Section 3: challenges vs outcomes ── */
+    .cz-solve-card {
+        border-radius: 18px;
+        padding: 40px 36px;
+        height: 100%;
+        margin-bottom: 30px;
+        border: 1px solid #eef0f4;
+        background: #fff;
+    }
+
+    .cz-solve-challenge {
+        background: linear-gradient(180deg, #fff6f5 0%, #ffffff 60%);
+        border-color: #ffe1dc;
+    }
+
+    .cz-solve-outcome {
+        background: linear-gradient(180deg, #f1fbf5 0%, #ffffff 60%);
+        border-color: #d6f1df;
+    }
+
+    .cz-solve-head {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 26px;
+    }
+
+    .cz-solve-badge {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        color: #fff;
+        flex: 0 0 56px;
+    }
+
+    .cz-solve-challenge .cz-solve-badge {
+        background: linear-gradient(135deg, #ff6a5e, #ff8a3d);
+    }
+
+    .cz-solve-outcome .cz-solve-badge {
+        background: linear-gradient(135deg, #21b573, #34c759);
+    }
+
+    .cz-solve-head h3 {
+        font-size: 24px;
+        font-weight: 700;
+        color: #0c1b3a;
+        margin: 0;
+    }
+
+    .cz-solve-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .cz-solve-list li {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-size: 16.5px;
+        color: #2b3b58;
+        padding: 13px 0;
+        border-bottom: 1px solid rgba(12, 27, 58, .07);
+    }
+
+    .cz-solve-list li:last-child {
+        border-bottom: 0;
+    }
+
+    .cz-solve-list li i {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        color: #fff;
+        flex: 0 0 26px;
+    }
+
+    .cz-solve-challenge .cz-solve-list li i {
+        background: #ff6a5e;
+    }
+
+    .cz-solve-outcome .cz-solve-list li i {
+        background: #21b573;
+    }
+
+    /* ── responsive ── */
+
+    @media (max-width: 575px) {
+        .banner-style-three-info h2 {
+            font-size: 24px !important;
+            margin-bottom: 25px;
+            color: #000662 !important;
+        }
+
+        .cz-flow {
+            flex-direction: column;
+        }
+
+        .cz-flow-arrow {
+            transform: rotate(90deg);
+            margin: 4px 0;
+        }
+
+        .cz-flow-step {
+            min-width: 0;
+        }
+
+        .cz-solve-card {
+            padding: 30px 24px;
+        }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+        child-services.html  —  Section 4 "Case Study"
+        ═══════════════════════════════════════════════════════════ */
+    .cz-eyebrow-center {
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cz-eyebrow-center::after {
+        content: "";
+        width: 30px;
+        height: 2px;
+        background: #2f73ff;
+        display: inline-block;
+    }
+
+    .cz-case-card {
+        margin-top: 10px;
+    }
+
+    /* media side */
+    .cz-case-media {
+        position: relative;
+        height: 100%;
+        min-height: 420px;
+        border-radius: 22px;
+        overflow: hidden;
+        box-shadow: 0 30px 60px -30px rgba(13, 35, 75, .25);
+    }
+
+    .cz-case-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .cz-case-tag {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        background: rgba(12, 27, 58, .82);
+        color: #fff;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: .3px;
+        padding: 9px 16px;
+        border-radius: 30px;
+        backdrop-filter: blur(4px);
+    }
+
+    /* story side */
+    .cz-case-body {
+        padding: 48px 50px;
+    }
+
+    .cz-case-client {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding-bottom: 24px;
+        margin-bottom: 26px;
+        border-bottom: 1px solid #eef0f4;
+    }
+
+    .cz-case-logo {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        flex: 0 0 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        color: #fff;
+        background: linear-gradient(135deg, #2f73ff, #6f4cff);
+    }
+
+    .cz-case-client-info h4 {
+        font-size: 20px;
+        font-weight: 700;
+        color: #0c1b3a;
+        margin: 0 0 3px;
+    }
+
+    .cz-case-client-info span {
+        font-size: 14px;
+        color: #8a97ad;
+    }
+
+    .cz-case-block {
+        margin-bottom: 22px;
+    }
+
+    .cz-case-block h5 {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: .4px;
+        text-transform: uppercase;
+        color: #0c1b3a;
+        margin-bottom: 9px;
+    }
+
+    .cz-case-block h5 i {
+        color: #2f73ff;
+        font-size: 15px;
+    }
+
+    .cz-case-block p {
+        font-size: 15.5px;
+        line-height: 1.65;
+        color: #5a6478;
+        margin: 0;
+    }
+
+    /* result stats */
+    .cz-case-stats {
+        display: flex;
+        gap: 14px;
+        margin: 28px 0;
+        padding: 24px 0;
+        border-top: 1px solid #eef0f4;
+        border-bottom: 1px solid #eef0f4;
+    }
+
+    .cz-case-stat {
+        flex: 1;
+        text-align: center;
+    }
+
+    .cz-case-stat+.cz-case-stat {
+        border-left: 1px solid #eef0f4;
+    }
+
+    .cz-case-stat h3 {
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 1;
+        margin: 0 0 6px;
+        background: linear-gradient(135deg, #2f73ff, #6f4cff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .cz-case-stat span {
+        font-size: 13.5px;
+        color: #5a6478;
+        font-weight: 600;
+    }
+
+    /* client quote */
+    .cz-case-quote {
+        position: relative;
+        background: #f6f8fc;
+        border-left: 4px solid #2f73ff;
+        border-radius: 0 14px 14px 0;
+        padding: 24px 26px 24px 30px;
+        margin: 0 0 30px;
+        font-size: 16.5px;
+        line-height: 1.6;
+        font-style: italic;
+        color: #2b3b58;
+    }
+
+    .cz-case-quote>i {
+        color: #c7d6f5;
+        font-size: 22px;
+        margin-right: 8px;
+    }
+
+    .cz-case-quote cite {
+        display: block;
+        margin-top: 14px;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        color: #0c1b3a;
+    }
+
+
+    /* ═══════════════════════════════════════════════════════════
+        child-services.html  —  "Why Custom Software" benefits
+        (visual language shared with Section 3-1 "What It Solves")
+        ═══════════════════════════════════════════════════════════ */
+    .cz-benefit-row {
+        margin-top: 20px;
+    }
+
+    /* left image */
+    .cz-benefit-media {
+        padding-right: 30px;
+    }
+
+    .cz-benefit-media img {
+        width: 100%;
+        border-radius: 22px;
+        box-shadow: 0 30px 60px -28px rgba(13, 35, 75, .32);
+    }
+
+    /* right side: 5 vertical steps with a connecting line */
+    .cz-benefit-steps {
+        padding-left: 20px;
+    }
+
+    .cz-step {
+        position: relative;
+        display: flex;
+        gap: 22px;
+        padding-bottom: 30px;
+    }
+
+    .cz-step:last-child {
+        padding-bottom: 0;
+    }
+
+    /* connector line between the number badges */
+    .cz-step:not(:last-child)::before {
+        content: "";
+        position: absolute;
+        left: 25px;
+        top: 54px;
+        bottom: 2px;
+        width: 2px;
+        background: linear-gradient(#dbe3ef, #eef2f7);
+    }
+
+    .cz-step-num {
+        flex: 0 0 52px;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: #fff;
+        background: linear-gradient(135deg, #2f73ff, #6f4cff);
+        box-shadow: 0 12px 22px -8px rgba(47, 115, 255, .6);
+        position: relative;
+        z-index: 1;
+    }
+
+    .cz-step-info {
+        padding-top: 4px;
+    }
+
+    .cz-step-info h4 {
+        font-size: 19px;
+        font-weight: 700;
+        color: #0c1b3a;
+        line-height: 1.35;
+        margin-bottom: 7px;
+    }
+
+    .cz-step-info p {
+        font-size: 15.5px;
+        line-height: 1.6;
+        color: #5a6478;
+        margin: 0;
+    }
+
+    .cz-cs-overview .row {
+        align-items: center;
+    }
+
+    .cz-cs-overview .about-style-three-thumb {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    .cz-cs-overview .about-style-three-thumb img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto;
+    }
+
+    /* ── responsive ── */
+    @media (max-width: 991px) {
+        .cz-flow-step {
+            min-width: 110px;
+        }
+
+        .cz-flow-ic {
+            width: 72px;
+            height: 72px;
+            font-size: 28px;
+        }
+
+        .cz-does-intro {
+            padding-right: 0;
+            margin-bottom: 40px;
+        }
+
+
+        .cz-case-media {
+            min-height: 320px;
+        }
+
+        .cz-case-body {
+            padding: 40px 34px;
+        }
+
+        .cz-benefit-media {
+            padding-right: 0;
+            margin-bottom: 40px;
+        }
+
+        .cz-benefit-steps {
+            padding-left: 0;
+        }
+
+        .cz-cs-overview .about-style-three-thumb {
+            margin-top: 40px;
+        }
+    }
+
+    @media (max-width: 575px) {
+        .row {
+            --bs-gutter-x: 1.5rem;
+            padding: 10px 15px;
+        }
+
+        .cz-case-body {
+            padding: 30px 10px;
+        }
+
+        .cz-case-stats {
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .cz-case-stat+.cz-case-stat {
+            border-left: 0;
+            border-top: 1px solid #eef0f4;
+            padding-top: 18px;
+        }
+    }
+</style>
+
+<div id="smooth-content" class="service">
+
+    <?php
+    if (!empty($pserv['inner_banner_image'])) {
+        $banner = base_url('uploads/images/' . $pserv['inner_banner_image']);
+    } else {
+        $banner = base_url('assets/img/shape/banner-16.jpg');
+    }
+    ?>
+
+    <!-- Start Section 1 -->
+    <?php if (!empty($pserv['advantage_heading'])) { ?>
+        <div class="banner-style-three-area overflow-hidden bg-gray bg-cover" style="background: url(<?= $banner ?>);">
+            <div class="container">
+                <div class="row align-center">
+                    <div class="col-lg-7 pr-60 pr-md-15 pr-xs-15">
+                        <div class="banner-style-three-info inner-service-page">
+                            <h2 class="wow fadeInUp"><?= $pserv['advantage_heading'] ?></h2>
+                            <p class="fade-up-anim">
+                                <?= $pserv['advantage_short_description'] ?>
+                            </p>
+                            <div class="button mt-30 fade-up-anim">
+                                <?php if (!empty($pserv['ctalink'])) { ?>
+                                    <a href="<?= urldecode($pserv['ctalink']) ?>" class="btn btn-style-one"><?= $pserv['ctabtn'] ?>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                <?php } ?>
+                            </div>
                         </div>
-                        <p class="para" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-                            <?= $pserv['advantage_short_description'] ?>
-                        </p>
-                        <a href="<?= urldecode($pserv['ctalink']) ?>" class="main-btn mb-5" data-aos="fade-up"
-                            data-aos-duration="1000" data-aos="fade-up" data-aos-duration="1000" data-aos->
-                            <span> <?= $pserv['ctabtn'] ?></span>
-                        </a>
                     </div>
-                </div>
-                <div class="col-lg-5 offset-lg-1 col-12">
-                    <?php if (!empty($pserv['advantage_video'])) { ?>
-
-                        <div class="vid-wrapper youtube-video-place" data-url="<?= urldecode($pserv['advantage_video']) ?>">
-
-                        </div>
-                    <?php } else { ?>
-                        <div class="abt-img" data-aos="fade-left" data-aos-duration="1000">
-                            <img src="<?= base_url('uploads/images/') . $pserv['advantage_image'] ?>"
-                                alt="<?= $pserv['advantage_alt_text'] ?>" style="border-radius: 12px;">
-                        </div>
-                    <?php } ?>
-                </div>
-            </div>
-        </div>
-    </section>
-<?php } ?>
-
-<!-- Counter Section start -->
-<?php if (!empty($pserv['believe_json'] && !empty($pserv['believe_heading']))) { ?>
-    <section class="solution-sec our-significant" style=" background: #F9F8F6;" id="our-achievements">
-        <div class=" container">
-            <div class="row align-items-center">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-5">
-
-                    <!-- Heading -->
-                    <div class="sec-head center ps-2"
-                        data-aos="fade-down" data-aos-duration="1000">
-                        <h2 style="text-align: center;"><?= $pserv['believe_heading'] ?></h2>
-                    </div>
-
-                    <!-- Counters Row -->
-                    <div class=" row mt-5" id="counters-section">
-                        <!-- Counter 1 -->
-                        <?php
-                        $believeArr = json_decode($pserv['believe_json'], true);
-                        if (!empty($believeArr)) {
-                            foreach ($believeArr as $belp) {
-                        ?>
-
-                                <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
-                                    <div class="counter-card"
-                                        data-aos="fade-up" data-aos-duration="1000">
-                                        <?php
-                                        $val1   = html_entity_decode($belp['key']); //21+
-                                        preg_match('/^(\d+)\s*([^\d]*)$/', trim($val1), $m);
-                                        $number1  = trim($m[1] ?? '0');    // "20"
-                                        $symbol1  = trim($m[2] ?? '');     // "+"
-                                        $label1 = $belp['value'];
-                                        ?>
-                                        <div class="counter-number">
-                                            <?php if (empty($m)) { ?>
-                                                <span class="counter-suffix"><?= html_entity_decode($belp['key']) ?> </span>
-                                                <span class="counter-suffix"></span>
-                                            <?php } else { ?>
-                                                <span class="counter-value" data-target="<?= $number1 ?>"></span>
-                                                <span class="counter-suffix"><?= $symbol1 ?></span>
-                                            <?php } ?>
-
-                                        </div>
-                                        <div class="counter-label"><?= html_entity_decode($label1) ?></div>
-                                    </div>
+                    <div class="col-lg-5">
+                        <div class="chat-bot-thumb text-center">
+                            <?php
+                            if (!empty($pserv['advantage_video'])) {
+                                // Extract YouTube video ID
+                                $videoUrl = urldecode($pserv['advantage_video']);
+                                $videoId = '';
+                                if (preg_match('/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|v\/))([^\&\?\/]+)/', $videoUrl, $matches)) {
+                                    $videoId = $matches[1];
+                                }
+                            ?>
+                                <img src="https://img.youtube.com/vi/<?= $videoId ?>/hqdefault.jpg">
+                                <a href="<?= !empty($videoId) ? 'https://www.youtube.com/watch?v=' . $videoId : urldecode($pserv['advantage_video']) ?>" class="popup-youtube video-button-v1"><i class="fas fa-play"></i></a>
+                            <?php } else { ?>
+                                <div class="illustration my-image">
+                                    <img class="wow fadeInUp" data-wow-delay="300ms" src="<?= base_url('uploads/images/') . $pserv['advantage_image'] ?>" alt="<?= $pserv['advantage_alt_text'] ?>">
                                 </div>
-                        <?php  }
-                        } ?>
+                            <?php } ?>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-<?php } ?>
-<!-- Counter Section End -->
 
-
-<?php
-if (!empty($pserv['about_heading'])) { ?>
-    <section class="abt-sec sec">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5  col-12">
-                    <div class="abt-img" data-aos="fade-left" data-aos-duration="1000">
-                        <img src="<?= base_url('uploads/images/') . $pserv['about_image'] ?>"
-                            alt="<?= $pserv['about_alt_text'] ?>" style="border-radius: 12px;">
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-12 offset-lg-1">
-                    <div class="abt-con">
-                        <div class="sec-head">
-                            <h2 data-aos="fade-up" data-aos-duration="1000">
-                                <?= $pserv['about_heading'] ?>
-                            </h2>
-                        </div>
-                        <p class="para" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+    <?php } ?>
+    <!-- End Section 1 -->
+    <!-- Start Section 2 -->
+    <?php if (!empty($pserv['about_heading'])) { ?>
+        <div class="cz-does-area default-padding">
+            <div class="container">
+                <div class="row align-center cz-does-top">
+                    <!-- Left: narrative -->
+                    <div class="col-lg-6 cz-does-intro">
+                        <h2 class="title split-text-right split-text-in-right"><?= ucwords(strtolower($pserv['about_heading'])) ?></h2>
+                        <p>
                             <?= $pserv['about_short_description_left'] ?>
-                        </p>
-                        <p class="para" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
                             <?= $pserv['about_short_description_right'] ?>
                         </p>
+                        <!-- <ul class="cz-does-points">
+                            <li><i class="fas fa-shield-alt"></i> Enterprise security &amp; compliance by design</li>
+                            <li><i class="fas fa-layer-group"></i> Modular, API-first architecture</li>
+                            <li><i class="fas fa-headset"></i> 24x7 managed support &amp; SLAs</li>
+                        </ul> -->
+                        <?php if (!empty($pserv['about_ctalink'])) { ?>
+                            <a href="<?= urldecode($pserv['about_ctalink']) ?>" class="btn btn-style-one"><?= $pserv['about_ctabtn'] ?> <i class="fas fa-arrow-right"></i></a>
+                        <?php } ?>
                     </div>
-                </div>
 
-            </div>
-        </div>
-    </section>
+                    <!-- Right: capability list -->
+                    <?php if (!empty($pserv['about_new_json'])) { ?>
+                        <div class="col-lg-6 cz-cap-wrap">
+                            <div class="cz-cap-list">
+                                <?php
+                                $about_new_arr = json_decode($pserv['about_new_json']);
+                                foreach ($about_new_arr as $about_new) {
+                                    if (!empty($about_new->about_new_tite)) { ?>
+                                        <div class="cz-cap">
+                                            <span class="cz-cap-ic">
+                                                <!-- <i class="fas fa-route"></i> -->
+                                                <img src="<?= base_url('uploads/images/' . getImagesByID($about_new->about_new_icon, 'image')) ?>" alt="<?= getImagesByID($about_new->about_new_icon, 'alt_text') ?>" height="30" width="30">
+                                            </span>
+                                            <div class="cz-cap-info">
+                                                <h4><?= ucwords(strtolower($about_new->about_new_tite)) ?></h4>
+                                                <p><?= ucwords(strtolower(html_entity_decode($about_new->about_new_desc))) ?></p>
+                                            </div>
+                                        </div>
+                                <?php }
+                                } ?>
 
-    <!-- <section class="info-sec sec">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-5 col-12">
-                    <div class="sec-head center">
-                        <h2 data-aos="fade-up" data-aos-duration="1000">
-                            <?= $pserv['about_heading'] ?> 123
-                        </h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center mt-30">
-                <div class="col-lg-5 col-12 ">
-                    <p class="para" data-aos="fade-right" data-aos-duration="1000">
-                        <?= $pserv['about_short_description_left'] ?> </p>
-                </div>
-                <div class="col-lg-5 col-12">
-                    <p class="para" data-aos="fade-left" data-aos-duration="1000">
-                        <?= $pserv['about_short_description_right'] ?> </p>
-                </div>
-                <div class="col-lg-9 col-12 mt-50 mb-40 text-center">
-                    <img data-aos="fade-up" data-aos-duration="1000" class="w-100"
-                        src="<?= base_url('uploads/images/') . $pserv['about_image'] ?>"
-                        alt="<?= $pserv['about_alt_text'] ?>">
-                </div>
-            </div>
-        </div>
-    </section> -->
-<?php } ?>
-
-
-<?php if ($homewhycoz) { ?>
-    <section class="solution-sec why-choose mb-5 mt-0 pt-5 pb-5" id="" style="background: #eeeeee;">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="sec-head center" data-aos="fade-up" data-aos-duration="1000">
-                        <h2><?= $pserv['why_heading'] ?> </h2>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mt-5">
-                <?php
-                $count = 0;
-                foreach ($homewhycoz as $wc) {
-                    $count++;
-                ?>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-                        <div class="why-choose-sec">
-                            <?php if (!empty($wc['image'])) { ?>
-                                <img src="<?= base_url('uploads/images/') . $wc['image'] ?>" alt="$wc['alt_text']">
-                            <?php } ?>
-                            <h4><?= html_entity_decode($wc['title']) ?></h4>
-                            <p><?= html_entity_decode($wc['short_description']) ?></p>
-
-                            <?php if (!empty($wc['ctalink'])) { ?>
-                                <a href="<?= urldecode($wc['ctalink']) ?>" class="read-more">
-                                    <span>Read More</span>
-                                    <img src="assets/images/ar-bl-right.svg" alt="read more">
-                                </a>
-                            <?php } ?>
+                            </div>
                         </div>
-                    </div>
-                <?php } ?>
-            </div>
-        </div>
-    </section>
-<?php } ?>
-
-<?php if ($pserv['industries_heading']) {  ?>
-    <section class="solution-sec sec pb-0 mb-5" id="" style="">
-        <div class="container">
-            <div class="row align-items-center position-relative">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12 industries-section">
-                    <div class="sec-head industries aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000">
-                        <h2><?= $pserv['industries_heading'] ?> </h2>
-                        <p><?= $pserv['industries_short_description_left'] ?></p>
-
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-
-                    <?php if (is_array($industryImg)) { ?>
-                        <img class="w-100" src="<?= base_url('uploads/images/') . $industryImg['image'] ?>"
-                            alt="<?= $industryImg['alt_text'] ?>">
                     <?php } ?>
-
-                </div>
-            </div>
-        </div>
-    </section>
-<?php } ?>
-
-<?php if (!empty($innerservices)) { ?>
-    <section class="solution-sec sec pt-0">
-        <div class="row justify-content-center">
-            <div class="col-lg-5 col-12">
-                <div class="sec-head center" data-aos="fade-up" data-aos-duration="1000">
-                    <h2><?= $pserv['cardsecop_heading'] ?></h2>
                 </div>
 
             </div>
         </div>
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <div class="swiper services-swiper mt-50" data-aos="fade-up" data-aos-duration="1000">
-                        <div class="swiper-wrapper">
-                            <?php foreach ($innerservices as $ins) { ?>
-                                <div class="swiper-slide">
-                                    <a href="<?= base_url('solutions/') . $pserv['slug'] . '/' . $ins['slug'] ?>"
-                                        class="vtr-card-wrapper style-2">
-                                        <img src="<?= base_url('uploads/images/') . $ins['image'] ?>"
-                                            alt="<?= $ins['alt_text'] ?>">
-                                        <div class="con">
-                                            <h3><?= $ins['card_heading'] ?></h3>
-                                            <p class="para white">
-                                                <?= $ins['card_description'] ?>
-                                            </p>
-                                        </div>
-                                    </a>
-                                </div>
-                            <?php } ?>
-                        </div>
-                    </div>
-                    <div class="dt-nav-area">
-                        <button class="dt-prev">
-                            <img src="<?= base_url('assets/images/prev.svg') ?>" alt="">
-                        </button>
-                        <button class="dt-next">
-                            <img src="<?= base_url('assets/images/next.svg') ?>" alt="">
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-<?php } else if (!empty($pserv['cardsecop'])) { ?>
-    <section class="solution-sec sec">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="col-12">
-                        <div class="sec-head center" data-aos="fade-up" data-aos-duration="1000">
-                            <h2><?= $pserv['cardsecop_heading'] ?></h2>
-                        </div>
-                    </div>
-                    <div class="swiper solution-swiper11 mt-50" data-aos="fade-up" data-aos-duration="1000">
-                        <div class="swiper-wrapper">
-                            <?php foreach ($pserv['cardsecop'] as $ins) { ?>
-                                <div class="swiper-slide">
-                                    <div class="card new-card" data-aos="fade-up" data-aos-duration="1000">
-                                        <img src="<?= base_url('uploads/images/') . $ins['image'] ?>"
-                                            class="card-img-top"
-                                            alt="<?= $ins['alt_text'] ?? $ins['heading'] ?>">
-                                        <div class="card-body">
-                                            <h3 class="card-title"><?= $ins['heading'] ?></h3>
-                                            <p class="card-text card-text-clamp"><?= $ins['description'] ?></p>
-                                        </div>
-                                        <!-- <a href="<?= base_url(urldecode($ins['link'])) ?>" class="btn btn-primary" style="width: 120px; margin: 0px 20px 13px 15px;">Read More</a> -->
-                                    </div>
-
-                                </div>
-                            <?php } ?>
-                        </div>
-                        <div class=" swiper-pagination">
+    <?php } ?>
+    <!-- End Section 2 -->
+    <!-- Start Section 3 -->
+    <?php if (!empty($pserv['why_heading'])) {  ?>
+        <div class="cz-benefit-area default-padding bg-gray">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="site-heading text-center">
+                            <h2 class="title split-text-right split-text-in-right"><?= ucwords(strtolower($pserv['why_heading'])) ?></h2>
+                            <p>
+                                <?= html_entity_decode($pserv['why_heading_desc']) ?>
+                            </p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-<?php } ?>
 
-<?php include_once 'common/casestudies.php'; ?>
-
-<?php if (!empty($pserv['mbanners'])) { ?>
-    <section class="sec light-bg dash-sec">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="dash-slider swiper">
-                        <div class="swiper-wrapper">
-                            <?php foreach ($pserv['mbanners'] as $mb) { ?>
-
-                                <div class="swiper-slide">
-                                    <div class="dash-row">
-                                        <div class="row align-items-center">
-                                            <div class="col-lg-6 col-12">
-                                                <div class="dash-img" data-aos="fade-right" data-aos-duration="1000">
-                                                    <img src="<?= base_url('uploads/images/') . $mb['image'] ?>"
-                                                        class="img-full" alt="<?= $mb['alt_text'] ?>" style="border-radius: 12px;" />
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-5 col-12 offset-lg-1" data-aos="fade-left" data-aos-duration="1000">
-                                                <div class="sec-head">
-                                                    <h2>
-                                                        <?= $mb['heading'] ?>
-                                                    </h2>
-                                                </div>
-                                                <ul class="point-list">
-                                                    <?php
-                                                    $mbdesc = explode(":", $mb['description']);
-                                                    foreach ($mbdesc as $desc) {
-                                                        echo "<li>" . $desc . "</li>";
-                                                    }
-                                                    ?>
-                                                </ul>
-                                                <a href="<?= urldecode($mb['ctalink']) ?>" class="main-btn mt-20">
-                                                    <span><?= $mb['ctabtn'] ?></span>
-                                                </a>
-                                            </div>
-                                        </div>
+                <div class="row align-center cz-benefit-row fade-up-anim">
+                    <!-- Left: image -->
+                    <div class="col-lg-6 cz-benefit-media">
+                        <img src="<?= base_url('uploads/images/' . $pserv['industriesimage']) ?>" alt="Custom Software">
+                    </div>
+                    <?php if ($homewhycoz) { ?>
+                        <!-- Right: 5 steps -->
+                        <div class="col-lg-6 cz-benefit-steps">
+                            <?php
+                            $count = 0;
+                            foreach ($homewhycoz as $wc) {
+                                $count++;
+                            ?>
+                                <div class="cz-step">
+                                    <span class="cz-step-num">
+                                        <?php /* if (!empty($wc['image'])) { ?>
+                                            <img src="<?= base_url('uploads/images/' . $wc['image']) ?>" alt="<?= $wc['alt_text'] ?>" height="30" width="30">
+                                        <?php } else { ?>
+                                            <i class="fas fa-check"></i>
+                                        <?php }*/ ?>
+                                        <i class="fas fa-check"></i>
+                                    </span>
+                                    <div class="cz-step-info">
+                                        <h4><?= ucwords(strtolower(html_entity_decode($wc['title']))) ?></h4>
+                                        <p><?= ucwords(strtolower(html_entity_decode($wc['short_description']))) ?></p>
                                     </div>
                                 </div>
                             <?php } ?>
 
                         </div>
-                    </div>
-                    <div class="dt-nav-area">
-                        <button class="ds-prev">
-                            <img src="<?= base_url('assets/images/prev.svg') ?>" alt="">
-                        </button>
-                        <button class="ds-next">
-                            <img src="<?= base_url('assets/images/next.svg') ?>" alt="">
-                        </button>
-                    </div>
+                    <?php } ?>
                 </div>
+
             </div>
         </div>
-    </section>
-<?php } ?>
+    <?php } ?>
+    <!-- End Section 3 -->
+    <!-- Start Section 4 -->
 
-
-<?php include_once 'common/blogs.php'; ?>
-
-<!-- New Section start -->
-<?php if (!empty($pserv['toolbenefits_json'])) { ?>
-    <section style=" padding: 30px 0;" id="why-choose-us">
-        <div class="container new-container-fluid">
-            <div class="row g-0">
-                <!-- ── LEFT SIDE — Tab List ── -->
-                <div class="col-lg-6 col-12">
-                    <div class="sec-head">
-                        <h2 style="margin-bottom: 20px;" data-aos="fade-up" data-aos-duration="1000">
-                            <?= $pserv['toolbenefits_heading'] ?>
-                        </h2>
-                    </div>
-                    <!-- Tab List -->
-                    <div class="coz-tab-list">
-                        <?php $count = 0;
-                        foreach ($pserv['toolbenefits_json'] as $buis) { ?>
-                            <div class="coz-tab-item coz-tab-item1 <?= $count == 0 ? 'active' : '' ?>" data-tab="<?= $count ?>"
-                                style="color: #000;" data-aos="fade-up" data-aos-duration="1000">
-                                <?= html_entity_decode($buis['tab']) ?>
-                            </div>
-                        <?php $count++;
-                        } ?>
+    <?php if (!empty($pserv['section12_title'])) { ?>
+        <div class="cz-case-area default-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="site-heading text-center">
+                            <h2 class="title split-text-right split-text-in-right"><?= ucwords(strtolower($pserv['section12_title'])) ?></h2>
+                            <p><?= html_entity_decode($pserv['section12_description']) ?></p>
+                        </div>
                     </div>
                 </div>
-                <!-- ── RIGHT SIDE — Content Panel ── -->
-                <div class="col-lg-6 col-12" style="position:relative; min-height:350px;">
-                    <!-- Tab Panel 0 -->
-                    <?php $count = 0;
-                    foreach ($pserv['toolbenefits_json'] as $buis) { ?>
-                        <div class="coz-tab-panel <?= $count == 0 ? 'active' : '' ?>" data-panel="<?= $count ?>">
-                            <div class="panel-image1" height="300px" data-aos="fade-left" data-aos-duration="1000">
-                                <img src="<?= base_url('uploads/images/') . $buis['image'] ?>" alt="<?php echo $buis['alt_text'] ?>">
-                            </div>
-                            <div class="panel-content">
-                                <h3 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-                                    <?= html_entity_decode($buis['heading']) ?>
-                                </h3>
-                                <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-                                    <?= html_entity_decode($buis['description']) ?>
-                                </p>
-                                <!-- <a href="#" class="panel-learn-more">
-                                    Learn More
-                                    <span class="panel-arrow">&#8594;</span>
-                                </a> -->
-                                <?php /*if (!empty($buis['ctalink'])) { ?>
-                                    <a href="<?= urldecode($buis['ctalink']) ?>" class="panel-learn-more">
-                                        <span>Read More</span>
-                                        <span class="panel-arrow">&#8594;</span>
-                                    </a>
-                                <?php }*/ ?>
+
+                <div class="cz-case-card fade-up-anim">
+                    <div class="row g-0 align-center">
+                        <!-- Visual -->
+                        <div class="col-lg-5">
+                            <div class="cz-case-media">
+                                <img src="<?= base_url('uploads/images/' . $pserv['section12_image']) ?>" alt="<?= $pserv['section12_image_text'] ?>">
+                                <span class="cz-case-tag"><?= $pserv['section12_image_text'] ?></span>
                             </div>
                         </div>
-                    <?php $count++;
-                    } ?>
-                </div>
-                <!-- end right side -->
-            </div>
-        </div>
-    </section>
-<?php } ?>
-<!-- New Section start -->
+                        <!-- Story -->
+                        <div class="col-lg-7">
+                            <div class="cz-case-body">
+                                <?php if (!empty($pserv['section12_list_json'])) {
+                                    $section12_list_arr = json_decode($pserv['section12_list_json']);
+                                ?>
+                                    <?php if (!empty($section12_list_arr[0]->section12_one_title)) { ?>
+                                        <div class="cz-case-client">
+                                            <span class="cz-case-logo">
+                                                <!-- <i class="fas fa-globe"></i> -->
+                                                <img src="<?= base_url('uploads/images/' . getImagesByID($section12_list_arr[0]->section12_one_img, 'image')) ?>" alt="<?= getImagesByID($section12_list_arr[0]->section12_one_img, 'alt_text') ?>" height="30" width="30">
+                                            </span>
+                                            <div class="cz-case-client-info">
+                                                <h4><?= html_entity_decode($section12_list_arr[0]->section12_one_title) ?></h4>
+                                                <span><?= html_entity_decode($section12_list_arr[0]->section12_one_desc) ?>s</span>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
+                                    <?php if (!empty($section12_list_arr[0]->section12_two_title)) { ?>
+                                        <div class="cz-case-block">
+                                            <h5>
+                                                <i class="fas fa-exclamation-circle"></i>
+                                                <!-- <img src="<?= base_url('uploads/images/' . getImagesByID($section12_list_arr[0]->section12_two_img, 'image')) ?>" alt="<?= getImagesByID($section12_list_arr[0]->section12_two_img, 'alt_text') ?>" height="30" width="30"> -->
+                                                <?= html_entity_decode($section12_list_arr[0]->section12_two_title) ?>
+                                            </h5>
+                                            <p><?= html_entity_decode($section12_list_arr[0]->section12_two_desc) ?></p>
+                                        </div>
+                                    <?php } ?>
+                                    <?php if (!empty($section12_list_arr[0]->section12_three_img)) { ?>
+                                        <div class="cz-case-block">
+                                            <h5>
+                                                <i class="fas fa-lightbulb">
+                                                    <!-- <img src="<?= base_url('uploads/images/' . getImagesByID($section12_list_arr[0]->section12_three_img, 'image')) ?>" alt="<?= getImagesByID($section12_list_arr[0]->section12_three_img, 'alt_text') ?>" height="30" width="30"> -->
+                                                </i> <?= html_entity_decode($section12_list_arr[0]->section12_three_title) ?>
+                                            </h5>
+                                            <p><?= html_entity_decode($section12_list_arr[0]->section12_three_desc) ?></p>
+                                        </div>
+                                    <?php } ?>
+                                <?php } ?>
+                                <?php if (!empty($pserv['believe_json'])) { ?>
+                                    <div class="cz-case-stats">
+                                        <?php
+                                        $believeArr = json_decode($pserv['believe_json'], true);
+                                        if (!empty($believeArr)) {
+                                            foreach ($believeArr as $belp) {
+                                                if (!empty($belp['key'])) {
+                                        ?>
+                                                    <div class="cz-case-stat">
+                                                        <h3><?= $belp['key'] ?> </h3>
+                                                        <span><?= html_entity_decode($belp['value']) ?></span>
+                                                    </div>
+                                        <?php  }
+                                            }
+                                        } ?>
 
-<?php if (!empty($pserv['heading_faq'])) { ?>
-    <section class="faq-sec sec" style="background: #eeeeee;">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="sec-head center" data-aos="fade-up" data-aos-duration="1000">
-                        <h2><?= $pserv['heading_faq'] ?></h2>
-                    </div>
-                    <div class="accordion a-cc" id="accordionExample">
-                        <?php $faqArr = json_decode($pserv['card_json_faq'], true);
-                        $count = 0;
-
-                        foreach ($faqArr as $fq) {
-                        ?>
-                            <div class="accordion-item" data-aos="fade-up" data-aos-duration="1000" style="background: #eeeeee;">
-                                <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse<?= $count ?>" aria-expanded="true"
-                                        aria-controls="collapseOne">
-                                        <?= $fq['heading'] ?>
-                                    </button>
-                                </h2>
-                                <div id="collapse<?= $count ?>" class="accordion-collapse collapse "
-                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <?= $fq['description'] ?></div>
-                                </div>
+                                    </div>
+                                <?php } ?>
+                                <blockquote class="cz-case-quote">
+                                    <i class="fas fa-quote-left"></i>
+                                    <?= $pserv['section12_quote_title'] ?>
+                                    <cite><?= $pserv['section12_quote_name'] ?></cite>
+                                </blockquote>
+                                <?php if (!empty($pserv['section12_ctalink'])) { ?>
+                                    <a href="<?= urldecode($pserv['section12_ctalink']) ?>" class="btn btn-style-one"><?= $pserv['section12_ctabtn'] ?> <i class="fas fa-arrow-right"></i></a>
+                                <?php } ?>
                             </div>
-                        <?php $count++;
-                        } ?>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    <?php } ?>
+    <!-- End Section 4 -->
+    <!-- Start Section 5 -->
+    <?php if (!empty($pserv['section13_title'])) { ?>
+        <div class="process-style-two-area overflow-hidden bg-cover default-padding bg-dark text-light" style="background-image: url(<?= base_url('assets/img/shape/banner-20.jpg') ?>);">
+            <div class="container">
+                <div class="site-heading">
+                    <div class="row align-center">
+                        <div class="col-lg-12">
+                            <h2 class="title split-text-right split-text-in-right"><?= ucwords(strtolower($pserv['section13_title'])) ?></h2>
+                            <p>
+                                <?= html_entity_decode($pserv['section13_description']) ?>
+                            </p>
+                        </div>
+
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-<?php } ?>
+            <?php if (!empty($pserv['section13_list_json'])) {
+                $section13_list_json = json_decode($pserv['section13_list_json']);
+            ?>
+                <div class="container">
+                    <div class="process-style-two-items">
+                        <div class="row">
+                            <!-- Single Item -->
+                            <?php if (!empty($section13_list_json[0]->section13_list_tite_1)) { ?>
+                                <div class="col-lg-3 col-md-6 process-two-single">
+                                    <div class="process-style-two-item">
+                                        <span>01</span>
+                                        <h4><?= html_entity_decode($section13_list_json[0]->section13_list_tite_1) ?></h4>
+                                        <p>
+                                            <?= html_entity_decode($section13_list_json[0]->section13_list_desc_1) ?>
+                                        </p>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                            <?php if (!empty($section13_list_json[0]->section13_list_tite_2)) { ?>
+                                <div class="col-lg-3 col-md-6 process-two-single">
+                                    <div class="process-style-two-item">
+                                        <span>02</span>
+                                        <h4><?= html_entity_decode($section13_list_json[0]->section13_list_tite_2) ?></h4>
+                                        <p>
+                                            <?= html_entity_decode($section13_list_json[0]->section13_list_desc_2) ?>
+                                        </p>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                            <?php if (!empty($section13_list_json[0]->section13_list_tite_3)) { ?>
+                                <div class="col-lg-3 col-md-6 process-two-single">
+                                    <div class="process-style-two-item">
+                                        <span>03</span>
+                                        <h4><?= html_entity_decode($section13_list_json[0]->section13_list_tite_3) ?></h4>
+                                        <p>
+                                            <?= html_entity_decode($section13_list_json[0]->section13_list_desc_3) ?>
+                                        </p>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                            <?php if (!empty($section13_list_json[0]->section13_list_tite_4)) { ?>
+                                <div class="col-lg-3 col-md-6 process-two-single">
+                                    <div class="process-style-two-item">
+                                        <span>04</span>
+                                        <h4><?= html_entity_decode($section13_list_json[0]->section13_list_tite_4) ?></h4>
+                                        <p>
+                                            <?= html_entity_decode($section13_list_json[0]->section13_list_desc_4) ?>
+                                        </p>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                            <!-- End Single Item -->
 
-<section class="solution-sec sec pt-5 pb-5 looking-for" style="background: azure;">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-12 col-12">
-                <div class="sec-head center">
-                    <h2 data-aos="fade-up" data-aos-duration="1000" class="aos-init aos-animate">
-                        Looking for <span>Something Else?</span></h2>
-                    <p>Write or talk to us.</p>
-                    <a href="<?= base_url('contact') ?>" class="main-btn mt-20">
-                        <span>Contact Us</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<section class="contact-us-sec sec pt-5" id="con-sec">
-    <img src="<?= base_url('assets/images/gr-spot.svg') ?>" alt="">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 col-12">
-                <div class="sec-head" data-aos="fade-up" data-aos-duration="1000">
-                    <h2>
-                        Get <span>In Touch</span>
-                    </h2>
-                </div>
-                <form data-form="insertcontact" class="contact-form mt-40 form" data-aos="fade-right"
-                    data-aos-duration="1000">
+                        </div>
+                    </div>
+                    <!-- Button -->
                     <div class="row">
-                        <div class="col-lg-6 col-12">
-                            <div class="form-group">
-                                <label for="" class="label-text">
-                                    First Name
-                                </label>
-                                <div class="inp-group">
-                                    <input type="text" name="fname" />
-                                </div>
+                        <div class="col-lg-12 text-left mt-50">
+                            <?php if (!empty($pserv['section13_ctalink'])) { ?>
+                                <a href="<?= urldecode($pserv['section13_ctalink']) ?>" class="btn btn-style-one"><?= $pserv['section13_ctabtn'] ?> <i class="fas fa-arrow-right"></i></a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
+    <?php } else { ?>
+        <div class="process-style-two-area overflow-hidden bg-cover default-padding bg-dark text-light" style="background-image: url(<?= base_url('assets/img/shape/banner-20.jpg') ?>);">
+            <div class="container">
+                <div class="site-heading">
+                    <div class="row align-center">
+                        <div class="col-lg-12">
+                            <h2 class="title split-text-right split-text-in-right">Ways To Work With Us</h2>
+                            <p>
+                                Every engagement is different. Pick the model that fits how you want to build or we'll help you choose.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="process-style-two-items">
+                    <div class="row">
+                        <!-- Single Item -->
+                        <div class="col-lg-3 col-md-6 process-two-single">
+                            <div class="process-style-two-item">
+                                <span>01</span>
+                                <h4>Fixed-Price Project</h4>
+                                <p>
+                                    <strong>Best when:</strong> the scope is clear and cost certainty matters.
+                                </p>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-12">
-                            <div class="form-group">
-                                <label for="" class="label-text">
-                                    Last Name
-                                </label>
-                                <div class="inp-group">
-                                    <input type="text" name="lname" />
-                                </div>
+                        <!-- End Single Item -->
+                        <!-- Single Item -->
+                        <div class="col-lg-3 col-md-6 process-two-single">
+                            <div class="process-style-two-item">
+                                <span>02</span>
+                                <h4>Dedicated Team</h4>
+                                <p>
+                                    <strong>Best when:</strong> you want a team that owns your roadmap.
+                                </p>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-12">
-                            <div class="form-group">
-                                <label for="" class="label-text">
-                                    Work Email Address
-                                </label>
-                                <div class="inp-group">
-                                    <input type="email" name="email" />
-                                </div>
+                        <!-- End Single Item -->
+                        <!-- Single Item -->
+                        <div class="col-lg-3 col-md-6 process-two-single">
+                            <div class="process-style-two-item">
+                                <span>03</span>
+                                <h4>Staff Augmentation </h4>
+                                <p>
+                                    <strong>Best when:</strong> you need specific skills, fast.
+                                </p>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-12">
-                            <div class="form-group">
-                                <label for="" class="label-text">
-                                    Contact Number
-                                </label>
-                                <div class="inp-group">
-                                    <input type="text" name="phone" id="phone" />
-                                </div>
+                        <!-- End Single Item -->
+                        <!-- Single Item -->
+                        <div class="col-lg-3 col-md-6 process-two-single">
+                            <div class="process-style-two-item">
+                                <span>04</span>
+                                <h4>Build-Operate-Transfer</h4>
+                                <p>
+                                    <strong>Best when:</strong> you want it built now, owned later.
+                                </p>
                             </div>
                         </div>
-                        <div class="col-lg-12 col-12">
-                            <div class="form-group">
-                                <label for="" class="label-text">
-                                    Organisation Name
-                                </label>
-                                <div class="inp-group">
-                                    <input type="text" name="organisation" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-12">
-                            <div class="form-group">
-                                <label for="" class="label-text">
-                                    Designation
-                                </label>
-                                <div class="inp-group">
-                                    <input type="text" name="employees" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-12">
-                            <div class="form-group">
-                                <div class="form-check">
-                                    <label class="form-check-label" for="exampleCheck1">&nbsp;&nbsp;I agree to the
-                                        Cozentus Privacy Policy (<a href="<?= base_url('privacy-statement') ?>">Privacy
-                                            Statement</a>)</label>
-                                    <input type="checkbox" name="privacy_policy" class="form-check-input"
-                                        id="exampleCheck1">
-                                </div>
-                            </div>
-                        </div>
-                        <input type="hidden" name="service" value="<?= $pserv['card_heading'] ?>">
-                        <input type="hidden" name="parent_id" value="<?= $pserv['pserv'] ?>">
-                        <div class="g-recaptcha" data-sitekey="<?php echo $recaptcha_site_key; ?>"></div>
-                        <div class="col-12">
-                            <div class="btn-flex mt-40">
-                                <button class="main-btn">
-                                    <span>Schedule a Meeting</span>
-                                </button>
-                                <!--<button class="main-btn phone-btn with-icon tr-btn">-->
-                                <!--    <img src="<?= base_url('assets/images/phone.svg') ?>" alt="">-->
-                                <!--    <span>Get a Call back</span>-->
-                                <!--</button>-->
+                        <!-- End Single Item -->
+
+                    </div>
+                </div>
+                <!-- Button -->
+                <div class="row">
+                    <div class="col-lg-12 text-left mt-50">
+                        <a class="btn btn-style-one light" href="<?= base_url('contact') ?>">Let's Talk <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
+    <!-- End Section 5 -->
+
+    <!-- Start Section 6 -->
+    <?php if (!empty($pserv['toolbenefits_json'])) { ?>
+        <div class="services-style-six-area bg-cover default-padding bg-gray blurry-shape-left-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="service-tab-content-box">
+                            <div class="service-tab-content-box">
+                                <?php $count12 = 0;
+                                foreach ($pserv['toolbenefits_json'] as $buis) { ?>
+                                    <div class="service-tab-contents <?= ($count12 == 1) ? 'active' : '' ?>">
+                                        <img src=" <?= base_url('uploads/images/') . $buis['image'] ?>" alt="<?php echo $buis['alt_text'] ?>">
+                                    </div>
+                                <?php $count12++;
+                                } ?>
                             </div>
                         </div>
                     </div>
-                </form>
-            </div>
-
-            <div class="col-lg-5 offset-lg-1 col-12">
-                <div class="con-img" data-aos="fade-left" data-aos-duration="1000">
-                    <img src="<?= base_url('assets/images/globe.svg') ?>" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<?php if (!empty($pserv['main_cta_btn'])) { ?>
-
-    <div class="modal modal-xl" id="costsaving-enquiry-modal" tabindex="-1" role="dialog"
-        aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl height_costsaving">
-            <div class="modal-content">
-                <div class="modal-body modal_cost_saving">
-                    <div class="sec-head modal_cost pt-3 pb-0" data-aos="fade-up" data-aos-duration="1000">
-                        <h4 class="cost_heading">Calculate Cost Saving </h4>
-                        <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close">
-                        </button>
+                    <div class="col-lg-7 pl-70 pl-md-15 pl-xs-15">
+                        <h2 class="title split-text-right split-text-in-right"><?= ucwords(strtolower($pserv['toolbenefits_heading'])) ?></h2>
+                        <ul class="service-tab-content-list text-scroll-animation">
+                            <?php $count = 0;
+                            foreach ($pserv['toolbenefits_json'] as $buis) { ?>
+                                <li class="<?= ($count == 1) ? 'active' : '' ?>">
+                                    <div class="service-tab-item">
+                                        <h4>
+                                            <a class="text" href="<?= !empty($buis['ctalink']) ? urldecode($buis['ctalink']) : '#' ?>"><strong><?= $count + 1 ?></strong>
+                                                <?= html_entity_decode($buis['tab']) ?>
+                                            </a>
+                                        </h4>
+                                    </div>
+                                </li>
+                            <?php $count++;
+                            } ?>
+                        </ul>
+                        <br>
+                        <?php if (!empty($pserv['toolbenefits_ctalink'])) { ?>
+                            <a href="<?= urldecode($pserv['toolbenefits_ctalink']) ?>" class="btn btn-style-one"><?= $pserv['toolbenefits_ctabtn'] ?> <i class="fas fa-arrow-right"></i></a>
+                        <?php } ?>
                     </div>
-                    <form id="cost_saving_form">
-                        <div class="row" style="padding: 3px 20px 0px 20px;">
-                            <div class="col-lg-4 col-12">
-                                <div class="form-group">
-                                    <label class="costsaving-text">
-                                        Organization Name<span class="cost_formrequired">*</span>
-                                    </label>
-                                    <div class="inp-group">
-                                        <input class="custom_input_text" type="text" name="organization" required />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-12">
-                                <div class="form-group">
-                                    <label class="costsaving-text">
-                                        Email ID<span class="cost_formrequired">*</span>
-                                    </label>
-                                    <div class="inp-group">
-                                        <input class="custom_input_text" type="text" name="email" required />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-12">
-                                <div class="form-group">
-                                    <label class="costsaving-text">
-                                        Avg. Labour Cost per Hour (in USD)<span class="cost_formrequired">*</span>
-                                    </label>
-                                    <div class="inp-group">
-                                        <input class="custom_input_text" type="text" name="avg_processing_cost_per_hour"
-                                            value="<?php echo $average_cost->config_value ?>" readonly />
-                                        <p class="error-messages"></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-12">
-                                <div class="form-group">
-                                    <label class="costsaving-text">
-                                        Document Mistakes per Year (in %)<span class="cost_formrequired">*</span>
-                                    </label>
-                                    <div class="inp-group">
-                                        <input class="custom_input_text" type="text"
-                                            name="document_mistake_percent_per_year" required />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-12">
-                                <div class="form-group">
-                                    <label class="costsaving-text">
-                                        Avg. Cost per Mistake (in USD)<span class="cost_formrequired">*</span>
-                                    </label>
-                                    <div class="inp-group">
-                                        <input class="custom_input_text" type="text" name="avg_cost_per_mistake" required />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-12">
-                                <div class="form-group">
-                                    <label class="costsaving-text">
-                                        Mistakes Reduction After Automation (in %)<span class="cost_formrequired">*</span>
-                                    </label>
-                                    <div class="inp-group">
-                                        <input class="custom_input_text" type="text" name="mistakes_reduction"
-                                            value="<?php echo $mistakes_reduction->config_value ?>" readonly required />
-                                    </div>
-                                </div>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
+    <!-- End Section 6 -->
+    <!-- Start Section 7 -->
+    <div class="home-blog-two-area default-padding">
+        <div class="container">
+            <div class="blog-style-two-box bg-dark" styles="background-image: url(<?= base_url('assets/img/shape/10.png') ?>); background-size: cover;">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="cta-box text-center fade-up-anim">
+                            <h2 class="cta-title mb-20">Ready to Transform Your Supply Chain?</h2>
+                            <p class="cta-description mb-30">
+                                Let's discuss how our AI-powered solutions can help you optimize operations and drive measurable results. Our team is ready to understand your unique challenges.
+                            </p>
+                            <div class="cta-buttons d-flex  flex-column flex-md-row justify-content-center gap-4">
+                                <a class="btn btn-style-one btn-border mb-2" href="<?= base_url('book-free-consultation') ?>">
+                                    Book a Meeting <i class="fas fa-arrow-right"></i>
+                                </a>
+                                <a class="btn btn-style-one mb-2" href="<?= base_url('contact') ?>">
+                                    Send Message <i class="fas fa-arrow-right"></i>
+                                </a>
                             </div>
                         </div>
-                        <div class="CostCardAdd">
-                            <div class="card cost_card">
-                                <span class="position_cost">
-                                    <button type="button" class="btn btn-outline-primary btnAddNew" title="Add"><i
-                                            class="fa fa-plus" aria-hidden="true"></i></button>
-                                </span>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-4 mt-2">
-                                            <label class="costsaving-text">Process Name<span
-                                                    class="cost_formrequired">*</span></label>
-                                            <input type="text" name="process_name[]" class="form-control custom_input_text"
-                                                required>
-                                        </div>
-                                        <div class="col-md-4 mt-2">
-                                            <label class="costsaving-text">Document Name<span
-                                                    class="cost_formrequired">*</span></label>
-                                            <input type="text" name="document_name[]" class="form-control custom_input_text"
-                                                required>
-                                        </div>
-                                        <div class="col-md-4 mt-2">
-                                            <label class="costsaving-text">Total no. of documents per year<span
-                                                    class="cost_formrequired">*</span></label>
-                                            <input type="text" name="total_documents_per_year[]"
-                                                class="form-control custom_input_text" required>
-                                        </div>
-                                        <div class="col-md-4 mt-2">
-                                            <label class="costsaving-text">Data Capture Process<span
-                                                    class="cost_formrequired">*</span></label>
-                                            <select name="document_captured_processing[]"
-                                                class="form-select dcmt-cpture custom_input_text costsaving-text" required>
-                                                <option value="">--Select--</option>
-                                                <option value="Manual/ excel based processing without any software">Manual/
-                                                    excel based processing without any software</option>
-                                                <option value="Semi-automatic: Automatic for some and manual for others">
-                                                    Semi-automatic: Automatic for some and manual for others</option>
-                                                <option value="Automatic processing without manual intevention">Automatic
-                                                    processing without manual intevention</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-4 mt-2">
-                                            <label class="costsaving-text">% of Documents Manually Captured<span
-                                                    class="cost_formrequired">*</span></label>
-                                            <input type="text" name="document_manually_capturing_percentage[]"
-                                                class="form-control custom_input_text" readonly required>
-                                        </div>
-                                        <div class="col-md-4 mt-2">
-                                            <label class="costsaving-text">Avg. efforts in minutes per document for data
-                                                capture<span class="cost_formrequired">*</span></label>
-                                            <input type="text" name="avg_minutes_per_document_data_capture[]"
-                                                class="form-control custom_input_text" required>
-                                        </div>
-                                        <div class="col-md-3 mt-4">
-                                            <label class="costsaving-text">Post Data Capture Process<span
-                                                    class="cost_formrequired">*</span><br></label>
-                                            <select name="after_capturing_data[]"
-                                                class="form-select dcmt-manually-cpture custom_input_text costsaving-text"
-                                                required>
-                                                <option value="">--Select--</option>
-                                                <option value="Manual/ excel based processing without any software">Manual/
-                                                    excel based processing without any software</option>
-                                                <option
-                                                    value="Semi-automatic processing: Combination of automatic and manual">
-                                                    Semi-automatic: Automatic for some and manual for others</option>
-                                                <option value="Automatic processing without manual intevention">Automatic
-                                                    processing without manual intevention</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-3 mt-2">
-                                            <label class="costsaving-text">% of Document manually processed after data
-                                                capture<span class="cost_formrequired">*</span></label>
-                                            <input type="text" name="document_processed_after_capturing_percentage[]"
-                                                class="form-control custom_input_text" readonly required>
-                                        </div>
-                                        <div class="col-md-3 mt-2">
-                                            <label class="costsaving-text">Avg. efforts in minutes per document for
-                                                processing<span class="cost_formrequired">*</span></label>
-                                            <input type="text" name="avg_minutes_per_document_processing[]"
-                                                class="form-control custom_input_text" required>
-                                        </div>
-                                        <div class="col-md-3 mt-2">
-                                            <label class="costsaving-text">Systems Accuracy of automatic reading and
-                                                processing in %<span class="cost_formrequired">*</span></label>
-                                            <input type="text" name="accuracy_of_automatic_reading[]"
-                                                class="form-control custom_input_text" required>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 btnCalculate">
-                            <div class="btn-flex justify-content-end mt-2 me-2 py-1">
-                                <button type="submit" id="button" title="Calculate">
-                                    <span>View Result</span>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Modal -->
-    <div class="modal modal-xl" id="costsaving_calculationshow" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title cost_heading" id="exampleModalLabel">Calculate Cost Saving </h5>
-                </div>
-                <div id="costsaving_show">
-                    <!-- data -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- edit modal -->
-    <div class="modal modal-xl" id="costsaving-edit-modal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-xl height_costsaving">
-            <div class="modal-content">
-                <div class="modal-body modal_cost_saving" id="edit-Modal">
-                    <!-- data -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end edit modal -->
-<?php } ?>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
-<script type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#costsaving-enquiry-modal').on('hidden.bs.modal', function() {
-            $('#cost_saving_form').trigger('reset');
-            $('.CostCardAdd .cost_card:not(:first)').remove();
-            j = 0;
-            $('.CostCardAdd .cost_card:last').find('.btnAddNew').removeClass('d-none');
-            $("#cost_saving_form").validate().resetForm();
-        });
-        $('#costsaving-edit-modal').on('hidden.bs.modal', function() {
-            $('#cost_savingupdate_form').trigger('reset');
-            $('.CostCardAdd .cost_card:not(:first)').remove();
-            j = 0;
-            $('.CostCardAdd .cost_card:last').find('.btnAddNew').removeClass('d-none');
-            $("#cost_savingupdate_form").validate().resetForm();
-        });
-    });
-    $(document).ready(function() {
-        $(".business-tab").first().trigger("click");
-        $(".benefits-tab").first().trigger("click");
-    })
-    //Modal Details
-    $(document).on('click', 'button.btnClose', function() {
-        $('#costsaving_calculationshow').modal('hide');
-    });
-    $(".costsaving-modal").on("click", function() {
-        $("#costsaving-enquiry-modal").modal('show');
-    });
-    //End Modal Details
-    //Appending Table
-    let j = 0;
-    let i = 0;
-    $(document).on('click', 'button.btnAddNew', function() {
-        i = j + 1;
-        if (i < 10) {
-            $(".CostCardAdd").find('.btnAddNew').addClass('d-none');
-            $(".CostCardAdd").append(`<div class="card cost_card" style="margin-block: 10px;">
-                            <span class="position_cost">
-                                <button type="button" class="btn btn-outline-danger deletebtn" title="Discard"><i class="fa fa-times" aria-hidden="true"></i></button>
-                                <button type="button" class="btn btn-outline-primary btnAddNew ms-2" title="Add"><i class="fa fa-plus" aria-hidden="true"></i></button>
-                            </span>
-                            <div class="card-body">
-                                <div class="row">
-                                    <input type="hidden" name="cost_sqlid[]" class="form-control">
-                                    <div class="col-md-4 mt-2">
-                                        <label class="costsaving-text">Process Name<span class="cost_formrequired">*</span></label>
-                                        <input type="text" name="process_name[]" class="form-control custom_input_text" required>
-                                    </div>
-                                    <div class="col-md-4 mt-2">
-                                        <label class="costsaving-text">Document Name<span class="cost_formrequired">*</span></label>
-                                        <input type="text"  name="document_name[]" class="form-control custom_input_text" required>
-                                    </div>
-                                    <div class="col-md-4 mt-2">
-                                        <label class="costsaving-text">Total no. of documents per year<span class="cost_formrequired">*</span></label>
-                                        <input type="text" name="total_documents_per_year[]" class="form-control custom_input_text" required>
-                                    </div>
-                                    <div class="col-md-4 mt-2">
-                                        <label class="costsaving-text">Data Capture Process<span class="cost_formrequired">*</span></label>
-                                            <select name="document_captured_processing[]" class="form-select dcmt-cpture custom_input_text costsaving-text" required>
-                                                <option value="">--Select--</option>
-                                                <option value="Manual/ excel based processing without any software">Manual/ excel based processing without any software</option>
-                                                <option value="Semi-automatic: Automatic for some and manual for others">Semi-automatic: Automatic for some and manual for others</option>
-                                                <option value="Automatic processing without manual intevention">Automatic processing without manual intevention</option>
-                                            </select>
-                                    </div>
-                                    <div class="col-md-4 mt-2">
-                                        <label class="costsaving-text">% of Documents Manually Captured<span class="cost_formrequired">*</span></label>
-                                        <input type="text" name="document_manually_capturing_percentage[]" class="form-control custom_input_text" readonly required>
-                                    </div>
-                                    <div class="col-md-4 mt-2">
-                                        <label class="costsaving-text">Avg. efforts in minutes per document for data capture<span class="cost_formrequired">*</span></label>
-                                        <input type="text" name="avg_minutes_per_document_data_capture[]" class="form-control custom_input_text" required>
-                                    </div>
-                                    <div class="col-md-3 mt-4">
-                                        <label class="costsaving-text">Post Data Capture Process<span class="cost_formrequired">*</span><br></label>
-                                            <select name="after_capturing_data[]" class="form-select dcmt-manually-cpture custom_input_text costsaving-text" required>
-                                                        <option value="">--Select--</option>
-                                                        <option value="Manual/ excel based processing without any software">Manual/ excel based processing without any software</option>
-                                                        <option value="Semi-automatic processing: Combination of automatic and manual">Semi-automatic: Automatic for some and manual for others</option>
-                                                        <option value="Automatic processing without manual intevention">Automatic processing without manual intevention</option>
-                                                </select>
-                                    </div>
-                                    <div class="col-md-3 mt-2">
-                                        <label class="costsaving-text">% of Document manually processed after data capture<span class="cost_formrequired">*</span></label>
-                                        <input type="text" name="document_processed_after_capturing_percentage[]" class="form-control custom_input_text" readonly required>
-                                    </div>
-                                    <div class="col-md-3 mt-2">
-                                            <label class="costsaving-text">Avg. efforts in minutes per document for processing<span class="cost_formrequired">*</span></label>
-                                            <input type="text" name="avg_minutes_per_document_processing[]" class="form-control custom_input_text" required>
-                                    </div>
-                                    <div class="col-md-3 mt-2">
-                                        <label class="costsaving-text">Systems Accuracy of automatic reading and processing in %<span class="cost_formrequired">*</span></label>
-                                        <input type="text" name="accuracy_of_automatic_reading[]" class="form-control custom_input_text" required>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>`);
-            $(".CostCardAdd").find('.card:last-child .btnAddNew').removeClass('d-none');
-            j++;
+    <!-- End Section 7 -->
+
+    <!-- Start Section 9 -->
+
+    <?php
+    /*
+    if (!empty($pserv)) {
+        if (!empty($pserv['servtp'])) {
+            $serviceid = "sub_" . $pserv['id'];
         } else {
-            alert('Row cannot be greater than Ten');
+            $serviceid = $pserv['id'];
         }
-    });
-    $(document).on('click', 'button.deletebtn', function() {
-        $(this).closest('.cost_card').remove();
-        j--;
-        $(".CostCardAdd").find('.btnAddNew').addClass('d-none');
-        $(".CostCardAdd").children('.cost_card:last-child').find('.btnAddNew').removeClass('d-none');
-        return false;
-    });
-    //How is the data of the document captured for processing
-    $(document).on('change', '.dcmt-cpture', function() {
-        var selectedValue = $(this).val();
-        var textboxValue = '';
-        switch (selectedValue) {
-            case "Manual/ excel based processing without any software":
-                textboxValue = "100";
-                $(this).closest('.col-md-4').next().find('.custom_input_text').prop('readonly', true).val(
-                    textboxValue);
-                break;
-            case "Semi-automatic: Automatic for some and manual for others":
-                textboxValue = "";
-                $(this).closest('.col-md-4').next().find('.custom_input_text').prop('readonly', false).val(
-                    textboxValue);
-                break;
-            case "Automatic processing without manual intevention":
-                textboxValue = "0";
-                $(this).closest('.col-md-4').next().find('.custom_input_text').prop('readonly', true).val(
-                    textboxValue);
-                break;
-        }
-    });
-    //How is the data done after capturing the data
-    $(document).on('change', '.dcmt-manually-cpture', function() {
-        var selectedValue = $(this).val();
-        var textboxValue = '';
-        switch (selectedValue) {
-            case "Manual/ excel based processing without any software":
-                textboxValue = "100";
-                $(this).closest('.col-md-3').next().find('.custom_input_text').prop('readonly', true).val(
-                    textboxValue);
-                break;
-            case "Semi-automatic processing: Combination of automatic and manual":
-                textboxValue = "";
-                $(this).closest('.col-md-3').next().find('.custom_input_text').prop('readonly', false).val(
-                    textboxValue);
-                break;
-            case "Automatic processing without manual intevention":
-                textboxValue = "0";
-                $(this).closest('.col-md-3').next().find('.custom_input_text').prop('readonly', true).val(
-                    textboxValue);
-                break;
-        }
-    });
 
-    function numberWithCommas(number) {
-        return new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency: 'USD'
-        }).format(number).replace('$', '').replace('.00', '');
+        $blogs = $this->home_model->getlatestcasesbyservice($serviceid, 1);
+    } else {
+        $blogs = $this->home_model->getlatestblogs(1, 4);
     }
-    //Insert Form
-    $("#cost_saving_form").validate({
-        rules: {
-            organization: "required",
-            email: {
-                email: true,
-                required: true
-            },
-            document_mistake_percent_per_year: {
-                required: true,
-                number: true
-            },
-            avg_cost_per_mistake: {
-                required: true,
-                number: true
-            },
-            'processs_name[]': {
-                required: true,
-            },
-        },
-        submitHandler: function(form) {
-            if ($("#cost_saving_form").valid()) {
-                $.ajax({
-                    type: "POST",
-                    url: "<?= base_url('costsaving/insertcostsaving') ?>",
-                    dataType: 'json',
-                    data: $(form).serialize(),
-                    success: function(data) {
-                        if (data.status == false) {
-                            swal("Error!", data.message, "error");
-                        } else {
-                            var htmldata = "";
-                            htmldata += `<div class="modal-body" style="font-size: small;max-height: 555px; overflow-y: auto; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
-                                    <table class="table table-bordered">
-                                            <tr class="costcal_tr">
-                                                <th rowspan="8" colspan="8" style="width: 472px;">Gross Cost Reduction (in USD)</th>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="1" class="text-end"><b>${numberWithCommas(data.sum_seventy.totalcost_reduction_per_seventy)}</b></td>
-                                                <td colspan="1" class="text-end"><b>${numberWithCommas(data.sum_eighty.totalcost_reduction_per_eighty)}</b></td>
-                                                <td colspan="1" class="text-end"><b>${numberWithCommas(data.sum_ninety.totalcost_reduction_per_ninety)}</b></td>
-                                                <td colspan="1" class="text-end"><b>${numberWithCommas(data.sum_ninetyfive.totalcost_reduction_per_ninetyfive)}</b></td>
-                                            </tr>
-                                        </table>
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                <tr class="costcal_tr">
-                                                    <th rowspan="2" colspan="2">Process Name</th>
-                                                    <th rowspan="2" colspan="2">Document Name</th>
-                                                    <th rowspan="2" colspan="2">Cost Reduction (in USD)</th>
-                                                    <th colspan="8" class="text-center">Zero-touch pass-through rate</th>
-                                                </tr>
-                                                <tr class="costcal_tr">
-                                                    <th colspan="2" class="text-center">70%</th>
-                                                    <th colspan="2" class="text-center">80%</th>
-                                                    <th colspan="2" class="text-center">90%</th>
-                                                    <th colspan="2" class="text-center">95%</th>
-                                                </tr>    
-                                            </thead><tbody>`;
-                            for (var i in data.cost) {
-                                htmldata += `
-                                        <tr>
-                                            <td rowspan="4" colspan="2">${data.cost[i].process_name}</td>
-                                            <td rowspan="4" colspan="2">${data.cost[i].document_name}</td>
-                                            <td colspan="2">Labour cost due to zero touch pass through</td>
-                                            <td colspan="2" class="text-end">${numberWithCommas(data.cost[i].labour_cost_passthrough_per_seventy)}</td>
-                                            <td colspan="2" class="text-end">${numberWithCommas(data.cost[i].labour_cost_passthrough_per_eighty)}</td>
-                                            <td colspan="2" class="text-end">${numberWithCommas(data.cost[i].labour_cost_passthrough_per_ninety)}</td>
-                                            <td colspan="2" class="text-end">${numberWithCommas(data.cost[i].labour_cost_passthrough_per_ninetyfive)}</td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2">Labour cost due to data level efficiency</td>
-                                            <td colspan="8" class="text-center">${numberWithCommas(data.cost[i].labour_cost_efficiency)}</td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2">Savings due to lesser mistakes</td>
-                                            <td colspan="8" class="text-center">${numberWithCommas(data.cost[i].saving_lesser_mistake)}</td>
-                                        </tr>
-                                        <tr class="costcal_tr">
-                                            <td colspan="2">Total Cost Reduction (in USD)</td>
-                                            <td colspan="2" class="text-end">${numberWithCommas(data.cost[i].totalcost_reduction_per_seventy)}</td>
-                                            <td colspan="2" class="text-end">${numberWithCommas(data.cost[i].totalcost_reduction_per_eighty)}</td>
-                                            <td colspan="2" class="text-end">${numberWithCommas(data.cost[i].totalcost_reduction_per_ninety)}</td>
-                                            <td colspan="2" class="text-end">${numberWithCommas(data.cost[i].totalcost_reduction_per_ninetyfive)}</td>
-                                        </tr>`;
-                            }
-                            htmldata += `</tbody></table></div><div class="modal-footer">
-                                    <button type="button" class="btnClose" data-mdb-dismiss="modal" title="Close">Close</button>
-                                    <button type="button" class="recalculate_button" onclick="editCostsaving(${data.cost_cal_id})" title="Recalculate">Recalculate Cost</button>
-                                </div>`;
-                            $("#costsaving_show").html(htmldata);
-                            $('#costsaving_calculationshow').modal('show');
-                            $("#cost_saving_form").trigger("reset");
-                            $('#costsaving-enquiry-modal').modal('hide');
-                        }
-                    }
-                });
-            }
-        }
-    });
-    //EndInsert Form
-
-    //Edit data
-    function editCostsaving(Id) {
-        $.ajax({
-            url: "<?= base_url('costsaving/fetchcostsaving') ?>",
-            method: "POST",
-            dataType: 'json',
-            data: {
-                ID: Id
-            },
-            success: function(response) {
-                if (response.status == 'success') {
-                    var htmldata = "";
-                    htmldata += `<div class="sec-head modal_cost pt-3 pb-0" data-aos="fade-up" data-aos-duration="1000" >
-                        <h4 class="cost_heading">Calculate Cost Saving </h4> 
-                        <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close">
-                        </button>
-                        </div>
-                    <form id="cost_savingupdate_form">
-                        <input type="hidden" name="costid" class="form-control" value="${response.data.costcaldata.id}">
-                        <div class="row" style="padding: 3px 20px 0px 20px;">
-                        <div class="col-lg-4 col-12">
-                            <div class="form-group">
-                                <label class="costsaving-text">
-                                    Organization Name<span class="cost_formrequired">*</span>                                                           
-                                </label>
-                                <div class="inp-group">
-                                    <input class="custom_input_text" type="text" name="organization" value="${response.data.costcaldata.organization}"/>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-12">
-                            <div class="form-group">
-                                <label class="costsaving-text">
-                                    Email ID<span class="cost_formrequired">*</span> 
-                                </label>
-                                <div class="inp-group">
-                                    <input class="custom_input_text" type="text" name="email" value="${response.data.costcaldata.email}"/>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-12">
-                            <div class="form-group">
-                                <label class="costsaving-text">
-                                    Avg. Labour Cost per Hour (in USD)<span class="cost_formrequired">*</span> 
-                                </label>
-                                <div class="inp-group">
-                                    <input class="custom_input_text" type="text" name="avg_processing_cost_per_hour" value="${+response.data.costcaldata.avg_processing_cost_per_hour}" readonly/>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-12">
-                            <div class="form-group">
-                                <label class="costsaving-text">
-                                    Document Mistakes per Year (in %)<span class="cost_formrequired">*</span> 
-                                </label>
-                                <div class="inp-group">
-                                    <input class="custom_input_text" type="text" name="document_mistake_percent_per_year" value="${+response.data.costcaldata.document_mistake_percent_per_year}"/>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-12">
-                            <div class="form-group">
-                                <label class="costsaving-text">
-                                    Avg. Cost per Mistake (in USD)<span class="cost_formrequired">*</span> 
-                                </label>
-                                <div class="inp-group">
-                                    <input class="custom_input_text" type="text" name="avg_cost_per_mistake" value="${+response.data.costcaldata.avg_cost_per_mistake}"/>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-12">
-                            <div class="form-group">
-                                <label class="costsaving-text">
-                            Mistakes Reduction After Automation (in %)<span class="cost_formrequired">*</span> 
-                                </label>
-                                <div class="inp-group">
-                                    <input class="custom_input_text" type="text" name="mistakes_reduction" value="${+response.data.costcaldata.mistakes_reduction}" readonly/>
-                                </div>
-                            </div>
+    if (!empty($blogs)): ?>
+        <div class="home-blog-area default-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="site-heading text-center">
+                            <h2 class="title split-text-right split-text-in-right">Related Blogs</h2>
                         </div>
                     </div>
-                    <div class="CostCardAdd">`;
-                    var lastIdx = response.data.costdata.length - 1;
-                    for (var a in response.data.costdata) {
-                        var selectedValue = response.data.costdata[a].document_captured_processing;
-                        var selectedAttr1 = '';
-                        var selectedAttr2 = '';
-                        var selectedAttr3 = '';
-                        if (selectedValue === "Manual/ excel based processing without any software") {
-                            selectedAttr1 = 'selected';
-                        } else if (selectedValue ===
-                            "Semi-automatic: Automatic for some and manual for others") {
-                            selectedAttr2 = 'selected';
-                        } else if (selectedValue === "Automatic processing without manual intevention") {
-                            selectedAttr3 = 'selected';
-                        }
+                </div>
+            </div>
 
-                        var after_capturing_data = response.data.costdata[a].after_capturing_data;
-                        var selectedafter_capturing_data1 = '';
-                        var selectedafter_capturing_data2 = '';
-                        var selectedafter_capturing_data3 = '';
-                        if (after_capturing_data === "Manual/ excel based processing without any software") {
-                            selectedafter_capturing_data1 = 'selected';
-                        } else if (after_capturing_data ===
-                            "Semi-automatic processing: Combination of automatic and manual") {
-                            selectedafter_capturing_data2 = 'selected';
-                        } else if (after_capturing_data === "Automatic processing without manual intevention") {
-                            selectedafter_capturing_data3 = 'selected';
-                        }
-                        if (a == response.data.costdata.length - 1) {
-                            htmldata += `<div class="card cost_card">
-                        <span class="position_cost"><button type="button" class="btn btn-outline-primary btnAddNew" title="Add"><i class="fa fa-plus" aria-hidden="true"></i></button></span>
-                            <div class="card-body">
-                                <div class="row">
-                                    <input type="hidden" class="form-control" name="cost_sqlid[]" value="${response.data.costdata[a].id}" >
-                                    <div class="col-md-4 mt-2">
-                                        <label class="costsaving-text">Process Name<span class="cost_formrequired">*</span></label>
-                                        <input type="text" name="process_name[]" class="form-control custom_input_text" value="${response.data.costdata[a].process_name}" required >
+            <div class="container">
+                <div class="blog-style-two-box2">
+                    <div class="row">
+                        <!-- Single Item -->
+                        <?php foreach ($blogs as $cs) { ?>
+                            <div class="col-xl-3 col-lg-6">
+                                <div class="blog-style-two fade-up-anim">
+                                    <div class="thumb zoom-thumb">
+                                        <a href="<?= base_url('blog/') . $cs['slug'] ?>"><img class="img-reveal"
+                                                src="<?= base_url('uploads/images/') . $cs['image'] ?>" alt="<?= $cs['alt_text'] ?>"></a>
                                     </div>
-                                    <div class="col-md-4 mt-2">
-                                        <label class="costsaving-text">Document Name<span class="cost_formrequired">*</span></label>
-                                        <input type="text"  name="document_name[]" class="form-control custom_input_text" value="${response.data.costdata[a].document_name}" required>
-                                    </div>
-                                    <div class="col-md-4 mt-2">
-                                        <label class="costsaving-text">Total no. of documents per year<span class="cost_formrequired">*</span></label>
-                                        <input type="text" name="total_documents_per_year[]" class="form-control custom_input_text" value="${+response.data.costdata[a].total_documents_per_year}" required>
-                                    </div>
-                                    <div class="col-md-4 mt-2">
-                                        <label class="costsaving-text">Data Capture Process<span class="cost_formrequired">*</span></label>
-                                            <select name="document_captured_processing[]" class="form-select dcmt-cpture custom_input_text costsaving-text" required>
-                                                <option value="">--Select--</option>
-                                                <option value="Manual/ excel based processing without any software" ${selectedAttr1}>Manual/ excel based processing without any software</option>
-                                                <option value="Semi-automatic: Automatic for some and manual for others" ${selectedAttr2}>Semi-automatic: Automatic for some and manual for others</option>
-                                                <option value="Automatic processing without manual intevention" ${selectedAttr3}>Automatic processing without manual intevention</option>
-                                            </select>
-                                    </div>
-                                    <div class="col-md-4 mt-2">
-                                        <label class="costsaving-text">% of Documents Manually Captured<span class="cost_formrequired">*</span></label>
-                                        <input type="text" name="document_manually_capturing_percentage[]" class="form-control custom_input_text cost_document"  value="${+response.data.costdata[a].document_manually_capturing_percentage}" readonly required>
-                                    </div>
-                                    <div class="col-md-4 mt-2">
-                                        <label class="costsaving-text">Avg. efforts in minutes per document for data capture<span class="cost_formrequired">*</span></label>
-                                        <input type="text" name="avg_minutes_per_document_data_capture[]" class="form-control custom_input_text" value="${+response.data.costdata[a].avg_minutes_per_document_data_capture}" required>
-                                    </div>
-                                    <div class="col-md-3 mt-4">
-                                        <label class="costsaving-text">Post Data Capture Process<span class="cost_formrequired">*</span><br></label>
-                                            <select name="after_capturing_data[]" class="form-select dcmt-manually-cpture custom_input_text costsaving-text" required>
-                                                        <option value="">--Select--</option>
-                                                        <option value="Manual/ excel based processing without any software" ${selectedafter_capturing_data1}>Manual/ excel based processing without any software</option>
-                                                        <option value="Semi-automatic processing: Combination of automatic and manual" ${selectedafter_capturing_data2}>Semi-automatic: Automatic for some and manual for others</option>
-                                                        <option value="Automatic processing without manual intevention" ${selectedafter_capturing_data3}>Automatic processing without manual intevention</option>
-                                                </select>
-                                    </div>
-                                    <div class="col-md-3 mt-2">
-                                        <label class="costsaving-text">% of Document manually processed after data capture<span class="cost_formrequired">*</span></label>
-                                        <input type="text" name="document_processed_after_capturing_percentage[]" class="form-control custom_input_text" value="${+response.data.costdata[a].document_processed_after_capturing_percentage}" readonly required>
-                                    </div>
-                                    <div class="col-md-3 mt-2">
-                                            <label class="costsaving-text">Avg. efforts in minutes per document for processing<span class="cost_formrequired">*</span></label>
-                                            <input type="text" name="avg_minutes_per_document_processing[]" class="form-control custom_input_text" value="${+response.data.costdata[a].avg_minutes_per_document_processing}" required>
-                                    </div>
-                                    <div class="col-md-3 mt-2">
-                                        <label class="costsaving-text">Systems Accuracy of automatic reading and processing in %<span class="cost_formrequired">*</span></label>
-                                        <input type="text" name="accuracy_of_automatic_reading[]" class="form-control custom_input_text" value="${+response.data.costdata[a].accuracy_of_automatic_reading}" required>
+                                    <div class="info">
+                                        <div class="blog-one-meta">
+                                            <ul>
+                                                <li>
+                                                    <?= date('F d, Y', strtotime($cs['posted'])) ?>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <h5 class="blog-title">
+                                            <a href="<?= base_url('blog/') . $cs['slug'] ?>"><?= $cs['title'] ?></a>
+                                        </h5>
+                                        <!-- <a href="<?= base_url('blog/') . $cs['slug'] ?>" class="btn-regular">
+                                        Read more <img src="assets/img/icon/arrow-right-three.png"
+                                            alt="Image Not Found">
+                                    </a> -->
                                     </div>
                                 </div>
                             </div>
-                        </div>`;
-                        } else {
-                            htmldata += `<div class="card cost_card"><button type="button" class="btn btn-outline-primary btnAddSecondary"><i class="fa fa-minus" aria-hidden="true"></i></button>
-                            <div class="card-body">
-                                <div class="row">
-                                <input type="hidden" class="form-control" name="cost_sqlid[]" value="${response.data.costdata[a].id}" >
-                                    <div class="col-md-4 mt-2">
-                                        <label class="costsaving-text">Process Name<span class="cost_formrequired">*</span></label>
-                                        <input type="text" name="process_name[]" class="form-control custom_input_text" value="${response.data.costdata[a].process_name}" required >
-                                    </div>
-                                    <div class="col-md-4 mt-2">
-                                        <label class="costsaving-text">Document Name<span class="cost_formrequired">*</span></label>
-                                        <input type="text"  name="document_name[]" class="form-control custom_input_text" value="${response.data.costdata[a].document_name}" required>
-                                    </div>
-                                    <div class="col-md-4 mt-2">
-                                        <label class="costsaving-text">Total no. of documents per year<span class="cost_formrequired">*</span></label>
-                                        <input type="text" name="total_documents_per_year[]" class="form-control custom_input_text" value="${+response.data.costdata[a].total_documents_per_year}" required>
-                                    </div>
-                                    <div class="col-md-4 mt-2">
-                                        <label class="costsaving-text">Data Capture Process<span class="cost_formrequired">*</span></label>
-                                            <select name="document_captured_processing[]" class="form-select dcmt-cpture custom_input_text costsaving-text" required>
-                                                <option value="">--Select--</option>
-                                                <option value="Manual/ excel based processing without any software" ${selectedAttr1}>Manual/ excel based processing without any software</option>
-                                                <option value="Semi-automatic: Automatic for some and manual for others" ${selectedAttr2}>Semi-automatic: Automatic for some and manual for others</option>
-                                                <option value="Automatic processing without manual intevention" ${selectedAttr3}>Automatic processing without manual intevention</option>
-                                            </select>
-                                    </div>
-                                    <div class="col-md-4 mt-2">
-                                        <label class="costsaving-text">% of Documents Manually Captured<span class="cost_formrequired">*</span></label>
-                                        <input type="text" name="document_manually_capturing_percentage[]" class="form-control custom_input_text"  value="${+response.data.costdata[a].document_manually_capturing_percentage}" readonly required>
-                                    </div>
-                                    <div class="col-md-4 mt-2">
-                                        <label class="costsaving-text">Avg. efforts in minutes per document for data capture<span class="cost_formrequired">*</span></label>
-                                        <input type="text" name="avg_minutes_per_document_data_capture[]" class="form-control custom_input_text" value="${+response.data.costdata[a].avg_minutes_per_document_data_capture}" required>
-                                    </div>
-                                    <div class="col-md-3 mt-4">
-                                        <label class="costsaving-text">Post Data Capture Process<span class="cost_formrequired">*</span><br></label>
-                                            <select name="after_capturing_data[]" class="form-select dcmt-manually-cpture custom_input_text costsaving-text" required>
-                                                        <option value="">--Select--</option>
-                                                        <option value="Manual/ excel based processing without any software" ${selectedafter_capturing_data1}>Manual/ excel based processing without any software</option>
-                                                        <option value="Semi-automatic processing: Combination of automatic and manual" ${selectedafter_capturing_data2}>Semi-automatic: Automatic for some and manual for others</option>
-                                                        <option value="Automatic processing without manual intevention" ${selectedafter_capturing_data3}>Automatic processing without manual intevention</option>
-                                                </select>
-                                    </div>
-                                    <div class="col-md-3 mt-2">
-                                        <label class="costsaving-text">% of Document manually processed after data capture<span class="cost_formrequired">*</span></label>
-                                        <input type="text" name="document_processed_after_capturing_percentage[]" class="form-control custom_input_text" value="${+response.data.costdata[a].document_processed_after_capturing_percentage}" readonly required>
-                                    </div>
-                                    <div class="col-md-3 mt-2">
-                                            <label class="costsaving-text">Avg. efforts in minutes per document for processing<span class="cost_formrequired">*</span></label>
-                                            <input type="text" name="avg_minutes_per_document_processing[]" class="form-control custom_input_text" value="${+response.data.costdata[a].avg_minutes_per_document_processing}" required>
-                                    </div>
-                                    <div class="col-md-3 mt-2">
-                                        <label class="costsaving-text">Systems Accuracy of automatic reading and processing in %<span class="cost_formrequired">*</span></label>
-                                        <input type="text" name="accuracy_of_automatic_reading[]" class="form-control custom_input_text" value="${+response.data.costdata[a].accuracy_of_automatic_reading}" required>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>`;
-                        }
-                    }
-                    htmldata += `</div>`;
-                    htmldata += `<div class="col-12 btnCalculate">
-                        <div class="btn-flex justify-content-end mt-2 me-2 py-1">
-                            <button type="button" id="button" onclick="UpdateFormData(event)" title="Calculate">
-                                <span>View Result</span>
-                            </but   ton>
-                        </div>
-                </form>`;
-                    $('#edit-Modal').html(htmldata);
-                    $("#costsaving-edit-modal").modal('show');
-                    $('#costsaving_calculationshow').modal('hide');
-                } else {
-                    swal("Error!", response.message, "error");
-                }
-            }
-        });
-    }
-    //End Edit data
+                        <?php } ?>
+                        <!-- End Single Item -->
 
-    //Update Form
-    $(document).ready(function() {
-        $("#cost_savingupdate_form").validate({
-            rules: {
-                organization: "required",
-                email: {
-                    email: true,
-                    required: true
-                },
-                document_mistake_percent_per_year: {
-                    required: true,
-                    number: true
-                },
-                avg_cost_per_mistake: {
-                    required: true,
-                    number: true
-                },
-                'processs_name[]': {
-                    required: true,
-                    "minlength": 5,
-                },
-            },
-        });
-    });
-
-    function UpdateFormData(e) {
-        e.preventDefault();
-        if ($("#cost_savingupdate_form").valid()) {
-            var formData = $('#cost_savingupdate_form').serialize();
-            var form = $(this);
-            $.ajax({
-                type: "POST",
-                url: "<?= base_url('costsaving/updatecostsaving') ?>",
-                dataType: 'json',
-                data: formData,
-                success: function(data) {
-                    if (data.status == false) {
-                        swal("Error!", data.message, "error");
-                    } else {
-                        var htmldata = "";
-                        htmldata += `<div class="modal-body" style="font-size: small;max-height: 555px; overflow-y: auto; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; scrollbar-width: thin;">
-                                    <table class="table table-bordered">
-                                        <tr class="costcal_tr">
-                                            <th rowspan="8" colspan="8" style="width: 472px;">Gross Cost Reduction (in USD)</th>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="1" class="text-end"><b>${numberWithCommas(data.sum_seventy.totalcost_reduction_per_seventy)}</b></td>
-                                            <td colspan="1" class="text-end"><b>${numberWithCommas(data.sum_eighty.totalcost_reduction_per_eighty)}</b></td>
-                                            <td colspan="1" class="text-end"><b>${numberWithCommas(data.sum_ninety.totalcost_reduction_per_ninety)}</b></td>
-                                            <td colspan="1" class="text-end"><b>${numberWithCommas(data.sum_ninetyfive.totalcost_reduction_per_ninetyfive)}</b></td>
-                                        </tr>
-                                    </table>
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr class="costcal_tr">
-                                                <th rowspan="2" colspan="2">Process Name</th>
-                                                <th rowspan="2" colspan="2">Document Name</th>
-                                                <th rowspan="2" colspan="2">Cost Reduction (in USD)</th>
-                                                <th colspan="8" class="text-center">Zero-touch pass-through rate</th>
-                                            </tr>
-                                            <tr class="costcal_tr">
-                                                <th colspan="2" class="text-center">70%</th>
-                                                <th colspan="2" class="text-center">80%</th>
-                                                <th colspan="2" class="text-center">90%</th>
-                                                <th colspan="2" class="text-center">95%</th>
-                                            </tr>    
-                                        </thead><tbody>`;
-                        for (var i in data.cost) {
-                            htmldata += `
-                                    <tr>
-                                        <td rowspan="4" colspan="2">${data.cost[i].process_name}</td>
-                                        <td rowspan="4" colspan="2">${data.cost[i].document_name}</td>
-                                        <td colspan="2">Labour cost due to zero touch pass through</td>
-                                        <td colspan="2" class="text-end">${numberWithCommas(data.cost[i].labour_cost_passthrough_per_seventy)}</td>
-                                        <td colspan="2" class="text-end">${numberWithCommas(data.cost[i].labour_cost_passthrough_per_eighty)}</td>
-                                        <td colspan="2" class="text-end">${numberWithCommas(data.cost[i].labour_cost_passthrough_per_ninety)}</td>
-                                        <td colspan="2" class="text-end">${numberWithCommas(data.cost[i].labour_cost_passthrough_per_ninetyfive)}</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2">Labour cost due to data level efficiency</td>
-                                        <td colspan="8" class="text-center">${numberWithCommas(data.cost[i].labour_cost_efficiency)}</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2">Savings due to lesser mistakes</td>
-                                        <td colspan="8" class="text-center">${numberWithCommas(data.cost[i].saving_lesser_mistake)}</td>
-                                    </tr>
-                                    <tr class="costcal_tr">
-                                        <td colspan="2">Total Cost Reduction (in USD)</td>
-                                        <td colspan="2" class="text-end">${numberWithCommas(data.cost[i].totalcost_reduction_per_seventy)}</td>
-                                        <td colspan="2" class="text-end">${numberWithCommas(data.cost[i].totalcost_reduction_per_eighty)}</td>
-                                        <td colspan="2" class="text-end">${numberWithCommas(data.cost[i].totalcost_reduction_per_ninety)}</td>
-                                        <td colspan="2" class="text-end">${numberWithCommas(data.cost[i].totalcost_reduction_per_ninetyfive)}</td>
-                                    </tr>`;
-                        }
-                        htmldata += `</tbody></table></div><div class="modal-footer">
-                                <button type="button" class="btnClose" data-mdb-dismiss="modal" title="Close">Close</button>
-                                <button type="button" class="recalculate_button" onclick="editCostsaving(${data.cost_cal_id})" title="Recalculate">Recalculate Cost</button>
-                                </div>`;
-                        $("#costsaving_show").html(htmldata);
-                        $('#costsaving_calculationshow').modal('show');
-                        $("#cost_savingupdate_form").trigger("reset");
-                        $('#costsaving-edit-modal').modal('hide');
-                    }
-                }
-            });
-        }
-    }
-    //End Update Form
-</script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endif; */ ?>
+    <!-- End Section 9  -->
+</div>

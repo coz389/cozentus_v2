@@ -1,2 +1,6 @@
 application/config/
 uploads/
+application/logs/
+application/cache/
+application/views_old/
+assets_old/
